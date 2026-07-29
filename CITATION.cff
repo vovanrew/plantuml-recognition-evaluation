@@ -14,14 +14,20 @@ authors:
   - family-names: "Polishchuk"
     given-names: "Volodymyr"
     orcid: "https://orcid.org/0009-0000-2161-4560"
-    affiliation: "Lutsk National Technical University"
+    affiliation: "Kyiv National University of Technologies and Design"
 version: "1.0.0"
 date-released: "2026-07-29"
 license: MIT
 license-url: "https://github.com/vovanrew/plantuml-recognition-evaluation/blob/main/LICENSE"
 repository-code: "https://github.com/vovanrew/plantuml-recognition-evaluation"
-# TODO(author): replace with the Zenodo concept DOI once the first release is published.
-# doi: "10.5281/zenodo.XXXXXXX"
+doi: "10.5281/zenodo.21670236"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21670236"
+    description: "Concept DOI: always resolves to the latest version."
+  - type: doi
+    value: "10.5281/zenodo.21670237"
+    description: "Version DOI for release v1.0.0."
 keywords:
   - PlantUML
   - UML

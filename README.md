@@ -357,10 +357,14 @@ Scores are on sacrebleu's native 0-100 scale, stored unrescaled.
 **The diagram images.** Two sets exist: `puml_images/` (the original renders,
 242 MB) and `puml_images_1568/` (the standardized model inputs, 187 MB). PNG is
 already compressed, so zipping them saves essentially nothing, and either one
-alone would exceed GitHub's file size limit. They are in the Zenodo deposition
-instead, as separate archives.
+alone would exceed GitHub's file size limit.
 
-You can also regenerate them, which is the fully reproducible route:
+<!-- TODO(author): once the image archives are uploaded to Zenodo as their own
+     record, replace this paragraph with the link and its DOI. -->
+
+They are not in the Zenodo record above either, which holds the repository
+archive only. Regenerate them from the ground-truth sources, which is the fully
+reproducible route in any case:
 
 ```bash
 python3 util/populate_test_set.py --test-set data/test_set.json --prune  # needs the corpus
@@ -388,13 +392,32 @@ absent: benchmark data that has not been unpacked, or the extractor JAR.
 
 ## Citation
 
-<!-- TODO(author): insert the Zenodo DOI badge and the concept DOI after the first GitHub release. -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21670236.svg)](https://doi.org/10.5281/zenodo.21670236)
 
-If you use this benchmark, its data, or its evaluation framework, please cite
-it. Machine-readable metadata is in [`CITATION.cff`](CITATION.cff).
+If you use this benchmark, its data, or its evaluation framework, please cite it:
 
-The DOI is minted by Zenodo from a GitHub release and will be added here once
-the first release is published.
+> Polishchuk, V. (2026). *Zero-shot image-to-PlantUML: a multi-level structural
+> evaluation framework and benchmark* (v1.0.0) [Software]. Zenodo.
+> https://doi.org/10.5281/zenodo.21670236
+
+```bibtex
+@software{polishchuk2026plantuml,
+  author    = {Polishchuk, Volodymyr},
+  title     = {Zero-shot image-to-{PlantUML}: a multi-level structural
+               evaluation framework and benchmark},
+  year      = {2026},
+  publisher = {Zenodo},
+  version   = {v1.0.0},
+  doi       = {10.5281/zenodo.21670236},
+  url       = {https://doi.org/10.5281/zenodo.21670236}
+}
+```
+
+`10.5281/zenodo.21670236` is the concept DOI: it always resolves to the newest
+version, so it stays correct as this work is updated. To cite this exact
+release instead, use `10.5281/zenodo.21670237`.
+
+Machine-readable metadata is in [`CITATION.cff`](CITATION.cff).
 
 ## Licence
 
