@@ -1,0 +1,6167 @@
+{
+  "meta": {
+    "seed": 20260614,
+    "n_resamples": 1000,
+    "method": "paired percentile bootstrap (2.5/97.5), resample diagrams, shared draws across models",
+    "models_included": 7,
+    "models_total": 7,
+    "included_ids": [
+      "gpt-5.2",
+      "claude-opus-4-6",
+      "gemini-3.1-pro",
+      "qwen3.5-2b",
+      "qwen3.5-9b",
+      "qwen3.5-27b",
+      "qwen3.5-397b-a17b"
+    ],
+    "displays": {
+      "gpt-5.2": "GPT-5.2",
+      "claude-opus-4-6": "Claude Opus 4.6",
+      "gemini-3.1-pro": "Gemini 3.1 Pro",
+      "qwen3.5-2b": "Qwen3.5-2B",
+      "qwen3.5-9b": "Qwen3.5-9B",
+      "qwen3.5-27b": "Qwen3.5-27B",
+      "qwen3.5-397b-a17b": "Qwen3.5-397B-A17B"
+    },
+    "pending_ids": [],
+    "refused_ids": [],
+    "ci_stats": [
+      "csr|csr",
+      "element_f1|micro|compiled_only",
+      "element_f1|macro|compiled_only",
+      "relationship_f1|micro|compiled_only",
+      "relationship_f1|macro|compiled_only",
+      "chrf|macro|compiled_only",
+      "element_f1|micro|zeros_for_failed",
+      "element_f1|macro|zeros_for_failed",
+      "relationship_f1|micro|zeros_for_failed",
+      "relationship_f1|macro|zeros_for_failed",
+      "chrf|macro|zeros_for_failed",
+      "type_accuracy|accuracy|compiled_only",
+      "relationship_f1::inheritance|micro|compiled_only",
+      "relationship_f1::composition|micro|compiled_only",
+      "relationship_f1::aggregation|micro|compiled_only",
+      "relationship_f1::dependency|micro|compiled_only",
+      "relationship_f1::association|micro|compiled_only",
+      "relationship_f1::message|micro|compiled_only",
+      "relationship_f1::inheritance|micro|zeros_for_failed",
+      "relationship_f1::composition|micro|zeros_for_failed",
+      "relationship_f1::aggregation|micro|zeros_for_failed",
+      "relationship_f1::dependency|micro|zeros_for_failed",
+      "relationship_f1::association|micro|zeros_for_failed",
+      "relationship_f1::message|micro|zeros_for_failed"
+    ],
+    "point_only_stats": [
+      "chrf|micro|compiled_only",
+      "chrf|micro|zeros_for_failed"
+    ],
+    "populations": [
+      "compiled_only",
+      "zeros_for_failed"
+    ],
+    "relations": [
+      "inheritance",
+      "composition",
+      "aggregation",
+      "dependency",
+      "association",
+      "message"
+    ]
+  },
+  "per_model": {
+    "gpt-5.2": {
+      "csr|csr": {
+        "point": 0.935,
+        "ci_low": 0.919,
+        "ci_high": 0.95,
+        "n_valid": 1000
+      },
+      "element_f1|micro|compiled_only": {
+        "point": 0.9392474646952895,
+        "ci_low": 0.9198994414816981,
+        "ci_high": 0.9542015740776283,
+        "n_valid": 1000
+      },
+      "element_f1|macro|compiled_only": {
+        "point": 0.9531109154704706,
+        "ci_low": 0.9415940235683639,
+        "ci_high": 0.9631809533236318,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|compiled_only": {
+        "point": 0.7987016819120684,
+        "ci_low": 0.764248906663367,
+        "ci_high": 0.8283135442693117,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|compiled_only": {
+        "point": 0.8598446788159037,
+        "ci_low": 0.84171034611343,
+        "ci_high": 0.8765654123713489,
+        "n_valid": 1000
+      },
+      "chrf|macro|compiled_only": {
+        "point": 67.09132031468886,
+        "ci_low": 65.97224739277068,
+        "ci_high": 68.18245981771777,
+        "n_valid": 1000
+      },
+      "element_f1|micro|zeros_for_failed": {
+        "point": 0.8974823401557688,
+        "ci_low": 0.8758321547010745,
+        "ci_high": 0.9163801236693536,
+        "n_valid": 1000
+      },
+      "element_f1|macro|zeros_for_failed": {
+        "point": 0.8911587059648899,
+        "ci_low": 0.8716364943720344,
+        "ci_high": 0.9080955481235184,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|zeros_for_failed": {
+        "point": 0.7571468531468531,
+        "ci_low": 0.7198635599156342,
+        "ci_high": 0.7896333460742277,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|zeros_for_failed": {
+        "point": 0.8069547746928699,
+        "ci_low": 0.7845336438120103,
+        "ci_high": 0.8282291013594716,
+        "n_valid": 1000
+      },
+      "chrf|macro|zeros_for_failed": {
+        "point": 62.73038449423408,
+        "ci_low": 61.230519454832574,
+        "ci_high": 64.20440327777443,
+        "n_valid": 1000
+      },
+      "type_accuracy|accuracy|compiled_only": {
+        "point": 0.9412124923453766,
+        "ci_low": 0.9270627897269026,
+        "ci_high": 0.9540072323105824,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|compiled_only": {
+        "point": 0.8451688009313154,
+        "ci_low": 0.8006772576958849,
+        "ci_high": 0.8900349600240602,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|compiled_only": {
+        "point": 0.6540880503144655,
+        "ci_low": 0.5144467382328655,
+        "ci_high": 0.7797552392457586,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|compiled_only": {
+        "point": 0.6252771618625277,
+        "ci_low": 0.5206544296550738,
+        "ci_high": 0.7220935603061495,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|compiled_only": {
+        "point": 0.5831485587583148,
+        "ci_low": 0.4999503311258278,
+        "ci_high": 0.6673793195609522,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|compiled_only": {
+        "point": 0.6801573917931423,
+        "ci_low": 0.614827874891166,
+        "ci_high": 0.7378562681030886,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|compiled_only": {
+        "point": 0.8393871578584953,
+        "ci_low": 0.7938631067791915,
+        "ci_high": 0.8801481711767407,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|zeros_for_failed": {
+        "point": 0.8143578238923163,
+        "ci_low": 0.7648990456591673,
+        "ci_high": 0.8604093567251463,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|zeros_for_failed": {
+        "point": 0.6303030303030304,
+        "ci_low": 0.496533764367816,
+        "ci_high": 0.7554694057874973,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|zeros_for_failed": {
+        "point": 0.618421052631579,
+        "ci_low": 0.5135772531789324,
+        "ci_high": 0.7139949299135103,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|zeros_for_failed": {
+        "point": 0.5711183496199783,
+        "ci_low": 0.4878017145930214,
+        "ci_high": 0.6507746422814386,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|zeros_for_failed": {
+        "point": 0.6288981288981288,
+        "ci_low": 0.5628981768145855,
+        "ci_high": 0.6926456023819627,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|zeros_for_failed": {
+        "point": 0.793103448275862,
+        "ci_low": 0.7481741834765855,
+        "ci_high": 0.8350921383038279,
+        "n_valid": 1000
+      }
+    },
+    "claude-opus-4-6": {
+      "csr|csr": {
+        "point": 0.941,
+        "ci_low": 0.925,
+        "ci_high": 0.9550249999999999,
+        "n_valid": 1000
+      },
+      "element_f1|micro|compiled_only": {
+        "point": 0.9403899721448469,
+        "ci_low": 0.9217957404923172,
+        "ci_high": 0.9568713997375359,
+        "n_valid": 1000
+      },
+      "element_f1|macro|compiled_only": {
+        "point": 0.9577802013019178,
+        "ci_low": 0.9460378967236482,
+        "ci_high": 0.9680022935293419,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|compiled_only": {
+        "point": 0.7197990408769125,
+        "ci_low": 0.6812909519416768,
+        "ci_high": 0.7560359183041128,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|compiled_only": {
+        "point": 0.8231229646017044,
+        "ci_low": 0.8041053003320836,
+        "ci_high": 0.8396865408240914,
+        "n_valid": 1000
+      },
+      "chrf|macro|compiled_only": {
+        "point": 69.80197866319413,
+        "ci_low": 68.68194972833433,
+        "ci_high": 70.97531005694442,
+        "n_valid": 1000
+      },
+      "element_f1|micro|zeros_for_failed": {
+        "point": 0.9094010954476072,
+        "ci_low": 0.8881352812555939,
+        "ci_high": 0.9269744234030077,
+        "n_valid": 1000
+      },
+      "element_f1|macro|zeros_for_failed": {
+        "point": 0.9012711694251047,
+        "ci_low": 0.8824190387030861,
+        "ci_high": 0.918046609333632,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|zeros_for_failed": {
+        "point": 0.6929757062767946,
+        "ci_low": 0.655203978670111,
+        "ci_high": 0.7278207221741763,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|zeros_for_failed": {
+        "point": 0.7755587096902038,
+        "ci_low": 0.7551151136265536,
+        "ci_high": 0.7939521525540082,
+        "n_valid": 1000
+      },
+      "chrf|macro|zeros_for_failed": {
+        "point": 65.68366192206568,
+        "ci_low": 64.2260855782044,
+        "ci_high": 67.17522441608122,
+        "n_valid": 1000
+      },
+      "type_accuracy|accuracy|compiled_only": {
+        "point": 0.9496,
+        "ci_low": 0.936273136042202,
+        "ci_high": 0.9618697508380465,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|compiled_only": {
+        "point": 0.8795580110497239,
+        "ci_low": 0.8431936847982301,
+        "ci_high": 0.9111340132292154,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|compiled_only": {
+        "point": 0.4920993227990971,
+        "ci_low": 0.3746352273141788,
+        "ci_high": 0.6172423715807528,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|compiled_only": {
+        "point": 0.5203252032520325,
+        "ci_low": 0.4216509568694658,
+        "ci_high": 0.6212234852923942,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|compiled_only": {
+        "point": 0.5498783454987834,
+        "ci_low": 0.4599099718849076,
+        "ci_high": 0.636371120646642,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|compiled_only": {
+        "point": 0.6170212765957447,
+        "ci_low": 0.5581352259716597,
+        "ci_high": 0.6781039695301095,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|compiled_only": {
+        "point": 0.739586804398534,
+        "ci_low": 0.6855264919223272,
+        "ci_high": 0.7920184456389672,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|zeros_for_failed": {
+        "point": 0.8633405639913232,
+        "ci_low": 0.8245220275933701,
+        "ci_high": 0.8950033929650041,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|zeros_for_failed": {
+        "point": 0.4668094218415417,
+        "ci_low": 0.3526146025328497,
+        "ci_high": 0.5884898843930636,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|zeros_for_failed": {
+        "point": 0.507936507936508,
+        "ci_low": 0.4115639514112184,
+        "ci_high": 0.6062288428324698,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|zeros_for_failed": {
+        "point": 0.5387365911799762,
+        "ci_low": 0.4512933678050698,
+        "ci_high": 0.6202047413793104,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|zeros_for_failed": {
+        "point": 0.6001881467544684,
+        "ci_low": 0.5411091129079406,
+        "ci_high": 0.6600461111415857,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|zeros_for_failed": {
+        "point": 0.7079744816586921,
+        "ci_low": 0.6557763835294175,
+        "ci_high": 0.7571391868429362,
+        "n_valid": 1000
+      }
+    },
+    "gemini-3.1-pro": {
+      "csr|csr": {
+        "point": 0.972,
+        "ci_low": 0.9619749999999999,
+        "ci_high": 0.981,
+        "n_valid": 1000
+      },
+      "element_f1|micro|compiled_only": {
+        "point": 0.9610366237739584,
+        "ci_low": 0.9482303231960465,
+        "ci_high": 0.9727595649700075,
+        "n_valid": 1000
+      },
+      "element_f1|macro|compiled_only": {
+        "point": 0.9668742291034351,
+        "ci_low": 0.956842241396702,
+        "ci_high": 0.9760800540341685,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|compiled_only": {
+        "point": 0.8925674557192518,
+        "ci_low": 0.8665891168287339,
+        "ci_high": 0.9156517769951071,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|compiled_only": {
+        "point": 0.9311562158495035,
+        "ci_low": 0.918091609691015,
+        "ci_high": 0.9436483408121161,
+        "n_valid": 1000
+      },
+      "chrf|macro|compiled_only": {
+        "point": 77.70251919384631,
+        "ci_low": 76.51737403268167,
+        "ci_high": 78.83045450420458,
+        "n_valid": 1000
+      },
+      "element_f1|micro|zeros_for_failed": {
+        "point": 0.9453837301938568,
+        "ci_low": 0.9317245414164371,
+        "ci_high": 0.95866271923455,
+        "n_valid": 1000
+      },
+      "element_f1|macro|zeros_for_failed": {
+        "point": 0.939801750688539,
+        "ci_low": 0.9265261377873095,
+        "ci_high": 0.9522593713717965,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|zeros_for_failed": {
+        "point": 0.8749459108610992,
+        "ci_low": 0.848393641522423,
+        "ci_high": 0.9001446682800848,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|zeros_for_failed": {
+        "point": 0.9060838418057174,
+        "ci_low": 0.8906325426594126,
+        "ci_high": 0.9209231694935723,
+        "n_valid": 1000
+      },
+      "chrf|macro|zeros_for_failed": {
+        "point": 75.52684865641862,
+        "ci_low": 74.19285451092448,
+        "ci_high": 76.85375047853199,
+        "n_valid": 1000
+      },
+      "type_accuracy|accuracy|compiled_only": {
+        "point": 0.9838587162932017,
+        "ci_low": 0.9720811725070259,
+        "ci_high": 0.9923622224862833,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|compiled_only": {
+        "point": 0.939575394665215,
+        "ci_low": 0.91727207683525,
+        "ci_high": 0.9596397147498216,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|compiled_only": {
+        "point": 0.8241563055062167,
+        "ci_low": 0.7317730505603,
+        "ci_high": 0.8963722602443039,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|compiled_only": {
+        "point": 0.8195991091314031,
+        "ci_low": 0.7460250201775626,
+        "ci_high": 0.889942571090112,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|compiled_only": {
+        "point": 0.788586251621271,
+        "ci_low": 0.7152495375395577,
+        "ci_high": 0.8564817097197307,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|compiled_only": {
+        "point": 0.8193877551020408,
+        "ci_low": 0.7621062709736917,
+        "ci_high": 0.8731846390597684,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|compiled_only": {
+        "point": 0.909192378218927,
+        "ci_low": 0.8756190512873566,
+        "ci_high": 0.9399086783202907,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|zeros_for_failed": {
+        "point": 0.923982869379015,
+        "ci_low": 0.8983226539260069,
+        "ci_high": 0.9469379311750695,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|zeros_for_failed": {
+        "point": 0.8169014084507041,
+        "ci_low": 0.7218694096601073,
+        "ci_high": 0.891525619681835,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|zeros_for_failed": {
+        "point": 0.7999999999999999,
+        "ci_low": 0.7189718419013175,
+        "ci_high": 0.8750161917098445,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|zeros_for_failed": {
+        "point": 0.7824967824967825,
+        "ci_low": 0.7102933125625903,
+        "ci_high": 0.8512982529291581,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|zeros_for_failed": {
+        "point": 0.8107016658253408,
+        "ci_low": 0.7513337692946963,
+        "ci_high": 0.8663205607034796,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|zeros_for_failed": {
+        "point": 0.8885772167679602,
+        "ci_low": 0.8525211374359787,
+        "ci_high": 0.9208155262645585,
+        "n_valid": 1000
+      }
+    },
+    "qwen3.5-2b": {
+      "csr|csr": {
+        "point": 0.201,
+        "ci_low": 0.175975,
+        "ci_high": 0.226,
+        "n_valid": 1000
+      },
+      "element_f1|micro|compiled_only": {
+        "point": 0.8784648187633263,
+        "ci_low": 0.8384906290812372,
+        "ci_high": 0.9131478061986796,
+        "n_valid": 1000
+      },
+      "element_f1|macro|compiled_only": {
+        "point": 0.8652983464493431,
+        "ci_low": 0.8254770956534282,
+        "ci_high": 0.9003110864465592,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|compiled_only": {
+        "point": 0.4807467911318553,
+        "ci_low": 0.4145813067318966,
+        "ci_high": 0.5447386792623977,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|compiled_only": {
+        "point": 0.49538540138446435,
+        "ci_low": 0.43706778969773347,
+        "ci_high": 0.554868789292083,
+        "n_valid": 1000
+      },
+      "chrf|macro|compiled_only": {
+        "point": 64.14286769085098,
+        "ci_low": 61.99335600634603,
+        "ci_high": 66.29825691328435,
+        "n_valid": 1000
+      },
+      "element_f1|micro|zeros_for_failed": {
+        "point": 0.2461128387383385,
+        "ci_low": 0.2110056812145944,
+        "ci_high": 0.28157539270788373,
+        "n_valid": 1000
+      },
+      "element_f1|macro|zeros_for_failed": {
+        "point": 0.17492496763631799,
+        "ci_low": 0.15123543068494638,
+        "ci_high": 0.19806445045269058,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|zeros_for_failed": {
+        "point": 0.11422234543942335,
+        "ci_low": 0.09096394167330246,
+        "ci_high": 0.1389484017816039,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|zeros_for_failed": {
+        "point": 0.16557246567827733,
+        "ci_low": 0.14428891740815752,
+        "ci_high": 0.18763061765165537,
+        "n_valid": 1000
+      },
+      "chrf|macro|zeros_for_failed": {
+        "point": 12.892716405861046,
+        "ci_low": 11.180402693603188,
+        "ci_high": 14.607677201301959,
+        "n_valid": 1000
+      },
+      "type_accuracy|accuracy|compiled_only": {
+        "point": 0.758495145631068,
+        "ci_low": 0.7034563412141717,
+        "ci_high": 0.8091292605603126,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|compiled_only": {
+        "point": 0.46236559139784944,
+        "ci_low": 0.31107981220657277,
+        "ci_high": 0.6044542536115568,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|compiled_only": {
+        "point": 0.029411764705882353,
+        "ci_low": 0.0,
+        "ci_high": 0.0784313725490196,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|compiled_only": {
+        "point": 0.0909090909090909,
+        "ci_low": 0.0,
+        "ci_high": 0.24006060606060603,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|compiled_only": {
+        "point": 0.03875968992248062,
+        "ci_low": 0.0,
+        "ci_high": 0.09678021184400577,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|compiled_only": {
+        "point": 0.20192307692307693,
+        "ci_low": 0.10887913457565351,
+        "ci_high": 0.29792553191489357,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|compiled_only": {
+        "point": 0.64898210980876,
+        "ci_low": 0.5800682600501308,
+        "ci_high": 0.7163550568547119,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|zeros_for_failed": {
+        "point": 0.08617234468937875,
+        "ci_low": 0.04535053980397514,
+        "ci_high": 0.1311535239918631,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|zeros_for_failed": {
+        "point": 0.006329113924050634,
+        "ci_low": 0.0,
+        "ci_high": 0.020618556701030927,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|zeros_for_failed": {
+        "point": 0.00816326530612245,
+        "ci_low": 0.0,
+        "ci_high": 0.027403573006754618,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|zeros_for_failed": {
+        "point": 0.016313213703099513,
+        "ci_low": 0.0,
+        "ci_high": 0.04161343076572753,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|zeros_for_failed": {
+        "point": 0.06412213740458016,
+        "ci_low": 0.03207423522458234,
+        "ci_high": 0.10229012996136283,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|zeros_for_failed": {
+        "point": 0.14334377980651317,
+        "ci_low": 0.10865098241140318,
+        "ci_high": 0.17576718962158105,
+        "n_valid": 1000
+      }
+    },
+    "qwen3.5-9b": {
+      "csr|csr": {
+        "point": 0.431,
+        "ci_low": 0.401975,
+        "ci_high": 0.46202499999999996,
+        "n_valid": 1000
+      },
+      "element_f1|micro|compiled_only": {
+        "point": 0.8444259567387687,
+        "ci_low": 0.8110370885841786,
+        "ci_high": 0.8772630898823763,
+        "n_valid": 1000
+      },
+      "element_f1|macro|compiled_only": {
+        "point": 0.8607635801603414,
+        "ci_low": 0.8337775392325437,
+        "ci_high": 0.8867575501405992,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|compiled_only": {
+        "point": 0.43880231132901415,
+        "ci_low": 0.38163657723525723,
+        "ci_high": 0.498854135698688,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|compiled_only": {
+        "point": 0.5194600053871069,
+        "ci_low": 0.4779590292052226,
+        "ci_high": 0.5622315629884801,
+        "n_valid": 1000
+      },
+      "chrf|macro|compiled_only": {
+        "point": 62.430485548189175,
+        "ci_low": 60.742064878619146,
+        "ci_high": 64.20705322277591,
+        "n_valid": 1000
+      },
+      "element_f1|micro|zeros_for_failed": {
+        "point": 0.49087172046910893,
+        "ci_low": 0.45562680141930406,
+        "ci_high": 0.5270922164512739,
+        "n_valid": 1000
+      },
+      "element_f1|macro|zeros_for_failed": {
+        "point": 0.37098910304910715,
+        "ci_low": 0.3425721525699968,
+        "ci_high": 0.4004351212553084,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|zeros_for_failed": {
+        "point": 0.2006726457399103,
+        "ci_low": 0.17335231114948318,
+        "ci_high": 0.23309469819367834,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|zeros_for_failed": {
+        "point": 0.25988726232184306,
+        "ci_low": 0.23457587961325946,
+        "ci_high": 0.2846921420549443,
+        "n_valid": 1000
+      },
+      "chrf|macro|zeros_for_failed": {
+        "point": 26.907539271269535,
+        "ci_low": 24.840044109495057,
+        "ci_high": 29.10275004623056,
+        "n_valid": 1000
+      },
+      "type_accuracy|accuracy|compiled_only": {
+        "point": 0.7561219390304847,
+        "ci_low": 0.7109363908427982,
+        "ci_high": 0.7979707591263083,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|compiled_only": {
+        "point": 0.5471877979027646,
+        "ci_low": 0.45971145197488494,
+        "ci_high": 0.6308019286319468,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|compiled_only": {
+        "point": 0.2383419689119171,
+        "ci_low": 0.12415447720764647,
+        "ci_high": 0.39064198369565223,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|compiled_only": {
+        "point": 0.1904761904761905,
+        "ci_low": 0.11104651162790699,
+        "ci_high": 0.29666688219319803,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|compiled_only": {
+        "point": 0.24635761589403976,
+        "ci_low": 0.17069818432211067,
+        "ci_high": 0.31485120861263455,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|compiled_only": {
+        "point": 0.34059633027522934,
+        "ci_low": 0.26748957385672717,
+        "ci_high": 0.42741789241716227,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|compiled_only": {
+        "point": 0.6106958021851638,
+        "ci_low": 0.49628854304250714,
+        "ci_high": 0.716494853987114,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|zeros_for_failed": {
+        "point": 0.40083798882681565,
+        "ci_low": 0.3272528628184154,
+        "ci_high": 0.4693629763539725,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|zeros_for_failed": {
+        "point": 0.12994350282485875,
+        "ci_low": 0.06160955158585491,
+        "ci_high": 0.21973610480084807,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|zeros_for_failed": {
+        "point": 0.14102564102564105,
+        "ci_low": 0.0784209428452232,
+        "ci_high": 0.21726326313272915,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|zeros_for_failed": {
+        "point": 0.2,
+        "ci_low": 0.13501439884809213,
+        "ci_high": 0.2609915329768271,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|zeros_for_failed": {
+        "point": 0.2636484687083888,
+        "ci_low": 0.20657905892327258,
+        "ci_high": 0.3308371427467129,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|zeros_for_failed": {
+        "point": 0.14735673650617456,
+        "ci_low": 0.10485114845889014,
+        "ci_high": 0.19412514476360399,
+        "n_valid": 1000
+      }
+    },
+    "qwen3.5-27b": {
+      "csr|csr": {
+        "point": 0.601,
+        "ci_low": 0.569,
+        "ci_high": 0.632,
+        "n_valid": 1000
+      },
+      "element_f1|micro|compiled_only": {
+        "point": 0.9170019371181642,
+        "ci_low": 0.8905340982629866,
+        "ci_high": 0.9405415467589703,
+        "n_valid": 1000
+      },
+      "element_f1|macro|compiled_only": {
+        "point": 0.9251096307574189,
+        "ci_low": 0.9090097956323795,
+        "ci_high": 0.9413430252074545,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|compiled_only": {
+        "point": 0.7223466666666666,
+        "ci_low": 0.666140994277195,
+        "ci_high": 0.7712744245470289,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|compiled_only": {
+        "point": 0.8029487763943364,
+        "ci_low": 0.7776197684925061,
+        "ci_high": 0.8280772641127626,
+        "n_valid": 1000
+      },
+      "chrf|macro|compiled_only": {
+        "point": 68.06719179480999,
+        "ci_low": 66.61035005001742,
+        "ci_high": 69.48064332332814,
+        "n_valid": 1000
+      },
+      "element_f1|micro|zeros_for_failed": {
+        "point": 0.676056338028169,
+        "ci_low": 0.6448322822869761,
+        "ci_high": 0.7074435950264626,
+        "n_valid": 1000
+      },
+      "element_f1|macro|zeros_for_failed": {
+        "point": 0.5619908880852088,
+        "ci_low": 0.5322538189086743,
+        "ci_high": 0.5912915005991395,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|zeros_for_failed": {
+        "point": 0.4852171452822182,
+        "ci_low": 0.4425144128673842,
+        "ci_high": 0.526485854646272,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|zeros_for_failed": {
+        "point": 0.5045722146129962,
+        "ci_low": 0.4764958159226201,
+        "ci_high": 0.5326122948599178,
+        "n_valid": 1000
+      },
+      "chrf|macro|zeros_for_failed": {
+        "point": 40.9083822686808,
+        "ci_low": 38.554991237148585,
+        "ci_high": 43.269226039992205,
+        "n_valid": 1000
+      },
+      "type_accuracy|accuracy|compiled_only": {
+        "point": 0.886326194398682,
+        "ci_low": 0.86140472083782,
+        "ci_high": 0.9098919769688477,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|compiled_only": {
+        "point": 0.7709978463747309,
+        "ci_low": 0.705794245900339,
+        "ci_high": 0.8304020120892295,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|compiled_only": {
+        "point": 0.6184210526315791,
+        "ci_low": 0.49807853583937656,
+        "ci_high": 0.7301806239737275,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|compiled_only": {
+        "point": 0.6265822784810126,
+        "ci_low": 0.4981544771018454,
+        "ci_high": 0.7473010702652397,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|compiled_only": {
+        "point": 0.49791376912378305,
+        "ci_low": 0.3845192031963906,
+        "ci_high": 0.6047316272758829,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|compiled_only": {
+        "point": 0.6019131714495953,
+        "ci_low": 0.5238583056979199,
+        "ci_high": 0.6817118310496723,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|compiled_only": {
+        "point": 0.7827403482210445,
+        "ci_low": 0.6938370177093147,
+        "ci_high": 0.861391512176495,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|zeros_for_failed": {
+        "point": 0.6516990291262135,
+        "ci_low": 0.5807248386159967,
+        "ci_high": 0.7174548567062962,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|zeros_for_failed": {
+        "point": 0.4253393665158371,
+        "ci_low": 0.3008198342251126,
+        "ci_high": 0.5472270404991801,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|zeros_for_failed": {
+        "point": 0.5103092783505154,
+        "ci_low": 0.39431791695801277,
+        "ci_high": 0.6276934306569344,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|zeros_for_failed": {
+        "point": 0.4349939246658567,
+        "ci_low": 0.34273910916099465,
+        "ci_high": 0.5271863054831492,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|zeros_for_failed": {
+        "point": 0.4831659775546367,
+        "ci_low": 0.40972325444123564,
+        "ci_high": 0.5524833902681764,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|zeros_for_failed": {
+        "point": 0.4619422572178477,
+        "ci_low": 0.40267033760358273,
+        "ci_high": 0.5217598256279883,
+        "n_valid": 1000
+      }
+    },
+    "qwen3.5-397b-a17b": {
+      "csr|csr": {
+        "point": 0.787,
+        "ci_low": 0.762,
+        "ci_high": 0.812,
+        "n_valid": 1000
+      },
+      "element_f1|micro|compiled_only": {
+        "point": 0.8973924822214697,
+        "ci_low": 0.8768767076191812,
+        "ci_high": 0.9173315899679652,
+        "n_valid": 1000
+      },
+      "element_f1|macro|compiled_only": {
+        "point": 0.9094290080377648,
+        "ci_low": 0.8942759088538532,
+        "ci_high": 0.9230762554428531,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|compiled_only": {
+        "point": 0.7358227764144061,
+        "ci_low": 0.6879694092827005,
+        "ci_high": 0.7785837682228661,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|compiled_only": {
+        "point": 0.7966560431907742,
+        "ci_low": 0.7729294548236071,
+        "ci_high": 0.8176230652814692,
+        "n_valid": 1000
+      },
+      "chrf|macro|compiled_only": {
+        "point": 62.55534821002655,
+        "ci_low": 61.27302954324645,
+        "ci_high": 63.99819239742378,
+        "n_valid": 1000
+      },
+      "element_f1|micro|zeros_for_failed": {
+        "point": 0.7708717153107728,
+        "ci_low": 0.7441753450297699,
+        "ci_high": 0.7963075994689817,
+        "n_valid": 1000
+      },
+      "element_f1|macro|zeros_for_failed": {
+        "point": 0.7157206293257209,
+        "ci_low": 0.6905042329890727,
+        "ci_high": 0.7418644062600233,
+        "n_valid": 1000
+      },
+      "relationship_f1|micro|zeros_for_failed": {
+        "point": 0.6461269656377403,
+        "ci_low": 0.6051312466110054,
+        "ci_high": 0.6865942285759207,
+        "n_valid": 1000
+      },
+      "relationship_f1|macro|zeros_for_failed": {
+        "point": 0.6389683059911393,
+        "ci_low": 0.6125328118660808,
+        "ci_high": 0.6669651736205201,
+        "n_valid": 1000
+      },
+      "chrf|macro|zeros_for_failed": {
+        "point": 49.23105904129089,
+        "ci_low": 47.46323864873879,
+        "ci_high": 51.167355531830566,
+        "n_valid": 1000
+      },
+      "type_accuracy|accuracy|compiled_only": {
+        "point": 0.8701067615658363,
+        "ci_low": 0.8501456151423855,
+        "ci_high": 0.8881164046974704,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|compiled_only": {
+        "point": 0.7694704049844237,
+        "ci_low": 0.7083049440950384,
+        "ci_high": 0.8247672412224786,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|compiled_only": {
+        "point": 0.5919540229885057,
+        "ci_low": 0.44806945642795504,
+        "ci_high": 0.7426942355889724,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|compiled_only": {
+        "point": 0.555956678700361,
+        "ci_low": 0.42464109589041094,
+        "ci_high": 0.6845317827042555,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|compiled_only": {
+        "point": 0.3870967741935484,
+        "ci_low": 0.2920303633412707,
+        "ci_high": 0.4771020235748481,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|compiled_only": {
+        "point": 0.6271870794078062,
+        "ci_low": 0.549910990913588,
+        "ci_high": 0.7026075379605162,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|compiled_only": {
+        "point": 0.7794843664289633,
+        "ci_low": 0.7188707528593452,
+        "ci_high": 0.8385985951436866,
+        "n_valid": 1000
+      },
+      "relationship_f1::inheritance|micro|zeros_for_failed": {
+        "point": 0.6148102053515868,
+        "ci_low": 0.538132700867658,
+        "ci_high": 0.6846039311707012,
+        "n_valid": 1000
+      },
+      "relationship_f1::composition|micro|zeros_for_failed": {
+        "point": 0.45879732739420936,
+        "ci_low": 0.3355408295047954,
+        "ci_high": 0.5967591374589533,
+        "n_valid": 1000
+      },
+      "relationship_f1::aggregation|micro|zeros_for_failed": {
+        "point": 0.4425287356321839,
+        "ci_low": 0.3206419118612899,
+        "ci_high": 0.5629117991531278,
+        "n_valid": 1000
+      },
+      "relationship_f1::dependency|micro|zeros_for_failed": {
+        "point": 0.3257918552036199,
+        "ci_low": 0.2398621605064325,
+        "ci_high": 0.4071752259671723,
+        "n_valid": 1000
+      },
+      "relationship_f1::association|micro|zeros_for_failed": {
+        "point": 0.5079019073569483,
+        "ci_low": 0.4362981211092593,
+        "ci_high": 0.5829515581825213,
+        "n_valid": 1000
+      },
+      "relationship_f1::message|micro|zeros_for_failed": {
+        "point": 0.7077280650784428,
+        "ci_low": 0.6541629069054354,
+        "ci_high": 0.7594117205707386,
+        "n_valid": 1000
+      }
+    }
+  },
+  "per_model_point_only": {
+    "gpt-5.2": {
+      "chrf|micro|compiled_only": 66.00840344501894,
+      "chrf|micro|zeros_for_failed": 60.735698544447416
+    },
+    "claude-opus-4-6": {
+      "chrf|micro|compiled_only": 66.57194043096439,
+      "chrf|micro|zeros_for_failed": 62.35845887076059
+    },
+    "gemini-3.1-pro": {
+      "chrf|micro|compiled_only": 74.54361336448198,
+      "chrf|micro|zeros_for_failed": 72.18907934023812
+    },
+    "qwen3.5-2b": {
+      "chrf|micro|compiled_only": 65.12053787507315,
+      "chrf|micro|zeros_for_failed": 8.964566285477323
+    },
+    "qwen3.5-9b": {
+      "chrf|micro|compiled_only": 61.170536418665186,
+      "chrf|micro|zeros_for_failed": 24.402511029635125
+    },
+    "qwen3.5-27b": {
+      "chrf|micro|compiled_only": 65.64781820111585,
+      "chrf|micro|zeros_for_failed": 38.41381643307572
+    },
+    "qwen3.5-397b-a17b": {
+      "chrf|micro|compiled_only": 59.77415289624434,
+      "chrf|micro|zeros_for_failed": 47.80105267943817
+    }
+  },
+  "pairwise": [
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "csr|csr",
+      "diff_point": -0.005999999999999894,
+      "ci_low": -0.027999999999999914,
+      "ci_high": 0.014999999999999902,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": -0.0011425074495573506,
+      "ci_low": -0.015412384201465554,
+      "ci_high": 0.014607552497547251,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": -0.004669285831447212,
+      "ci_low": -0.012731254637328684,
+      "ci_high": 0.0034895101452734017,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": 0.07890264103515587,
+      "ci_low": 0.05254880563920718,
+      "ci_high": 0.1079893598232052,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.03672171421419923,
+      "ci_low": 0.021025598314975726,
+      "ci_high": 0.05155713772887333,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": -2.7106583485052766,
+      "ci_low": -3.485811083590941,
+      "ci_high": -1.9422212580198788,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": -0.01191875529183839,
+      "ci_low": -0.029401567443280957,
+      "ci_high": 0.00792339742743449,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": -0.010112463460214771,
+      "ci_low": -0.029896503183453455,
+      "ci_high": 0.010055486580573965,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.06417114687005854,
+      "ci_low": 0.03894900240378466,
+      "ci_high": 0.09033525564487045,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.03139606500266612,
+      "ci_low": 0.010684053425425078,
+      "ci_high": 0.05455079327104002,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": -2.953277427831601,
+      "ci_low": -4.503942054714878,
+      "ci_high": -1.420146008689117,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": -0.008387507654623372,
+      "ci_low": -0.024484409058811087,
+      "ci_high": 0.006255311801259862,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": -0.03438921011840845,
+      "ci_low": -0.06730697131981038,
+      "ci_high": 0.004583146730482679,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": 0.16198872751536836,
+      "ci_low": 0.06864820678637373,
+      "ci_high": 0.2503474076684193,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": 0.10495195861049522,
+      "ci_low": 0.004316485974702692,
+      "ci_high": 0.1982994563868437,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.03327021325953139,
+      "ci_low": -0.07155905633499972,
+      "ci_high": 0.13072863910111823,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": 0.06313611519739759,
+      "ci_low": 0.013295913920602094,
+      "ci_high": 0.11045471795457111,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.0998003534599613,
+      "ci_low": 0.0654678491595401,
+      "ci_high": 0.13930439865150843,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": -0.04898274009900694,
+      "ci_low": -0.09217459904379575,
+      "ci_high": -0.00627657263097629,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.16349360846148864,
+      "ci_low": 0.07851693410497483,
+      "ci_high": 0.24989203892406178,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.11048454469507096,
+      "ci_low": 0.005332322881385182,
+      "ci_high": 0.2028045334238361,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.03238175844000213,
+      "ci_low": -0.06959542452367061,
+      "ci_high": 0.12910873465028747,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.028709982143660384,
+      "ci_low": -0.031854911567116465,
+      "ci_high": 0.08500751896719015,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "claude-opus-4-6",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.08512896661716984,
+      "ci_low": 0.05042315328216062,
+      "ci_high": 0.11970011001284911,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "csr|csr",
+      "diff_point": -0.03699999999999992,
+      "ci_low": -0.05499999999999994,
+      "ci_high": -0.020000000000000018,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": -0.02178915907866885,
+      "ci_low": -0.033902842681317706,
+      "ci_high": -0.0099911177986838,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": -0.013763313632964569,
+      "ci_low": -0.020935918087065228,
+      "ci_high": -0.007232295715370414,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": -0.09386577380718342,
+      "ci_low": -0.11657590216206003,
+      "ci_high": -0.07229638147728078,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": -0.07131153703359983,
+      "ci_low": -0.08508691747280273,
+      "ci_high": -0.057309773313120704,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": -10.611198879157456,
+      "ci_low": -11.471228123867892,
+      "ci_high": -9.72130682893856,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": -0.04790139003808802,
+      "ci_low": -0.0649723575440847,
+      "ci_high": -0.03204072488319471,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": -0.04864304472364911,
+      "ci_low": -0.06616853989241907,
+      "ci_high": -0.031026158023619053,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": -0.11779905771424604,
+      "ci_low": -0.1410462271002082,
+      "ci_high": -0.09524260379000227,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": -0.09912906711284752,
+      "ci_low": -0.11854949251090456,
+      "ci_high": -0.07974515596769613,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": -12.796464162184542,
+      "ci_low": -14.217266509978169,
+      "ci_high": -11.408805745399835,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": -0.042646223947825024,
+      "ci_low": -0.054098823526321824,
+      "ci_high": -0.03157085583868501,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": -0.09440659373389959,
+      "ci_low": -0.1400159852115852,
+      "ci_high": -0.04885404571218167,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": -0.17006825519175117,
+      "ci_low": -0.3325202182536874,
+      "ci_high": -0.04653716042137801,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": -0.19432194726887542,
+      "ci_low": -0.27750288560071334,
+      "ci_high": -0.12319347757612129,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": -0.2054376928629562,
+      "ci_low": -0.2809646631540041,
+      "ci_high": -0.13770090654246062,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": -0.13923036330889849,
+      "ci_low": -0.1955133443736057,
+      "ci_high": -0.08064967484535174,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": -0.06980522036043169,
+      "ci_low": -0.09367447648889352,
+      "ci_high": -0.04386287138638288,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": -0.10962504548669871,
+      "ci_low": -0.16127523440740946,
+      "ci_high": -0.06167418884603957,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": -0.18659837814767377,
+      "ci_low": -0.3446645395117515,
+      "ci_high": -0.0721446708574162,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": -0.18157894736842095,
+      "ci_low": -0.25160640911024357,
+      "ci_high": -0.11988305012789396,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": -0.21137843287680413,
+      "ci_low": -0.2840205851474848,
+      "ci_high": -0.14800700909216374,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": -0.18180353692721196,
+      "ci_low": -0.24608425868565972,
+      "ci_high": -0.11645458492852717,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": -0.09547376849209821,
+      "ci_low": -0.12175393692833841,
+      "ci_high": -0.06918217788201746,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "csr|csr",
+      "diff_point": 0.734,
+      "ci_low": 0.7040000000000001,
+      "ci_high": 0.762025,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.06078264593196325,
+      "ci_low": 0.022737137566972772,
+      "ci_high": 0.10638695277079821,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.08781256902112744,
+      "ci_low": 0.051425772008559786,
+      "ci_high": 0.12818493436698103,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": 0.31795489078021305,
+      "ci_low": 0.24269588398264993,
+      "ci_high": 0.38906751714668175,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.3644592774314393,
+      "ci_low": 0.3005251246513332,
+      "ci_high": 0.42597829799135917,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 2.9484526238378805,
+      "ci_low": 0.9081443635110371,
+      "ci_high": 4.984859250357101,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": 0.6513695014174303,
+      "ci_low": 0.6106053766796814,
+      "ci_high": 0.6900538431337051,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": 0.716233738328572,
+      "ci_low": 0.6886686678167642,
+      "ci_high": 0.7449193515485776,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.6429245077074298,
+      "ci_low": 0.6033916760053522,
+      "ci_high": 0.6782428161011255,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.6413823090145926,
+      "ci_low": 0.6128742915789334,
+      "ci_high": 0.6680017997351755,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": 49.837668088373036,
+      "ci_low": 47.736588323567986,
+      "ci_high": 51.929987011224604,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.18271734671430861,
+      "ci_low": 0.1318638349849621,
+      "ci_high": 0.23846962218804685,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.38280320953346597,
+      "ci_low": 0.23939287412542753,
+      "ci_high": 0.5412326390771661,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": 0.6246762856085831,
+      "ci_low": 0.48569209267320385,
+      "ci_high": 0.7624785942134423,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": 0.5343680709534367,
+      "ci_low": 0.350953762026885,
+      "ci_high": 0.7018213637542131,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.5443888688358343,
+      "ci_low": 0.4379472722615844,
+      "ci_high": 0.6339134720760449,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": 0.47823431487006535,
+      "ci_low": 0.3642706367602829,
+      "ci_high": 0.589849285194769,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.19040504804973524,
+      "ci_low": 0.1094631084934587,
+      "ci_high": 0.2733018865784747,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.7281854792029375,
+      "ci_low": 0.6674248870827535,
+      "ci_high": 0.7851719584986653,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.6239739163789797,
+      "ci_low": 0.4939878766894122,
+      "ci_high": 0.7439360301774045,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.6102577873254565,
+      "ci_low": 0.5041054049567981,
+      "ci_high": 0.7056665455985087,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.5548051359168789,
+      "ci_low": 0.4617428322637211,
+      "ci_high": 0.6326599488091692,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.5647759914935486,
+      "ci_low": 0.49186871211288136,
+      "ci_high": 0.6373469052488634,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.6497596684693489,
+      "ci_low": 0.6001515844400073,
+      "ci_high": 0.6957191318818615,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "csr|csr",
+      "diff_point": 0.504,
+      "ci_low": 0.468,
+      "ci_high": 0.5359999999999999,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.09482150795652078,
+      "ci_low": 0.06260376913205276,
+      "ci_high": 0.12760884195223954,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.09234733531012917,
+      "ci_low": 0.0671470312240304,
+      "ci_high": 0.11771287097688973,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": 0.3598993705830542,
+      "ci_low": 0.2986165813779218,
+      "ci_high": 0.41369317663008714,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.34038467342879675,
+      "ci_low": 0.29778432481279365,
+      "ci_high": 0.3828870764172378,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 4.660834766499683,
+      "ci_low": 3.1496300001335844,
+      "ci_high": 6.173754444653913,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": 0.40661061968665985,
+      "ci_low": 0.36856624875913885,
+      "ci_high": 0.4431078313277556,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": 0.5201696029157827,
+      "ci_low": 0.48729004514048646,
+      "ci_high": 0.5498457778180251,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.5564742074069429,
+      "ci_low": 0.5171949679605814,
+      "ci_high": 0.5940888002242585,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.5470675123710269,
+      "ci_low": 0.515349031295484,
+      "ci_high": 0.5763460100824296,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": 35.822845222964546,
+      "ci_low": 33.41767710992447,
+      "ci_high": 37.97635006771351,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.18509055331489188,
+      "ci_low": 0.14748782887802311,
+      "ci_high": 0.22529749591932233,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.2979810030285508,
+      "ci_low": 0.2191447178003131,
+      "ci_high": 0.3832065839032975,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": 0.4157460814025484,
+      "ci_low": 0.22223165547770043,
+      "ci_high": 0.5845551973899711,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": 0.4348009713863372,
+      "ci_low": 0.3003477629691222,
+      "ci_high": 0.5557299911673591,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.3367909428642751,
+      "ci_low": 0.24491557694634253,
+      "ci_high": 0.44082097009126386,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": 0.33956106151791293,
+      "ci_low": 0.2453875022559255,
+      "ci_high": 0.4220478920641778,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.22869135567333143,
+      "ci_low": 0.11835624772561054,
+      "ci_high": 0.3315286529978889,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.4135198350655006,
+      "ci_low": 0.34223677621444215,
+      "ci_high": 0.48905906894755613,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.5003595274781716,
+      "ci_low": 0.36621745838798675,
+      "ci_high": 0.6330357503786996,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.4773954116059379,
+      "ci_low": 0.35561561362130445,
+      "ci_high": 0.5794727188705372,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.3711183496199783,
+      "ci_low": 0.27952231712419773,
+      "ci_high": 0.46570944771374645,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.36524966018974,
+      "ci_low": 0.2760265258119883,
+      "ci_high": 0.4451543939072919,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.6457467117696875,
+      "ci_low": 0.5897494688866657,
+      "ci_high": 0.701057041981403,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "csr|csr",
+      "diff_point": 0.3340000000000001,
+      "ci_low": 0.30399999999999994,
+      "ci_high": 0.366,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.02224552757712528,
+      "ci_low": -0.0014425958547621572,
+      "ci_high": 0.04583288956610161,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.028001284713051633,
+      "ci_low": 0.01264881393177438,
+      "ci_high": 0.04319774854731526,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": 0.07635501524540178,
+      "ci_low": 0.032704089374222686,
+      "ci_high": 0.12114358042748527,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.05689590242156728,
+      "ci_low": 0.030957426560896027,
+      "ci_high": 0.08439996530840006,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": -0.9758714801211283,
+      "ci_low": -2.083980007978834,
+      "ci_high": 0.17231927868647107,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": 0.22142600212759977,
+      "ci_low": 0.19284027072429902,
+      "ci_high": 0.25079115211305997,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": 0.3291678178796811,
+      "ci_low": 0.30027145008276085,
+      "ci_high": 0.35837382324170675,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.27192970786463494,
+      "ci_low": 0.2384153632070445,
+      "ci_high": 0.30576588354843576,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.30238256007987374,
+      "ci_low": 0.2739989622141637,
+      "ci_high": 0.329560785813529,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": 21.822002225553277,
+      "ci_low": 19.74484509886042,
+      "ci_high": 24.034610098823457,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.05488629794669464,
+      "ci_low": 0.03505574321796748,
+      "ci_high": 0.07556231374480545,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.07417095455658451,
+      "ci_low": 0.02251937087414879,
+      "ci_high": 0.1354893200645201,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": 0.03566699768288639,
+      "ci_low": -0.10878129136618944,
+      "ci_high": 0.1806182804547125,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": -0.0013051166184848695,
+      "ci_low": -0.11598504413206936,
+      "ci_high": 0.114893443380576,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.0852347896345318,
+      "ci_low": -0.014541735448627415,
+      "ci_high": 0.17895859023383034,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": 0.07824422034354694,
+      "ci_low": 0.002829794408079106,
+      "ci_high": 0.150567024325405,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.056646809637450724,
+      "ci_low": -0.009170428579679356,
+      "ci_high": 0.12982486832647191,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.1626587947661028,
+      "ci_low": 0.10526402284184354,
+      "ci_high": 0.22202730478615693,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.20496366378719327,
+      "ci_low": 0.08934655459188641,
+      "ci_high": 0.32826533764659305,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.10811177428106356,
+      "ci_low": 0.006537634771828802,
+      "ci_high": 0.21292792824872742,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.13612442495412164,
+      "ci_low": 0.05196524042005568,
+      "ci_high": 0.2200325497117079,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.1457321513434921,
+      "ci_low": 0.07199993497118944,
+      "ci_high": 0.21512512526461466,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.3311611910580143,
+      "ci_low": 0.28179523795127803,
+      "ci_high": 0.38061001734964633,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "csr|csr",
+      "diff_point": 0.14800000000000002,
+      "ci_low": 0.118,
+      "ci_high": 0.17599999999999993,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.0418549824738198,
+      "ci_low": 0.025400198650356132,
+      "ci_high": 0.05998649861237886,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.043681907432705724,
+      "ci_low": 0.03166333470372716,
+      "ci_high": 0.05630534675910337,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": 0.06287890549766229,
+      "ci_low": 0.031528632669154504,
+      "ci_high": 0.09754599654006456,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.06318863562512944,
+      "ci_low": 0.04331139442946718,
+      "ci_high": 0.08436499843379293,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 4.5359721046623065,
+      "ci_low": 3.328830251212477,
+      "ci_high": 5.690586245490107,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": 0.12661062484499597,
+      "ci_low": 0.10075547581680842,
+      "ci_high": 0.15136850137840296,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": 0.175438076639169,
+      "ci_low": 0.145198750182998,
+      "ci_high": 0.20120936952913215,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.11101988750911285,
+      "ci_low": 0.08397085672319705,
+      "ci_high": 0.1400545808973852,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.16798646870173062,
+      "ci_low": 0.13743246126041173,
+      "ci_high": 0.19517607468668738,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": 13.49932545294319,
+      "ci_low": 11.189029371539032,
+      "ci_high": 15.657829722881162,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.0711057307795403,
+      "ci_low": 0.056114776416255535,
+      "ci_high": 0.08705232228996179,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.07569839594689176,
+      "ci_low": 0.014308427572745398,
+      "ci_high": 0.1410838683731931,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": 0.06213402732595974,
+      "ci_low": -0.06238050600469555,
+      "ci_high": 0.1758293675952343,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": 0.06932048316216666,
+      "ci_low": -0.08029180614086578,
+      "ci_high": 0.22518329796978864,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.19605178456476646,
+      "ci_low": 0.10590505719083376,
+      "ci_high": 0.2959123713063244,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": 0.052970312385336116,
+      "ci_low": -0.008692459721737156,
+      "ci_high": 0.12134251970582442,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.05990279142953192,
+      "ci_low": 0.01958275015604506,
+      "ci_high": 0.10660751265218137,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.19954761854072944,
+      "ci_low": 0.13365567897179,
+      "ci_high": 0.26785925894293017,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.171505702908821,
+      "ci_low": 0.05697968916991067,
+      "ci_high": 0.29070220056287527,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.17589231699939506,
+      "ci_low": 0.048670170588390675,
+      "ci_high": 0.31609904324311333,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.2453264944163584,
+      "ci_low": 0.1591428318601571,
+      "ci_high": 0.33548699616397953,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.1209962215411805,
+      "ci_low": 0.055820388062215676,
+      "ci_high": 0.1873583070187143,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gpt-5.2",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.08537538319741922,
+      "ci_low": 0.0504214024099126,
+      "ci_high": 0.11991479706389788,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "csr|csr",
+      "diff_point": -0.031000000000000028,
+      "ci_low": -0.04899999999999993,
+      "ci_high": -0.013975000000000034,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": -0.0206466516291115,
+      "ci_low": -0.034632493065507156,
+      "ci_high": -0.009098795805737542,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": -0.009094027801517357,
+      "ci_low": -0.016684236036681673,
+      "ci_high": -0.0022392898666212667,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": -0.1727684148423393,
+      "ci_low": -0.20239112393724104,
+      "ci_high": -0.14656622282689363,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": -0.10803325124779906,
+      "ci_low": -0.12346467996761656,
+      "ci_high": -0.09255343375130053,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": -7.900540530652179,
+      "ci_low": -8.646609532268718,
+      "ci_high": -7.161360326838931,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": -0.03598263474624963,
+      "ci_low": -0.05314773347569839,
+      "ci_high": -0.020529319249308505,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": -0.03853058126343434,
+      "ci_low": -0.05762240912989667,
+      "ci_high": -0.021957445974794834,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": -0.18197020458430457,
+      "ci_low": -0.20827880726719306,
+      "ci_high": -0.15589964213932025,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": -0.13052513211551364,
+      "ci_low": -0.15022579450616969,
+      "ci_high": -0.11183017984304865,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": -9.84318673435294,
+      "ci_low": -11.201879707610047,
+      "ci_high": -8.373211601271512,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": -0.03425871629320165,
+      "ci_low": -0.04886946440155181,
+      "ci_high": -0.018961975726790706,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": -0.06001738361549114,
+      "ci_low": -0.097232254925618,
+      "ci_high": -0.025996555948297407,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": -0.33205698270711953,
+      "ci_low": -0.4718593848732627,
+      "ci_high": -0.18524430741450712,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": -0.29927390587937064,
+      "ci_low": -0.40025072068403045,
+      "ci_high": -0.1940694921308499,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": -0.2387079061224876,
+      "ci_low": -0.3341852918705854,
+      "ci_high": -0.15954915002657472,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": -0.20236647850629608,
+      "ci_low": -0.2525420195471935,
+      "ci_high": -0.15461817843982392,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": -0.16960557382039299,
+      "ci_low": -0.20718973310747169,
+      "ci_high": -0.13647042539386114,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": -0.060642305387691775,
+      "ci_low": -0.10134609388850323,
+      "ci_high": -0.024775396705607758,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": -0.3500919866091624,
+      "ci_low": -0.47921801166219674,
+      "ci_high": -0.21517765864500948,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": -0.2920634920634919,
+      "ci_low": -0.3867112323577181,
+      "ci_high": -0.19183516305519363,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": -0.24376019131680626,
+      "ci_low": -0.3381424470337729,
+      "ci_high": -0.16834833221776604,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": -0.21051351907087235,
+      "ci_low": -0.261768859986898,
+      "ci_high": -0.16411236447693206,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "gemini-3.1-pro",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": -0.18060273510926805,
+      "ci_low": -0.21604683938838723,
+      "ci_high": -0.14658086980832147,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "csr|csr",
+      "diff_point": 0.74,
+      "ci_low": 0.712,
+      "ci_high": 0.77,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.0619251533815206,
+      "ci_low": 0.02446930128824594,
+      "ci_high": 0.1055859133601749,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.09248185485257465,
+      "ci_low": 0.05573335111625536,
+      "ci_high": 0.13314580301494489,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": 0.23905224974505718,
+      "ci_low": 0.15991128604471108,
+      "ci_high": 0.31339543639879924,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.32773756321724007,
+      "ci_low": 0.26214659341937513,
+      "ci_high": 0.387439007244358,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 5.659110972343157,
+      "ci_low": 3.538835074424786,
+      "ci_high": 7.762826623439748,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": 0.6632882567092686,
+      "ci_low": 0.6246399765362244,
+      "ci_high": 0.7006963984333395,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": 0.7263462017887867,
+      "ci_low": 0.6979998624190524,
+      "ci_high": 0.7553633810281711,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.5787533608373713,
+      "ci_low": 0.5378832548891485,
+      "ci_high": 0.6166574655974939,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.6099862440119265,
+      "ci_low": 0.581780995840073,
+      "ci_high": 0.6368863759381637,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": 52.79094551620464,
+      "ci_low": 50.69997604345186,
+      "ci_high": 55.02378390662972,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.191104854368932,
+      "ci_low": 0.1409176020727558,
+      "ci_high": 0.24621332621408146,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.4171924196518744,
+      "ci_low": 0.2744356138867294,
+      "ci_high": 0.569780977004018,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": 0.46268755809321477,
+      "ci_low": 0.33456288190422934,
+      "ci_high": 0.5984581456279567,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": 0.4294161123429416,
+      "ci_low": 0.2477081305757544,
+      "ci_high": 0.6011795236510002,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.5111186555763029,
+      "ci_low": 0.40692712606169834,
+      "ci_high": 0.6076066688375724,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": 0.41509819967266776,
+      "ci_low": 0.3096076380687416,
+      "ci_high": 0.5139028118113265,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.09060469458977394,
+      "ci_low": 0.004395948324526931,
+      "ci_high": 0.17888520130090285,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.7771682193019445,
+      "ci_low": 0.7171036521865648,
+      "ci_high": 0.8309036581821447,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.4604803079174911,
+      "ci_low": 0.349885812335871,
+      "ci_high": 0.5813279862744156,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.4997732426303856,
+      "ci_low": 0.40175991158999863,
+      "ci_high": 0.6029509928726138,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.5224233774768767,
+      "ci_low": 0.4327737220279524,
+      "ci_high": 0.6052999869493401,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.5360660093498882,
+      "ci_low": 0.46769534328267093,
+      "ci_high": 0.601442070516425,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.564630701852179,
+      "ci_low": 0.5102113588931065,
+      "ci_high": 0.616318173187324,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "csr|csr",
+      "diff_point": 0.51,
+      "ci_low": 0.47400000000000003,
+      "ci_high": 0.5419999999999999,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.09596401540607813,
+      "ci_low": 0.06262825744954664,
+      "ci_high": 0.13125556818777642,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.09701662114157639,
+      "ci_low": 0.07277971941403036,
+      "ci_high": 0.123261789074261,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": 0.28099672954789834,
+      "ci_low": 0.21633650150127692,
+      "ci_high": 0.3376285817596537,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.3036629592145975,
+      "ci_low": 0.2594174580276255,
+      "ci_high": 0.345091475901395,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 7.371493115004959,
+      "ci_low": 5.8925767810272145,
+      "ci_high": 8.797726663146102,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": 0.41852937497849824,
+      "ci_low": 0.37937562846611284,
+      "ci_high": 0.45610447559072836,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": 0.5302820663759975,
+      "ci_low": 0.49764719197026414,
+      "ci_high": 0.5623121702141172,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.49230306053688433,
+      "ci_low": 0.4524791818604587,
+      "ci_high": 0.528602747893034,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.5156714473683608,
+      "ci_low": 0.4866228850631288,
+      "ci_high": 0.5437911679706661,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": 38.77612265079615,
+      "ci_low": 36.40334945865407,
+      "ci_high": 40.88028566268499,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.19347806096951525,
+      "ci_low": 0.15169952724974065,
+      "ci_high": 0.23853541955878832,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.33237021314695925,
+      "ci_low": 0.2553124697760216,
+      "ci_high": 0.41774562972742846,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": 0.25375735388718,
+      "ci_low": 0.05020800221023962,
+      "ci_high": 0.4278903657739523,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": 0.329849012775842,
+      "ci_low": 0.20899253508510013,
+      "ci_high": 0.4502227387888613,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.3035207296047437,
+      "ci_low": 0.21590231953617534,
+      "ci_high": 0.39884527709492607,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": 0.27642494632051534,
+      "ci_low": 0.18555538349201514,
+      "ci_high": 0.36215035488683134,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.12889100221337013,
+      "ci_low": 0.01967505441996521,
+      "ci_high": 0.2346121453212081,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.46250257516450755,
+      "ci_low": 0.38704319191114545,
+      "ci_high": 0.5368665567707138,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.33686591901668295,
+      "ci_low": 0.2097432063986293,
+      "ci_high": 0.46733783051740796,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.36691086691086694,
+      "ci_low": 0.2664453859838337,
+      "ci_high": 0.4713092410592411,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.3387365911799762,
+      "ci_low": 0.2558747598393907,
+      "ci_high": 0.4258392625737776,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.3365396780460796,
+      "ci_low": 0.25979465603435054,
+      "ci_high": 0.4100372219180268,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.5606177451525176,
+      "ci_low": 0.5018053621851832,
+      "ci_high": 0.6135325715426254,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "csr|csr",
+      "diff_point": 0.33999999999999997,
+      "ci_low": 0.30700000000000005,
+      "ci_high": 0.375,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.02338803502668263,
+      "ci_low": -0.0005790103651803933,
+      "ci_high": 0.04979318752625691,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.032670570544498845,
+      "ci_low": 0.01736917562782187,
+      "ci_high": 0.047642356006598725,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": -0.0025476257897540933,
+      "ci_low": -0.04533522777191611,
+      "ci_high": 0.04322303500368009,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.02017418820736805,
+      "ci_low": -0.004888182814206224,
+      "ci_high": 0.04695945846438347,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 1.7347868683841483,
+      "ci_low": 0.6213930250902205,
+      "ci_high": 2.8408677593064784,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": 0.23334475741943816,
+      "ci_low": 0.2001318784728714,
+      "ci_high": 0.2665852112903791,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": 0.33928028133989585,
+      "ci_low": 0.30815119279407266,
+      "ci_high": 0.3722830956181272,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.2077585609945764,
+      "ci_low": 0.17097686824012392,
+      "ci_high": 0.2471262400204162,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.2709864950772076,
+      "ci_low": 0.24130912760994647,
+      "ci_high": 0.30161474900458457,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": 24.775279653384878,
+      "ci_low": 22.477402125933516,
+      "ci_high": 27.218314160053765,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.06327380560131801,
+      "ci_low": 0.04229229832183801,
+      "ci_high": 0.08909294749852016,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.10856016467499296,
+      "ci_low": 0.04864970480868375,
+      "ci_high": 0.17157211483293744,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": -0.12632172983248197,
+      "ci_low": -0.25397274793105074,
+      "ci_high": 0.01211111578638757,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": -0.10625707522898009,
+      "ci_low": -0.2108615902012389,
+      "ci_high": 0.017290460997652857,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.051964576375000404,
+      "ci_low": -0.07146189202611045,
+      "ci_high": 0.17318515649144453,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": 0.015108105146149353,
+      "ci_low": -0.061395341676295755,
+      "ci_high": 0.08430581846917845,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": -0.043153543822510576,
+      "ci_low": -0.11321191295659873,
+      "ci_high": 0.024231778358508912,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.21164153486510973,
+      "ci_low": 0.1434365752773635,
+      "ci_high": 0.2802933093335366,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.041470055325704636,
+      "ci_low": -0.07368075844137775,
+      "ci_high": 0.16490021536071622,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": -0.002372770414007408,
+      "ci_low": -0.11640330250249711,
+      "ci_high": 0.11725313859734862,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.10374266651411951,
+      "ci_low": -0.0074619265028605915,
+      "ci_high": 0.21718285887697264,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.11702216919983172,
+      "ci_low": 0.0455798643654794,
+      "ci_high": 0.18494694081245397,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.24603222444084444,
+      "ci_low": 0.1935911868772176,
+      "ci_high": 0.30138082275188366,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "csr|csr",
+      "diff_point": 0.15399999999999991,
+      "ci_low": 0.125,
+      "ci_high": 0.18499999999999994,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.04299748992337715,
+      "ci_low": 0.025946316634245008,
+      "ci_high": 0.0587271761242164,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.048351193264152936,
+      "ci_low": 0.0366394349247369,
+      "ci_high": 0.06017370466061898,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": -0.01602373553749359,
+      "ci_low": -0.042820338545845646,
+      "ci_high": 0.008082536761826837,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.02646692141093021,
+      "ci_low": 0.005140170458403679,
+      "ci_high": 0.04861127674432229,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 7.246630453167583,
+      "ci_low": 6.020322435726612,
+      "ci_high": 8.405647175577545,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": 0.13852938013683436,
+      "ci_low": 0.1095233689116564,
+      "ci_high": 0.1674351766635266,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": 0.18555054009938377,
+      "ci_low": 0.15671921164523037,
+      "ci_high": 0.2150360951249332,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.04684874063905431,
+      "ci_low": 0.016937730946378727,
+      "ci_high": 0.07696984527683691,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.1365904036990645,
+      "ci_low": 0.10736212825855486,
+      "ci_high": 0.1648653690673012,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": 16.45260288077479,
+      "ci_low": 14.18473437912622,
+      "ci_high": 18.645696771268646,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.07949323843416367,
+      "ci_low": 0.06347736960675388,
+      "ci_high": 0.09745068574882917,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.11008760606530021,
+      "ci_low": 0.051694569770455154,
+      "ci_high": 0.17133578942405103,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": -0.09985470018940862,
+      "ci_low": -0.21932490505805127,
+      "ci_high": 0.013803092124390917,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": -0.035631475448328565,
+      "ci_low": -0.1877234567796835,
+      "ci_high": 0.12785444285444275,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.16278157130523507,
+      "ci_low": 0.05015979756694628,
+      "ci_high": 0.2730492157481827,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": -0.010165802812061475,
+      "ci_low": -0.08069126193786777,
+      "ci_high": 0.06003644506714371,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": -0.03989756203042938,
+      "ci_low": -0.0703981504049113,
+      "ci_high": -0.009931109584035765,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.24853035863973638,
+      "ci_low": 0.17944142703614663,
+      "ci_high": 0.3191684380725778,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.008012094447332363,
+      "ci_low": -0.10618544631123306,
+      "ci_high": 0.1264628188041154,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.0654077723043241,
+      "ci_low": -0.07838515511896864,
+      "ci_high": 0.21616260894278128,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.21294473597635627,
+      "ci_low": 0.10481451303517261,
+      "ci_high": 0.30910262564581553,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.09228623939752012,
+      "ci_low": 0.011215948578718245,
+      "ci_high": 0.16854129616385738,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "claude-opus-4-6",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.00024641658024937563,
+      "ci_low": -0.03598612264129163,
+      "ci_high": 0.03866977243192231,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "csr|csr",
+      "diff_point": 0.7709999999999999,
+      "ci_low": 0.745,
+      "ci_high": 0.798,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.0825718050106321,
+      "ci_low": 0.04480071239774413,
+      "ci_high": 0.12451861093433038,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.10157588265409201,
+      "ci_low": 0.06608530500785843,
+      "ci_high": 0.1414859000780254,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": 0.41182066458739647,
+      "ci_low": 0.3401544211812255,
+      "ci_high": 0.4808593470462481,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.4357708144650391,
+      "ci_low": 0.3737984087582391,
+      "ci_high": 0.4933285160538838,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 13.559651502995337,
+      "ci_low": 11.47342520051802,
+      "ci_high": 15.608749977768461,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": 0.6992708914555184,
+      "ci_low": 0.6614490734137539,
+      "ci_high": 0.7353260784584026,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": 0.764876783052221,
+      "ci_low": 0.7394009111878287,
+      "ci_high": 0.79031761593059,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.7607235654216759,
+      "ci_low": 0.7291820174328721,
+      "ci_high": 0.7896166509030819,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.7405113761274401,
+      "ci_low": 0.7147617243862964,
+      "ci_high": 0.7640880830830372,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": 62.63413225055758,
+      "ci_low": 60.79571108530234,
+      "ci_high": 64.59261083756313,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.22536357066213364,
+      "ci_low": 0.17472418971937653,
+      "ci_high": 0.279411962310919,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.47720980326736556,
+      "ci_low": 0.3317971361560223,
+      "ci_high": 0.6284609120515232,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": 0.7947445408003343,
+      "ci_low": 0.6935635868126967,
+      "ci_high": 0.8831670223317605,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": 0.7286900182223122,
+      "ci_low": 0.5536862483051784,
+      "ci_high": 0.8729857203265784,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.7498265616987905,
+      "ci_low": 0.6662316836115542,
+      "ci_high": 0.8325991095116629,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": 0.6174646781789639,
+      "ci_low": 0.5144743322056934,
+      "ci_high": 0.7168490981337483,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.2602102684101669,
+      "ci_low": 0.18355737374415,
+      "ci_high": 0.3378394591004135,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.8378105246896362,
+      "ci_low": 0.7823483150452504,
+      "ci_high": 0.8823430810112115,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.8105722945266535,
+      "ci_low": 0.7156983319989627,
+      "ci_high": 0.8852156323677914,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.7918367346938775,
+      "ci_low": 0.7103804332111189,
+      "ci_high": 0.8710806726266498,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.766183568793683,
+      "ci_low": 0.6917285260940139,
+      "ci_high": 0.8353507757358388,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.7465795284207606,
+      "ci_low": 0.6807065799272276,
+      "ci_high": 0.8062208012188399,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-2b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.7452334369614471,
+      "ci_low": 0.7017613208647117,
+      "ci_high": 0.7848621309663989,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "csr|csr",
+      "diff_point": 0.5409999999999999,
+      "ci_low": 0.5099750000000001,
+      "ci_high": 0.572,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.11661066703518963,
+      "ci_low": 0.08435281896815355,
+      "ci_high": 0.1499049172159783,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.10611064894309374,
+      "ci_low": 0.08220580277061412,
+      "ci_high": 0.13252768259872993,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": 0.45376514439023763,
+      "ci_low": 0.39143742720830305,
+      "ci_high": 0.5105599640947891,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.4116962104623966,
+      "ci_low": 0.36864205260374877,
+      "ci_high": 0.45326668918761404,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 15.272033645657139,
+      "ci_low": 13.806784577954893,
+      "ci_high": 16.732577535730506,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": 0.45451200972474787,
+      "ci_low": 0.4177725239647865,
+      "ci_high": 0.48935669961707867,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": 0.5688126476394318,
+      "ci_low": 0.5384417459740227,
+      "ci_high": 0.5967865223523616,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.6742732651211889,
+      "ci_low": 0.6381207109463546,
+      "ci_high": 0.7060467728849403,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.6461965794838744,
+      "ci_low": 0.616678722050644,
+      "ci_high": 0.6726070874124691,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": 48.61930938514909,
+      "ci_low": 46.41676642594824,
+      "ci_high": 50.656260604560195,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.2277367772627169,
+      "ci_low": 0.1884601340871865,
+      "ci_high": 0.2690359756714738,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.3923875967624504,
+      "ci_low": 0.3095737971297204,
+      "ci_high": 0.48330857770120567,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": 0.5858143365942996,
+      "ci_low": 0.4096275790509123,
+      "ci_high": 0.7226856861058293,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": 0.6291229186552126,
+      "ci_low": 0.5194398820523398,
+      "ci_high": 0.7226322194679835,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.5422286357272312,
+      "ci_low": 0.44789508049952365,
+      "ci_high": 0.6420289589275279,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": 0.4787914248268114,
+      "ci_low": 0.3889452875474164,
+      "ci_high": 0.5605087742480159,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.2984965760337631,
+      "ci_low": 0.19230431488331212,
+      "ci_high": 0.40316286966194265,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.5231448805521993,
+      "ci_low": 0.44463278847847304,
+      "ci_high": 0.6013622732587172,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.6869579056258454,
+      "ci_low": 0.5522760480060117,
+      "ci_high": 0.7961272995480366,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.6589743589743589,
+      "ci_low": 0.5630403279543222,
+      "ci_high": 0.7465745903513817,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.5824967824967824,
+      "ci_low": 0.4941883602510564,
+      "ci_high": 0.6795795236195379,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.5470531971169519,
+      "ci_low": 0.47941115283618385,
+      "ci_high": 0.6134633560690881,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.7412204802617857,
+      "ci_low": 0.6906527371311251,
+      "ci_high": 0.7885283263708217,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "csr|csr",
+      "diff_point": 0.371,
+      "ci_low": 0.33899999999999997,
+      "ci_high": 0.401,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.04403468665579413,
+      "ci_low": 0.02026610759601575,
+      "ci_high": 0.07135866380742212,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.0417645983460162,
+      "ci_low": 0.026258739782635664,
+      "ci_high": 0.05763180553588101,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": 0.1702207890525852,
+      "ci_low": 0.1250084932197881,
+      "ci_high": 0.21987927203032717,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.1282074394551671,
+      "ci_low": 0.10241009591635757,
+      "ci_high": 0.15261038220204437,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 9.635327399036328,
+      "ci_low": 8.488585595125238,
+      "ci_high": 10.860068266942802,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": 0.2693273921656878,
+      "ci_low": 0.2376236566556789,
+      "ci_high": 0.3021022429962298,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": 0.3778108626033302,
+      "ci_low": 0.34796091758027214,
+      "ci_high": 0.4083086267114917,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.389728765578881,
+      "ci_low": 0.35403496994166794,
+      "ci_high": 0.42457788130982776,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.40151162719272127,
+      "ci_low": 0.3728831002830063,
+      "ci_high": 0.4297212615988315,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": 34.61846638773782,
+      "ci_low": 32.40340941190577,
+      "ci_high": 36.84487263263084,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.09753252189451966,
+      "ci_low": 0.07719488789871976,
+      "ci_high": 0.11921294746657894,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.1685775482904841,
+      "ci_low": 0.11109129521236116,
+      "ci_high": 0.22975196599771922,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": 0.20573525287463756,
+      "ci_low": 0.08595632077874045,
+      "ci_high": 0.3241255736013508,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": 0.19301683065039055,
+      "ci_low": 0.08129277650474215,
+      "ci_high": 0.3073317571420309,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.290672482497488,
+      "ci_low": 0.19131972890630974,
+      "ci_high": 0.3880781958057401,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": 0.21747458365244543,
+      "ci_low": 0.14404240593717543,
+      "ci_high": 0.29265641556077016,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.1264520299978824,
+      "ci_low": 0.05842604619995118,
+      "ci_high": 0.20194047470743173,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.2722838402528015,
+      "ci_low": 0.20941657594256602,
+      "ci_high": 0.34044381143432595,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.39156204193486704,
+      "ci_low": 0.2501986267293302,
+      "ci_high": 0.5380094826797567,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.2896907216494845,
+      "ci_low": 0.19106639717303311,
+      "ci_high": 0.3970880200346609,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.34750285783092577,
+      "ci_low": 0.2630859153346224,
+      "ci_high": 0.43322420161681846,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.32753568827070406,
+      "ci_low": 0.2582198814321946,
+      "ci_high": 0.4037639062255846,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.4266349595501125,
+      "ci_low": 0.37723446713997777,
+      "ci_high": 0.47501522794902007,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "csr|csr",
+      "diff_point": 0.18499999999999994,
+      "ci_low": 0.15799999999999992,
+      "ci_high": 0.21102499999999993,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.06364414155248865,
+      "ci_low": 0.04879242983106747,
+      "ci_high": 0.08010342531790342,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.05744522106567029,
+      "ci_low": 0.04685979565599299,
+      "ci_high": 0.06948007689415123,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": 0.1567446793048457,
+      "ci_low": 0.1254251307032023,
+      "ci_high": 0.19133529731076593,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.13450017265872927,
+      "ci_low": 0.11615864470861073,
+      "ci_high": 0.15465347475221985,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 15.147170983819763,
+      "ci_low": 13.920520422781431,
+      "ci_high": 16.34933628444405,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": 0.174512014883084,
+      "ci_low": 0.1495770295446265,
+      "ci_high": 0.20041953526070475,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": 0.2240811213628181,
+      "ci_low": 0.19762816670171537,
+      "ci_high": 0.2490617483869006,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": 0.22881894522335888,
+      "ci_low": 0.19859805668513417,
+      "ci_high": 0.2608307979436387,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": 0.26711553581457814,
+      "ci_low": 0.2406375464073309,
+      "ci_high": 0.29371153863107374,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": 26.29578961512773,
+      "ci_low": 24.237782099041826,
+      "ci_high": 28.459401052221995,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.11375195472736532,
+      "ci_low": 0.0975173122018471,
+      "ci_high": 0.13143067669886443,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.17010498968079135,
+      "ci_low": 0.11193380796670144,
+      "ci_high": 0.2309282213995432,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": 0.2322022825177109,
+      "ci_low": 0.06827697197052023,
+      "ci_high": 0.4010424567470562,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": 0.2636424304310421,
+      "ci_low": 0.13121079617569967,
+      "ci_high": 0.3918614125157368,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.4014894774277227,
+      "ci_low": 0.3191058560765158,
+      "ci_high": 0.491715679117429,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": 0.1922006756942346,
+      "ci_low": 0.11507749094790597,
+      "ci_high": 0.26338046780017305,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.1297080117899636,
+      "ci_low": 0.0885244747763038,
+      "ci_high": 0.17363171907478198,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.30917266402742816,
+      "ci_low": 0.24033880708215333,
+      "ci_high": 0.38287117916127866,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": 0.35810408105649477,
+      "ci_low": 0.21647002035879892,
+      "ci_high": 0.4921819751099886,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.357471264367816,
+      "ci_low": 0.2458019788712769,
+      "ci_high": 0.47232866828780085,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.45670492729316253,
+      "ci_low": 0.38178855251771604,
+      "ci_high": 0.5361375422477017,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": 0.30279975846839247,
+      "ci_low": 0.22853084978295007,
+      "ci_high": 0.3761975590705707,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "gemini-3.1-pro",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": 0.18084915168951743,
+      "ci_low": 0.14389259017946285,
+      "ci_high": 0.22044590175449588,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "csr|csr",
+      "diff_point": -0.22999999999999998,
+      "ci_low": -0.27002500000000007,
+      "ci_high": -0.192975,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.034038862024557526,
+      "ci_low": -0.016442160645072642,
+      "ci_high": 0.08456790392984005,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.004534766289001735,
+      "ci_low": -0.04036231105228332,
+      "ci_high": 0.0492076842911068,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": 0.04194447980284116,
+      "ci_low": -0.04951314917406181,
+      "ci_high": 0.1301606772714345,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": -0.024074604002642552,
+      "ci_low": -0.09852524161098754,
+      "ci_high": 0.05101660384515084,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 1.7123821426618022,
+      "ci_low": -0.6235252706821558,
+      "ci_high": 4.142005665832289,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": -0.24475888173077043,
+      "ci_low": -0.29122381488401844,
+      "ci_high": -0.19845799069527242,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": -0.19606413541278916,
+      "ci_low": -0.23233832872795437,
+      "ci_high": -0.16052438149181864,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": -0.08645030030048696,
+      "ci_low": -0.12385153809392299,
+      "ci_high": -0.04949139109905892,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": -0.09431479664356573,
+      "ci_low": -0.12344451984270993,
+      "ci_high": -0.06591662674385061,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": -14.014822865408489,
+      "ci_low": -16.588347697586844,
+      "ci_high": -11.503099735043383,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.0023732066005832664,
+      "ci_low": -0.061696260744439166,
+      "ci_high": 0.06728753997106594,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": -0.08482220650491518,
+      "ci_low": -0.24506807201521932,
+      "ci_high": 0.063249665654745,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": -0.20893020420603475,
+      "ci_low": -0.37638839568312005,
+      "ci_high": -0.0892550135274594,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": -0.0995670995670996,
+      "ci_low": -0.2761917916337806,
+      "ci_high": 0.09556805138907003,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": -0.20759792597155913,
+      "ci_low": -0.2881982287459873,
+      "ci_high": -0.11439440668194624,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": -0.13867325335215241,
+      "ci_low": -0.2545279353754107,
+      "ci_high": -0.025133174614222435,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.038286307623596194,
+      "ci_low": -0.08654422098131621,
+      "ci_high": 0.16826414389925426,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": -0.3146656441374369,
+      "ci_low": -0.3884544568089385,
+      "ci_high": -0.23863353442577026,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": -0.12361438890080811,
+      "ci_low": -0.21530519005847953,
+      "ci_high": -0.05554808074168413,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": -0.1328623757195186,
+      "ci_low": -0.21344464714029932,
+      "ci_high": -0.06824222755173757,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": -0.1836867862969005,
+      "ci_low": -0.24827831302984285,
+      "ci_high": -0.11587910874343248,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": -0.19952633130380865,
+      "ci_low": -0.2675737381571701,
+      "ci_high": -0.13345480194635428,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-9b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": -0.004012956699661396,
+      "ci_low": -0.05923894940687727,
+      "ci_high": 0.04881382671764352,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "csr|csr",
+      "diff_point": -0.39999999999999997,
+      "ci_low": -0.436025,
+      "ci_high": -0.35995000000000005,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": -0.038537118354837974,
+      "ci_low": -0.08564463862127801,
+      "ci_high": 0.005687217513289918,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": -0.05981128430807581,
+      "ci_low": -0.10214503229125517,
+      "ci_high": -0.02267401869999455,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": -0.24159987553481127,
+      "ci_low": -0.31854941982534835,
+      "ci_high": -0.15731239789917226,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": -0.307563375009872,
+      "ci_low": -0.3732915348009916,
+      "ci_high": -0.24093819900963195,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": -3.924324103959009,
+      "ci_low": -6.17118059636245,
+      "ci_high": -1.6891860708073079,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": -0.4299434992898305,
+      "ci_low": -0.4739221250266339,
+      "ci_high": -0.3829556982052121,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": -0.3870659204488908,
+      "ci_low": -0.4224927083481347,
+      "ci_high": -0.3495855723915851,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": -0.3709947998427949,
+      "ci_low": -0.41608539210966,
+      "ci_high": -0.32588291757368043,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": -0.33899974893471885,
+      "ci_low": -0.3716136393258211,
+      "ci_high": -0.30589889370149553,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": -28.01566586281976,
+      "ci_low": -30.520385143770543,
+      "ci_high": -25.25634470028812,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": -0.12783104876761398,
+      "ci_low": -0.18578662733124912,
+      "ci_high": -0.07350628053037407,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": -0.30863225497688146,
+      "ci_low": -0.4693823208609436,
+      "ci_high": -0.14403939274446315,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": -0.5890092879256967,
+      "ci_low": -0.7153331865089353,
+      "ci_high": -0.4560683371912304,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": -0.5356731875719216,
+      "ci_low": -0.7117906574394464,
+      "ci_high": -0.35711916051383796,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": -0.4591540792013024,
+      "ci_low": -0.5804814469242368,
+      "ci_high": -0.3385095001127813,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": -0.3999900945265184,
+      "ci_low": -0.5183804742156325,
+      "ci_high": -0.2813978386098838,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": -0.1337582384122845,
+      "ci_low": -0.2374598315006532,
+      "ci_high": -0.021397232463045063,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": -0.5655266844368347,
+      "ci_low": -0.6347188955426284,
+      "ci_high": -0.4929689907332465,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": -0.4190102525917865,
+      "ci_low": -0.5434333096138028,
+      "ci_high": -0.2949254971746164,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": -0.502146013044393,
+      "ci_low": -0.6217812686423798,
+      "ci_high": -0.3849983658566229,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": -0.41868071096275716,
+      "ci_low": -0.515948199416534,
+      "ci_high": -0.3190333601815,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": -0.4190438401500565,
+      "ci_low": -0.4961522046719947,
+      "ci_high": -0.3414958912013105,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": -0.3185984774113345,
+      "ci_low": -0.3821705425992149,
+      "ci_high": -0.2568193838594531,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "csr|csr",
+      "diff_point": -0.5860000000000001,
+      "ci_low": -0.6199999999999999,
+      "ci_high": -0.552,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": -0.01892766345814345,
+      "ci_low": -0.06414762650346173,
+      "ci_high": 0.021386009790328425,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": -0.044130661588421716,
+      "ci_low": -0.08666228974324934,
+      "ci_high": -0.006942709312950878,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": -0.25507598528255077,
+      "ci_low": -0.3294210713903154,
+      "ci_high": -0.1700681485666857,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": -0.30127064180630986,
+      "ci_low": -0.36220402366072574,
+      "ci_high": -0.23569129273183223,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 1.587519480824426,
+      "ci_low": -0.7300429694902594,
+      "ci_high": 3.7270407859873416,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": -0.5247588765724343,
+      "ci_low": -0.5681186813645331,
+      "ci_high": -0.48092072370691014,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": -0.540795661689403,
+      "ci_low": -0.5740120674027048,
+      "ci_high": -0.5060682772303401,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": -0.531904620198317,
+      "ci_low": -0.5737077877844198,
+      "ci_high": -0.4851881921707987,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": -0.47339584031286197,
+      "ci_low": -0.5011460268181664,
+      "ci_high": -0.44137692841020004,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": -36.338342635429846,
+      "ci_low": -38.674742176811456,
+      "ci_high": -34.00744875875464,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": -0.11161161593476832,
+      "ci_low": -0.16937347632403488,
+      "ci_high": -0.059044222685976616,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": -0.3071048135865742,
+      "ci_low": -0.456008750868155,
+      "ci_high": -0.1697975132018796,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": -0.5625422582826234,
+      "ci_low": -0.7163778009878095,
+      "ci_high": -0.4172693588205637,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": -0.46504758779127015,
+      "ci_low": -0.6489103214890017,
+      "ci_high": -0.2542559035261763,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": -0.34833708427106774,
+      "ci_low": -0.45215732859420626,
+      "ci_high": -0.24260575649360616,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": -0.42526400248472923,
+      "ci_low": -0.5415594072531229,
+      "ci_high": -0.28857823525618087,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": -0.13050225662020332,
+      "ci_low": -0.2237892610942112,
+      "ci_high": -0.03454029702802402,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": -0.5286378606622081,
+      "ci_low": -0.6047792029019817,
+      "ci_high": -0.44553015120138967,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": -0.45246821347015875,
+      "ci_low": -0.5898205652855181,
+      "ci_high": -0.33080050232648,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": -0.4343654703260615,
+      "ci_low": -0.555576441102757,
+      "ci_high": -0.31318802027559733,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": -0.3094786415005204,
+      "ci_low": -0.3955420682168547,
+      "ci_high": -0.2223903028240292,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": -0.4437797699523681,
+      "ci_low": -0.5254505703327476,
+      "ci_high": -0.36643501053224475,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-2b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": -0.5643842852719296,
+      "ci_low": -0.6232929454851145,
+      "ci_high": -0.5051958636978607,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "csr|csr",
+      "diff_point": -0.16999999999999998,
+      "ci_low": -0.20599999999999996,
+      "ci_high": -0.12899999999999995,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": -0.0725759803793955,
+      "ci_low": -0.11297275392471728,
+      "ci_high": -0.03342383094417075,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": -0.06434605059707754,
+      "ci_low": -0.08686314313341144,
+      "ci_high": -0.03982531690023889,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": -0.28354435533765243,
+      "ci_low": -0.3585971270206122,
+      "ci_high": -0.2048309504112739,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": -0.28348877100722947,
+      "ci_low": -0.32284899412616147,
+      "ci_high": -0.23669477590221077,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": -5.636706246620811,
+      "ci_low": -7.11957488849328,
+      "ci_high": -4.173851134789636,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": -0.18518461755906007,
+      "ci_low": -0.2273433498825412,
+      "ci_high": -0.14044513003582093,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": -0.19100178503610166,
+      "ci_low": -0.22529254827760398,
+      "ci_high": -0.15531436912218122,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": -0.28454449954230787,
+      "ci_low": -0.32985956928235044,
+      "ci_high": -0.23910794676546543,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": -0.2446849522911531,
+      "ci_low": -0.2722001057134871,
+      "ci_high": -0.2133282428974163,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": -14.000842997411269,
+      "ci_low": -16.400017012401822,
+      "ci_high": -11.36008266243459,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": -0.13020425536819724,
+      "ci_low": -0.1724483176512393,
+      "ci_high": -0.09320659168560974,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": -0.22381004847196628,
+      "ci_low": -0.3157833336640053,
+      "ci_high": -0.13103239041662057,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": -0.380079083719662,
+      "ci_low": -0.5388814557290775,
+      "ci_high": -0.18243102013442009,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": -0.4361060880048221,
+      "ci_low": -0.5763926044155041,
+      "ci_high": -0.28867752547937925,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": -0.2515561532297433,
+      "ci_low": -0.3764142513248183,
+      "ci_high": -0.14559431924707025,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": -0.261316841174366,
+      "ci_low": -0.3546363519499278,
+      "ci_high": -0.16412335566563405,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": -0.1720445460358807,
+      "ci_low": -0.3098608922832095,
+      "ci_high": -0.03136878572880842,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": -0.2508610402993978,
+      "ci_low": -0.3261508783397328,
+      "ci_high": -0.17705143460893297,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": -0.29539586369097837,
+      "ci_low": -0.426508863249228,
+      "ci_high": -0.17222220900481644,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": -0.36928363732487435,
+      "ci_low": -0.4889153698691377,
+      "ci_high": -0.23778275723139788,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": -0.23499392466585667,
+      "ci_low": -0.34397541115132774,
+      "ci_high": -0.13737750805436835,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": -0.21951750884624788,
+      "ci_low": -0.30686647786630833,
+      "ci_high": -0.1277816213219346,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-27b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": -0.3145855207116731,
+      "ci_low": -0.3802293261982635,
+      "ci_high": -0.2528289316375829,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "csr|csr",
+      "diff_point": -0.35600000000000004,
+      "ci_low": -0.39102500000000007,
+      "ci_high": -0.314,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": -0.05296652548270098,
+      "ci_low": -0.0883774520560858,
+      "ci_high": -0.018053495769406982,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": -0.04866542787742345,
+      "ci_low": -0.07419280509326356,
+      "ci_high": -0.023837920929680005,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": -0.2970204650853919,
+      "ci_low": -0.3616021975461908,
+      "ci_high": -0.22953490844011717,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": -0.2771960378036673,
+      "ci_low": -0.31966314495687687,
+      "ci_high": -0.2346544131538563,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": -0.12486266183737627,
+      "ci_low": -1.7477346956785147,
+      "ci_high": 1.5802528291948283,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": -0.2799999948416639,
+      "ci_low": -0.3221059193602774,
+      "ci_high": -0.23922757865001731,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": -0.34473152627661374,
+      "ci_low": -0.38158453536132175,
+      "ci_high": -0.30579254786775445,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": -0.44545431989783,
+      "ci_low": -0.48503892228575324,
+      "ci_high": -0.4033152054127675,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": -0.37908104366929624,
+      "ci_low": -0.41055048599950394,
+      "ci_high": -0.3437217061675771,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": -22.323519770021356,
+      "ci_low": -24.810646862620253,
+      "ci_high": -19.513358455535613,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": -0.11398482253535158,
+      "ci_low": -0.1569145496721702,
+      "ci_high": -0.07347001161731913,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": -0.22228260708165903,
+      "ci_low": -0.3145951540012678,
+      "ci_high": -0.1386016447752261,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": -0.35361205407658863,
+      "ci_low": -0.5442451457865207,
+      "ci_high": -0.14987465908365885,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": -0.36548048822417056,
+      "ci_low": -0.5082519718527684,
+      "ci_high": -0.21611162898236982,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": -0.14073915829950862,
+      "ci_low": -0.2526110194548916,
+      "ci_high": -0.03080868455112209,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": -0.2865907491325768,
+      "ci_low": -0.3748023186303901,
+      "ci_high": -0.18606829653001147,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": -0.1687885642437995,
+      "ci_low": -0.2802915413642109,
+      "ci_high": -0.05527793041603401,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": -0.21397221652477116,
+      "ci_low": -0.2964949838625646,
+      "ci_high": -0.13339284424393114,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": -0.32885382456935064,
+      "ci_low": -0.4680765422170756,
+      "ci_high": -0.1891944464007557,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": -0.3015030946065429,
+      "ci_low": -0.4229018833441379,
+      "ci_high": -0.1773826034025598,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": -0.1257918552036199,
+      "ci_low": -0.22998877647471325,
+      "ci_high": -0.02703734068910387,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": -0.24425343864855947,
+      "ci_low": -0.32257555662892723,
+      "ci_high": -0.15695487683227125,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-9b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": -0.5603713285722682,
+      "ci_low": -0.6154008978310704,
+      "ci_high": -0.502991792091752,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "csr|csr",
+      "diff_point": -0.18600000000000005,
+      "ci_low": -0.22399999999999998,
+      "ci_high": -0.14997500000000005,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|micro|compiled_only",
+      "diff_point": 0.019609454896694523,
+      "ci_low": -0.008647586920943251,
+      "ci_high": 0.04624416411307195,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|macro|compiled_only",
+      "diff_point": 0.01568062271965409,
+      "ci_low": -0.001231005225263165,
+      "ci_high": 0.031542152179621634,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|micro|compiled_only",
+      "diff_point": -0.013476109747739495,
+      "ci_low": -0.057830882624429536,
+      "ci_high": 0.03397760030115542,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|macro|compiled_only",
+      "diff_point": 0.006292733203562162,
+      "ci_low": -0.020846955726918276,
+      "ci_high": 0.03560529913482964,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "chrf|macro|compiled_only",
+      "diff_point": 5.511843584783435,
+      "ci_low": 4.062682066258384,
+      "ci_high": 6.9610092557522405,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|micro|zeros_for_failed",
+      "diff_point": -0.09481537728260381,
+      "ci_low": -0.12873865980111057,
+      "ci_high": -0.06289627258814211,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "element_f1|macro|zeros_for_failed",
+      "diff_point": -0.15372974124051209,
+      "ci_low": -0.18990619936459913,
+      "ci_high": -0.11944865460366108,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|micro|zeros_for_failed",
+      "diff_point": -0.1609098203555221,
+      "ci_low": -0.1978527167993172,
+      "ci_high": -0.12566921915630874,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1|macro|zeros_for_failed",
+      "diff_point": -0.13439609137814312,
+      "ci_low": -0.16937793682237107,
+      "ci_high": -0.10165579913632024,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "chrf|macro|zeros_for_failed",
+      "diff_point": -8.322676772610087,
+      "ci_low": -11.130265393162162,
+      "ci_high": -5.735759118877821,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "type_accuracy|accuracy|compiled_only",
+      "diff_point": 0.01621943283284566,
+      "ci_low": -0.0061244823308319925,
+      "ci_high": 0.03656784543467449,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::inheritance|micro|compiled_only",
+      "diff_point": 0.0015274413903072492,
+      "ci_low": -0.07730350103986405,
+      "ci_high": 0.08604498626415828,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::composition|micro|compiled_only",
+      "diff_point": 0.026467029643073348,
+      "ci_low": -0.12997760482738288,
+      "ci_high": 0.17528759813106348,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::aggregation|micro|compiled_only",
+      "diff_point": 0.07062559978065153,
+      "ci_low": -0.12119289430429062,
+      "ci_high": 0.2512645336179991,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::dependency|micro|compiled_only",
+      "diff_point": 0.11081699493023467,
+      "ci_low": 0.010883598140085162,
+      "ci_high": 0.21576676130660738,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::association|micro|compiled_only",
+      "diff_point": -0.02527390795821083,
+      "ci_low": -0.1137394549193635,
+      "ci_high": 0.066094061215076,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::message|micro|compiled_only",
+      "diff_point": 0.0032559817920811973,
+      "ci_low": -0.05973016591481053,
+      "ci_high": 0.0739286319749371,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::inheritance|micro|zeros_for_failed",
+      "diff_point": 0.036888823774626656,
+      "ci_low": -0.03531202328048608,
+      "ci_high": 0.11098343587484193,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::composition|micro|zeros_for_failed",
+      "diff_point": -0.03345796087837227,
+      "ci_low": -0.17580342178700709,
+      "ci_high": 0.10409391629457115,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::aggregation|micro|zeros_for_failed",
+      "diff_point": 0.0677805427183315,
+      "ci_low": -0.09037518244259239,
+      "ci_high": 0.22374299186875787,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::dependency|micro|zeros_for_failed",
+      "diff_point": 0.10920206946223676,
+      "ci_low": 0.01356064062085874,
+      "ci_high": 0.20318740115018527,
+      "excludes_zero": true,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::association|micro|zeros_for_failed",
+      "diff_point": -0.024735929802311596,
+      "ci_low": -0.11028942618353632,
+      "ci_high": 0.06372391156798814,
+      "excludes_zero": false,
+      "n_valid": 1000
+    },
+    {
+      "model_a": "qwen3.5-27b",
+      "model_b": "qwen3.5-397b-a17b",
+      "stat": "relationship_f1::message|micro|zeros_for_failed",
+      "diff_point": -0.24578580786059506,
+      "ci_low": -0.2988280954925117,
+      "ci_high": -0.19922088670078725,
+      "excludes_zero": true,
+      "n_valid": 1000
+    }
+  ]
+}

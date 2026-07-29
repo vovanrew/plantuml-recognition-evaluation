@@ -1,0 +1,397 @@
+{
+  "meta": {
+    "label": "main",
+    "models_included": 7,
+    "models_total": 7,
+    "included_ids": [
+      "gpt-5.2",
+      "claude-opus-4-6",
+      "gemini-3.1-pro",
+      "qwen3.5-2b",
+      "qwen3.5-9b",
+      "qwen3.5-27b",
+      "qwen3.5-397b-a17b"
+    ],
+    "pending_ids": [],
+    "refused_ids": [],
+    "desynced_ids": [],
+    "desynced": [],
+    "provider_failure_categories": [
+      "timeout",
+      "image_dropped",
+      "http_error",
+      "network_error"
+    ],
+    "token_note": "token totals over all cells incl. failures; output already includes reasoning (no double count); Gemini output = candidates + thoughts. Dollar pricing out of scope."
+  },
+  "models": [
+    {
+      "model_id": "gpt-5.2",
+      "display": "GPT-5.2",
+      "arm": "frontier",
+      "lab": "openai",
+      "family": "dense",
+      "params_total_b": null,
+      "params_active_b": null,
+      "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+      "tokens": {
+        "n_cells": 1000,
+        "n_ok": 999,
+        "input": 1630813,
+        "output": 330929,
+        "reasoning": 0,
+        "total": 1961742
+      },
+      "failures": {
+        "n": 1000,
+        "compiled": 935,
+        "compile_fail": 64,
+        "no_response": 1,
+        "provider_failures": {
+          "timeout": 1,
+          "image_dropped": 0,
+          "http_error": 0,
+          "network_error": 0
+        },
+        "partition_ok": true,
+        "reconcile": {
+          "source_b_no_response": 1,
+          "source_a_has_pred_false": 1,
+          "ok": true
+        }
+      },
+      "provenance": {
+        "model": "gpt-5.2-2025-12-11",
+        "base_url": "https://api.openai.com/v1",
+        "provider": "openai",
+        "token_field": "max_completion_tokens",
+        "max_tokens": 5376,
+        "timeout": 90,
+        "temperature": 0,
+        "extra_body": {
+          "reasoning_effort": "none"
+        },
+        "started": "20260613T154248Z",
+        "reasoning_leak": 0
+      }
+    },
+    {
+      "model_id": "claude-opus-4-6",
+      "display": "Claude Opus 4.6",
+      "arm": "frontier",
+      "lab": "anthropic",
+      "family": "dense",
+      "params_total_b": null,
+      "params_active_b": null,
+      "run_dir": "claude-opus-4-6_20260614T081502Z",
+      "tokens": {
+        "n_cells": 1000,
+        "n_ok": 1000,
+        "input": 1415358,
+        "output": 338828,
+        "reasoning": 0,
+        "total": 1754186
+      },
+      "failures": {
+        "n": 1000,
+        "compiled": 941,
+        "compile_fail": 59,
+        "no_response": 0,
+        "provider_failures": {
+          "timeout": 0,
+          "image_dropped": 0,
+          "http_error": 0,
+          "network_error": 0
+        },
+        "partition_ok": true,
+        "reconcile": {
+          "source_b_no_response": 0,
+          "source_a_has_pred_false": 0,
+          "ok": true
+        }
+      },
+      "provenance": {
+        "model": "claude-opus-4-6",
+        "base_url": "https://api.anthropic.com/v1",
+        "provider": "openai",
+        "token_field": "max_tokens",
+        "max_tokens": 5376,
+        "timeout": 90,
+        "temperature": 0,
+        "extra_body": {
+          "thinking": {
+            "type": "disabled"
+          }
+        },
+        "started": "20260614T081502Z",
+        "reasoning_leak": 0
+      }
+    },
+    {
+      "model_id": "gemini-3.1-pro",
+      "display": "Gemini 3.1 Pro",
+      "arm": "frontier",
+      "lab": "google",
+      "family": "dense",
+      "params_total_b": null,
+      "params_active_b": null,
+      "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+      "tokens": {
+        "n_cells": 1000,
+        "n_ok": 1000,
+        "input": 1165199,
+        "output": 297210,
+        "reasoning": 0,
+        "total": 1462409
+      },
+      "failures": {
+        "n": 1000,
+        "compiled": 972,
+        "compile_fail": 28,
+        "no_response": 0,
+        "provider_failures": {
+          "timeout": 0,
+          "image_dropped": 0,
+          "http_error": 0,
+          "network_error": 0
+        },
+        "partition_ok": true,
+        "reconcile": {
+          "source_b_no_response": 0,
+          "source_a_has_pred_false": 0,
+          "ok": true
+        }
+      },
+      "provenance": {
+        "model": "gemini-3.1-pro-preview",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta",
+        "provider": "gemini",
+        "token_field": "max_tokens",
+        "max_tokens": 5376,
+        "timeout": 90,
+        "temperature": 0,
+        "extra_body": {
+          "thinkingConfig": {
+            "thinkingLevel": "low"
+          }
+        },
+        "started": "20260617T081808Z",
+        "reasoning_leak": 0
+      }
+    },
+    {
+      "model_id": "qwen3.5-2b",
+      "display": "Qwen3.5-2B",
+      "arm": "qwen",
+      "lab": "qwen",
+      "family": "dense",
+      "params_total_b": 2,
+      "params_active_b": 2,
+      "run_dir": "Qwen_Qwen3.5-2B_20260613T153655Z",
+      "tokens": {
+        "n_cells": 1000,
+        "n_ok": 975,
+        "input": 1351229,
+        "output": 1751686,
+        "reasoning": 0,
+        "total": 3102915
+      },
+      "failures": {
+        "n": 1000,
+        "compiled": 201,
+        "compile_fail": 774,
+        "no_response": 25,
+        "provider_failures": {
+          "timeout": 25,
+          "image_dropped": 0,
+          "http_error": 0,
+          "network_error": 0
+        },
+        "partition_ok": true,
+        "reconcile": {
+          "source_b_no_response": 25,
+          "source_a_has_pred_false": 25,
+          "ok": true
+        }
+      },
+      "provenance": {
+        "model": "Qwen/Qwen3.5-2B",
+        "base_url": "https://api.featherless.ai/v1",
+        "provider": "openai",
+        "token_field": "max_tokens",
+        "max_tokens": 5376,
+        "timeout": 600,
+        "temperature": 0,
+        "extra_body": {
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "started": "20260618T070728Z",
+        "reasoning_leak": 0
+      }
+    },
+    {
+      "model_id": "qwen3.5-9b",
+      "display": "Qwen3.5-9B",
+      "arm": "qwen",
+      "lab": "qwen",
+      "family": "dense",
+      "params_total_b": 9,
+      "params_active_b": 9,
+      "run_dir": "Qwen_Qwen3.5-9B_20260613T202001Z",
+      "tokens": {
+        "n_cells": 1000,
+        "n_ok": 1000,
+        "input": 1387229,
+        "output": 1176626,
+        "reasoning": 0,
+        "total": 2563855
+      },
+      "failures": {
+        "n": 1000,
+        "compiled": 431,
+        "compile_fail": 569,
+        "no_response": 0,
+        "provider_failures": {
+          "timeout": 0,
+          "image_dropped": 0,
+          "http_error": 0,
+          "network_error": 0
+        },
+        "partition_ok": true,
+        "reconcile": {
+          "source_b_no_response": 0,
+          "source_a_has_pred_false": 0,
+          "ok": true
+        }
+      },
+      "provenance": {
+        "model": "Qwen/Qwen3.5-9B",
+        "base_url": "https://api.featherless.ai/v1",
+        "provider": "openai",
+        "token_field": "max_tokens",
+        "max_tokens": 5376,
+        "timeout": 600,
+        "temperature": 0,
+        "extra_body": {
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "started": "20260616T161347Z",
+        "reasoning_leak": 0
+      }
+    },
+    {
+      "model_id": "qwen3.5-27b",
+      "display": "Qwen3.5-27B",
+      "arm": "qwen",
+      "lab": "qwen",
+      "family": "dense",
+      "params_total_b": 27,
+      "params_active_b": 27,
+      "run_dir": "Qwen_Qwen3.5-27B_20260613T202731Z",
+      "tokens": {
+        "n_cells": 1000,
+        "n_ok": 999,
+        "input": 1385125,
+        "output": 370554,
+        "reasoning": 0,
+        "total": 1755679
+      },
+      "failures": {
+        "n": 1000,
+        "compiled": 601,
+        "compile_fail": 398,
+        "no_response": 1,
+        "provider_failures": {
+          "timeout": 1,
+          "image_dropped": 0,
+          "http_error": 0,
+          "network_error": 0
+        },
+        "partition_ok": true,
+        "reconcile": {
+          "source_b_no_response": 1,
+          "source_a_has_pred_false": 1,
+          "ok": true
+        }
+      },
+      "provenance": {
+        "model": "Qwen/Qwen3.5-27B",
+        "base_url": "https://api.featherless.ai/v1",
+        "provider": "openai",
+        "token_field": "max_tokens",
+        "max_tokens": 5376,
+        "timeout": 600,
+        "temperature": 0,
+        "extra_body": {
+          "chat_template_kwargs": {
+            "enable_thinking": false
+          }
+        },
+        "started": "20260615T060327Z",
+        "reasoning_leak": 0
+      }
+    },
+    {
+      "model_id": "qwen3.5-397b-a17b",
+      "display": "Qwen3.5-397B-A17B",
+      "arm": "qwen",
+      "lab": "qwen",
+      "family": "moe",
+      "params_total_b": 397,
+      "params_active_b": 17,
+      "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+      "tokens": {
+        "n_cells": 1000,
+        "n_ok": 1000,
+        "input": 1386230,
+        "output": 679303,
+        "reasoning": 0,
+        "total": 2065533
+      },
+      "failures": {
+        "n": 1000,
+        "compiled": 787,
+        "compile_fail": 213,
+        "no_response": 0,
+        "provider_failures": {
+          "timeout": 0,
+          "image_dropped": 0,
+          "http_error": 0,
+          "network_error": 0
+        },
+        "partition_ok": true,
+        "reconcile": {
+          "source_b_no_response": 0,
+          "source_a_has_pred_false": 0,
+          "ok": true
+        }
+      },
+      "provenance": {
+        "model": "qwen/qwen3.5-397b-a17b",
+        "base_url": "https://openrouter.ai/api/v1",
+        "provider": "openai",
+        "token_field": "max_tokens",
+        "max_tokens": 5376,
+        "timeout": 600,
+        "temperature": 0,
+        "extra_body": {
+          "provider": {
+            "only": [
+              "alibaba"
+            ],
+            "allow_fallbacks": false
+          },
+          "reasoning": {
+            "enabled": false
+          }
+        },
+        "started": "20260628T171705Z",
+        "reasoning_leak": 0
+      }
+    }
+  ]
+}

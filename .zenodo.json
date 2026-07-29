@@ -1,0 +1,37 @@
+{
+  "title": "Zero-shot image-to-PlantUML: a multi-level structural evaluation framework and benchmark",
+  "description": "<p>A reproducible benchmark and evaluation framework for reconstructing PlantUML source from a rendered UML diagram image, zero-shot.</p><p>The test set holds 1,000 repository-disjoint class and sequence diagrams mined from open-source repositories via World of Code, stratified over four complexity tiers by source-line quartile. Seven multimodal models are evaluated under one frozen prompt at minimum reasoning, all receiving an identical standardized input image. Models are scored on compilation success rate (CSR), Element F1, Relationship F1, UML type accuracy, and chrF++. Every structural metric is reported over two populations: the full 1,000-diagram set with non-compiling predictions scored zero, and the compiled-only subset. Uncertainty is reported as paired bootstrap 95% confidence intervals.</p><p>The deposition contains the evaluation code, the frozen test-set key list, all model predictions, the computed metric results, and the generated exhibits. The rendered diagram images are distributed as separate archives because of their size.</p>",
+  "upload_type": "software",
+  "license": "MIT",
+  "access_right": "open",
+  "creators": [
+    {
+      "name": "Polishchuk, Volodymyr",
+      "affiliation": "Lutsk National Technical University",
+      "orcid": "0009-0000-2161-4560"
+    }
+  ],
+  "keywords": [
+    "PlantUML",
+    "UML",
+    "multimodal large language models",
+    "diagram recognition",
+    "image-to-code",
+    "benchmark",
+    "evaluation framework",
+    "zero-shot",
+    "World of Code"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/vovanrew/plantuml-recognition-evaluation",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/vovanrew/plantuml/tree/stats-extractor-graph",
+      "relation": "requires",
+      "scheme": "url"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# Unpacked benchmark data. The tracked artifact is data.zip; unzipping it at the
+# repository root recreates data/, which must never be committed back.
+data/
+
+# Renderer and extractor JARs are pinned by version in README.md, not vendored.
+*.jar
+
+# Credentials. Never commit an API key.
+*-KEY.txt
+*.key
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# OS
+.DS_Store

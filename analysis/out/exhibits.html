@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<title>Paper exhibits</title>
+<style>body{font-family:Calibri,Arial,sans-serif;font-size:11pt;line-height:1.4;}table{border-collapse:collapse;margin:8px 0;}th,td{border:1px solid #999;padding:3px 8px;text-align:left;vertical-align:top;}th{background:#eee;}code{font-family:Consolas,monospace;}</style></head><body>
+<h1>Paper exhibits — zero-shot image→PlantUML benchmark</h1>
+<p><strong>Models included: 7/7</strong> (panel: main).</p>
+<p>Assembled read-only from the validated Task-1..5 artifacts (<code>master_table.json</code>, <code>ci_table.json</code>, <code>run_level.json</code>, <code>crowding.json</code>, <code>failure_index.json</code>). No metric is re-pooled or recomputed here. Companion figures live in <code>analysis/out/plots/</code>; a Word-importable rendering of this document (tables paste straight into Microsoft Word) is emitted alongside it as <code>exhibits.html</code>.</p>
+<h2>Exhibit 1 — Headline results (two arms)</h2>
+<p>Cells are <code>point [2.5th, 97.5th]</code> paired-bootstrap 95% CIs (n=1000, seed=20260614); CSR as a percentage, F1 / type accuracy on 0–1, chrF++ on its native 0–100 scale. Two populations per metric as <code>zeros_for_failed / compiled_only</code>. chrF++ is the <strong>macro</strong> statistic (the CI-bearing one; chrF++ micro is a corpus statistic, point-only — see Exhibit 2). Type accuracy is compiled-only by definition. <strong>This is two arms, not one leaderboard.</strong></p>
+<h3>Arm A — Frontier reference points</h3>
+<p>One reigning flagship per lab (fixed comparison points).</p>
+<table>
+<thead><tr><th>Model</th><th>CSR</th><th>Element F1 (z / c)</th><th>Relationship F1 (z / c)</th><th>chrF++ macro (z / c)</th><th>Type acc</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td>93.5% [91.9%, 95.0%]</td><td>0.897 [0.876, 0.916] / 0.939 [0.920, 0.954]</td><td>0.757 [0.720, 0.790] / 0.799 [0.764, 0.828]</td><td>62.73 [61.23, 64.20] / 67.09 [65.97, 68.18]</td><td>0.941 [0.927, 0.954]</td></tr>
+<tr><td>Claude Opus 4.6</td><td>94.1% [92.5%, 95.5%]</td><td>0.909 [0.888, 0.927] / 0.940 [0.922, 0.957]</td><td>0.693 [0.655, 0.728] / 0.720 [0.681, 0.756]</td><td>65.68 [64.23, 67.18] / 69.80 [68.68, 70.98]</td><td>0.950 [0.936, 0.962]</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>97.2% [96.2%, 98.1%]</td><td>0.945 [0.932, 0.959] / 0.961 [0.948, 0.973]</td><td>0.875 [0.848, 0.900] / 0.893 [0.867, 0.916]</td><td>75.53 [74.19, 76.85] / 77.70 [76.52, 78.83]</td><td>0.984 [0.972, 0.992]</td></tr>
+</tbody></table>
+<h3>Arm B — Qwen open ladder (dense) + MoE ceiling</h3>
+<p>The dense 2B/9B/27B ladder is a scaling curve; the 397B-A17B MoE is a capability ceiling (both total and active parameters reported), <strong>not</strong> a fourth dense rung.</p>
+<table>
+<thead><tr><th>Model</th><th>Params</th><th>CSR</th><th>Element F1 (z / c)</th><th>Relationship F1 (z / c)</th><th>chrF++ macro (z / c)</th><th>Type acc</th></tr></thead>
+<tbody>
+<tr><td>Qwen3.5-2B</td><td>2B</td><td>20.1% [17.6%, 22.6%]</td><td>0.246 [0.211, 0.282] / 0.878 [0.838, 0.913]</td><td>0.114 [0.091, 0.139] / 0.481 [0.415, 0.545]</td><td>12.89 [11.18, 14.61] / 64.14 [61.99, 66.30]</td><td>0.758 [0.703, 0.809]</td></tr>
+<tr><td>Qwen3.5-9B</td><td>9B</td><td>43.1% [40.2%, 46.2%]</td><td>0.491 [0.456, 0.527] / 0.844 [0.811, 0.877]</td><td>0.201 [0.173, 0.233] / 0.439 [0.382, 0.499]</td><td>26.91 [24.84, 29.10] / 62.43 [60.74, 64.21]</td><td>0.756 [0.711, 0.798]</td></tr>
+<tr><td>Qwen3.5-27B</td><td>27B</td><td>60.1% [56.9%, 63.2%]</td><td>0.676 [0.645, 0.707] / 0.917 [0.891, 0.941]</td><td>0.485 [0.443, 0.526] / 0.722 [0.666, 0.771]</td><td>40.91 [38.55, 43.27] / 68.07 [66.61, 69.48]</td><td>0.886 [0.861, 0.910]</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td>397B total / 17B active</td><td>78.7% [76.2%, 81.2%]</td><td>0.771 [0.744, 0.796] / 0.897 [0.877, 0.917]</td><td>0.646 [0.605, 0.687] / 0.736 [0.688, 0.779]</td><td>49.23 [47.46, 51.17] / 62.56 [61.27, 64.00]</td><td>0.870 [0.850, 0.888]</td></tr>
+</tbody></table>
+<h2>Exhibit 2 — Overall results, both populations × micro &amp; macro</h2>
+<p>Read straight from the master table; CIs (where they exist) from the CI table. chrF++ micro is a corpus sacrebleu statistic (point estimate, no CI); chrF++ macro carries a CI.</p>
+<h3>Micro</h3>
+<table>
+<thead><tr><th>Model</th><th>CSR</th><th>Element F1 (z / c)</th><th>Relationship F1 (z / c)</th><th>chrF++ (z / c)</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td>93.5% [91.9%, 95.0%]</td><td>0.897 [0.876, 0.916] / 0.939 [0.920, 0.954]</td><td>0.757 [0.720, 0.790] / 0.799 [0.764, 0.828]</td><td>60.74 / 66.01</td></tr>
+<tr><td>Claude Opus 4.6</td><td>94.1% [92.5%, 95.5%]</td><td>0.909 [0.888, 0.927] / 0.940 [0.922, 0.957]</td><td>0.693 [0.655, 0.728] / 0.720 [0.681, 0.756]</td><td>62.36 / 66.57</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>97.2% [96.2%, 98.1%]</td><td>0.945 [0.932, 0.959] / 0.961 [0.948, 0.973]</td><td>0.875 [0.848, 0.900] / 0.893 [0.867, 0.916]</td><td>72.19 / 74.54</td></tr>
+<tr><td>Qwen3.5-2B</td><td>20.1% [17.6%, 22.6%]</td><td>0.246 [0.211, 0.282] / 0.878 [0.838, 0.913]</td><td>0.114 [0.091, 0.139] / 0.481 [0.415, 0.545]</td><td>8.96 / 65.12</td></tr>
+<tr><td>Qwen3.5-9B</td><td>43.1% [40.2%, 46.2%]</td><td>0.491 [0.456, 0.527] / 0.844 [0.811, 0.877]</td><td>0.201 [0.173, 0.233] / 0.439 [0.382, 0.499]</td><td>24.40 / 61.17</td></tr>
+<tr><td>Qwen3.5-27B</td><td>60.1% [56.9%, 63.2%]</td><td>0.676 [0.645, 0.707] / 0.917 [0.891, 0.941]</td><td>0.485 [0.443, 0.526] / 0.722 [0.666, 0.771]</td><td>38.41 / 65.65</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td>78.7% [76.2%, 81.2%]</td><td>0.771 [0.744, 0.796] / 0.897 [0.877, 0.917]</td><td>0.646 [0.605, 0.687] / 0.736 [0.688, 0.779]</td><td>47.80 / 59.77</td></tr>
+</tbody></table>
+<h3>Macro</h3>
+<table>
+<thead><tr><th>Model</th><th>CSR</th><th>Element F1 (z / c)</th><th>Relationship F1 (z / c)</th><th>chrF++ (z / c)</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td>93.5%</td><td>0.891 [0.872, 0.908] / 0.953 [0.942, 0.963]</td><td>0.807 [0.785, 0.828] / 0.860 [0.842, 0.877]</td><td>62.73 [61.23, 64.20] / 67.09 [65.97, 68.18]</td></tr>
+<tr><td>Claude Opus 4.6</td><td>94.1%</td><td>0.901 [0.882, 0.918] / 0.958 [0.946, 0.968]</td><td>0.776 [0.755, 0.794] / 0.823 [0.804, 0.840]</td><td>65.68 [64.23, 67.18] / 69.80 [68.68, 70.98]</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>97.2%</td><td>0.940 [0.927, 0.952] / 0.967 [0.957, 0.976]</td><td>0.906 [0.891, 0.921] / 0.931 [0.918, 0.944]</td><td>75.53 [74.19, 76.85] / 77.70 [76.52, 78.83]</td></tr>
+<tr><td>Qwen3.5-2B</td><td>20.1%</td><td>0.175 [0.151, 0.198] / 0.865 [0.825, 0.900]</td><td>0.166 [0.144, 0.188] / 0.495 [0.437, 0.555]</td><td>12.89 [11.18, 14.61] / 64.14 [61.99, 66.30]</td></tr>
+<tr><td>Qwen3.5-9B</td><td>43.1%</td><td>0.371 [0.343, 0.400] / 0.861 [0.834, 0.887]</td><td>0.260 [0.235, 0.285] / 0.519 [0.478, 0.562]</td><td>26.91 [24.84, 29.10] / 62.43 [60.74, 64.21]</td></tr>
+<tr><td>Qwen3.5-27B</td><td>60.1%</td><td>0.562 [0.532, 0.591] / 0.925 [0.909, 0.941]</td><td>0.505 [0.476, 0.533] / 0.803 [0.778, 0.828]</td><td>40.91 [38.55, 43.27] / 68.07 [66.61, 69.48]</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td>78.7%</td><td>0.716 [0.691, 0.742] / 0.909 [0.894, 0.923]</td><td>0.639 [0.613, 0.667] / 0.797 [0.773, 0.818]</td><td>49.23 [47.46, 51.17] / 62.56 [61.27, 64.00]</td></tr>
+</tbody></table>
+<h2>Exhibit 3 — Population gap (selective-failure bias)</h2>
+<p><code>compiled_only − zeros_for_failed</code> (overall micro). A low-CSR model that drops/times out on its hardest diagrams is graded on an easier subset, so its compiled-only score runs far above its honest all-1000 score; the gap is that fingerprint and tracks CSR (near-zero for the frontier, large for the weak rungs).</p>
+<table>
+<thead><tr><th>Model</th><th>CSR</th><th>ΔElement F1</th><th>ΔRelationship F1</th><th>ΔchrF++</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td>93.5%</td><td>+0.042</td><td>+0.042</td><td>+5.27</td></tr>
+<tr><td>Claude Opus 4.6</td><td>94.1%</td><td>+0.031</td><td>+0.027</td><td>+4.21</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>97.2%</td><td>+0.016</td><td>+0.018</td><td>+2.35</td></tr>
+<tr><td>Qwen3.5-2B</td><td>20.1%</td><td>+0.632</td><td>+0.367</td><td>+56.16</td></tr>
+<tr><td>Qwen3.5-9B</td><td>43.1%</td><td>+0.354</td><td>+0.238</td><td>+36.77</td></tr>
+<tr><td>Qwen3.5-27B</td><td>60.1%</td><td>+0.241</td><td>+0.237</td><td>+27.23</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td>78.7%</td><td>+0.127</td><td>+0.090</td><td>+11.97</td></tr>
+</tbody></table>
+<h2>Exhibit 4 — Relationship F1 by relation type (with CIs)</h2>
+<p>Per-relation F1 (micro), <code>zeros_for_failed [CI] / compiled_only [CI]</code>. GT support (model-independent) annotates each relation.</p>
+<table>
+<thead><tr><th>Model</th><th>inheritance<br/>(n=940)</th><th>composition<br/>(n=300)</th><th>aggregation<br/>(n=244)</th><th>dependency<br/>(n=393)</th><th>association<br/>(n=1014)</th><th>message<br/>(n=6546)</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td>0.814 [0.765, 0.860] / 0.845 [0.801, 0.890]</td><td>0.630 [0.497, 0.755] / 0.654 [0.514, 0.780]</td><td>0.618 [0.514, 0.714] / 0.625 [0.521, 0.722]</td><td>0.571 [0.488, 0.651] / 0.583 [0.500, 0.667]</td><td>0.629 [0.563, 0.693] / 0.680 [0.615, 0.738]</td><td>0.793 [0.748, 0.835] / 0.839 [0.794, 0.880]</td></tr>
+<tr><td>Claude Opus 4.6</td><td>0.863 [0.825, 0.895] / 0.880 [0.843, 0.911]</td><td>0.467 [0.353, 0.588] / 0.492 [0.375, 0.617]</td><td>0.508 [0.412, 0.606] / 0.520 [0.422, 0.621]</td><td>0.539 [0.451, 0.620] / 0.550 [0.460, 0.636]</td><td>0.600 [0.541, 0.660] / 0.617 [0.558, 0.678]</td><td>0.708 [0.656, 0.757] / 0.740 [0.686, 0.792]</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>0.924 [0.898, 0.947] / 0.940 [0.917, 0.960]</td><td>0.817 [0.722, 0.892] / 0.824 [0.732, 0.896]</td><td>0.800 [0.719, 0.875] / 0.820 [0.746, 0.890]</td><td>0.782 [0.710, 0.851] / 0.789 [0.715, 0.856]</td><td>0.811 [0.751, 0.866] / 0.819 [0.762, 0.873]</td><td>0.889 [0.853, 0.921] / 0.909 [0.876, 0.940]</td></tr>
+<tr><td>Qwen3.5-2B</td><td>0.086 [0.045, 0.131] / 0.462 [0.311, 0.604]</td><td>0.006 [0.000, 0.021] / 0.029 [0.000, 0.078]</td><td>0.008 [0.000, 0.027] / 0.091 [0.000, 0.240]</td><td>0.016 [0.000, 0.042] / 0.039 [0.000, 0.097]</td><td>0.064 [0.032, 0.102] / 0.202 [0.109, 0.298]</td><td>0.143 [0.109, 0.176] / 0.649 [0.580, 0.716]</td></tr>
+<tr><td>Qwen3.5-9B</td><td>0.401 [0.327, 0.469] / 0.547 [0.460, 0.631]</td><td>0.130 [0.062, 0.220] / 0.238 [0.124, 0.391]</td><td>0.141 [0.078, 0.217] / 0.190 [0.111, 0.297]</td><td>0.200 [0.135, 0.261] / 0.246 [0.171, 0.315]</td><td>0.264 [0.207, 0.331] / 0.341 [0.267, 0.427]</td><td>0.147 [0.105, 0.194] / 0.611 [0.496, 0.716]</td></tr>
+<tr><td>Qwen3.5-27B</td><td>0.652 [0.581, 0.717] / 0.771 [0.706, 0.830]</td><td>0.425 [0.301, 0.547] / 0.618 [0.498, 0.730]</td><td>0.510 [0.394, 0.628] / 0.627 [0.498, 0.747]</td><td>0.435 [0.343, 0.527] / 0.498 [0.385, 0.605]</td><td>0.483 [0.410, 0.552] / 0.602 [0.524, 0.682]</td><td>0.462 [0.403, 0.522] / 0.783 [0.694, 0.861]</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td>0.615 [0.538, 0.685] / 0.769 [0.708, 0.825]</td><td>0.459 [0.336, 0.597] / 0.592 [0.448, 0.743]</td><td>0.443 [0.321, 0.563] / 0.556 [0.425, 0.685]</td><td>0.326 [0.240, 0.407] / 0.387 [0.292, 0.477]</td><td>0.508 [0.436, 0.583] / 0.627 [0.550, 0.703]</td><td>0.708 [0.654, 0.759] / 0.779 [0.719, 0.839]</td></tr>
+</tbody></table>
+<h2>Exhibit 5 — Per-type breakdown (class / sequence)</h2>
+<p>Point estimates (per-type cells are not bootstrapped). chrF++ is macro (poolable at sub-scopes).</p>
+<h3>Type: class (micro, point estimates)</h3>
+<table>
+<thead><tr><th>Model</th><th>CSR</th><th>Element F1 (z / c)</th><th>Relationship F1 (z / c)</th><th>chrF++ macro (z / c)</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td>94.4%</td><td>0.899 / 0.940</td><td>0.679 / 0.711</td><td>65.74 / 69.64</td></tr>
+<tr><td>Claude Opus 4.6</td><td>97.4%</td><td>0.928 / 0.949</td><td>0.662 / 0.679</td><td>71.77 / 73.68</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>97.6%</td><td>0.944 / 0.959</td><td>0.844 / 0.855</td><td>79.07 / 81.01</td></tr>
+<tr><td>Qwen3.5-2B</td><td>21.6%</td><td>0.238 / 0.882</td><td>0.055 / 0.218</td><td>14.13 / 65.41</td></tr>
+<tr><td>Qwen3.5-9B</td><td>65.6%</td><td>0.635 / 0.857</td><td>0.304 / 0.419</td><td>41.60 / 63.41</td></tr>
+<tr><td>Qwen3.5-27B</td><td>75.4%</td><td>0.762 / 0.923</td><td>0.545 / 0.670</td><td>53.20 / 70.55</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td>73.4%</td><td>0.716 / 0.878</td><td>0.503 / 0.623</td><td>44.94 / 61.23</td></tr>
+</tbody></table>
+<h3>Type: sequence (micro, point estimates)</h3>
+<table>
+<thead><tr><th>Model</th><th>CSR</th><th>Element F1 (z / c)</th><th>Relationship F1 (z / c)</th><th>chrF++ macro (z / c)</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td>92.6%</td><td>0.895 / 0.938</td><td>0.792 / 0.839</td><td>59.72 / 64.50</td></tr>
+<tr><td>Claude Opus 4.6</td><td>90.8%</td><td>0.887 / 0.930</td><td>0.707 / 0.738</td><td>59.60 / 65.64</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>96.8%</td><td>0.947 / 0.963</td><td>0.889 / 0.909</td><td>71.99 / 74.37</td></tr>
+<tr><td>Qwen3.5-2B</td><td>18.6%</td><td>0.255 / 0.875</td><td>0.141 / 0.609</td><td>11.66 / 62.67</td></tr>
+<tr><td>Qwen3.5-9B</td><td>20.6%</td><td>0.261 / 0.800</td><td>0.137 / 0.469</td><td>12.22 / 59.32</td></tr>
+<tr><td>Qwen3.5-27B</td><td>44.8%</td><td>0.555 / 0.906</td><td>0.454 / 0.760</td><td>28.62 / 63.89</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td>84.0%</td><td>0.834 / 0.917</td><td>0.707 / 0.778</td><td>53.52 / 63.71</td></tr>
+</tbody></table>
+<h2>Exhibit 6 — Per-tier breakdown (complexity quartiles)</h2>
+<p>Point estimates (per-tier cells are not bootstrapped). chrF++ is macro.</p>
+<h3>Tier 1 (micro, point estimates)</h3>
+<table>
+<thead><tr><th>Model</th><th>CSR</th><th>Element F1 (z / c)</th><th>Relationship F1 (z / c)</th><th>chrF++ macro (z / c)</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td>97.6%</td><td>0.952 / 0.964</td><td>0.929 / 0.936</td><td>64.05 / 65.62</td></tr>
+<tr><td>Claude Opus 4.6</td><td>98.4%</td><td>0.957 / 0.969</td><td>0.916 / 0.935</td><td>70.13 / 71.27</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>98.4%</td><td>0.972 / 0.978</td><td>0.975 / 0.979</td><td>76.83 / 78.08</td></tr>
+<tr><td>Qwen3.5-2B</td><td>32.8%</td><td>0.451 / 0.833</td><td>0.353 / 0.634</td><td>20.87 / 63.63</td></tr>
+<tr><td>Qwen3.5-9B</td><td>52.0%</td><td>0.569 / 0.847</td><td>0.235 / 0.420</td><td>32.06 / 61.66</td></tr>
+<tr><td>Qwen3.5-27B</td><td>72.0%</td><td>0.763 / 0.924</td><td>0.656 / 0.821</td><td>48.45 / 67.29</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td>87.2%</td><td>0.829 / 0.884</td><td>0.829 / 0.868</td><td>54.41 / 62.40</td></tr>
+</tbody></table>
+<h3>Tier 2 (micro, point estimates)</h3>
+<table>
+<thead><tr><th>Model</th><th>CSR</th><th>Element F1 (z / c)</th><th>Relationship F1 (z / c)</th><th>chrF++ macro (z / c)</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td>94.8%</td><td>0.945 / 0.975</td><td>0.902 / 0.927</td><td>64.79 / 68.34</td></tr>
+<tr><td>Claude Opus 4.6</td><td>94.0%</td><td>0.953 / 0.982</td><td>0.831 / 0.865</td><td>66.99 / 71.26</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>98.0%</td><td>0.987 / 0.994</td><td>0.969 / 0.979</td><td>78.24 / 79.84</td></tr>
+<tr><td>Qwen3.5-2B</td><td>22.0%</td><td>0.313 / 0.824</td><td>0.176 / 0.466</td><td>14.13 / 64.25</td></tr>
+<tr><td>Qwen3.5-9B</td><td>43.2%</td><td>0.517 / 0.841</td><td>0.265 / 0.501</td><td>27.03 / 62.58</td></tr>
+<tr><td>Qwen3.5-27B</td><td>62.0%</td><td>0.760 / 0.962</td><td>0.625 / 0.848</td><td>42.96 / 69.29</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td>81.6%</td><td>0.826 / 0.919</td><td>0.788 / 0.859</td><td>50.78 / 62.23</td></tr>
+</tbody></table>
+<h3>Tier 3 (micro, point estimates)</h3>
+<table>
+<thead><tr><th>Model</th><th>CSR</th><th>Element F1 (z / c)</th><th>Relationship F1 (z / c)</th><th>chrF++ macro (z / c)</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td>93.2%</td><td>0.911 / 0.943</td><td>0.840 / 0.868</td><td>62.80 / 67.38</td></tr>
+<tr><td>Claude Opus 4.6</td><td>90.8%</td><td>0.915 / 0.956</td><td>0.734 / 0.767</td><td>63.31 / 69.73</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>96.4%</td><td>0.948 / 0.961</td><td>0.920 / 0.935</td><td>74.36 / 77.14</td></tr>
+<tr><td>Qwen3.5-2B</td><td>19.6%</td><td>0.304 / 0.941</td><td>0.141 / 0.452</td><td>12.76 / 65.08</td></tr>
+<tr><td>Qwen3.5-9B</td><td>44.0%</td><td>0.527 / 0.840</td><td>0.264 / 0.514</td><td>28.22 / 64.15</td></tr>
+<tr><td>Qwen3.5-27B</td><td>58.0%</td><td>0.709 / 0.931</td><td>0.567 / 0.821</td><td>40.04 / 69.04</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td>74.8%</td><td>0.800 / 0.925</td><td>0.718 / 0.823</td><td>45.94 / 61.42</td></tr>
+</tbody></table>
+<h3>Tier 4 (micro, point estimates)</h3>
+<table>
+<thead><tr><th>Model</th><th>CSR</th><th>Element F1 (z / c)</th><th>Relationship F1 (z / c)</th><th>chrF++ macro (z / c)</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td>88.4%</td><td>0.851 / 0.913</td><td>0.643 / 0.697</td><td>59.29 / 67.07</td></tr>
+<tr><td>Claude Opus 4.6</td><td>93.2%</td><td>0.873 / 0.905</td><td>0.599 / 0.622</td><td>62.31 / 66.85</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>96.0%</td><td>0.918 / 0.941</td><td>0.810 / 0.832</td><td>72.67 / 75.69</td></tr>
+<tr><td>Qwen3.5-2B</td><td>6.0%</td><td>0.095 / 0.947</td><td>0.028 / 0.350</td><td>3.81 / 63.53</td></tr>
+<tr><td>Qwen3.5-9B</td><td>33.2%</td><td>0.430 / 0.849</td><td>0.141 / 0.363</td><td>20.31 / 61.17</td></tr>
+<tr><td>Qwen3.5-27B</td><td>48.4%</td><td>0.587 / 0.878</td><td>0.368 / 0.592</td><td>32.18 / 66.49</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td>71.2%</td><td>0.707 / 0.873</td><td>0.535 / 0.625</td><td>45.79 / 64.31</td></tr>
+</tbody></table>
+<h3>Per-tier image crowding (degradation context)</h3>
+<p>Content_lines per megapixel after the 1568px resize (pooled), the legibility descriptor accompanying the degradation curve — it rises monotonically with tier (harder diagrams are denser).</p>
+<table>
+<thead><tr><th>Tier</th><th>content_lines / MP</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>8.74</td></tr>
+<tr><td>2</td><td>13.25</td></tr>
+<tr><td>3</td><td>21.12</td></tr>
+<tr><td>4</td><td>50.09</td></tr>
+</tbody></table>
+<h2>Exhibit 7 — Run-level: token footprint &amp; provenance</h2>
+<p>token totals over all cells incl. failures; output already includes reasoning (no double count); Gemini output = candidates + thoughts. Dollar pricing out of scope.</p>
+<h3>Token totals (all 1000 cells incl. failures)</h3>
+<table>
+<thead><tr><th>Model</th><th>input (M)</th><th>output (M)</th><th>reasoning (M)</th><th>total (M)</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td>1.631</td><td>0.331</td><td>0.000</td><td>1.962</td></tr>
+<tr><td>Claude Opus 4.6</td><td>1.415</td><td>0.339</td><td>0.000</td><td>1.754</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>1.165</td><td>0.297</td><td>0.000</td><td>1.462</td></tr>
+<tr><td>Qwen3.5-2B</td><td>1.351</td><td>1.752</td><td>0.000</td><td>3.103</td></tr>
+<tr><td>Qwen3.5-9B</td><td>1.387</td><td>1.177</td><td>0.000</td><td>2.564</td></tr>
+<tr><td>Qwen3.5-27B</td><td>1.385</td><td>0.371</td><td>0.000</td><td>1.756</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td>1.386</td><td>0.679</td><td>0.000</td><td>2.066</td></tr>
+</tbody></table>
+<h3>Reproducibility provenance</h3>
+<table>
+<thead><tr><th>Model</th><th>snapshot</th><th>provider</th><th>non-thinking config</th><th>max_tokens</th><th>leak</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.2</td><td><code>gpt-5.2-2025-12-11</code></td><td>openai</td><td>reasoning_effort=none</td><td>5376</td><td>0</td></tr>
+<tr><td>Claude Opus 4.6</td><td><code>claude-opus-4-6</code></td><td>openai</td><td>thinking={'type': 'disabled'}</td><td>5376</td><td>0</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td><code>gemini-3.1-pro-preview</code></td><td>gemini</td><td>thinkingConfig={'thinkingLevel': 'low'}</td><td>5376</td><td>0</td></tr>
+<tr><td>Qwen3.5-2B</td><td><code>Qwen/Qwen3.5-2B</code></td><td>openai</td><td>chat_template_kwargs={'enable_thinking': False}</td><td>5376</td><td>0</td></tr>
+<tr><td>Qwen3.5-9B</td><td><code>Qwen/Qwen3.5-9B</code></td><td>openai</td><td>chat_template_kwargs={'enable_thinking': False}</td><td>5376</td><td>0</td></tr>
+<tr><td>Qwen3.5-27B</td><td><code>Qwen/Qwen3.5-27B</code></td><td>openai</td><td>chat_template_kwargs={'enable_thinking': False}</td><td>5376</td><td>0</td></tr>
+<tr><td>Qwen3.5-397B-A17B</td><td><code>qwen/qwen3.5-397b-a17b</code></td><td>openai</td><td>provider={'only': ['alibaba'], 'allow_fallbacks': False}; reasoning={'enabled': False}</td><td>5376</td><td>0</td></tr>
+</tbody></table>
+<h2>Exhibit 8 — Failure-case coverage (feeds the qualitative review)</h2>
+<p>The stratified failure index holds <strong>233</strong> cases (<code>--per-cell 2</code>, seed 20260614) across outcome classes provider_drop, compile_fail, compiled_low_structural. Full records — GT, prediction, CSR error, structural deltas — are in <code>failure_index.{md,json,csv}</code>; the 40-case write-up is in <code>analysis/error_analysis.md</code>. Coverage (available → sampled):</p>
+<table>
+<thead><tr><th>Model</th><th>provider_drop</th><th>compile_fail</th><th>compiled_low_structural</th></tr></thead>
+<tbody>
+<tr><td>gpt-5.2</td><td>1→1</td><td>64→16</td><td>94→16</td></tr>
+<tr><td>claude-opus-4-6</td><td>—</td><td>59→14</td><td>120→16</td></tr>
+<tr><td>gemini-3.1-pro</td><td>—</td><td>28→13</td><td>53→16</td></tr>
+<tr><td>qwen3.5-2b</td><td>25→12</td><td>774→16</td><td>100→16</td></tr>
+<tr><td>qwen3.5-9b</td><td>—</td><td>569→16</td><td>201→16</td></tr>
+<tr><td>qwen3.5-27b</td><td>1→1</td><td>398→16</td><td>104→16</td></tr>
+<tr><td>qwen3.5-397b-a17b</td><td>—</td><td>213→16</td><td>122→16</td></tr>
+</tbody></table>
+<h2>Results-narrative skeleton (author expands into prose)</h2>
+<p><em>Headed bullets with the artifact numbers pre-filled; this is scaffolding, not paper prose. The qualitative error write-up is in <code>analysis/error_analysis.md</code> (40 cases from <code>failure_index</code>).</em></p>
+<p><strong>R1 — Frontier reference points.</strong> Compilation is near-saturated across the three flagships; Gemini 3.1 Pro leads on CSR (97.2%). They anchor the upper bound; report them as fixed points, not as a ranked contest (Exhibit 1A, Fig. frontier_bars).</p>
+<p><strong>R2 — Open-ladder scaling (dense).</strong> CSR rises monotonically with dense scale: Qwen3.5-2B 20.1% → Qwen3.5-27B 60.1%; Element/Relationship F1 track it (Exhibit 1B, Fig. scaling_curve). The compiled-only overlay stays high throughout — the gain is in *compiling at all*, not in the quality of what compiles.</p>
+<p><strong>R3 — MoE capability ceiling.</strong> The 397B-A17B mixture (397B total / 17B active) reaches CSR 78.7%, above the dense ladder and approaching the frontier band, at ~17B active parameters — a capability ceiling for the open arm, plotted off the dense axis as a separate marker (Fig. scaling_curve).</p>
+<p><strong>R4 — Selective-failure bias (population gap).</strong> The compiled-only − all-1000 Element-F1 gap is largest for the weakest rung (Qwen3.5-2B, +0.632 at CSR 20.1%) and negligible at the frontier (Gemini 3.1 Pro, +0.016). Report the honest all-1000 column as the headline (Exhibit 3).</p>
+<p><strong>R5 — Structural failure modes (per-relation).</strong> Per-relation F1 separates easy from hard edges; read the per-relation table for which relations each arm misses, with CIs (Exhibit 4, Fig. per_relation_f1). The qualitative error categories draw on <code>failure_index</code>.</p>
+<p><strong>R6 — Complexity degradation (per-tier).</strong> Every metric declines from tier 1 to tier 4 across the panel; the weak rungs fall fastest (Exhibit 6, Fig. breakdown_by_tier). Image crowding rises in lockstep (content_lines/MP: T1 8.7 → T4 50.1), the legibility context for the drop.</p>
+<p><strong>R7 — Token footprint.</strong> Per-model input/output token totals over all 1000 cells back the deployment/fine-tuning cost argument (Exhibit 7); the open arm ran under flat-rate billing, so dollar figures are omitted by design (token volumes stand).</p>
+</body></html>

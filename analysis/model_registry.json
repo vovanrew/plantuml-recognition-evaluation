@@ -1,0 +1,114 @@
+{
+  "_doc": [
+    "Run-registry config for the Phase-3 analysis pipeline. The author edits this",
+    "as runs finish: set 'run_dir' to the on-disk run directory name and flip",
+    "'status' to 'scored'. The loader drives everything off this file; a model with",
+    "no metrics on disk (pending/in_progress, or run_dir blank) is skipped with a",
+    "logged note, never an error. Order is reporting order: frontier reference",
+    "points first (one flagship per lab), then the Qwen open-ladder, with the MoE",
+    "ceiling last. Sonnet is supplementary (off the main 7-model panel by default).",
+    "Per-model fields: id (stable key), display (table label), run_dir (the shared",
+    "name under data/{csr,element_f1,relationship_f1,chrf}/<run_dir>/ and",
+    "data/runs/<run_dir>/), status (scored|in_progress|pending), lab, arm",
+    "(frontier|qwen), family (dense|moe), params_total_b / params_active_b",
+    "(billions; null where the lab does not disclose), supplementary (bool)."
+  ],
+  "models": [
+    {
+      "id": "gpt-5.2",
+      "display": "GPT-5.2",
+      "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+      "status": "scored",
+      "lab": "openai",
+      "arm": "frontier",
+      "family": "dense",
+      "params_total_b": null,
+      "params_active_b": null,
+      "supplementary": false
+    },
+    {
+      "id": "claude-opus-4-6",
+      "display": "Claude Opus 4.6",
+      "run_dir": "claude-opus-4-6_20260614T081502Z",
+      "status": "scored",
+      "lab": "anthropic",
+      "arm": "frontier",
+      "family": "dense",
+      "params_total_b": null,
+      "params_active_b": null,
+      "supplementary": false
+    },
+    {
+      "id": "gemini-3.1-pro",
+      "display": "Gemini 3.1 Pro",
+      "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+      "status": "scored",
+      "lab": "google",
+      "arm": "frontier",
+      "family": "dense",
+      "params_total_b": null,
+      "params_active_b": null,
+      "supplementary": false
+    },
+    {
+      "id": "qwen3.5-2b",
+      "display": "Qwen3.5-2B",
+      "run_dir": "Qwen_Qwen3.5-2B_20260613T153655Z",
+      "status": "scored",
+      "lab": "qwen",
+      "arm": "qwen",
+      "family": "dense",
+      "params_total_b": 2,
+      "params_active_b": 2,
+      "supplementary": false
+    },
+    {
+      "id": "qwen3.5-9b",
+      "display": "Qwen3.5-9B",
+      "run_dir": "Qwen_Qwen3.5-9B_20260613T202001Z",
+      "status": "scored",
+      "lab": "qwen",
+      "arm": "qwen",
+      "family": "dense",
+      "params_total_b": 9,
+      "params_active_b": 9,
+      "supplementary": false
+    },
+    {
+      "id": "qwen3.5-27b",
+      "display": "Qwen3.5-27B",
+      "run_dir": "Qwen_Qwen3.5-27B_20260613T202731Z",
+      "status": "scored",
+      "lab": "qwen",
+      "arm": "qwen",
+      "family": "dense",
+      "params_total_b": 27,
+      "params_active_b": 27,
+      "supplementary": false
+    },
+    {
+      "id": "qwen3.5-397b-a17b",
+      "display": "Qwen3.5-397B-A17B",
+      "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+      "status": "scored",
+      "lab": "qwen",
+      "arm": "qwen",
+      "family": "moe",
+      "params_total_b": 397,
+      "params_active_b": 17,
+      "supplementary": false
+    },
+    {
+      "id": "claude-sonnet-4-6",
+      "display": "Claude Sonnet 4.6",
+      "run_dir": "claude-sonnet-4-6_20260613T154151Z",
+      "status": "scored",
+      "lab": "anthropic",
+      "arm": "frontier",
+      "family": "dense",
+      "params_total_b": null,
+      "params_active_b": null,
+      "supplementary": true
+    }
+  ]
+}

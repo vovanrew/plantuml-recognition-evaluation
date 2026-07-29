@@ -1,0 +1,132 @@
+{
+  "n": 1000,
+  "metric": "content_lines per megapixel after 1568px resize (pooled total/total)",
+  "by_tier": {
+    "1": {
+      "n": 250,
+      "content_lines": 1864,
+      "mp": 213.151774,
+      "lines_per_mp": 8.744942465268903,
+      "mean_mp": 0.852607096,
+      "mean_lines_per_mp": 10.141007097213457
+    },
+    "2": {
+      "n": 250,
+      "content_lines": 4268,
+      "mp": 322.15155,
+      "lines_per_mp": 13.248422986013882,
+      "mean_mp": 1.2886062,
+      "mean_lines_per_mp": 15.910632836439325
+    },
+    "3": {
+      "n": 250,
+      "content_lines": 8331,
+      "mp": 394.49836700000003,
+      "lines_per_mp": 21.117958138468033,
+      "mean_mp": 1.577993468,
+      "mean_lines_per_mp": 25.241707870611812
+    },
+    "4": {
+      "n": 250,
+      "content_lines": 19668,
+      "mp": 392.63504,
+      "lines_per_mp": 50.0923198296311,
+      "mean_mp": 1.57054016,
+      "mean_lines_per_mp": 60.49034025311426
+    }
+  },
+  "by_type_tier": {
+    "class": {
+      "1": {
+        "n": 125,
+        "content_lines": 871,
+        "mp": 85.319538,
+        "lines_per_mp": 10.208681626944582,
+        "mean_mp": 0.682556304,
+        "mean_lines_per_mp": 11.973047883621486
+      },
+      "2": {
+        "n": 125,
+        "content_lines": 2178,
+        "mp": 142.220462,
+        "lines_per_mp": 15.314252037797488,
+        "mean_mp": 1.137763696,
+        "mean_lines_per_mp": 17.93177895185118
+      },
+      "3": {
+        "n": 125,
+        "content_lines": 4489,
+        "mp": 184.191957,
+        "lines_per_mp": 24.371313889672173,
+        "mean_mp": 1.473535656,
+        "mean_lines_per_mp": 30.283697208913743
+      },
+      "4": {
+        "n": 125,
+        "content_lines": 11283,
+        "mp": 182.911904,
+        "lines_per_mp": 61.685433004950845,
+        "mean_mp": 1.463295232,
+        "mean_lines_per_mp": 75.47228591021643
+      }
+    },
+    "sequence": {
+      "1": {
+        "n": 125,
+        "content_lines": 993,
+        "mp": 127.832236,
+        "lines_per_mp": 7.767993669452829,
+        "mean_mp": 1.022657888,
+        "mean_lines_per_mp": 8.308966310805426
+      },
+      "2": {
+        "n": 125,
+        "content_lines": 2090,
+        "mp": 179.931088,
+        "lines_per_mp": 11.615558062984647,
+        "mean_mp": 1.439448704,
+        "mean_lines_per_mp": 13.889486721027472
+      },
+      "3": {
+        "n": 125,
+        "content_lines": 3842,
+        "mp": 210.30641,
+        "lines_per_mp": 18.26858249351506,
+        "mean_mp": 1.68245128,
+        "mean_lines_per_mp": 20.199718532309877
+      },
+      "4": {
+        "n": 125,
+        "content_lines": 8385,
+        "mp": 209.723136,
+        "lines_per_mp": 39.98128275175134,
+        "mean_mp": 1.677785088,
+        "mean_lines_per_mp": 45.508394596012096
+      }
+    }
+  },
+  "by_type": {
+    "class": {
+      "n": 500,
+      "content_lines": 18821,
+      "mp": 594.643861,
+      "lines_per_mp": 31.65087749892704,
+      "mean_mp": 1.189287722,
+      "mean_lines_per_mp": 33.915202488650706
+    },
+    "sequence": {
+      "n": 500,
+      "content_lines": 15310,
+      "mp": 727.79287,
+      "lines_per_mp": 21.03620498508044,
+      "mean_mp": 1.45558574,
+      "mean_lines_per_mp": 21.97664154003872
+    }
+  },
+  "lines_per_mp_by_tier": {
+    "1": 8.744942465268903,
+    "2": 13.248422986013882,
+    "3": 21.117958138468033,
+    "4": 50.0923198296311
+  }
+}

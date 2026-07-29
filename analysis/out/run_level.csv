@@ -1,0 +1,8 @@
+model_id,display,arm,family,run_dir,n_cells,input_tokens,output_tokens,reasoning_tokens,total_tokens,compiled,compile_fail,no_response,timeout,image_dropped,http_error,network_error,provider,max_tokens,temperature,reasoning_leak,source_a_has_pred_false,source_b_no_response,reconcile_ok
+gpt-5.2,GPT-5.2,frontier,dense,gpt-5.2-2025-12-11_20260613T154248Z,1000,1630813,330929,0,1961742,935,64,1,1,0,0,0,openai,5376,0,0,1,1,True
+claude-opus-4-6,Claude Opus 4.6,frontier,dense,claude-opus-4-6_20260614T081502Z,1000,1415358,338828,0,1754186,941,59,0,0,0,0,0,openai,5376,0,0,0,0,True
+gemini-3.1-pro,Gemini 3.1 Pro,frontier,dense,gemini-3.1-pro-preview_20260613T154356Z,1000,1165199,297210,0,1462409,972,28,0,0,0,0,0,gemini,5376,0,0,0,0,True
+qwen3.5-2b,Qwen3.5-2B,qwen,dense,Qwen_Qwen3.5-2B_20260613T153655Z,1000,1351229,1751686,0,3102915,201,774,25,25,0,0,0,openai,5376,0,0,25,25,True
+qwen3.5-9b,Qwen3.5-9B,qwen,dense,Qwen_Qwen3.5-9B_20260613T202001Z,1000,1387229,1176626,0,2563855,431,569,0,0,0,0,0,openai,5376,0,0,0,0,True
+qwen3.5-27b,Qwen3.5-27B,qwen,dense,Qwen_Qwen3.5-27B_20260613T202731Z,1000,1385125,370554,0,1755679,601,398,1,1,0,0,0,openai,5376,0,0,1,1,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,qwen,moe,qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z,1000,1386230,679303,0,2065533,787,213,0,0,0,0,0,openai,5376,0,0,0,0,True

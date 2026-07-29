@@ -1,0 +1,1 @@
+This image is a UML diagram. Reproduce it as valid PlantUML code that, when rendered, matches the diagram as closely as possible: capture every element with the UML notation shown (e.g. actor, interface, database), its contents and labels, and every relationship. Output only the PlantUML code starting with @startuml and ending with @enduml, with no explanation.

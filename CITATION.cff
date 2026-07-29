@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this benchmark, its data, or its evaluation framework, please cite it as below."
+title: "Zero-shot image-to-PlantUML: a multi-level structural evaluation framework and benchmark"
+abstract: >-
+  A reproducible benchmark and evaluation framework for reconstructing PlantUML
+  source from a rendered UML diagram image, zero-shot. The test set holds 1,000
+  repository-disjoint class and sequence diagrams mined from open-source
+  repositories via World of Code, stratified over four complexity tiers. Seven
+  multimodal models are scored on compilation success rate, Element F1,
+  Relationship F1, UML type accuracy, and chrF++, each structural metric
+  reported over both the full set and the compiled-only subset.
+type: software
+authors:
+  - family-names: "Polishchuk"
+    given-names: "Volodymyr"
+    orcid: "https://orcid.org/0009-0000-2161-4560"
+    affiliation: "Lutsk National Technical University"
+version: "1.0.0"
+date-released: "2026-07-29"
+license: MIT
+license-url: "https://github.com/vovanrew/plantuml-recognition-evaluation/blob/main/LICENSE"
+repository-code: "https://github.com/vovanrew/plantuml-recognition-evaluation"
+# TODO(author): replace with the Zenodo concept DOI once the first release is published.
+# doi: "10.5281/zenodo.XXXXXXX"
+keywords:
+  - PlantUML
+  - UML
+  - multimodal large language models
+  - diagram recognition
+  - image-to-code
+  - benchmark
+  - evaluation framework
+  - zero-shot

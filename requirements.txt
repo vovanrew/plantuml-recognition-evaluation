@@ -1,0 +1,22 @@
+# Python dependencies for the zero-shot image-to-PlantUML benchmark.
+#   python3 -m pip install -r requirements.txt
+#
+# Python 3.10 or newer is recommended. Java is required separately for the
+# PlantUML renderer and the structural extractor (see README.md).
+
+# chrF++ scoring. Pinned exactly: the metric values reported in the paper and
+# stored in data/chrf/ were produced by this version.
+sacrebleu==2.6.0
+
+# Aggregation math (analysis/) and test-set sampling (util/build_test_set.py).
+numpy>=1.24
+
+# Figures (analysis/plots.py).
+matplotlib>=3.7
+
+# Image standardization and probing (util/standardize_images.py,
+# util/probe_image_tokens.py).
+Pillow>=10.0
+
+# Test suite.
+pytest>=7.4
