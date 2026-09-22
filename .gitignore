@@ -20,3 +20,7 @@ venv/
 
 # OS
 .DS_Store
+
+# Manuscript, kept locally for reference only. Never committed: the published
+# record is the journal's, and the repo is the code and data release.
+manuscript/
