@@ -51,6 +51,9 @@ Point estimates. Structural columns are `full-set / compiled-only`. Confidence
 intervals for every cell are in
 [`analysis/out/exhibits.md`](analysis/out/exhibits.md), Exhibit 1.
 
+Every number in this README, in `data.zip` and in `analysis/out/` was computed
+with **scorer v1**. See [Scorer versions](#scorer-versions).
+
 These are **two arms, not one leaderboard**. The frontier models are fixed
 reference points, one flagship per lab. The Qwen3.5 arm is an open-model family
 studied as a scaling curve, and it is the fine-tuning target of later work.
@@ -117,10 +120,51 @@ evaluation/        Inference runner and the four metric scorers.
 util/              Test-set construction, image standardization, token measurement.
 methodology/       The methodological record. The source of truth for every design decision.
 prompts/           The frozen zero-shot prompt.
-tests/             310 test functions across 19 modules.
+tests/             361 test functions across 23 modules.
 data.zip           The benchmark data. Unzip at the repository root.
 evaluation_plan.md How to run the benchmark end to end.
 FUTURE.md          Scoped extensions that were deliberately deferred.
+```
+
+## Scorer versions
+
+The structural scorer (Element F1, Relationship F1, type accuracy) exists in two
+versions. CSR and chrF++ are the same in both.
+
+| Version | What it is | This repository | Extractor fork |
+|---|---|---|---|
+| **v1** | The scorer of the paper: every number in this README, in `data.zip` and in `analysis/out/`. | tag `scorer-v1` | commit `7d2292dab1` |
+| **v2** | The scorer for the fine-tuning work that follows. Not frozen yet: it gets the tag `scorer-v2` before it scores any fine-tuned model. | `main` | commit `7e29ad4b4a` |
+
+The two halves of a version belong together. The message of a `scorer-*` tag
+records the extractor commit and the SHA-256 of the extractor JAR it was run
+with.
+
+v2 reads names and edges differently in five places:
+
+- A run of whitespace inside a name counts as one space.
+- A name is the text PlantUML draws for the label. Formatting markup, icons and
+  the letter of a stereotype spot are not part of it, and when the lines of a
+  label differ in font size, the line or lines at the largest size are the name.
+- `≪X≫` is a stereotype token, as `«X»` and `<<X>>` are.
+- An association with exactly one arrowhead is directed, so a reversed or a
+  dropped arrowhead is a miss. A plain line, or one with an arrowhead at both
+  ends, stays undirected.
+- An answer that holds several diagrams is scored on its first diagram.
+
+[`methodology/evaluation-framework.md`](methodology/evaluation-framework.md)
+describes v1.
+
+**Reproducing the paper does not depend on any of this.** The analysis pipeline
+reads the shipped result files, which are v1. The version matters only when you
+re-score raw predictions. To re-score under v1, check out `scorer-v1` and build
+the extractor at `7d2292dab1`. On `main` with the v2 extractor, the same
+per-diagram counts come from switching every v2 rule off. Add these switches to
+both structural runners:
+
+```
+--no-collapse-whitespace --no-unicode-brackets --no-association-direction
+--last-diagram --extractor-arg=--names=raw --extractor-arg=--no-arrowheads
 ```
 
 ## Requirements
@@ -149,6 +193,7 @@ The fork is published separately, at
 ```bash
 git clone -b stats-extractor-graph https://github.com/vovanrew/plantuml.git
 cd plantuml
+git checkout 7d2292dab1                   # scorer v1, the paper. For scorer v2: 7e29ad4b4a
 ./gradlew build -x test -x javaDoc        # -> build/libs/plantuml-1.2025.9.jar
 export PLANTUML_EXTRACTOR_JAR=$PWD/build/libs/plantuml-1.2025.9.jar
 ```
@@ -157,6 +202,10 @@ export PLANTUML_EXTRACTOR_JAR=$PWD/build/libs/plantuml-1.2025.9.jar
 branch, and it is the branch that emits the named graph these metrics are scored
 on. The scorers read the JAR path from `PLANTUML_EXTRACTOR_JAR`, or take it as
 `--jar`.
+
+**Build the commit that matches the scorer.** `7d2292dab1` is the paper's
+extractor and goes with the tag `scorer-v1`. `7e29ad4b4a` is the v2 extractor
+and goes with `main`. See [Scorer versions](#scorer-versions).
 
 Mind the filename: the fork builds to `plantuml-1.2025.9.jar`, the same name as
 the stock renderer JAR, but the two are not interchangeable. Keep them apart, or
@@ -217,6 +266,10 @@ python3 evaluation/chrf_runner.py            --pred-dir data/runs/<run> --out da
 Then add the run to `analysis/model_registry.json` and re-run the analysis
 pipeline. Steps 3a and 3b require the extractor fork. Step 1 requires the
 standardized input images, which are not in `data.zip` (see below).
+
+On `main`, steps 3a and 3b score under scorer v2. The shipped results are v1, so
+do not mix the two in one table; [Scorer versions](#scorer-versions) says how to
+get either.
 
 API keys are read from the environment; no key is stored in this repository.
 
@@ -341,6 +394,11 @@ graded, and they are removed from the denominator rather than counted wrong.
 `all` block and a `by_relation` block covering the six relation types. Per
 diagram, the same counts plus a `by_relation` breakdown.
 
+The two structural files, when written by the runners on `main`, also start with
+a `scorer` block: the rule switches that were on, the options passed to the
+extractor, and the SHA-256 of the extractor JAR. The shipped files are v1 and
+have no such block.
+
 **`chrf_results.json`** — `summary` records the scoring parameters
 (`char_order` 6, `word_order` 2, `beta` 2) and, per population, `micro` (corpus
 chrF++) and `macro` (mean of per-diagram scores).
@@ -385,10 +443,15 @@ They are inspection aids, and they are regenerable by re-running the scorers.
 python3 -m pytest tests/
 ```
 
-310 test functions across 19 modules, covering the scoring logic, the
+361 test functions across 23 modules, covering the scoring logic, the
 aggregation math, the bootstrap, the registry and loader, the plot builders, and
 the frozen prompt. Tests skip cleanly rather than fail when what they need is
-absent: benchmark data that has not been unpacked, or the extractor JAR.
+absent: benchmark data that has not been unpacked, the standardized images, or
+the extractor JAR.
+
+The extractor tests run only when `PLANTUML_EXTRACTOR_JAR` points at a built
+JAR. On `main` that must be the v2 extractor: with the v1 JAR, the tests of the
+v2 rules fail.
 
 ## Citation
 
