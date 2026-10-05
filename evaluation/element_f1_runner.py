@@ -2,7 +2,7 @@
 """Element F1 runner (metric 2).
 
 Extracts the structural graph from ground-truth and predicted PlantUML with the
-DiagramStatsExtractor fork JAR, matches node names (lowercase+strip, multiset),
+DiagramStatsExtractor fork JAR, matches node names (normalized, multiset),
 and reports precision/recall/F1 per diagram plus micro/macro over the set.
 
 Two reporting modes (methodology/evaluation-framework.md, "reported two ways"):
@@ -16,7 +16,12 @@ container/internal GT types excluded from the denominator.
 
 The PlantUML block is isolated symmetrically on both sides with
 csr_runner.extract_puml, so a WoC header before @startuml is dropped the same way
-for GT and predictions.
+for GT and predictions. An answer holding several @startuml...@enduml diagrams is
+scored on its first diagram.
+
+The defaults are scorer v2. Each v2 rule has a switch (--no-collapse-whitespace,
+--no-unicode-brackets, --last-diagram, --extractor-arg=--names=raw); with every
+switch off the runner reproduces scorer v1.
 
 Usage (invoke from project root):
   python evaluation/element_f1_runner.py --pred-dir data/csr/<run>/extracted \
@@ -26,8 +31,11 @@ Usage (invoke from project root):
 from __future__ import annotations
 
 import argparse
+import dataclasses
+import hashlib
 import json
 import os
+import re
 import subprocess
 from glob import glob
 
@@ -61,23 +69,72 @@ def write_extracted(src_files, dst_dir):
     return stems
 
 
-def extract_graphs(puml_dir, jar):
-    """Run the extractor JAR over a directory; return {stem: record}.
+# The extractor emits one record per diagram of a file: `<stem>.puml` for the
+# first, `<stem>.puml_1`, `<stem>.puml_2`, ... for the following ones.
+_LATER_DIAGRAM = re.compile(r"\.[A-Za-z]+_\d+$")
 
-    One record per '\\n'; strict=False tolerates raw control chars the JAR leaves
-    unescaped inside label/name strings (split on '\\n' rather than splitlines so
-    a vertical-tab / form-feed in a label cannot wrongly break a record)."""
-    proc = subprocess.run(
-        ["java", "-cp", jar, EXTRACTOR_CLASS, "--dir", os.path.abspath(puml_dir)],
-        capture_output=True, text=True, check=True)
+
+def graphs_from_output(stdout, first_diagram=True):
+    """{stem: record} from the extractor's output, one JSON record per '\\n'.
+
+    strict=False tolerates raw control chars the JAR leaves unescaped inside
+    label/name strings (split on '\\n' rather than splitlines so a vertical-tab /
+    form-feed in a label cannot wrongly break a record).
+
+    A file with several diagrams yields several records. The first diagram is
+    the one kept: it is the diagram PlantUML displays. With first_diagram=False
+    each record overwrites the previous one, so the last diagram is kept (the
+    scorer-v1 behaviour)."""
     graphs = {}
-    for line in proc.stdout.split("\n"):
+    for line in stdout.split("\n"):
         line = line.strip()
         if not line:
             continue
         rec = json.loads(line, strict=False)
+        if first_diagram and _LATER_DIAGRAM.search(rec["file"]):
+            continue
         graphs[_stem(rec["file"])] = rec
     return graphs
+
+
+def extract_graphs(puml_dir, jar, first_diagram=True, extractor_args=()):
+    """Run the extractor JAR over a directory; return {stem: record}."""
+    proc = subprocess.run(
+        ["java", "-cp", jar, EXTRACTOR_CLASS, *extractor_args,
+         "--dir", os.path.abspath(puml_dir)],
+        capture_output=True, text=True, check=True)
+    return graphs_from_output(proc.stdout, first_diagram)
+
+
+def add_scorer_args(ap):
+    """Scorer-v2 rule switches shared by the structural runners."""
+    ap.add_argument("--no-collapse-whitespace", action="store_true",
+                    help="v1: keep whitespace runs inside names")
+    ap.add_argument("--no-unicode-brackets", action="store_true",
+                    help="v1: do not strip U+226A/U+226B stereotype tokens")
+    ap.add_argument("--no-association-direction", action="store_true",
+                    help="v1: every association is undirected")
+    ap.add_argument("--last-diagram", action="store_true",
+                    help="v1: score the last diagram of a multi-diagram answer")
+    ap.add_argument("--extractor-arg", action="append", default=[],
+                    help="option passed to the extractor JAR, repeatable "
+                         "(e.g. --extractor-arg=--names=raw)")
+
+
+def rules_from_args(args):
+    return ef.Rules(collapse_whitespace=not args.no_collapse_whitespace,
+                    unicode_brackets=not args.no_unicode_brackets,
+                    association_direction=not args.no_association_direction)
+
+
+def scorer_record(args, rules):
+    """What produced a results file: rule switches, extractor options, JAR hash."""
+    with open(args.jar, "rb") as f:
+        jar_sha256 = hashlib.sha256(f.read()).hexdigest()
+    return {"rules": dataclasses.asdict(rules),
+            "first_diagram": not args.last_diagram,
+            "extractor_args": list(args.extractor_arg),
+            "extractor_jar_sha256": jar_sha256}
 
 
 def main():
@@ -94,7 +151,9 @@ def main():
                     help="csr_results.json: enables the compiled_only reporting mode")
     ap.add_argument("--jar", default=EXTRACTOR_JAR,
                     help="DiagramStatsExtractor fork JAR (NOT the standard renderer)")
+    add_scorer_args(ap)
     args = ap.parse_args()
+    rules = rules_from_args(args)
 
     os.makedirs(args.out, exist_ok=True)
 
@@ -116,11 +175,13 @@ def main():
     write_extracted(gt_files, os.path.join(args.out, "gt_extracted"))
     write_extracted(pred_files, os.path.join(args.out, "pred_extracted"))
 
-    gt_by_key = extract_graphs(os.path.join(args.out, "gt_extracted"), args.jar)
-    pred_by_key = extract_graphs(os.path.join(args.out, "pred_extracted"), args.jar)
+    gt_by_key = extract_graphs(os.path.join(args.out, "gt_extracted"), args.jar,
+                               not args.last_diagram, args.extractor_arg)
+    pred_by_key = extract_graphs(os.path.join(args.out, "pred_extracted"), args.jar,
+                                 not args.last_diagram, args.extractor_arg)
 
     # zeros_for_failed: all keys; missing/non-parsing prediction -> empty -> F1 0.
-    rows = ef.compute(gt_by_key, pred_by_key, keys)
+    rows = ef.compute(gt_by_key, pred_by_key, keys, rules)
     summary = {"zeros_for_failed": ef.aggregate(rows)}
     by_key = {r["key"]: r for r in rows}
 
@@ -135,7 +196,7 @@ def main():
     # Type accuracy (companion metric): conditional on name matches, reported
     # for the compiled population when CSR is available (pooled counts are
     # identical under zeros_for_failed — failed predictions contribute no pairs).
-    ta_rows = ef.compute_type_accuracy(gt_by_key, pred_by_key, keys)
+    ta_rows = ef.compute_type_accuracy(gt_by_key, pred_by_key, keys, rules)
     ta_by_key = {r["key"]: r for r in ta_rows}
     ta_population = compiled_keys if compiled_keys is not None else keys
     summary["type_accuracy"] = ef.aggregate_type_accuracy(
@@ -156,7 +217,8 @@ def main():
 
     out_path = os.path.join(args.out, "element_f1_results.json")
     with open(out_path, "w") as f:
-        json.dump({"summary": summary, "diagrams": diagrams}, f, indent=2)
+        json.dump({"scorer": scorer_record(args, rules),
+                   "summary": summary, "diagrams": diagrams}, f, indent=2)
 
     def show(label, agg):
         m, M = agg["micro"], agg["macro"]

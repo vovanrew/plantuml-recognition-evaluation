@@ -1,0 +1,4 @@
+@startuml
+class A
+note "Your are analyzing:\nAnalyzeAST **detailed** \n\n==Filter==\nYou can click the names.\n* Home:\n   [[index.html]]" as FloatingNote
+@enduml

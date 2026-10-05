@@ -1,0 +1,5 @@
+@startuml
+participant A <<x>>
+participant "C Producer" as typed
+participant "<<S>> Tansport" as quoted
+@enduml

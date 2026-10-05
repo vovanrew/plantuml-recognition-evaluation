@@ -9,10 +9,12 @@ def approx(a, b):
     return math.isclose(a, b, rel_tol=0, abs_tol=1e-9)
 
 
-def e(source, target, relation, label=None):
+def e(source, target, relation, label=None, arrowhead=None):
     d = {"source": source, "target": target, "relation": relation}
     if label is not None:
         d["label"] = label
+    if arrowhead is not None:
+        d["arrowhead"] = arrowhead
     return d
 
 
@@ -81,6 +83,63 @@ def test_edge_key_association_is_undirected():
         rf.edge_key(e("B", "A", "association"))
 
 
+# --- scorer v2: an association with exactly one arrowhead is directed ---
+
+def test_edge_key_plain_association_is_undirected():
+    assert rf.edge_key(e("A", "B", "association", arrowhead="none")) == \
+        rf.edge_key(e("B", "A", "association", arrowhead="none"))
+
+
+def test_edge_key_one_arrowhead_association_is_tail_to_head():
+    # A --> B: the extractor emits (A, B, arrowhead at target)
+    assert rf.edge_key(e("A", "B", "association", arrowhead="target")) == \
+        ("a", "b", "association", rf.DIRECTED)
+    # the same arrow written from the other end, B <-- A: (B, A, arrowhead at source)
+    assert rf.edge_key(e("B", "A", "association", arrowhead="source")) == \
+        ("a", "b", "association", rf.DIRECTED)
+
+
+def test_edge_key_reversed_arrowhead_is_a_different_key():
+    assert rf.edge_key(e("A", "B", "association", arrowhead="target")) != \
+        rf.edge_key(e("B", "A", "association", arrowhead="target"))
+
+
+def test_edge_key_dropped_arrowhead_is_a_different_key():
+    # the sorted endpoints of the plain line coincide with the directed pair;
+    # the key still differs
+    assert rf.edge_key(e("A", "B", "association", arrowhead="target")) != \
+        rf.edge_key(e("A", "B", "association", arrowhead="none"))
+
+
+def test_edge_key_two_arrowheads_is_undirected():
+    both = rf.edge_key(e("A", "B", "association", arrowhead="both"))
+    assert both == rf.edge_key(e("B", "A", "association", arrowhead="both"))
+    assert both == rf.edge_key(e("A", "B", "association", arrowhead="none"))
+
+
+def test_edge_key_association_without_arrowhead_field_is_undirected():
+    # records extracted without the field (older JAR, --no-arrowheads)
+    assert rf.edge_key(e("B", "A", "association")) == ("a", "b", "association")
+
+
+def test_edge_key_arrowhead_field_only_matters_for_association():
+    assert rf.edge_key(e("A", "B", "dependency", arrowhead="source")) == \
+        ("a", "b", "dependency")
+
+
+def test_edge_key_v1_rules_ignore_arrowheads():
+    assert rf.edge_key(e("A", "B", "association", arrowhead="target"), rf.V1) == \
+        rf.edge_key(e("B", "A", "association", arrowhead="target"), rf.V1)
+    assert rf.edge_key(e("A", "B", "association", arrowhead="target"), rf.V1) == \
+        ("a", "b", "association")
+
+
+def test_edge_key_v1_rules_keep_endpoint_whitespace():
+    assert rf.edge_key(e("Upper  layer", "B", "message"), rf.V1) == \
+        ("upper  layer", "b", "message")
+    assert rf.edge_key(e("Upper  layer", "B", "message")) == ("upper layer", "b", "message")
+
+
 def test_edge_key_relation_is_part_of_key():
     assert rf.edge_key(e("A", "B", "association")) != \
         rf.edge_key(e("A", "B", "dependency"))
@@ -137,6 +196,35 @@ def test_compute_reversed_association_still_matches():
     pred = {"k": {"edges": [e("B", "A", "association")]}}
     rows = rf.compute(gt, pred, ["k"])
     assert approx(rows[0]["f1"], 1.0)
+
+
+def test_compute_reversed_arrowhead_is_miss():
+    gt = {"k": {"edges": [e("A", "B", "association", arrowhead="target")]}}
+    pred = {"k": {"edges": [e("B", "A", "association", arrowhead="target")]}}
+    rows = rf.compute(gt, pred, ["k"])
+    assert rows[0]["tp"] == 0 and rows[0]["fp"] == 1 and rows[0]["fn"] == 1
+    # v1 rules: association undirected, the reversed arrow still matches
+    assert rf.compute(gt, pred, ["k"], rules=rf.V1)[0]["tp"] == 1
+
+
+def test_compute_dropped_arrowhead_is_miss():
+    gt = {"k": {"edges": [e("A", "B", "association", arrowhead="target")]}}
+    pred = {"k": {"edges": [e("A", "B", "association", arrowhead="none")]}}
+    assert rf.compute(gt, pred, ["k"])[0]["tp"] == 0
+    assert rf.compute(gt, pred, ["k"], rules=rf.V1)[0]["tp"] == 1
+
+
+def test_compute_added_arrowhead_is_miss():
+    # symmetric: an arrowhead the image does not show is a miss as well
+    gt = {"k": {"edges": [e("A", "B", "association", arrowhead="none")]}}
+    pred = {"k": {"edges": [e("A", "B", "association", arrowhead="target")]}}
+    assert rf.compute(gt, pred, ["k"])[0]["tp"] == 0
+
+
+def test_compute_same_arrow_written_from_either_end_matches():
+    gt = {"k": {"edges": [e("A", "B", "association", arrowhead="target")]}}
+    pred = {"k": {"edges": [e("B", "A", "association", arrowhead="source")]}}
+    assert approx(rf.compute(gt, pred, ["k"])[0]["f1"], 1.0)
 
 
 def test_compute_relation_mismatch_is_miss():
@@ -270,3 +358,20 @@ def test_per_relation_counts_missing_prediction_is_all_fn():
     assert per["k"]["inheritance"] == {"tp": 0, "fp": 0, "fn": 1}
     assert per["k"]["message"] == {"tp": 0, "fp": 0, "fn": 1}
     assert per["k"]["association"] == {"tp": 0, "fp": 0, "fn": 0}
+
+
+def test_per_relation_counts_partition_holds_with_directed_associations():
+    # a directed association stays in the association stratum
+    gt = {"k": {"edges": [e("A", "B", "association", arrowhead="target"),
+                          e("C", "D", "association", arrowhead="none"),
+                          e("A", "C", "inheritance")]}}
+    pred = {"k": {"edges": [e("B", "A", "association", arrowhead="target"),
+                            e("D", "C", "association", arrowhead="none"),
+                            e("A", "C", "inheritance")]}}
+    overall = rf.compute(gt, pred, ["k"])[0]
+    by_rel = rfr.per_relation_counts(gt, pred, ["k"])["k"]
+    assert by_rel["association"] == {"tp": 1, "fp": 1, "fn": 1}
+    for c in ("tp", "fp", "fn"):
+        assert sum(by_rel[r][c] for r in rf.RELATIONS) == overall[c]
+    v1 = rfr.per_relation_counts(gt, pred, ["k"], rf.V1)["k"]
+    assert v1["association"] == {"tp": 2, "fp": 0, "fn": 0}

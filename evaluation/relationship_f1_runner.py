@@ -3,7 +3,8 @@
 
 Extracts the structural graph from ground-truth and predicted PlantUML with the
 DiagramStatsExtractor fork JAR, matches edges by (source, target, relation)
-(endpoints lowercase+strip; association undirected, all other relations
+(endpoints normalized as node names; an association is directional when exactly
+one end carries an arrowhead and undirected otherwise, all other relations
 directional; label ignored; multiset), and reports precision/recall/F1 per
 diagram plus micro/macro over the set.
 
@@ -19,7 +20,12 @@ relation absent from a diagram does not inflate its stratum.
 
 The PlantUML block is isolated symmetrically on both sides with
 csr_runner.extract_puml (reused via element_f1_runner.write_extracted), so a WoC
-header before @startuml is dropped the same way for GT and predictions.
+header before @startuml is dropped the same way for GT and predictions. An answer
+holding several @startuml...@enduml diagrams is scored on its first diagram.
+
+The defaults are scorer v2; the rule switches are those of element_f1_runner
+(plus --no-association-direction and --extractor-arg=--no-arrowheads), and with
+every switch off the runner reproduces scorer v1.
 
 Usage (invoke from project root):
   python evaluation/relationship_f1_runner.py --pred-dir data/csr/<run>/extracted \
@@ -35,7 +41,8 @@ from glob import glob
 
 import relationship_f1 as rf
 from element_f1_runner import (
-    EXTRACTOR_JAR, _stem, extract_graphs, write_extracted,
+    EXTRACTOR_JAR, _stem, add_scorer_args, extract_graphs, rules_from_args,
+    scorer_record, write_extracted,
 )
 
 
@@ -59,7 +66,7 @@ def micro_with_support(rows):
     }
 
 
-def per_relation_counts(gt_by_key, pred_by_key, keys):
+def per_relation_counts(gt_by_key, pred_by_key, keys, rules=rf.V2):
     """Per-diagram per-relation tp/fp/fn over the canonical RELATIONS.
 
     Returns ``{key: {rel: {"tp", "fp", "fn"}}}``. Built from the same
@@ -75,18 +82,18 @@ def per_relation_counts(gt_by_key, pred_by_key, keys):
     """
     per_key = {k: {} for k in keys}
     for rel in rf.RELATIONS:
-        for row in rf.compute(gt_by_key, pred_by_key, keys, relation=rel):
+        for row in rf.compute(gt_by_key, pred_by_key, keys, relation=rel, rules=rules):
             per_key[row["key"]][rel] = {"tp": row["tp"], "fp": row["fp"], "fn": row["fn"]}
     return per_key
 
 
-def summarize(gt_by_key, pred_by_key, keys, compiled_keys):
+def summarize(gt_by_key, pred_by_key, keys, compiled_keys, rules=rf.V2):
     """Build the summary for both reporting populations.
 
     Each population carries an overall ('all', micro+macro) score and a
     per-relation breakdown ('by_relation', micro+support).
     """
-    overall_rows = rf.compute(gt_by_key, pred_by_key, keys)
+    overall_rows = rf.compute(gt_by_key, pred_by_key, keys, rules=rules)
     overall_by_key = {r["key"]: r for r in overall_rows}
 
     def population(row_subset_keys):
@@ -96,7 +103,7 @@ def summarize(gt_by_key, pred_by_key, keys, compiled_keys):
         for rel in rf.RELATIONS:
             rel_rows = rf.compute(gt_by_key, pred_by_key,
                                   row_subset_keys if row_subset_keys is not None else keys,
-                                  relation=rel)
+                                  relation=rel, rules=rules)
             by_relation[rel] = micro_with_support(rel_rows)
         return {"all": rf.aggregate(all_rows), "by_relation": by_relation}
 
@@ -120,7 +127,9 @@ def main():
                     help="csr_results.json: enables the compiled_only reporting mode")
     ap.add_argument("--jar", default=EXTRACTOR_JAR,
                     help="DiagramStatsExtractor fork JAR (NOT the standard renderer)")
+    add_scorer_args(ap)
     args = ap.parse_args()
+    rules = rules_from_args(args)
 
     os.makedirs(args.out, exist_ok=True)
 
@@ -140,8 +149,10 @@ def main():
     write_extracted(gt_files, os.path.join(args.out, "gt_extracted"))
     write_extracted(pred_files, os.path.join(args.out, "pred_extracted"))
 
-    gt_by_key = extract_graphs(os.path.join(args.out, "gt_extracted"), args.jar)
-    pred_by_key = extract_graphs(os.path.join(args.out, "pred_extracted"), args.jar)
+    gt_by_key = extract_graphs(os.path.join(args.out, "gt_extracted"), args.jar,
+                               not args.last_diagram, args.extractor_arg)
+    pred_by_key = extract_graphs(os.path.join(args.out, "pred_extracted"), args.jar,
+                                 not args.last_diagram, args.extractor_arg)
 
     compiled_keys = None
     if args.csr:
@@ -149,11 +160,11 @@ def main():
         compiled_keys = [d["key"] for d in csr["diagrams"]
                          if d.get("compiled") and d["key"] in keys]
 
-    summary, overall_rows = summarize(gt_by_key, pred_by_key, keys, compiled_keys)
+    summary, overall_rows = summarize(gt_by_key, pred_by_key, keys, compiled_keys, rules)
 
     # Additive per-diagram per-relation tp/fp/fn (enables per-relation CIs);
     # overall scores and the summary above are untouched.
-    by_rel = per_relation_counts(gt_by_key, pred_by_key, keys)
+    by_rel = per_relation_counts(gt_by_key, pred_by_key, keys, rules)
 
     compiled_set = set(compiled_keys) if compiled_keys is not None else None
     diagrams = []
@@ -167,7 +178,8 @@ def main():
 
     out_path = os.path.join(args.out, "relationship_f1_results.json")
     with open(out_path, "w") as f:
-        json.dump({"summary": summary, "diagrams": diagrams}, f, indent=2)
+        json.dump({"scorer": scorer_record(args, rules),
+                   "summary": summary, "diagrams": diagrams}, f, indent=2)
 
     def show_all(label, agg):
         m, M = agg["micro"], agg["macro"]

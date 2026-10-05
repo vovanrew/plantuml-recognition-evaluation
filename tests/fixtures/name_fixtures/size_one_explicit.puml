@@ -1,0 +1,4 @@
+@startuml
+class Dim as "<size:10>Components::\n<color:black>DimensionComponent" #FFD700 {
+}
+@enduml

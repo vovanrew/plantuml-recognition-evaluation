@@ -441,7 +441,12 @@ def test_real_panel_reconcile_and_partition_invariants():
     assert "claude-opus-4-6" in meta["included_ids"]
 
 
-@pytest.mark.skipif(not _have_run_data(), reason="standardized images not on disk")
+def _have_images():
+    # data.zip does not ship the standardized images (README, "The diagram images")
+    return (_DATA / "test_set.json").exists() and any((_DATA / "puml_images_1568").glob("*.png"))
+
+
+@pytest.mark.skipif(not _have_images(), reason="standardized images not on disk")
 def test_real_crowding_monotonic_across_tiers():
     cr = rl.load_crowding(_DATA / "test_set.json", _DATA / "puml_images_1568")
     tiers = sorted(cr["by_tier"])

@@ -1,0 +1,5 @@
+@startuml
+participant "<FHIR API> HPI" as B
+participant "<<analysis>>\nlist: List<Variable>" as lvariable
+participant "Foo<I> Bar" as F
+@enduml

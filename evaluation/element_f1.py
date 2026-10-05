@@ -2,9 +2,9 @@
 
 Operates on the structural graph emitted by the DiagramStatsExtractor fork:
 nodes are class-like leaves (class diagrams) or participants (sequence). An
-element is matched iff its node name matches after lowercasing, trimming, and
-stereotype-token stripping; matching is multiset (a name repeated k times must
-appear k times on both sides).
+element is matched iff its node name matches after lowercasing, trimming,
+stereotype-token stripping and whitespace collapsing; matching is multiset (a
+name repeated k times must appear k times on both sides).
 
 Empty/empty -> perfect (F1 1.0); a non-parsing prediction (empty graph) against
 a non-empty ground truth scores F1 0.0, which realizes the zeros-for-failed mode.
@@ -13,6 +13,28 @@ from __future__ import annotations
 
 import re
 from collections import Counter
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class Rules:
+    """Scorer rule switches. Every default is the scorer-v2 behaviour; a switch
+    turned off restores the scorer-v1 behaviour of that rule alone, which is how
+    the v1 -> v2 bridge table isolates each rule's effect.
+
+    collapse_whitespace:   every whitespace run in a name is one space.
+    unicode_brackets:      `≪X≫` (U+226A/U+226B) is a stereotype token like `«X»`.
+    association_direction: an association with exactly one arrowhead is a
+                           directed edge tail -> head (relationship_f1.edge_key).
+    """
+    collapse_whitespace: bool = True
+    unicode_brackets: bool = True
+    association_direction: bool = True
+
+
+V2 = Rules()
+V1 = Rules(collapse_whitespace=False, unicode_brackets=False,
+           association_direction=False)
 
 # Stereotype tokens are not part of the display-name match key: the extractor
 # folds a declaration's stereotype into the node name, and whether a model
@@ -21,15 +43,19 @@ from collections import Counter
 # are removed wherever they occur in the name; `>>+` absorbs the extra closer
 # left by creole markup nested inside the chevrons (`<<<back:pink>X</back>>>`,
 # GT 0b04c29e). Single angle brackets (generics like `List<Variable>`) are
-# untouched. The whitespace seam left by a removal is collapsed; names without
-# stereotype tokens keep their internal whitespace verbatim.
-_STEREOTYPE_TOKEN = re.compile(r"<<.*?>>+|«[^«»]*»", re.S)
+# untouched. `≪X≫` (U+226A/U+226B, written `<U+226A>X<U+226B>` in source) is the
+# same token in a third spelling. Every whitespace run is one space: the number
+# of spaces between two words is not visible in the image. Under V1 rules only
+# the seam left by a stereotype removal is collapsed and `≪X≫` is kept.
+_STEREOTYPE_TOKEN = re.compile(r"<<.*?>>+|«[^«»]*»|≪[^≪≫]*≫", re.S)
+_STEREOTYPE_TOKEN_V1 = re.compile(r"<<.*?>>+|«[^«»]*»", re.S)
 _WHITESPACE_RUN = re.compile(r"\s+")
 
 
-def normalize(name):
-    stripped = _STEREOTYPE_TOKEN.sub(" ", name)
-    if stripped != name:
+def normalize(name, rules=V2):
+    token = _STEREOTYPE_TOKEN if rules.unicode_brackets else _STEREOTYPE_TOKEN_V1
+    stripped = token.sub(" ", name)
+    if rules.collapse_whitespace or stripped != name:
         stripped = _WHITESPACE_RUN.sub(" ", stripped)
     return stripped.strip().lower()
 
@@ -52,9 +78,9 @@ def prf(gt_names, pred_names):
             "precision": precision, "recall": recall, "f1": f1}
 
 
-def names_from_record(record):
+def names_from_record(record, rules=V2):
     """Normalized node names from one extractor JSONL record (empty if no nodes)."""
-    return [normalize(n["name"]) for n in (record.get("nodes") or [])]
+    return [normalize(n["name"], rules) for n in (record.get("nodes") or [])]
 
 
 def _f1(precision, recall):
@@ -81,13 +107,13 @@ def aggregate(per_diagram):
     return {"micro": micro, "macro": macro, "n": n}
 
 
-def compute(gt_by_key, pred_by_key, keys):
+def compute(gt_by_key, pred_by_key, keys, rules=V2):
     """Per-diagram scores over `keys`. Missing prediction -> empty graph -> scored."""
     rows = []
     for key in keys:
-        gt_names = names_from_record(gt_by_key[key])
+        gt_names = names_from_record(gt_by_key[key], rules)
         pred_rec = pred_by_key.get(key)
-        pred_names = names_from_record(pred_rec) if pred_rec is not None else []
+        pred_names = names_from_record(pred_rec, rules) if pred_rec is not None else []
         row = {"key": key}
         row.update(prf(gt_names, pred_names))
         rows.append(row)
@@ -118,9 +144,9 @@ PARTICIPANT_TYPES = frozenset({
 SCORED_TYPES = CLASS_TYPES | PARTICIPANT_TYPES
 
 
-def typed_pairs_from_record(record):
+def typed_pairs_from_record(record, rules=V2):
     """(normalized name, extractor type) per node of one JSONL record."""
-    return [(normalize(n["name"]), n.get("type", ""))
+    return [(normalize(n["name"], rules), n.get("type", ""))
             for n in (record.get("nodes") or [])]
 
 
@@ -173,13 +199,13 @@ def type_counts(gt_pairs, pred_pairs):
             "per_type": per_type}
 
 
-def compute_type_accuracy(gt_by_key, pred_by_key, keys):
+def compute_type_accuracy(gt_by_key, pred_by_key, keys, rules=V2):
     """Per-diagram type counts over `keys`. Missing prediction -> no pairs."""
     rows = []
     for key in keys:
-        gt_pairs = typed_pairs_from_record(gt_by_key[key])
+        gt_pairs = typed_pairs_from_record(gt_by_key[key], rules)
         pred_rec = pred_by_key.get(key)
-        pred_pairs = typed_pairs_from_record(pred_rec) if pred_rec is not None else []
+        pred_pairs = typed_pairs_from_record(pred_rec, rules) if pred_rec is not None else []
         row = {"key": key}
         row.update(type_counts(gt_pairs, pred_pairs))
         rows.append(row)

@@ -1,0 +1,4 @@
+@startuml
+class A
+note "Your are analyzing:\nAnalyzeAST **detailed**\n----\n=Filter\nYou can click the names." as FloatingNote
+@enduml

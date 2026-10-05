@@ -61,9 +61,73 @@ def test_normalize_plain_name_with_single_angle_brackets_untouched():
     assert ef.normalize("list: List<Variable>") == "list: list<variable>"
 
 
-def test_normalize_plain_name_internal_whitespace_untouched():
-    # whitespace fidelity is still part of the key for stereotype-free names
-    assert ef.normalize("Upper  layer") == "upper  layer"
+# --- scorer v2: whitespace runs and Unicode stereotype brackets ---
+
+def test_normalize_collapses_whitespace_runs():
+    # the number of spaces between two words is not visible in the image
+    assert ef.normalize("Spring  Application") == ef.normalize("Spring Application")
+    assert ef.normalize("taskTypeStore  : TaskTypeStore") == "tasktypestore : tasktypestore"
+    assert ef.normalize("a \t\n b") == "a b"
+
+
+def test_normalize_strips_unicode_stereotype_brackets():
+    # GT 532d5a1ff757 writes the stereotype as <U+226A>X<U+226B>; the extractor
+    # emits the decoded characters, the prediction writes <<X>>
+    gt = "≪Application≫ : OrderDeliveredController"
+    pred = "<<Application>> : OrderDeliveredController"
+    assert ef.normalize(gt) == ": orderdeliveredcontroller"
+    assert ef.normalize(gt) == ef.normalize(pred)
+
+
+def test_normalize_keeps_unpaired_unicode_bracket():
+    # GT 532d5a1ff757, first participant: the opening bracket is missing in the source
+    assert ef.normalize("Presentation≫ : OrderDeliveredUI") == "presentation≫ : orderdeliveredui"
+
+
+def test_normalize_keeps_typed_circle_letter():
+    # a letter typed into the name is indistinguishable from a real name that
+    # starts with a letter and a space; it stays part of the key
+    assert ef.normalize("C Producer") == "c producer"
+    assert ef.normalize("C Producer") != ef.normalize("Producer")
+    assert ef.normalize("I have a really long name") == "i have a really long name"
+
+
+# --- scorer v1 rules: every switch off reproduces the v1 key ---
+
+def test_v1_rules_are_all_switches_off():
+    assert ef.V1 == ef.Rules(collapse_whitespace=False, unicode_brackets=False,
+                             association_direction=False)
+    assert ef.V2 == ef.Rules()
+    assert ef.V2 == ef.Rules(collapse_whitespace=True, unicode_brackets=True,
+                             association_direction=True)
+
+
+def test_v1_rules_keep_internal_whitespace():
+    # whitespace fidelity is part of the v1 key for stereotype-free names
+    assert ef.normalize("Upper  layer", ef.V1) == "upper  layer"
+    # ...while the seam left by a stereotype removal is collapsed, as in v1
+    assert ef.normalize("w: <<analysis>> Workbook", ef.V1) == "w: workbook"
+
+
+def test_v1_rules_keep_unicode_stereotype_brackets():
+    assert ef.normalize("≪Application≫ : X", ef.V1) == "≪application≫ : x"
+
+
+def test_rule_switches_are_independent():
+    only_ws = ef.Rules(collapse_whitespace=True, unicode_brackets=False)
+    only_brackets = ef.Rules(collapse_whitespace=False, unicode_brackets=True)
+    assert ef.normalize("≪A≫  B  C", only_ws) == "≪a≫ b c"
+    assert ef.normalize("≪A≫ B  C", only_brackets) == "b c"
+    assert ef.normalize("B  C", only_brackets) == "b  c"
+
+
+def test_compute_passes_rules_to_names():
+    gt = {"k": {"nodes": [{"name": "Upper  layer", "type": "class"}]}}
+    pred = {"k": {"nodes": [{"name": "Upper layer", "type": "class"}]}}
+    assert ef.compute(gt, pred, ["k"])[0]["tp"] == 1
+    assert ef.compute(gt, pred, ["k"], ef.V1)[0]["tp"] == 0
+    assert ef.compute_type_accuracy(gt, pred, ["k"])[0]["matched"] == 1
+    assert ef.compute_type_accuracy(gt, pred, ["k"], ef.V1)[0]["matched"] == 0
 
 
 def test_prf_matches_source_vs_rendered_stereotype():

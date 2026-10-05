@@ -1,0 +1,4 @@
+@startuml
+participant "Producer" as UpstreamProducer << (C,#ADD1B2) >> order 0
+participant "Tansport" as UpstreamTransport << (S, LightBlue) >> order 2
+@enduml

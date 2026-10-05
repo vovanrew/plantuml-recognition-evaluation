@@ -1,0 +1,7 @@
+@startuml
+participant "__api__ / Handler" as cs_handler
+participant "<&transfer> Representation" as Representation
+participant "**Bold** name" as bn
+participant "see http://example.org/a" as url
+participant "see http://example.org/a//b" as url2
+@enduml

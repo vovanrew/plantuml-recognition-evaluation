@@ -1,0 +1,4 @@
+@startuml
+class "<:file_folder:> Classification" as Classification {
+}
+@enduml

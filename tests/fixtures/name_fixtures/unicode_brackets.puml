@@ -1,0 +1,4 @@
+@startuml
+participant "<U+226A>Application<U+226B>\n: OrderDeliveredController" as controller
+participant "<U+00ab>Boundary<U+00bb> MakerUI" as b
+@enduml

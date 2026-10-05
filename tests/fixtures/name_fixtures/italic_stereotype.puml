@@ -1,0 +1,3 @@
+@startuml
+participant "//<<presentation>>//\nDefineNewCategoryUI" as ui
+@enduml

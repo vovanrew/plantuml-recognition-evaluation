@@ -1,0 +1,3 @@
+@startuml
+class "<b><size:14>InMemoryRepository<T, I></b>\n<size:10>eapli.framework.infrastructure.repositories.impl.inmemory" as R
+@enduml

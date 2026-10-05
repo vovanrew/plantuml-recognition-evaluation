@@ -1,0 +1,4 @@
+@startuml
+enum "<b><size:14>ConquestMapPart</b>\n<size:10>soen6441riskgame.enums" as soen6441riskgame.enums.ConquestMapPart {
+}
+@enduml

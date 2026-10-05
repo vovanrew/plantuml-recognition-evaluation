@@ -1,0 +1,4 @@
+@startuml
+participant ": OrderDeliveredController" as Controller <<Application>>
+participant "MakerUI" as b <<Boundary>>
+@enduml

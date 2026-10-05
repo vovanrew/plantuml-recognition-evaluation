@@ -1,0 +1,3 @@
+@startuml
+interface "<size:14>ViewFactory\n<size:10>it.tidalwave.northernwind.frontend.ui" as it.tidalwave.northernwind.frontend.ui.ViewFactory
+@enduml

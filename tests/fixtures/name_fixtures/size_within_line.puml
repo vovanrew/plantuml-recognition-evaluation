@@ -1,0 +1,4 @@
+@startuml
+participant "<size:20>A</size>\n<size:11>b <size:20>C</size>" as mixed
+participant "<size:20>D</size>\n<size:11>e f" as plain
+@enduml

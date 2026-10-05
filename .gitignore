@@ -2,6 +2,10 @@
 # repository root recreates data/, which must never be committed back.
 data/
 
+# Scorer-v2 re-scores of the stored runs (element_f1/, relationship_f1/, _bridge/).
+# Not tracked until they are deposited with the test images.
+data_v2/
+
 # Renderer and extractor JARs are pinned by version in README.md, not vendored.
 *.jar
 

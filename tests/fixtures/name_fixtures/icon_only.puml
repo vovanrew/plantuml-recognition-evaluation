@@ -1,0 +1,4 @@
+@startuml
+participant "<:file_folder:>" as IconOnly
+participant "Named" as N
+@enduml
