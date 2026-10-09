@@ -6,6 +6,11 @@ not part of it; generics and other single-angle text are. When the lines of a
 label differ in font size, the line(s) at the largest size are the name. The
 label lines of the fixtures are taken from the ground-truth sources named below.
 
+The label is read on the path PlantUML draws that kind of element with: a class
+header has no `__underline__` and no list items; the label of a note, a use case
+or a rectangle-like element is cut at separator lines first; every other label
+goes through the parser whole, with every markup on.
+
 With `--names=raw` the extractor joins the label lines as typed, which is the
 scorer-v1 name; EXPECTED_RAW pins that the switch reproduces it.
 """
@@ -66,6 +71,28 @@ EXPECTED = {
     # a creole heading is drawn larger than the other lines of the note, so it
     # alone is the name
     "note_heading": ["A", "Filter"],
+    # a class header is drawn without `__underline__` and without list items:
+    # double underscores, a leading asterisk and a leading hash are text, a
+    # `**…**` pair is bold (corpus 98ecad690094, 19cd18cb54e1, 095002d9b1a8)
+    "class_header": ["__main__", "client_new_connection_SYNC__NO_MSG__AT_MOST", "Transaction",
+                     "*mongo.Client", "# Numbered"],
+    # an object, a map and a childless package are read whole, with every
+    # markup on: a `__…__` pair is an underline, and a lone `==` line is drawn
+    # as a heading `=`, the largest line
+    "plain_label": ["obj", "=", "map", "=", "pkg", "="],
+    # in a use case, a rectangle, a note and a childless rectangle a separator
+    # line is a drawn rule, not text; its title is text (corpus 50d94af635a4)
+    "separator_lines": ["Dummy", "Delete Reminder Actor:User Some more text Conclusion last",
+                        "API Gateway /api/v2/petstore", "first second third",
+                        "Group title group second"],
+    # a participant label is not cut at separators: PlantUML draws the lone
+    # `==` as a heading `=`, the largest line
+    "separator_participant": ["="],
+    # a circle and a business use case are cut at separators too; a lone `..`
+    # is a separator; a separator title of `-`, `.` or `_` alone is part of the
+    # rule; an embedded diagram stays whole inside its block and is not text
+    "body_path_kinds": ["Dummy", "Top Bottom", "Plan Actors", "alpha beta gamma delta epsilon",
+                        "before after"],
 }
 
 EXPECTED_RAW = {
@@ -93,6 +120,17 @@ EXPECTED_RAW = {
                              "You can click the names. * Home:    [[index.html]]"],
     "note_heading": ["A", "Your are analyzing: AnalyzeAST **detailed** ---- =Filter "
                           "You can click the names."],
+    "class_header": ["__main__", "client_new_connection_SYNC__NO_MSG__AT_MOST",
+                     "**     Transaction     **", "*mongo.Client", "# Numbered"],
+    "plain_label": ["__obj__", "ObjTop == ObjBottom", "__map__", "MapTop == MapBottom",
+                    "__pkg__", "PkgTop == PkgBottom"],
+    "body_path_kinds": ["Dummy", "Top == Bottom", "Plan == Actors",
+                        "alpha .. beta ----- gamma ..... delta _____ epsilon",
+                        "before {{ class Inner note as M in == side end note }} after"],
+    "separator_lines": ["Dummy", "Delete Reminder -- Actor:User == Some more text ..Conclusion.. last",
+                        "<b>API Gateway</b> === /api/v2/petstore", "first ===== second __ third",
+                        "Group title === group second"],
+    "separator_participant": ["Top == Bottom"],
 }
 
 # stem -> match keys after normalize(): what the scorer compares
@@ -104,6 +142,11 @@ EXPECTED_KEYS = {
     "angle_text": ["<fhir api> hpi", "list: list<variable>", "foo bar"],
     "unicode_brackets": [": orderdeliveredcontroller", "makerui"],
     "unicode_brackets_pred": [": orderdeliveredcontroller", "makerui"],
+    "class_header": ["__main__", "client_new_connection_sync__no_msg__at_most", "transaction",
+                     "*mongo.client", "# numbered"],
+    "separator_lines": ["dummy", "delete reminder actor:user some more text conclusion last",
+                        "api gateway /api/v2/petstore", "first second third",
+                        "group title group second"],
 }
 
 
@@ -147,6 +190,9 @@ def test_markup_mode_keeps_every_drawn_line():
     assert _names(g["size_one_explicit"]) == ["Components:: DimensionComponent"]
     assert _names(g["spot_empty"]) == ["Producer", "Tansport"]
     assert _names(g["size_within_line"]) == ["A b C", "D e f"]
+    assert _names(g["separator_participant"]) == ["Top = Bottom"]
+    assert _names(g["plain_label"]) == ["obj", "ObjTop = ObjBottom", "map", "MapTop = MapBottom",
+                                        "pkg", "PkgTop = PkgBottom"]
 
 
 def test_unsized_text_starts_from_the_diagram_style(tmp_path):

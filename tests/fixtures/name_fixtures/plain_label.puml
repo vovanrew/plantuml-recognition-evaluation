@@ -1,0 +1,14 @@
+@startuml
+object "__obj__" as O
+object "ObjTop\n==\nObjBottom" as O2
+map "__map__" as M {
+ k => v
+}
+map "MapTop\n==\nMapBottom" as M2 {
+ k => v
+}
+package "__pkg__" as P {
+}
+package "PkgTop\n==\nPkgBottom" as PK {
+}
+@enduml

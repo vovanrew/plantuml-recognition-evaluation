@@ -134,7 +134,7 @@ versions. CSR and chrF++ are the same in both.
 | Version | What it is | This repository | Extractor fork |
 |---|---|---|---|
 | **v1** | The scorer of the paper: every number in this README, in `data.zip` and in `analysis/out/`. | tag `scorer-v1` | commit `7d2292dab1` |
-| **v2** | The scorer for the fine-tuning work that follows. Not frozen yet: it gets the tag `scorer-v2` before it scores any fine-tuned model. | `main` | commit `7e29ad4b4a` |
+| **v2** | The scorer for the fine-tuning work that follows. Not frozen yet: it gets the tag `scorer-v2` before it scores any fine-tuned model. | `main` | commit `edf1e3ad09` |
 
 The two halves of a version belong together. The message of a `scorer-*` tag
 records the extractor commit and the SHA-256 of the extractor JAR it was run
@@ -193,7 +193,7 @@ The fork is published separately, at
 ```bash
 git clone -b stats-extractor-graph https://github.com/vovanrew/plantuml.git
 cd plantuml
-git checkout 7d2292dab1                   # scorer v1, the paper. For scorer v2: 7e29ad4b4a
+git checkout 7d2292dab1                   # scorer v1, the paper. For scorer v2: edf1e3ad09
 ./gradlew build -x test -x javaDoc        # -> build/libs/plantuml-1.2025.9.jar
 export PLANTUML_EXTRACTOR_JAR=$PWD/build/libs/plantuml-1.2025.9.jar
 ```
@@ -204,7 +204,7 @@ on. The scorers read the JAR path from `PLANTUML_EXTRACTOR_JAR`, or take it as
 `--jar`.
 
 **Build the commit that matches the scorer.** `7d2292dab1` is the paper's
-extractor and goes with the tag `scorer-v1`. `7e29ad4b4a` is the v2 extractor
+extractor and goes with the tag `scorer-v1`. `edf1e3ad09` is the v2 extractor
 and goes with `main`. See [Scorer versions](#scorer-versions).
 
 Mind the filename: the fork builds to `plantuml-1.2025.9.jar`, the same name as

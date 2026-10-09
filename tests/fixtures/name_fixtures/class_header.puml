@@ -1,0 +1,7 @@
+@startuml
+class "__main__" as A
+class client_new_connection_SYNC__NO_MSG__AT_MOST
+class "**     Transaction     **" as T
+class "*mongo.Client" as M
+interface "# Numbered" as N
+@enduml

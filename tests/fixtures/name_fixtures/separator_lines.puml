@@ -1,0 +1,23 @@
+@startuml
+allowmixing
+class Dummy
+usecase UC as "Delete Reminder
+--
+Actor:User
+==
+Some more text
+..Conclusion..
+last"
+rectangle R as "<b>API Gateway</b>
+===
+/api/v2/petstore"
+note as N1
+first
+=====
+second
+__
+third
+end note
+rectangle "Group title\n===\ngroup second" as RG {
+}
+@enduml

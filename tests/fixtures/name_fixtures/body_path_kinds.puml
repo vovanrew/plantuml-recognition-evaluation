@@ -1,0 +1,29 @@
+@startuml
+allowmixing
+class Dummy
+circle "Top\n==\nBottom" as C
+usecase/ "Plan\n==\nActors" as UB
+note as N1
+alpha
+..
+beta
+-----
+gamma
+.....
+delta
+_____
+epsilon
+end note
+note as N2
+before
+{{
+class Inner
+note as M
+in
+==
+side
+end note
+}}
+after
+end note
+@enduml
