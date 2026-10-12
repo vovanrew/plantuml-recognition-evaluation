@@ -1,0 +1,7 @@
+@startuml
+state A
+state B
+state C
+A --> B
+A -[hidden]-> C
+@enduml

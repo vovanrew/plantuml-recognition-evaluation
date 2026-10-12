@@ -8,6 +8,11 @@ one end carries an arrowhead and undirected otherwise, all other relations
 directional; label ignored; multiset), and reports precision/recall/F1 per
 diagram plus micro/macro over the set.
 
+An edge is a link or a message PlantUML draws. A link PlantUML adds itself to
+arrange unconnected elements, a link or a message the source writes as
+`[hidden]` and a link to an element the source hides or removes are not edges,
+on either side; the link of a tip (a note on a class member) to its owner is.
+
 Two reporting modes (methodology/evaluation-framework.md, "reported two ways"):
   - zeros_for_failed: every test-set key scored; a missing/non-parsing
     prediction yields an empty graph -> F1 0.
@@ -24,8 +29,9 @@ header before @startuml is dropped the same way for GT and predictions. An answe
 holding several @startuml...@enduml diagrams is scored on its first diagram.
 
 The defaults are scorer v2; the rule switches are those of element_f1_runner
-(plus --no-association-direction and --extractor-arg=--no-arrowheads), and with
-every switch off the runner reproduces scorer v1.
+(plus --no-association-direction, --extractor-arg=--no-arrowheads and
+--extractor-arg=--undrawn-edges, which makes every link and every message an
+edge again), and with every switch off the runner reproduces scorer v1.
 
 Usage (invoke from project root):
   python evaluation/relationship_f1_runner.py --pred-dir data/csr/<run>/extracted \

@@ -1,0 +1,17 @@
+@startuml
+package P1 {
+class A1
+class A2
+class A3
+}
+package P2 {
+class B1
+class B2
+class B3
+}
+package P3 {
+class C1
+class C2
+class C3
+}
+@enduml

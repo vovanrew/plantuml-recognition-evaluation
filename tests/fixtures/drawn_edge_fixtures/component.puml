@@ -1,0 +1,10 @@
+@startuml
+component A
+component B
+component C
+component D
+component E
+component F
+A --> B
+A -[hidden]- C
+@enduml

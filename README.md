@@ -120,7 +120,7 @@ evaluation/        Inference runner and the four metric scorers.
 util/              Test-set construction, image standardization, token measurement.
 methodology/       The methodological record. The source of truth for every design decision.
 prompts/           The frozen zero-shot prompt.
-tests/             361 test functions across 23 modules.
+tests/             378 test functions across 24 modules.
 data.zip           The benchmark data. Unzip at the repository root.
 evaluation_plan.md How to run the benchmark end to end.
 FUTURE.md          Scoped extensions that were deliberately deferred.
@@ -134,13 +134,15 @@ versions. CSR and chrF++ are the same in both.
 | Version | What it is | This repository | Extractor fork |
 |---|---|---|---|
 | **v1** | The scorer of the paper: every number in this README, in `data.zip` and in `analysis/out/`. | tag `scorer-v1` | commit `7d2292dab1` |
-| **v2** | The scorer for the fine-tuning work that follows. Not frozen yet: it gets the tag `scorer-v2` before it scores any fine-tuned model. | `main` | commit `edf1e3ad09` |
+| **v2** | The scorer for the fine-tuning work that follows. Frozen before it scores any fine-tuned model. | tag `scorer-v2` | commit `549fe8ec08` |
 
 The two halves of a version belong together. The message of a `scorer-*` tag
 records the extractor commit and the SHA-256 of the extractor JAR it was run
-with.
+with. The hash names that file, not the commit: a JAR you build from the commit
+yourself will in general have another hash. For v2 the file is the v1 JAR with
+the classes changed since v1 recompiled and replaced.
 
-v2 reads names and edges differently in five places:
+v2 reads names and edges differently in six places:
 
 - A run of whitespace inside a name counts as one space.
 - A name is the text PlantUML draws for the label. Formatting markup, icons and
@@ -151,6 +153,10 @@ v2 reads names and edges differently in five places:
   dropped arrowhead is a miss. A plain line, or one with an arrowhead at both
   ends, stays undirected.
 - An answer that holds several diagrams is scored on its first diagram.
+- An edge is a link or a message PlantUML draws. A link PlantUML adds itself to
+  arrange unconnected elements, a link or a message written as `[hidden]` and a
+  link to an element the source hides or removes are not edges. The pointer of
+  a note on a class member to that member is.
 
 [`methodology/evaluation-framework.md`](methodology/evaluation-framework.md)
 describes v1.
@@ -158,13 +164,14 @@ describes v1.
 **Reproducing the paper does not depend on any of this.** The analysis pipeline
 reads the shipped result files, which are v1. The version matters only when you
 re-score raw predictions. To re-score under v1, check out `scorer-v1` and build
-the extractor at `7d2292dab1`. On `main` with the v2 extractor, the same
+the extractor at `7d2292dab1`. On `scorer-v2` with the v2 extractor, the same
 per-diagram counts come from switching every v2 rule off. Add these switches to
 both structural runners:
 
 ```
 --no-collapse-whitespace --no-unicode-brackets --no-association-direction
 --last-diagram --extractor-arg=--names=raw --extractor-arg=--no-arrowheads
+--extractor-arg=--undrawn-edges
 ```
 
 ## Requirements
@@ -193,7 +200,7 @@ The fork is published separately, at
 ```bash
 git clone -b stats-extractor-graph https://github.com/vovanrew/plantuml.git
 cd plantuml
-git checkout 7d2292dab1                   # scorer v1, the paper. For scorer v2: edf1e3ad09
+git checkout 7d2292dab1                   # scorer v1, the paper. For scorer v2: 549fe8ec08
 ./gradlew build -x test -x javaDoc        # -> build/libs/plantuml-1.2025.9.jar
 export PLANTUML_EXTRACTOR_JAR=$PWD/build/libs/plantuml-1.2025.9.jar
 ```
@@ -204,8 +211,8 @@ on. The scorers read the JAR path from `PLANTUML_EXTRACTOR_JAR`, or take it as
 `--jar`.
 
 **Build the commit that matches the scorer.** `7d2292dab1` is the paper's
-extractor and goes with the tag `scorer-v1`. `edf1e3ad09` is the v2 extractor
-and goes with `main`. See [Scorer versions](#scorer-versions).
+extractor and goes with the tag `scorer-v1`. `549fe8ec08` is the v2 extractor
+and goes with the tag `scorer-v2`. See [Scorer versions](#scorer-versions).
 
 Mind the filename: the fork builds to `plantuml-1.2025.9.jar`, the same name as
 the stock renderer JAR, but the two are not interchangeable. Keep them apart, or
@@ -443,7 +450,7 @@ They are inspection aids, and they are regenerable by re-running the scorers.
 python3 -m pytest tests/
 ```
 
-361 test functions across 23 modules, covering the scoring logic, the
+378 test functions across 24 modules, covering the scoring logic, the
 aggregation math, the bootstrap, the registry and loader, the plot builders, and
 the frozen prompt. Tests skip cleanly rather than fail when what they need is
 absent: benchmark data that has not been unpacked, the standardized images, or

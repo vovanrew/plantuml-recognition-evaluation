@@ -21,7 +21,10 @@ scored on its first diagram.
 
 The defaults are scorer v2. Each v2 rule has a switch (--no-collapse-whitespace,
 --no-unicode-brackets, --last-diagram, --extractor-arg=--names=raw); with every
-switch off the runner reproduces scorer v1.
+switch off the runner reproduces scorer v1. The edge switches of
+relationship_f1_runner (--no-association-direction,
+--extractor-arg=--no-arrowheads, --extractor-arg=--undrawn-edges) are accepted
+and do not change nodes.
 
 Usage (invoke from project root):
   python evaluation/element_f1_runner.py --pred-dir data/csr/<run>/extracted \

@@ -1,0 +1,12 @@
+@startuml
+class A {
++foo()
++bar()
+}
+note left of A::foo
+about foo
+end note
+note right of A::bar
+about bar
+end note
+@enduml

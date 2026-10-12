@@ -1,0 +1,10 @@
+@startuml
+package api {
+interface Reader
+interface Writer
+interface Parser
+interface Mapper
+interface Loader
+interface Closer
+}
+@enduml

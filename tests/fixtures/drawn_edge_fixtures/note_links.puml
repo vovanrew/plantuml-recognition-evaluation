@@ -1,0 +1,14 @@
+@startuml
+class A
+class B
+class C
+class D
+note "on A" as NA
+note "on B" as NB
+note "on C" as NC
+A --> D
+NA .. A
+NB .. B
+NC .[hidden]. C
+hide B
+@enduml
