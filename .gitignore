@@ -1,6 +1,8 @@
 # Unpacked benchmark data. The tracked artifact is data.zip; unzipping it at the
-# repository root recreates data/, which must never be committed back.
-data/
+# repository root recreates data/, which is not committed back. The one exception
+# is the standardized test images, which do not fit in data.zip as one file.
+data/*
+!data/puml_images_1568/
 
 # Scorer-v2 re-scores of the stored runs (element_f1/, relationship_f1/, _bridge/).
 # Not tracked until they are deposited with the test images.

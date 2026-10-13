@@ -272,7 +272,8 @@ python3 evaluation/chrf_runner.py            --pred-dir data/runs/<run> --out da
 
 Then add the run to `analysis/model_registry.json` and re-run the analysis
 pipeline. Steps 3a and 3b require the extractor fork. Step 1 requires the
-standardized input images, which are not in `data.zip` (see below).
+standardized input images, which are in `data/puml_images_1568/`, outside
+`data.zip` (see below).
 
 On `main`, steps 3a and 3b score under scorer v2. The shipped results are v1, so
 do not mix the two in one table; [Scorer versions](#scorer-versions) says how to
@@ -422,14 +423,16 @@ Scores are on sacrebleu's native 0-100 scale, stored unrescaled.
 **The diagram images.** Two sets exist: `puml_images/` (the original renders,
 242 MB) and `puml_images_1568/` (the standardized model inputs, 187 MB). PNG is
 already compressed, so zipping them saves essentially nothing, and either one
-alone would exceed GitHub's file size limit.
+alone would exceed GitHub's file size limit as a single file.
 
-<!-- TODO(author): once the image archives are uploaded to Zenodo as their own
-     record, replace this paragraph with the link and its DOI. -->
+The standardized model inputs are therefore tracked as plain files in
+`data/puml_images_1568/`, next to `data.zip`: 1,000 PNG files, one per diagram,
+named by key. A clone has them, and unzipping `data.zip` fills in the rest of
+`data/` around them. The Zenodo record of release v1.0.0 predates this and does
+not hold them.
 
-They are not in the Zenodo record above either, which holds the repository
-archive only. Regenerate them from the ground-truth sources, which is the fully
-reproducible route in any case:
+The original renders are not in the repository. They are needed only to rebuild
+the standardized set, from the corpus:
 
 ```bash
 python3 util/populate_test_set.py --test-set data/test_set.json --prune  # needs the corpus
