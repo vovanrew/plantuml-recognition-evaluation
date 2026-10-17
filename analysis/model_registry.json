@@ -11,7 +11,9 @@
     "name under data/{csr,element_f1,relationship_f1,chrf}/<run_dir>/ and",
     "data/runs/<run_dir>/), status (scored|in_progress|pending), lab, arm",
     "(frontier|qwen), family (dense|moe), params_total_b / params_active_b",
-    "(billions; null where the lab does not disclose), supplementary (bool)."
+    "(billions; null where the lab does not disclose), supplementary (bool),",
+    "condition (zero_shot|fine_tuned; optional, zero_shot when the key is absent).",
+    "A fine-tuned run keeps its model's arm and gets its own id."
   ],
   "models": [
     {

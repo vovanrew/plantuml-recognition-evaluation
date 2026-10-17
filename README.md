@@ -120,7 +120,7 @@ evaluation/        Inference runner and the four metric scorers.
 util/              Test-set construction, image standardization, token measurement.
 methodology/       The methodological record. The source of truth for every design decision.
 prompts/           The frozen zero-shot prompt.
-tests/             378 test functions across 24 modules.
+tests/             385 test functions across 24 modules.
 data.zip           The benchmark data. Unzip at the repository root.
 evaluation_plan.md How to run the benchmark end to end.
 FUTURE.md          Scoped extensions that were deliberately deferred.
@@ -453,7 +453,7 @@ They are inspection aids, and they are regenerable by re-running the scorers.
 python3 -m pytest tests/
 ```
 
-378 test functions across 24 modules, covering the scoring logic, the
+385 test functions across 24 modules, covering the scoring logic, the
 aggregation math, the bootstrap, the registry and loader, the plot builders, and
 the frozen prompt. Tests skip cleanly rather than fail when what they need is
 absent: benchmark data that has not been unpacked, the standardized images, or

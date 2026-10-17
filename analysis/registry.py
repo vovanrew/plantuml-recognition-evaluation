@@ -2,8 +2,12 @@
 
 Every analysis task drives off this file. The author maintains it as runs finish
 (see analysis/model_registry.json). Loading validates the minimal invariants the
-pipeline relies on (unique ids, known status/arm/family values) and returns the
-entries in reporting order.
+pipeline relies on (unique ids, known status/arm/family/condition values) and
+returns the entries in reporting order.
+
+``arm`` says which group of models a run belongs to (frontier reference or the
+Qwen family); ``condition`` says what was done to the model (zero-shot or
+fine-tuned). A fine-tuned run keeps its model's ``arm`` and gets its own ``id``.
 """
 from __future__ import annotations
 
@@ -16,6 +20,8 @@ DEFAULT_REGISTRY = Path(__file__).with_name("model_registry.json")
 _VALID_STATUS = {"scored", "in_progress", "pending"}
 _VALID_ARM = {"frontier", "qwen"}
 _VALID_FAMILY = {"dense", "moe"}
+_VALID_CONDITION = {"zero_shot", "fine_tuned"}
+DEFAULT_CONDITION = "zero_shot"  # an entry with no "condition" key
 
 
 @dataclass(frozen=True)
@@ -32,6 +38,7 @@ class ModelEntry:
     params_total_b: float | None
     params_active_b: float | None
     supplementary: bool
+    condition: str = DEFAULT_CONDITION
 
     @property
     def is_pending(self) -> bool:
@@ -51,6 +58,7 @@ def _parse_entry(d: dict) -> ModelEntry:
         params_total_b=d.get("params_total_b"),
         params_active_b=d.get("params_active_b"),
         supplementary=bool(d.get("supplementary", False)),
+        condition=d.get("condition", DEFAULT_CONDITION),
     )
 
 
@@ -71,6 +79,10 @@ def load_registry(path: str | Path = DEFAULT_REGISTRY) -> list[ModelEntry]:
             raise ValueError(f"{e.id}: bad arm {e.arm!r} (want {_VALID_ARM})")
         if e.family not in _VALID_FAMILY:
             raise ValueError(f"{e.id}: bad family {e.family!r} (want {_VALID_FAMILY})")
+        if e.condition not in _VALID_CONDITION:
+            raise ValueError(
+                f"{e.id}: bad condition {e.condition!r} (want {_VALID_CONDITION})"
+            )
     return entries
 
 
