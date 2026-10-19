@@ -47,8 +47,11 @@ and this record together.
 
 Inference runs through `evaluation/infer_runner.py` (greedy decoding,
 temperature 0; `max_tokens` 5376 per methodology §1 of the evaluation
-framework; a 90-second per-call hard wall-clock deadline sized to the worst
-legitimate generation at observed throughput). Each run stores one record per
+framework; a per-call hard wall-clock deadline). The deadline was 90 s for the
+four frontier runs and for the first pass of each dense Qwen3.5 run. The dense
+Qwen3.5 runs then re-attempted their failed cells with a 600 s deadline, and the
+Qwen3.5-397B-A17B run used 600 s. 25 cells of Qwen3.5-2B and 1 of Qwen3.5-27B
+exceeded 600 s and are recorded as timeouts. Each run stores one record per
 test-set cell and a `run_meta.json` pinning the model identifier, endpoint,
 prompt text, and decoding parameters.
 
@@ -107,7 +110,7 @@ Transient transport failures (HTTP 408, 429, and 5xx; network-level errors)
 are retried with exponential backoff. A call that exceeds the hard deadline is
 recorded as a `timeout` failure without retry, because observed timeout causes
 (no-EOS repetition spirals) reproduce deterministically. Every failed cell —
-`timeout`, `image_dropped`, `http_error`, or `network_error` — yields a stored
+`timeout`, `image_dropped`, `http_error`, `network_error`, or `bad_response` — yields a stored
 failure record and no prediction file, so Compilation Success Rate scores the
 cell as a failure while the cause remains on disk for error analysis. Stored
 successful responses are immutable: re-invoking a run directory skips them and
