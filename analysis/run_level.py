@@ -114,10 +114,15 @@ def read_cell(record: dict) -> dict:
 # per-run source-B aggregation (tokens + status counts over all cells)
 # --------------------------------------------------------------------------- #
 
+# The JSON files of a run dir that are not cells: the runner's provenance record, and the
+# run manifest that a self-served run writes beside its cells.
+NOT_CELLS = ("run_meta.json", "manifest.json")
+
+
 def read_run_usage(run_dir) -> dict:
     """Sum tokens + count statuses over every ``<key>.json`` cell in a source-B run
-    dir (``run_meta.json`` excluded). Failures contribute 0 tokens unless they kept a
-    usage-bearing response (image_dropped). Deterministic (sorted file iteration).
+    dir (the files of ``NOT_CELLS`` excluded). Failures contribute 0 tokens unless they
+    kept a usage-bearing response (image_dropped). Deterministic (sorted file iteration).
 
     Returns ``{n_cells, n_ok, n_error, input, output, reasoning, status_counts}``.
     """
@@ -126,7 +131,7 @@ def read_run_usage(run_dir) -> dict:
     status_counts: dict[str, int] = {}
     n_cells = 0
     for path in sorted(run_dir.glob("*.json")):
-        if path.name == "run_meta.json":
+        if path.name in NOT_CELLS:
             continue
         with open(path, encoding="utf-8") as f:
             record = json.load(f)

@@ -6,6 +6,7 @@ the crowding descriptor are all exercised on hand-built fixtures (synth.py). A
 separate smoke test drives the emitters. The real-data build + reconcile cross-check
 runs in build_run_level.py against disk.
 """
+import json
 import struct
 
 import pytest
@@ -140,6 +141,18 @@ def test_read_run_usage_ignores_run_meta(tmp_path):
         tmp_path, "run_y", {"d1": synth.srcb_openai()}, synth.run_meta())
     u = rl.read_run_usage(run_dir)
     assert u["n_cells"] == 1               # run_meta.json not counted as a cell
+
+
+def test_read_run_usage_ignores_a_run_manifest(tmp_path):
+    # A self-served run keeps its run manifest beside the cells; its shape is not a cell's.
+    run_dir = synth.write_run_dir(
+        tmp_path, "run_z", {"d1": synth.srcb_openai(prompt=432, completion=24)}, synth.run_meta())
+    manifest = {"run_dir": "run_z", "freeze_tag": "serving-v3", "passed": True,
+                "checks": [{"name": "n_cells", "passed": True}]}
+    (run_dir / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+    u = rl.read_run_usage(run_dir)
+    assert u["n_cells"] == 1 and u["n_ok"] == 1
+    assert (u["input"], u["output"]) == (432, 24)
 
 
 # --------------------------------------------------------------------------- #
