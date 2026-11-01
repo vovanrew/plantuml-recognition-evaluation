@@ -16,7 +16,7 @@ All produced by the test-set construction pipeline; assumed already in place.
 - `data/puml_images/<key>.png` — 1000 full-resolution renders (built by `util/populate_test_set.py`).
 - `data/puml_images_1568/<key>.png` — 1000 standardized 1568-px-long-edge inputs (built by `util/standardize_images.py`), the image fed to every model.
 - `plantuml-1.2025.9.jar` — official renderer, at the project root (used by `evaluation/csr_runner.py`).
-- `$PLANTUML_EXTRACTOR_JAR` — `DiagramStatsExtractor` fork JAR with the named-graph emitter (used by the structural runners). Build it from https://github.com/vovanrew/plantuml, branch `stats-extractor-graph` (not the default branch), with `./gradlew build -x test -x javaDoc`; the JAR lands at `build/libs/plantuml-1.2025.9.jar`. The runners also accept `--jar <path>`.
+- `$PLANTUML_EXTRACTOR_JAR` — `DiagramStatsExtractor` fork JAR with the named-graph emitter (used by the structural runners): `plantuml-stats-extractor-v1.jar` (scorer v1, the paper) or `plantuml-stats-extractor-v2.jar` (scorer v2), both at the root of `main` (from `v1.1.0` on). Use these files, not a build of your own: each `scorer-*` tag records the SHA-256 of its JAR (README, "The structural extractor"). The runners also accept `--jar <path>`.
 
 ## 1. Per-model pipeline
 

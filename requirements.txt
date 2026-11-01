@@ -1,7 +1,7 @@
 # Python dependencies for the zero-shot image-to-PlantUML benchmark.
 #   python3 -m pip install -r requirements.txt
 #
-# Python 3.10 or newer is recommended. Java is required separately for the
+# Python 3.9 or newer (the scorers were run under 3.9.6). Java is required separately for the
 # PlantUML renderer and the structural extractor (see README.md).
 
 # chrF++ scoring. Pinned exactly: the metric values reported in the paper and

@@ -120,8 +120,11 @@ evaluation/        Inference runner and the four metric scorers.
 util/              Test-set construction, image standardization, token measurement.
 methodology/       The methodological record. The source of truth for every design decision.
 prompts/           The frozen zero-shot prompt.
-tests/             385 test functions across 24 modules.
+tests/             391 test functions across 25 modules.
 data.zip           The benchmark data. Unzip at the repository root.
+data_v2.zip        The stored runs scored under scorer v2. Unzip at the repository root.
+plantuml-stats-extractor-v1.jar, -v2.jar
+                   The extractor JARs of scorer v1 and v2 (GPL-3.0).
 evaluation_plan.md How to run the benchmark end to end.
 FUTURE.md          Scoped extensions that were deliberately deferred.
 ```
@@ -163,8 +166,10 @@ describes v1.
 
 **Reproducing the paper does not depend on any of this.** The analysis pipeline
 reads the shipped result files, which are v1. The version matters only when you
-re-score raw predictions. To re-score under v1, check out `scorer-v1` and build
-the extractor at `7d2292dab1`. On `scorer-v2` with the v2 extractor, the same
+re-score raw predictions. To re-score under v1, use `plantuml-stats-extractor-v1.jar`
+(pass it with `--jar`) in a checkout of `scorer-v1` beside this one
+(`git worktree add ../scorer-v1 scorer-v1`): the
+JARs are tracked from `v1.1.0` on, so checking out the older tag here removes them. On `scorer-v2` with the v2 extractor, the same
 per-diagram counts come from switching every v2 rule off. Add these switches to
 both structural runners:
 
@@ -174,9 +179,32 @@ both structural runners:
 --extractor-arg=--undrawn-edges
 ```
 
+### The stored runs under scorer v2
+
+`data_v2.zip` holds the eight stored runs of `data.zip` scored again under
+scorer v2, and at every level between v1 and v2, one rule at a time. Unzipping
+it at the repository root recreates `data_v2/`:
+
+```
+data_v2/
+├── element_f1/<run>/element_f1_results.json           Scorer v2.
+├── relationship_f1/<run>/relationship_f1_results.json
+└── _bridge/
+    ├── levels.json                                    The switches of each level.
+    ├── <level>/<metric>/<run>/<metric>_results.json   One level.
+    └── spot_effect.json                               The stereotype-spot letter alone, per run.
+```
+
+It holds the result files only. The extracted blocks the runners also write are
+left out, and re-running the scorers writes them again.
+`python3 util/pack_data_v2.py --check` compares the archive with an unpacked
+`data_v2/`. The
+[fine-tuning study](https://github.com/vovanrew/plantuml-recognition-fine-tuning)
+reports the change from v1 to v2 on these runs.
+
 ## Requirements
 
-- **Python 3.10 or newer.** `python3 -m pip install -r requirements.txt`
+- **Python 3.9 or newer** (the scorers were run under 3.9.6). `python3 -m pip install -r requirements.txt`
 - **A Java runtime**, for the PlantUML renderer. The reported runs used
   Temurin JDK 26.0.1.
 - **PlantUML `1.2025.9`**, as `plantuml-1.2025.9.jar` in the repository root.
@@ -184,8 +212,9 @@ both structural runners:
   [PlantUML releases page](https://github.com/plantuml/plantuml/releases).
   The version matters: renderer behaviour on malformed input is what CSR
   measures, so a different version can move the numbers.
-- **The `DiagramStatsExtractor` fork**, only if you want to re-run the
-  structural scorers. Build instructions below.
+- **The extractor JARs** `plantuml-stats-extractor-v1.jar` and
+  `plantuml-stats-extractor-v2.jar`, in the repository root, only if you want to
+  re-run the structural scorers. See below.
 
 ### The structural extractor
 
@@ -194,29 +223,31 @@ computed over a typed graph emitted by `DiagramStatsExtractor`, a fork of
 PlantUML that reuses the renderer's own parser, so ground truth and prediction
 are read on identical terms.
 
-The fork is published separately, at
-**https://github.com/vovanrew/plantuml**. Build it like this:
+The fork is published at **https://github.com/vovanrew/plantuml**, branch
+`stats-extractor-graph`. The two JARs the scorers ran with are in the root of
+this repository:
+
+| File | Scorer | Fork commit | SHA-256 |
+|---|---|---|---|
+| `plantuml-stats-extractor-v1.jar` | v1, tag `scorer-v1` | `7d2292dab1` | `f6e76d4973ce12c23cb15dff6420726f7d2203a80c1761d1454b5a2c5a91777b` |
+| `plantuml-stats-extractor-v2.jar` | v2, tag `scorer-v2` | `549fe8ec08` | `2747a72aec9206e424ddf9ed659f9eceb96730444a68b1fe99094317400f555b` |
 
 ```bash
-git clone -b stats-extractor-graph https://github.com/vovanrew/plantuml.git
-cd plantuml
-git checkout 7d2292dab1                   # scorer v1, the paper. For scorer v2: 549fe8ec08
-./gradlew build -x test -x javaDoc        # -> build/libs/plantuml-1.2025.9.jar
-export PLANTUML_EXTRACTOR_JAR=$PWD/build/libs/plantuml-1.2025.9.jar
+export PLANTUML_EXTRACTOR_JAR=$PWD/plantuml-stats-extractor-v2.jar   # -v1 for the paper
 ```
 
-**Check out `stats-extractor-graph` explicitly.** It is not the fork's default
-branch, and it is the branch that emits the named graph these metrics are scored
-on. The scorers read the JAR path from `PLANTUML_EXTRACTOR_JAR`, or take it as
-`--jar`.
+The scorers read the JAR path from `PLANTUML_EXTRACTOR_JAR`, or take it as
+`--jar`. Use these files rather than a build of your own: the message of a
+`scorer-*` tag records the SHA-256 of its JAR, and a JAR built from the commit
+will in general have another hash. See [Scorer versions](#scorer-versions).
 
-**Build the commit that matches the scorer.** `7d2292dab1` is the paper's
-extractor and goes with the tag `scorer-v1`. `549fe8ec08` is the v2 extractor
-and goes with the tag `scorer-v2`. See [Scorer versions](#scorer-versions).
+The JARs are PlantUML and are licensed under the GNU General Public License,
+version 3 or later ([`LICENSE-GPL-3.0`](LICENSE-GPL-3.0)), not under this
+repository's MIT or CC BY 4.0 licences. Their source is the fork at the commits
+above.
 
-Mind the filename: the fork builds to `plantuml-1.2025.9.jar`, the same name as
-the stock renderer JAR, but the two are not interchangeable. Keep them apart, or
-rename one.
+The stock renderer JAR, `plantuml-1.2025.9.jar`, is a different file. The two
+are not interchangeable.
 
 You do not need any of this to reproduce a reported number. The extracted graphs
 are already reflected in the shipped `*_results.json` files, so the whole
@@ -453,7 +484,7 @@ They are inspection aids, and they are regenerable by re-running the scorers.
 python3 -m pytest tests/
 ```
 
-385 test functions across 24 modules, covering the scoring logic, the
+391 test functions across 25 modules, covering the scoring logic, the
 aggregation math, the bootstrap, the registry and loader, the plot builders, and
 the frozen prompt. Tests skip cleanly rather than fail when what they need is
 absent: benchmark data that has not been unpacked, the standardized images, or
@@ -498,6 +529,10 @@ Code is MIT. Data and documentation are CC BY 4.0, **except** the ground-truth
 `.puml` sources and any image rendered from them: those were mined from
 open-source repositories and each remains under the licence of the repository it
 came from.
+
+The two extractor JARs are PlantUML, under the GNU GPL v3 or later
+([`LICENSE-GPL-3.0`](LICENSE-GPL-3.0)); their source is the fork at the commits
+in [The structural extractor](#the-structural-extractor).
 
 See [`LICENSE`](LICENSE) and [`LICENSE-DATA`](LICENSE-DATA). The second file
 matters if you plan to redistribute the diagram sources or the images.

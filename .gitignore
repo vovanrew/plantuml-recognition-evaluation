@@ -5,11 +5,15 @@ data/*
 !data/puml_images_1568/
 
 # Scorer-v2 re-scores of the stored runs (element_f1/, relationship_f1/, _bridge/).
-# Not tracked until they are deposited with the test images.
+# The tracked artifact is data_v2.zip, the result files only; unzipping it at the
+# repository root recreates data_v2/ without the extracted blocks.
 data_v2/
 
-# Renderer and extractor JARs are pinned by version in README.md, not vendored.
+# The renderer JAR is pinned by version in README.md, not vendored. The two
+# extractor JARs the scorers ran with are tracked (README, "The structural extractor").
 *.jar
+!plantuml-stats-extractor-v1.jar
+!plantuml-stats-extractor-v2.jar
 
 # Credentials. Never commit an API key.
 *-KEY.txt
