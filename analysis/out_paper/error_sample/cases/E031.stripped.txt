@@ -1,0 +1,1 @@
+title Policy Authorization flow between Smart Edge Open and 5G core

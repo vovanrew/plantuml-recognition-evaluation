@@ -1,0 +1,7 @@
+hide footbox
+skinparam shadowing false
+skinparam sequence {
+  ParticipantPadding 40
+  BoxPadding 10
+  MessageAlign left
+}

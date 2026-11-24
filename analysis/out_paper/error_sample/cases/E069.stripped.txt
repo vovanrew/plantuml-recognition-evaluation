@@ -1,0 +1,7 @@
+skinparam shadowing false
+skinparam class {
+  BackgroundColor #D9D9E8
+  BorderColor #000000
+  RoundCorner 12
+  FontSize 28
+}

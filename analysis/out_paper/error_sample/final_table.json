@@ -1,0 +1,1618 @@
+[
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "86c771a52346ed8537813f5e90e4dc5140dd476d",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 19,
+  "case": "E001",
+  "primary": "S1",
+  "sec": [
+   "S5"
+  ],
+  "reason": "all ten inheritance edges the image draws as solid lines with hollow triangles (e.g. Datasql --|> SQL, jsonmsg --|> parse) are written as dashed dependencies `..>`; all 16 nodes match"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "e74eafa342207f6317773e0c8d1f8562842c9e97",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 30,
+  "case": "E002",
+  "primary": "C1",
+  "sec": [
+   "S2",
+   "S5",
+   "S6"
+  ],
+  "reason": "renderer fails at `frame \"Guanyar Partida\" {`: the three sequence groups are written as `frame { }` blocks inside otherwise valid sequence syntax; also boundary Telegram as participant and GetTimer() sent to Timer instead of User"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "e613eefd072a8fa0616cb42d7cb770170d7ff979",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 3,
+  "case": "E003",
+  "primary": "C3",
+  "sec": [
+   "S2",
+   "S3",
+   "note"
+  ],
+  "reason": "the sequence diagram is written as a component diagram (`package ... { [bl1_main] ... }`), so every message is keyed as an association and the seven `note right of` blocks become spurious nodes; bl_common's messages are attached to bl1_main"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "c5bb3816232672cc44f741e2b5d82d69ebdf932c",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 1,
+  "case": "E004",
+  "primary": "S4",
+  "sec": [
+   "S3"
+  ],
+  "reason": "participant named `\"\u21c4 Representation\"` keeps the icon glyph in the name (scored as `? representation`), so `representation` and both messages fail to match; Client and Representation are also declared a second time as C2/R2"
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "1067b9cef0f7617223a7f9ea212a6c7aa62e70cc",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 4,
+  "case": "E005",
+  "primary": "C2",
+  "sec": [],
+  "reason": "the answer block is empty and has no `@enduml`; no PNG produced"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "93d6d0057a687cb6d47f69db68badb643308ad7e",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 104,
+  "case": "E006",
+  "primary": "C1",
+  "sec": [
+   "S2",
+   "S6",
+   "note"
+  ],
+  "reason": "renderer fails at `participant HealthCloud as HC`, directly after the incomplete stripped line `skinparam sequenceDiagram`; the next line `participant Embedded Browser as EB` is also an unquoted multi-word name; the SAML group is written as a note and messages are shifted to wrong endpoints"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "21b4a540ef036fcb31ecb8df572773b7cd602a22",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 4,
+  "case": "E007",
+  "primary": "C3",
+  "sec": [],
+  "reason": "participants are declared as `component` inside `package \"DomainModel\" { }`, so all 16 correctly placed messages are keyed as associations (Relationship F1 0, Element F1 1)"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "b21a6faaf6a180c501e0aba4b0056672ede1ea2d",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 29,
+  "case": "E008",
+  "primary": "C1",
+  "sec": [
+   "S2",
+   "S3",
+   "S5",
+   "note"
+  ],
+  "reason": "renderer fails at `BuildingTile o-- Dictionary`2`: the name with a backtick is not quoted; also enum StructureType written as class, the nesting edge `BuildingTile +-- StructureType` is absent, and the ModelLookup label is moved into a note"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "a87c8d584bf40e45101b8425d63c9ac5fb06c7d6",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 24,
+  "case": "E009",
+  "primary": "C2",
+  "sec": [],
+  "reason": "the answer has no `@enduml`; only `@startuml` remains after 489 display-only lines were removed"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "d3736e832e86a170b3ce5be4038c9e22e036f45f",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 3,
+  "case": "E010",
+  "primary": "S3",
+  "sec": [
+   "note"
+  ],
+  "reason": "the first (scored) block adds `note left of NetworkService::\"resolveBindHostAddresses\"`, which the image does not show, giving the spurious node `networkservice$$$left` and one edge on a ground truth with no edges; the answer's second block omits the note"
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "dd18a88b118626df1c03faa29d229393627c778c",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 5,
+  "case": "E011",
+  "primary": "C2",
+  "sec": [],
+  "reason": "the answer block is empty and has no `@enduml`; no PNG produced"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "b0d04738d5f720244e3629eef756b60dacad580c",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 3,
+  "case": "E012",
+  "primary": "S4",
+  "sec": [
+   "S3",
+   "S5",
+   "S7",
+   "note"
+  ],
+  "reason": "the box titles `Service Orchestrator` and `Software Defined Infrastructure` are promoted to participants and every participant is declared twice (actor2, eventbus2, so2, sdi2), while the real participants `so` and `storageresource` are absent, so all five messages miss"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "a4ace769617f9198bb8eb533e526af564df13977",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 10,
+  "case": "E013",
+  "primary": "C1",
+  "sec": [
+   "note"
+  ],
+  "reason": "renderer fails at `AUTH ..> REDIS : ...`: a class-diagram dependency arrow `..>` in a sequence diagram on otherwise correct content; the self-message label is moved into `note right of AUTH`"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "6084305e9660aa52a87f03713a2c2186550b7b67",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 18,
+  "case": "E014",
+  "primary": "C1",
+  "sec": [],
+  "reason": "renderer fails at `\"BufrParser\" ..> Main : dataContainer`: the return is written with the class-diagram arrow `..>`, the rest of the sequence content is correct"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "7e0e0e3379e4f346233ea39b20fa7408fb452111",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 17,
+  "case": "E015",
+  "primary": "C1",
+  "sec": [
+   "S3"
+  ],
+  "reason": "renderer fails at `participant \"service process\" as SP {`: the two boxes are written as participants with a `{ }` body, which is invalid syntax; the box titles also become participants"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "8ff4bbffcff8d5961efc7a028967f4572a8afabd",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 10,
+  "case": "E016",
+  "primary": "S2",
+  "sec": [
+   "S1",
+   "S3"
+  ],
+  "reason": "the returns to File (`typecheck -> file`, `colorcode -> file`, `errorcheck -> file` x2) are absent, written instead as `TypeCheck <- LexicalAnalysisJava` etc.; the JavaSyntaxLib return is reversed and the alt block holds five invented messages"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 74,
+  "case": "E017",
+  "primary": "C3",
+  "sec": [
+   "S2",
+   "S5",
+   "S6"
+  ],
+  "reason": "sequence participants are mixed with deployment elements (`component \"www\"`, `rectangle \"webUI\" { ... }` for the four groups); the renderer fails at the first `participant` after `component`; many messages also have wrong endpoints (e.g. `haproxy -> endpoint: /v2` for haproxy -> CITY Custom Net)"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "7560f1b6f08fc0b7a47a113b08187f47c8bda8b2",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 5,
+  "case": "E018",
+  "primary": "C3",
+  "sec": [
+   "S2",
+   "S3",
+   "S6"
+  ],
+  "reason": "the sequence diagram is written with `rectangle` elements, so messages are keyed as associations and the groups `initialize` and `iterate` become spurious nodes; the endpoints are also wrong (e.g. `Config -> Ekf : 2 Create Object` for record -> ekf)"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "f611824f33d1ea289d99975e28b5499e1bc47628",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 7,
+  "case": "E019",
+  "primary": "S2",
+  "sec": [
+   "S3"
+  ],
+  "reason": "messages attached to the wrong lifelines: `libdrift -> driftd : send retrieval message` for libdrift -> Control channel, and the driftd -> Neo4j / driftd -> MongoDB messages written as `Neo4j -> MongoDB` (x5), so 8 edges are missed and 8 spurious on fully matched nodes"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "de434622c1f498168c9bccf95ceb52a9dc1ef385",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 4,
+  "case": "E020",
+  "primary": "M",
+  "sec": [
+   "S3"
+  ],
+  "reason": "the image renders on a black background, so the actor name 'Neregistrirani uporabnik' and every message arrow and label are invisible; the answer's `actor \" \" as A` and its guessed chain B1 -> B2 -> C -> E with returns cannot match"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "5ff302fdb03929946120216bea43c4393359b490",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 11,
+  "case": "E021",
+  "primary": "C1",
+  "sec": [
+   "S2"
+  ],
+  "reason": "`ReservationService <.. TicketRepository : createReservationCommand` uses the class-diagram arrow `<..`, invalid in a sequence diagram; the self-messages createReservationCommand and Noop and several unlabeled returns are also not drawn as in the image"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "5922ccf81ce292fdd445209df90f8035c5b34c23",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 22,
+  "case": "E022",
+  "primary": "C1",
+  "sec": [
+   "S4",
+   "S5"
+  ],
+  "reason": "the class '\u0412\u0437\u0430\u0438\u043c\u043e\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u044b\u0435 \u043b\u0438\u0446\u0430' is written as a `package ... as \"\u0412\u0437\u0430\u0438\u043c\u043e\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u044b\u0435 \u043b\u0438\u0446\u0430\" {` holding `[C]` and bare member lines (`..\u0418\u0437\u043c\u0435\u0440\u0435\u043d\u0438\u044f..`), which is not valid inside a package"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "04642e29bba49ac98e4b8f634ef22a1592362841",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 103,
+  "case": "E023",
+  "primary": "C1",
+  "sec": [
+   "S5"
+  ],
+  "reason": "the renderer rejects `left to right direction`, a directive not valid in a sequence diagram, while the messages themselves are right; `actor \"User\"` for the participant box User"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "4d55d9c17b48517f603b4236d9eea9bb07d7ab17",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 77,
+  "case": "E024",
+  "primary": "C3",
+  "sec": [],
+  "reason": "the lifelines are declared as `rectangle \"LoginPartialView\"`, `rectangle \"MicrosoftIdentityLibrary\"`, `rectangle \"HomeController\"`, so the sequence statement `activate LoginPartialView` fails"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "56b1f5812c0d3505a1a727d3af3cc5b8ddf53bef_07",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 28,
+  "case": "E025",
+  "primary": "S4",
+  "sec": [
+   "S2",
+   "S3"
+  ],
+  "reason": "the four two-line names are transcribed without the line break (`usantatecla.tictactoe.models.Game`) and are keyed apart from `usantatecla.tictactoe.models. game`, which loses 4 nodes and 7 edges; also a spurious `Logic <|-- PlayController` and a missing Logic *--> Game"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "922bf6a56d7cde0d054a7a6c27786000e3979ae6",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 25,
+  "case": "E026",
+  "primary": "C2",
+  "sec": [],
+  "reason": "the answer has no `@enduml`; only `@startuml` remains after 110 display-only lines are removed"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "fff389a2f264c9d5a71da3c2e50c05082884a074",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 22,
+  "case": "E027",
+  "primary": "S1",
+  "sec": [],
+  "reason": "all five inheritance edges are reversed: `onlycomplete --|> main` puts the triangle at main, while the image has the triangle at onlycomplete, saveAll, save, openAll and openX"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "4b0486c08238763e69a762f3421aa61e3622461e",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 32,
+  "case": "E028",
+  "primary": "S3",
+  "sec": [
+   "S1",
+   "note"
+  ],
+  "reason": "ten dependency edges the image does not draw, `AutoWriteController ..> NestUseGuards` through `..> NestHeaders`; the two aggregations are written as `-->`, `Roles --> RoleType` is solid for dashed, and the stereotypes are moved to `note top of AutoWriteController`"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "532d5a1ff757de7127780cff4493ccdd7a51c49a",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 17,
+  "case": "E029",
+  "primary": "C1",
+  "sec": [
+   "S2",
+   "note"
+  ],
+  "reason": "`create OrderList` is followed by `Repo --> Service : orderList`, a message that does not go to the created participant, so the renderer stops there; the Sales Clerk messages are written as `note left of SalesClerk` and the create messages to factory, repository, orderList and orderDTO are absent"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "7193e55ae02b5c14542c3839cb2e442f7471ee55",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 89,
+  "case": "E030",
+  "primary": "C2",
+  "sec": [],
+  "reason": "the answer has no `@enduml`; only `@startuml` remains after 532 display-only lines are removed"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "f8e33eb7867f26e2b938030fd5039eb3b251e9fb",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 11,
+  "case": "E031",
+  "primary": "C3",
+  "sec": [
+   "S2",
+   "S3",
+   "S6",
+   "note"
+  ],
+  "reason": "the sequence diagram is written with `rectangle` and `component \"CLI\" as cli`, so all six messages are scored as associations; `af -> nef` targets NEF instead of NGC CP Function, and the group frame becomes a rectangle node"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "82fd0908b0de00ad974a0518092896435c86f09b",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 37,
+  "case": "E032",
+  "primary": "S1",
+  "sec": [
+   "S3",
+   "S4",
+   "S5"
+  ],
+  "reason": "`Bar o-- Foo` and `Qoo *-- Foo` put the diamonds at Bar and Qoo while the image has both at Foo; spurious `Bar --|> IFoo : implements`; the note text has `IFoo` for the image's `IFOoo`; abstract Bar written as `class Bar`"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "8acb8a80d5098ca1426fef7adcb6069671ba5465",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 15,
+  "case": "E033",
+  "primary": "S1",
+  "sec": [],
+  "reason": "`Main <|-- Month` and `Main <|-- Day` draw inheritance where the image has plain open arrowheads (association)"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "bf0e4a69eec206028b6fbd8dfc1e9905986d987d",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 42,
+  "case": "E034",
+  "primary": "C1",
+  "sec": [
+   "S1",
+   "S2"
+  ],
+  "reason": "the one-line `note \"La m\u00e9thode membreActif ... retournera \\\"p\\\" ...\" as Note2` with escaped quotes is rejected by the renderer; the relations dirige, pratique and Comp\u00e9tition *-- Epreuve are absent and `Sp\u00e9cialit\u00e9 *-- Discipline` has the diamond on the wrong end"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "7560f1b6f08fc0b7a47a113b08187f47c8bda8b2",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 7,
+  "case": "E035",
+  "primary": "C3",
+  "sec": [
+   "S1",
+   "S3",
+   "S6"
+  ],
+  "reason": "the lifelines are declared as `rectangle \"configuration\"`, `rectangle \"ekf\"` etc., so every message is scored as an association; `record --> configuration` is reversed, an extra `record --> ekf : 4 Get current location` is added, and the initialize and iterate groups are lost"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "6510a08c677f3aa78e81a2adc00adf33287357b8",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 19,
+  "case": "E036",
+  "primary": "S1",
+  "sec": [],
+  "reason": "the three inheritance triangles are written as plain arrows: `TourService --> AddTourViewModel`, `TourService --> TourListViewModel`, `TourRepository --> TourService`"
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "e9a06725c4d85ec28ca9d343c1f23ab41d0e398f",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 1,
+  "case": "E037",
+  "primary": "C1",
+  "sec": [],
+  "reason": "content matches the image, but the Thai participant names are written unquoted and the renderer rejects line 2 `actor \u0e1e\u0e19\u0e31\u0e01\u0e07\u0e32\u0e19`"
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "c5bb3816232672cc44f741e2b5d82d69ebdf932c",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 1,
+  "case": "E038",
+  "primary": "S4",
+  "sec": [],
+  "reason": "the image draws a transfer icon before `Representation` and the answer transcribes it as `\"\u21c4 Representation\" as Representation`, which the scorer keys as `? representation` so the node and both messages fail although endpoints and order are right"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "59a417a8d0d24bb5b3c5018d9d1c8bdb55cf68f9",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 85,
+  "case": "E039",
+  "primary": "C2",
+  "sec": [],
+  "reason": "the case states the answer has no `@enduml`; nothing but `@startuml` remains after 427 display-only lines"
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "1348037e5ef89ad46e650939b2d95a74c9b563b9",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 16,
+  "case": "E040",
+  "primary": "S4",
+  "sec": [
+   "S2"
+  ],
+  "reason": "seven spaced display names are rewritten as identifiers (`Equal Width` as `EqualWidth`, `TD4C Cosine` as `TD4C_Cosine`, `shared functions` as `shared_functions`) and their edges cascade; the package-to-package arrows are drawn from classes and the `shared functions` associations and `Persist -> Unsupervised` are absent"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "b21a6faaf6a180c501e0aba4b0056672ede1ea2d",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 5,
+  "case": "E041",
+  "primary": "C1",
+  "sec": [
+   "S2",
+   "note"
+  ],
+  "reason": "renderer rejects line 25 `note top right of Dictionary2`; the generic parameters and the `ModelLookup<...>` label are moved into notes and the `BuildingTile +-- StructureType` nesting edge is absent"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "f3df73144b3aaffd6fb73fceaf960900c01317df",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 4,
+  "case": "E042",
+  "primary": "S2",
+  "sec": [
+   "S1",
+   "S3"
+  ],
+  "reason": "all five participants are right but four messages are attached to the wrong lifeline (`GUI -> TicketControl` for `GUI -> Database`, `Authentication --> TicketControl` for `Authentication -> Database`), so four true edges are missing and four not in the image appear; solid returns drawn dashed"
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "73ece5e02bc2f9114ad86167383908b5178e2e6a",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 5,
+  "case": "E043",
+  "primary": "C1",
+  "sec": [
+   "M",
+   "S2",
+   "S3"
+  ],
+  "reason": "renderer rejects `actor \"\" as User` (empty name); the image has a black background that hides the actor name, every arrow and every label, and the answer's messages (`pridobiDogodke()`, `dogodki`) are invented"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "8bd6ca506bb9421da58c78cf22979ef203149446",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 30,
+  "case": "E044",
+  "primary": "S1",
+  "sec": [
+   "S2",
+   "S3"
+  ],
+  "reason": "every aggregation is drawn as a plain association (`AtacarPiezaHandler -- SegundaEtapa` for `o--`), and several are also attached to the wrong class (`SalirHandler -- VistaPieza`, `IniciarJuegoHandler -- PantallaPrincipal`, `IniciarJuegoHandler ..|> EventHandler`) while `CurarPiezaHandler o-- Curandero` and the `Juego` aggregations of three handlers are absent"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "a37adfd7440723d5349bd0df31c3c2cd1c217d82",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 43,
+  "case": "E045",
+  "primary": "C1",
+  "sec": [
+   "S1",
+   "S2"
+  ],
+  "reason": "renderer rejects the bare name `Originator` inside `package \"states\" { ... }` at line 33; also `CareTaker o--> Memento` is drawn as `-->` and `Client -> states` is drawn as `Client --> Originator`"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "a6c835a455514aa1e8259ac9599e348a1fadbb15",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 109,
+  "case": "E046",
+  "primary": "C1",
+  "sec": [
+   "S2",
+   "S3",
+   "S6"
+  ],
+  "reason": "the boxes are written as `package \"Views\" { participant ... }`, which a sequence diagram rejects at line 7; messages are also attached to wrong lifelines (`User -> Game: btnHighScoreClicked()` for `User -> End`) and both loops are written as messages (`JoggleCube -> Block: loop [foreach Block]`)"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "ed0383f2f6a94d6619bad98e59dfbb1ec492daa5_05",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 22,
+  "case": "E047",
+  "primary": "S1",
+  "sec": [],
+  "reason": "all three edges have the right endpoints but are drawn as dependency `..>` instead of composition, aggregation and a one-arrowhead association"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "1619bfd00a86595ad55813847c50c55e1bb17751_02",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 20,
+  "case": "E048",
+  "primary": "S1",
+  "sec": [],
+  "reason": "all four edges are reversed: `thread_base <|-- socket_thread` where the image has the triangle at `socket_thread`, and `transport_socket_thread *-- Poller` where the diamond is at `Poller`"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "10c4e675e2af75c28978dfc25c0dc506ead2e924",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 5,
+  "case": "E049",
+  "primary": "S2",
+  "sec": [
+   "S3"
+  ],
+  "reason": "the eight messages the image draws from `PC` to `Robot` are written as `User -> Robot`, so eight true edges are missing and eight not in the image appear; participants are all right"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "836fc1be71c455412e94cfec349f181ac525ab0f",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 2,
+  "case": "E050",
+  "primary": "C1",
+  "sec": [
+   "S1"
+  ],
+  "reason": "renderer rejects line 26 `class PascalParserTd as FPT`, a second declaration of an existing class under a new alias; the two open-arrow associations are also drawn as inheritance `--|>`"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "b8328a277bb75f19a8707d0a11eced190879e5c8",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 26,
+  "case": "E051",
+  "primary": "C2",
+  "sec": [],
+  "reason": "the case states the answer has no `@enduml`; nothing but `@startuml` remains after 221 display-only lines"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "d88ff3fb6aa3f88e69a804beac0eb19ed5b0d639",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 14,
+  "case": "E052",
+  "primary": "S4",
+  "sec": [
+   "S1",
+   "S2",
+   "S3"
+  ],
+  "reason": "the leading `:` of all 16 participant names is dropped (`:AddEventPage` written `AddEventPage`), so every node but `admin` and every edge fails; some messages are also misattached (`ClassForm -> ClassForm: bookingClass(payload)`, no edge to `MaterialService`) and dashed returns are drawn solid"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "13535b2cbd8a085a55557cd59dee9ac4e2096202_20",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 4,
+  "case": "E053",
+  "primary": "S3",
+  "sec": [],
+  "reason": "the image shows five participants and no messages, but the answer adds four empty-label messages (`admin -> web:`, `web -> sever:`, `sever -> snapshot:`, `sever -> result:`)"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "c2056417614836054c507c50f98bd814afb43d88",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 6,
+  "case": "E054",
+  "primary": "S4",
+  "sec": [
+   "S2"
+  ],
+  "reason": "the first line of two participant names is dropped (`\u8fb9\u754c\u7c7b\\nmaintainUsersWindow` written `maintainUsersWindow`, `\u63a7\u5236\u7c7b\\nMaintainUsers` written `MaintainUsers`), cascading to five edges; the return to `sysAdmin` is drawn from `users` instead of the database"
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "0ffb66116a7d60dfc6a66541a0c819d5a34cec7c",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 1,
+  "case": "E055",
+  "primary": "S4",
+  "sec": [],
+  "reason": "the only class name `JHtmlSliders` is written `JHtmISliders` (lower-case l read as capital I), so the single node fails the name match"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "e613eefd072a8fa0616cb42d7cb770170d7ff979",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 19,
+  "case": "E056",
+  "primary": "S2",
+  "sec": [
+   "S3"
+  ],
+  "reason": "all 7 participants match but six messages are attached to the wrong lifelines, e.g. `arm_bl1_setup -> plat_bl1_common : fconf_load_config()` where the image draws arm_bl1_setup -> fconf, so 6 edges are missed and 6 spurious; wrong endpoints have no exact code"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "75d17323e3f57e506be51b5455aa97ae89d8c5cc",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 13,
+  "case": "E057",
+  "primary": "C1",
+  "sec": [],
+  "reason": "renderer stops at `PDSm ..> PDCi : Internal processing`: the class-style dotted arrow `..>` is not a valid sequence message arrow"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "685ed63861f107bdd4c1567f840f159d819d7604",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 4,
+  "case": "E058",
+  "primary": "C1",
+  "sec": [],
+  "reason": "renderer stops at `Webserver -..> OrderController : uuid`: the arrow token `-..>` is invalid, on otherwise correct participants and messages"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "2fc02b638db7d0314c7594c6f6a03f1a6f247100",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 7,
+  "case": "E059",
+  "primary": "C1",
+  "sec": [
+   "S1",
+   "S2",
+   "S5"
+  ],
+  "reason": "renderer stops at `class main as MAIN` inside `package \"main\" as PKG_MAIN` (name already taken by the package); also `main -> CountDisplay` is replaced by a second edge to StringDisplayImpl, the solid arrows are dashed, and the object `main` and class `Display` are declared as class and abstract class"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "cff9c8f0856b2a71cec7a566494746db29317e7c",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 85,
+  "case": "E060",
+  "primary": "C1",
+  "sec": [
+   "S1",
+   "S3"
+  ],
+  "reason": "the removed line `skinparam sequenceDiagram` has no value, so the renderer fails on the next line `participant \"AppUser\" as A`; also return messages are reversed (`D <- S: OrderPO`, `W ->> A: OrderVO`) and dashed arrows drawn solid"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "246df95cf04ac4c4d68993f7a2695a5c18078c61",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 53,
+  "case": "E061",
+  "primary": "C2",
+  "sec": [],
+  "reason": "the answer has no `@enduml`: after `@startuml` it is 768 display-only lines and no diagram content"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "7cbb0b646ccc6f79839a6f3bf478d104c064aef2",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 8,
+  "case": "E062",
+  "primary": "S3",
+  "sec": [],
+  "reason": "the package frame `NavigationCrudCommandSuite` is promoted to a class and a composition `NavigationCrudCommandSuite *-- Builder` is invented; the image shows one class Builder and no edge"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "77b140eb07adc86db52bb9bd05e9500b5a510885",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 63,
+  "case": "E063",
+  "primary": "C2",
+  "sec": [
+   "S4"
+  ],
+  "reason": "the answer has no `@enduml`: it loops on `class \"td\" { }` until the limit; names are also misread (`ParentIncouple`, `spanhelp`, `spaner`)"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "4aad380673ff1225b973f740bf80ec99dfb70724",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 2,
+  "case": "E064",
+  "primary": "C1",
+  "sec": [],
+  "reason": "renderer stops at `MyBackupService ..> TaskDispatcher : New`: the class-style arrow `..>` is not a valid sequence message arrow; participants and message order are otherwise right"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "c22af72a8329b4b5b474e1e7294a3e3d251bf753",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 9,
+  "case": "E065",
+  "primary": "S3",
+  "sec": [
+   "C3"
+  ],
+  "reason": "the head and foot boxes of the one lifeline `participant` are read as two participants (`p1`, `p2`) joined by an invented edge `p1 -- p2`"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "f60a13a24f73eed9f20b65111e100cf8d048403b",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 40,
+  "case": "E066",
+  "primary": "S1",
+  "sec": [
+   "S2",
+   "S4",
+   "S5"
+  ],
+  "reason": "nine compositions are written with the inheritance arrow, e.g. `Game --|> Session : composition`; `Session *-- Rule` is absent, `Diractory` is written `Directory`, and the enums are declared as `class State` etc."
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "de434622c1f498168c9bccf95ceb52a9dc1ef385",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 5,
+  "case": "E067",
+  "primary": "C1",
+  "sec": [
+   "S3",
+   "S4"
+  ],
+  "reason": "renderer stops at `actor \"\" as User` (empty participant name); the image hides the actor name, arrows and message labels (black on a transparent background), and the answer invents messages such as `KrmilnikRegistracija --> ZMRegistracijskiObrazec : uspeh` and puts the stereotype text into the names"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "549be1e00dbfe4db4474e99a2b4bdd46280e6c14",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 6,
+  "case": "E068",
+  "primary": "S2",
+  "sec": [
+   "S3",
+   "note"
+  ],
+  "reason": "all seven associations leave `EventHelpers` instead of `IEvent` (e.g. `EventHelpers --> IEventPipe`) and the four to UnionType`2 are merged into one, so no edge matches; `note right of UnionType2 : T1,T2` adds spurious nodes `t1,t2` and `t`; wrong source endpoint has no exact code"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "c22af72a8329b4b5b474e1e7294a3e3d251bf753",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 3,
+  "case": "E069",
+  "primary": "S3",
+  "sec": [
+   "C3",
+   "S3"
+  ],
+  "reason": "the head and foot boxes of the one lifeline are read as two elements joined by an invented edge `P1 .. P2`, and they are written as `class \"participant\"` instead of a sequence participant"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "73140d95a9e008d90bde62dea52c882a64c2c21e",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 8,
+  "case": "E070",
+  "primary": "S1",
+  "sec": [
+   "S2",
+   "S3",
+   "S5"
+  ],
+  "reason": "every edge is written as inheritance `<|--`: the 6 dependencies and 2 aggregations have the right pairs but wrong type and direction (`MediumDungeon <|-- BlueBokoblin`, `Encounter <|-- Monster`), the 8 realizations are absent, self-loops such as `Encounter <|-- Encounter` are invented, and the interfaces are declared as classes; S1 and S2 each cover 8 of the 16 lost edges"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "c22af72a8329b4b5b474e1e7294a3e3d251bf753",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 7,
+  "case": "E071",
+  "primary": "C1",
+  "sec": [
+   "S3"
+  ],
+  "reason": "renderer stops at `participant -- participant`, which is not a valid sequence statement; the line also invents a link between a duplicated participant where the image has one lifeline"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "3e8ecc26a5a423e016c2d7c2fe96a7e63fe2de0e_15",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 3,
+  "case": "E072",
+  "primary": "C1",
+  "sec": [],
+  "reason": "renderer stops at `note left of Dummy -[#red,fill=red]`: invalid note syntax used for the coloured notes on links; classes and both edges are otherwise right"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "880c4bc548f9e57bcce86d0e90a558cd9dad31d5",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 8,
+  "case": "E073",
+  "primary": "C1",
+  "sec": [
+   "S3"
+  ],
+  "reason": "renderer stops at `loader ..> list : 4 create()`, a class-style dotted arrow that is not valid in a sequence diagram; an actor \" \" is also invented for the found/lost messages"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "7bd2076afcc805337a01924b361bb8d6c89cfbfc",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 97,
+  "case": "E074",
+  "primary": "C2",
+  "sec": [],
+  "reason": "the answer has no `@enduml`; it ran on in 359 display-only lines and the shown block ends at `skin`"
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "a3dcb61f2ecaf6dee5441bd626e8a5edf0decc2c",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 2,
+  "case": "E075",
+  "primary": "S2",
+  "sec": [
+   "S1",
+   "S3"
+  ],
+  "reason": "18 `power node agent -> power optimization library` messages are written as `POL -> POL` self-messages and 5 `power operator -> library` as `Kubelet -> POL`, so the edges are lost by a wrong source lifeline (no code for a wrong endpoint); a few init messages are reversed (`etcd --> API : check for changes`)"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "784e17a8866ba13c13db1d894170cfb21ee51dbb",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 12,
+  "case": "E076",
+  "primary": "C1",
+  "sec": [
+   "S3"
+  ],
+  "reason": "renderer stops at `abstract class Acai <<abstract>> {`, which redeclares Acai after `note left of Acai` already created it; 9 `-->` association edges are also invented from member types"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "bc5d8adf0f76950c65189a4fe9d08c956c22e8a6",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 3,
+  "case": "E077",
+  "primary": "S2",
+  "sec": [
+   "S3",
+   "S5",
+   "S6"
+  ],
+  "reason": "all messages of the StartWorkbooksSearch lifeline (create/start/run, `p : get()`, `walkFileTree`) are attributed to FindWorkbooksController, so 8 edges are missed and 13 spurious (wrong endpoint, no exact code); a note is turned into a message and the `loop todas as paths` becomes an `alt` placed after the wrong messages"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "7849b2fca19749e054f79ef9f95dba8b4b5570f8",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 119,
+  "case": "E078",
+  "primary": "C1",
+  "sec": [
+   "S3",
+   "S5",
+   "S6"
+  ],
+  "reason": "renderer stops at `participant as ScooterOwner as \"ScooterOwner\"` (invalid `participant as`); the one three-line actor is split into three participants and the `alt` is written as bare `[claim is found]`"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "de951dfb2eaf458b6a1fe9ea5d055490ad9d0ee1",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 8,
+  "case": "E079",
+  "primary": "S4",
+  "sec": [
+   "S2",
+   "S3"
+  ],
+  "reason": "the six names drawn as `: UsersController` etc. are written `:UsersController` without the space, so they fail the name match and every edge is lost; messages are also shifted to wrong lifelines (`Route -> InDto : searchUsersByTypedParams`)"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "d88ff3fb6aa3f88e69a804beac0eb19ed5b0d639",
+  "primary_type": "sequence",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 9,
+  "case": "E080",
+  "primary": "S4",
+  "sec": [
+   "S2",
+   "S3",
+   "S6"
+  ],
+  "reason": "the leading `:` of all 16 participants is dropped (`AddEventPage` for `:AddEventPage`), so only `admin` matches; ClassForm/ShiftService messages are also rerouted and the else branches moved outside the `alt`"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "562c953325e6cb9d0459905de7cd3145643e1aea",
+  "primary_type": "sequence",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 102,
+  "case": "E081",
+  "primary": "C1",
+  "sec": [
+   "S2",
+   "S3"
+  ],
+  "reason": "renderer stops at `participant \"Access token guard\" as guard` (the stripped line is only `left to right direction`, placed before the sequence declarations) and lines like `service <- 401 :` are malformed arrows; the box `Auth microservice` is made a participant and `request` is missing"
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "c6ac7f451f42cac92507604a1b841848a2618f30",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 5,
+  "case": "E082",
+  "primary": "C1",
+  "sec": [
+   "S1"
+  ],
+  "reason": "renderer stops at the second `activate StudentController` right after `deactivate StudentController`; the participants and all six messages otherwise match the image, and the failing line looks valid on its face"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "3b84f043b6bebeb57b16145d55b6be38a244e0be",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 37,
+  "case": "E083",
+  "primary": "C2",
+  "sec": [],
+  "reason": "the answer has no `@enduml`; only `@startuml` remains after 368 display-only lines"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "03144dcdff27052ec243dd82323f1720978897bc",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 116,
+  "case": "E084",
+  "primary": "C2",
+  "sec": [
+   "S3"
+  ],
+  "reason": "the answer has no `@enduml`; it loops on invented `+int[] get/set(int index, int value, ...)` members of SplFixedArray until cut off"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "83e0fd9a4e676366fc8045316d6f25c3f5784995",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compiled_low_structural",
+  "available": 45,
+  "case": "E085",
+  "primary": "S1",
+  "sec": [
+   "S2",
+   "S3"
+  ],
+  "reason": "every relation is written as plain `-->`, so 12 edges with right endpoints fail on type (`TicTacToe --> Turn` for composition, `Player --> Error` for dependency); about 10 dependencies to Console/Message/Direction are absent and `Board --> Board`, `Board --> Error` are invented"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "bd045dcdf9f93711b701665ba6c426c083ce0277",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 6,
+  "case": "E086",
+  "primary": "C1",
+  "sec": [
+   "S1"
+  ],
+  "reason": "renderer stops at `class Form as FormPF`, an invalid alias for the second Form box in the package; compositions and aggregations are also written as plain `--` or `-->` (`AppUser \"1\" -- \"*\" Album`)"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "ad3ea3fc0b0cc499daaa2ac59fa4ce9765cd9fa1",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 15,
+  "case": "E087",
+  "primary": "S1",
+  "sec": [
+   "S2",
+   "S3"
+  ],
+  "reason": "the directed arrows and the dashed dependency are written as undirected `--` with label `has` (`TicTacToe -- Board : has`, `Board -- IO : has`), so no edge matches; `Player ..> IO` is missing and `Player -- Board`, `Turn -- IO` are invented"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "960d086e1bf898e8f31e32314926d4ab976aeda7",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 22,
+  "case": "E088",
+  "primary": "C1",
+  "sec": [
+   "S1",
+   "S3",
+   "note"
+  ],
+  "reason": "renderer stops at `Project \"1\" *-- \"*\" User : `, a relation with an empty label after the colon (all 17 relations have it); Project-User aggregation is drawn as composition, Author/Editor -> Comment as reversed compositions, and `note \"C\"` blocks are invented for the class icons"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "a5898ca01b395eebbf7c8a3ed6666f10652c5f85",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 30,
+  "case": "E089",
+  "primary": "S3",
+  "sec": [
+   "note"
+  ],
+  "reason": "the description text drawn inside the enum body is moved into `note right of E_LCD_Config_Font`, which adds a spurious node and a spurious dependency edge"
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "09ba2de07109b08b037d680246f10d2d5832b75f",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 3,
+  "case": "E090",
+  "primary": "C1",
+  "sec": [],
+  "reason": "renderer stops at `class ClassDefinition as c1`, the alias declaration used to place the same class name in two packages; the two relations themselves match the image"
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "d6312a9396c25c62d237c18316bfe1d29bee8d12",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 7,
+  "case": "E091",
+  "primary": "S1",
+  "sec": [],
+  "reason": "the image's open-arrowhead association ELMetadata -> Module is written as inheritance `Module <|-- ELMetadata`"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "0806d963c5e7a8c33333d600ef648945bd34e3a3",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 34,
+  "case": "E092",
+  "primary": "S3",
+  "sec": [
+   "S5"
+  ],
+  "reason": "the 18 enum members and the circle letter `E` are aliased as nodes and given 19 `A18 --> ...` edges the image does not show; the enum is declared as a class"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "50efbc2a904f22fbb497d5a040e14bc419bebf26",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 5,
+  "case": "E093",
+  "primary": "C1",
+  "sec": [
+   "S3"
+  ],
+  "reason": "`Amount ..> User :` has a colon with an empty label, which the renderer rejects; `TransferSend ..> User` is an edge the image does not show"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "9f8b8b5e51ee53edb67eba0d97eb9e0fdde90351",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 26,
+  "case": "E094",
+  "primary": "C3",
+  "sec": [],
+  "reason": "the sequence diagram is written as a class diagram: `class \"Main\"`, `class \"Motor\"` and `Main ..> Motor : Set Speed` dependencies instead of messages"
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "451a3dc5affeb4e0508f111f570d74d518f8bc67",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 39,
+  "case": "E095",
+  "primary": "C1",
+  "sec": [
+   "S4"
+  ],
+  "reason": "the members come before any class header and are closed by a stray `}` at line 8, then `class \"C ex43\"` holds placeholders `CLASS_BODY`/`CLASS_METHODS`; the circle letter is kept in the name"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "9d3da061207190198d50fa80944ccb311cafbc85",
+  "primary_type": "class",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 11,
+  "case": "E096",
+  "primary": "S1",
+  "sec": [],
+  "reason": "the three lollipop links of Car to ICar, ICar2, ICar3 are written as inheritance `Car --|> ICar` etc."
+ },
+ {
+  "model_id": "qwen3.5-9b",
+  "run_dir": "Qwen3.5-9B_self-served",
+  "key": "f18f0fa4d723d038ae084ca3d38ea4e4c4689386",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 41,
+  "case": "E097",
+  "primary": "C2",
+  "sec": [],
+  "reason": "the answer has no `@enduml`; the shown block is only `@startuml` with 438 display-only lines removed"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "3742b10891bd50981fd7c438979c2a63ef66aa44",
+  "primary_type": "class",
+  "tier": 4,
+  "class": "compile_fail",
+  "available": 41,
+  "case": "E098",
+  "primary": "C1",
+  "sec": [
+   "S1",
+   "S2"
+  ],
+  "reason": "`AssignProductOwnerUI ..> AssignProductOwnerController :` has a colon with an empty label (line 83); all whole-part edges are written `--o` with the diamond on the part side and compositions as aggregation; `AssignProductOwnerController ..> ProjectTeam` is absent"
+ },
+ {
+  "model_id": "gpt-5.2",
+  "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "key": "42fc85c2e1d580aedd56311d963ecb8df37a5cb1",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 5,
+  "case": "E099",
+  "primary": "S3",
+  "sec": [
+   "note"
+  ],
+  "reason": "`note right` after the class attaches the note to `ex:MyShapemaxCount`, adding a class-to-note edge, while the image shows a free-standing note with no link"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "69166c59d2faf71fc0f0b7b27b9752db78992575",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 11,
+  "case": "E100",
+  "primary": "S4",
+  "sec": [],
+  "reason": "the leading `:` of `:RoomTransactionService`, `:RoomTransactionCommand` and `:Nats Streaming` is dropped, so three participants and all nine messages fail the name match"
+ },
+ {
+  "model_id": "gemini-3.1-pro",
+  "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+  "key": "836fc1be71c455412e94cfec349f181ac525ab0f",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 4,
+  "case": "E101",
+  "primary": "S1",
+  "sec": [],
+  "reason": "the image's open-arrowhead associations PascalScanner -> Scanner and PascalParserTd -> Parser are written as inheritance `Scanner <|-- PascalScanner`, `Parser <|-- PascalParserTd`"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "7409cf40c00dfe3b5efd16bff9b188b1f767574b",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compiled_low_structural",
+  "available": 15,
+  "case": "E102",
+  "primary": "C3",
+  "sec": [
+   "S6"
+  ],
+  "reason": "the sequence diagram is written with `package \"\u6309\u95e8\u5e97\u7ef4\u5ea6\u6279\u91cf\u6267\u884c\" as p1 { ... }` and class arrows (`attendance ..> ehr`), so both messages are read as association and dependency and the group frame is lost"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "bf4d105998fa8e73e5952b3ba3a6e7c7b592c728",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compile_fail",
+  "available": 103,
+  "case": "E103",
+  "primary": "C2",
+  "sec": [
+   "S3",
+   "S5"
+  ],
+  "reason": "the answer has no `@enduml` and repeats the same class blocks for about a thousand lines; package path segments `iluwatar`, `dependency`, `injection` are declared as classes and `Wizard` as a class, with no edges written"
+ },
+ {
+  "model_id": "qwen3.5-27b",
+  "run_dir": "Qwen3.5-27B_self-served",
+  "key": "e9a06725c4d85ec28ca9d343c1f23ab41d0e398f",
+  "primary_type": "sequence",
+  "tier": 1,
+  "class": "compile_fail",
+  "available": 43,
+  "case": "E104",
+  "primary": "C2",
+  "sec": [],
+  "reason": "the answer has no `@enduml`; the shown block is only `@startuml` with 823 display-only lines removed"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "defb5523b1761bd4a179f706eaab0e5e6a774f08_04",
+  "primary_type": "sequence",
+  "tier": 2,
+  "class": "compile_fail",
+  "available": 100,
+  "case": "E105",
+  "primary": "C3",
+  "sec": [
+   "S6"
+  ],
+  "reason": "the sequence participants are written as `rectangle \"courseClass\" { \"courseClass\" }` blocks, and the bare quoted name at line 7 does not render; the group `\u70b9\u51fb\u6210\u7ee9\u8be6\u60c5` is also a rectangle"
+ },
+ {
+  "model_id": "qwen3.5-2b",
+  "run_dir": "Qwen3.5-2B_self-served",
+  "key": "f2502053442f471a6ac99434ad7640f3535da93d",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 23,
+  "case": "E106",
+  "primary": "S1",
+  "sec": [
+   "S2",
+   "S3"
+  ],
+  "reason": "the composition DBConnection -> Config and the dependency DBConnectionTest -> DBConnection are written as inheritance in the other direction (`Config --|> DBConnection`, `DBConnection --|> DBConnectionTest`); both self-compositions are absent and `DBConnectionTest --|> Config` is not in the image"
+ },
+ {
+  "model_id": "claude-opus-4-6",
+  "run_dir": "claude-opus-4-6_20260614T081502Z",
+  "key": "f4b04251bf859fd39de78f5ec4852a0a8ac85070",
+  "primary_type": "class",
+  "tier": 3,
+  "class": "compiled_low_structural",
+  "available": 28,
+  "case": "E107",
+  "primary": "S3",
+  "sec": [
+   "S2",
+   "note"
+  ],
+  "reason": "the package line under each class name is moved into five `note right of` blocks, adding five nodes and five edges; the dependencies of HorizontalMenuRenderer and VerticalMenuRenderer on MenuItemRenderer are replaced by `--|> MenuRenderer`"
+ },
+ {
+  "model_id": "qwen3.5-397b-a17b",
+  "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "key": "42fc85c2e1d580aedd56311d963ecb8df37a5cb1",
+  "primary_type": "class",
+  "tier": 2,
+  "class": "compiled_low_structural",
+  "available": 17,
+  "case": "E108",
+  "primary": "S3",
+  "sec": [
+   "note"
+  ],
+  "reason": "`note right of MyClass` attaches the note to `ex:MyShapemaxCount`, adding a class-to-note edge, while the image shows a free-standing note with no link"
+ }
+]

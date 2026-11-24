@@ -1,0 +1,17 @@
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+skinparam class {
+  BackgroundColor White
+  BorderColor Black
+}
+skinparam package {
+  BackgroundColor White
+  BorderColor Black
+}
+skinparam interface {
+  BackgroundColor #E9E3FF
+  BorderColor Black
+}
+' Relationships

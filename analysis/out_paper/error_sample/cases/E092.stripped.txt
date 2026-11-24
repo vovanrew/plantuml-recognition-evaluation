@@ -1,0 +1,2 @@
+!define CODESET "Codeset"
+!define ALGORITHM18CODE "Algorithm18Code"

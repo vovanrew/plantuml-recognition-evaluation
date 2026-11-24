@@ -1,0 +1,9 @@
+skinparam backgroundColor black
+skinparam defaultFontColor white
+skinparam sequence {
+    ArrowColor white
+    LifeLineBorderColor white
+    LifeLineBackgroundColor white
+    ParticipantBorderColor white
+    ParticipantBackgroundColor lightblue
+}

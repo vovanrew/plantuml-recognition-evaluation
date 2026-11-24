@@ -192,8 +192,14 @@ def provenance_record(run_meta: dict, leak_count: int) -> dict:
 # --------------------------------------------------------------------------- #
 
 def source_a_no_response(md) -> int:
-    """Source-A no-prediction count: per-diagram element rows with ``has_pred`` False."""
-    return sum(1 for r in md.rows if not r["element"]["has_pred"])
+    """Source-A no-prediction count: diagrams for which no scorer saw an answer.
+
+    The element row's ``has_pred`` is False for a missing answer, and also for an
+    answer that was held back from the extractor because it stops the extractor's
+    process; chrF++ still reads such an answer. A diagram therefore counts only
+    when the element row and the chrF++ row both have ``has_pred`` False."""
+    return sum(1 for r in md.rows
+               if not r["element"]["has_pred"] and not r["chrf"].get("has_pred", False))
 
 
 def reconcile(md, run_usage: dict) -> dict:

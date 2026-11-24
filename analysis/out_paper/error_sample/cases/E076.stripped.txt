@@ -1,0 +1,4 @@
+title Diagrama de Classe - Acompanhamentos
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho

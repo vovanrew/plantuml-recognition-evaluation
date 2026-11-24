@@ -1,0 +1,13 @@
+skinparam backgroundColor white
+skinparam shadowing false
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam ParticipantPadding 18
+skinparam BoxPadding 10
+skinparam ArrowColor #333333
+skinparam LifeLineBorderColor #999999
+skinparam LifeLineBackgroundColor #FFFFFF
+skinparam ParticipantBorderColor #999999
+skinparam ParticipantBackgroundColor #E9E9F2
+skinparam NoteBackgroundColor #FFFFFF
+skinparam NoteBorderColor #999999

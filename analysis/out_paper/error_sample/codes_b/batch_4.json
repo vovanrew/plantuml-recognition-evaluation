@@ -1,0 +1,158 @@
+{
+  "E055": {
+    "primary": "S4",
+    "secondary": [],
+    "reason": "the only class is written `JHtmISliders` (capital I) where the image shows `JHtmlSliders` (lower-case l), so the one node fails the name match",
+    "opened_stripped": false,
+    "ask_author": false
+  },
+  "E056": {
+    "primary": "S2",
+    "secondary": [
+      "S3"
+    ],
+    "reason": "six messages are attached to the wrong lifelines, e.g. `arm_bl1_setup -> plat_bl1_common : fconf_load_config()` where the image draws the arrow to `fconf`, and `plat_bl1_common -> bl1_main : load_auth_image(...)` for `fconf -> bl_common`; a wrong-endpoint edge has no code of its own",
+    "opened_stripped": false,
+    "ask_author": true
+  },
+  "E057": {
+    "primary": "C1",
+    "secondary": [],
+    "reason": "the dashed messages are written `PDSm ..> PDCi : Internal processing`, and `..>` is not a sequence arrow (the renderer stops at that line); participants and messages are otherwise as in the image",
+    "opened_stripped": false,
+    "ask_author": false
+  },
+  "E058": {
+    "primary": "C1",
+    "secondary": [],
+    "reason": "the dashed messages use the invalid arrow tokens `-..>` and `<..-`, first at `Webserver -..> OrderController : uuid`, on otherwise correct content",
+    "opened_stripped": false,
+    "ask_author": false
+  },
+  "E059": {
+    "primary": "C1",
+    "secondary": [
+      "S2",
+      "S1",
+      "S5"
+    ],
+    "reason": "the renderer stops at `class main as MAIN` declared inside `package \"main\" as PKG_MAIN` (the name is already taken by the package); also `main -> CountDisplay` is missing (the Uses edge goes to StringDisplayImpl twice), the solid arrows from main are dashed `..>`, and the object `main` and class `Display` are given other kinds",
+    "opened_stripped": false,
+    "ask_author": false
+  },
+  "E060": {
+    "primary": "C1",
+    "secondary": [
+      "S1",
+      "S3"
+    ],
+    "reason": "the stripped file holds a bare `skinparam sequenceDiagram` with no value, after which the renderer fails on the next line `participant \"AppUser\" as A`; also `D <- S: OrderPO` reverses the drawn OrderDao-to-OrderService return and an extra `O <- S: OrderVO` and a label on the last return are added",
+    "opened_stripped": true,
+    "ask_author": false
+  },
+  "E061": {
+    "primary": "C2",
+    "secondary": [],
+    "reason": "the answer has no `@enduml`: after `@startuml` it is 768 display-only lines and nothing else",
+    "opened_stripped": false,
+    "ask_author": false
+  },
+  "E062": {
+    "primary": "S3",
+    "secondary": [],
+    "reason": "the image shows a package `NavigationCrudCommandSuite` containing the class `Builder`; the answer makes the package a class and adds the edge `NavigationCrudCommandSuite *-- Builder`, which the image does not draw",
+    "opened_stripped": false,
+    "ask_author": false
+  },
+  "E063": {
+    "primary": "C2",
+    "secondary": [
+      "S4"
+    ],
+    "reason": "the answer has no `@enduml` and ends in a loop of `class \"td\" {` blocks; before the loop names are misread (`ParentIncouple`, `Element`, `spanhelp`, `spaner`)",
+    "opened_stripped": false,
+    "ask_author": false
+  },
+  "E064": {
+    "primary": "C1",
+    "secondary": [],
+    "reason": "the dashed messages are written with `..>`, not a sequence arrow, first at `MyBackupService ..> TaskDispatcher : New` where the renderer stops; participants and message order match the image",
+    "opened_stripped": false,
+    "ask_author": false
+  },
+  "E065": {
+    "primary": "S3",
+    "secondary": [
+      "C3"
+    ],
+    "reason": "the image is one lifeline `participant` with its head and foot boxes; the answer declares two participants (`p1`, `p2`) and links them with `p1 -- p2`, a non-sequence link scored as a spurious association",
+    "opened_stripped": false,
+    "ask_author": true
+  },
+  "E066": {
+    "primary": "S1",
+    "secondary": [
+      "S2",
+      "S4",
+      "S5"
+    ],
+    "reason": "all nine compositions kept are drawn as inheritance, e.g. `Game --|> Session : composition`; `Session *-- Rule` is absent, `Diractory` is written `Directory`, and the enums are declared `class`",
+    "opened_stripped": false,
+    "ask_author": false
+  },
+  "E067": {
+    "primary": "C1",
+    "secondary": [
+      "S3"
+    ],
+    "reason": "the renderer stops at `actor \"\" as User`, an actor with an empty name; the image is rendered on a black ground where the actor name, every arrow and every message label are invisible, and the answer invents the labels (`vnesiPodatke(...)`, `uspeh`) and a return to the form",
+    "opened_stripped": false,
+    "ask_author": true
+  },
+  "E068": {
+    "primary": "S2",
+    "secondary": [
+      "S3",
+      "note"
+    ],
+    "reason": "all seven associations leave `IEvent` in the image but the answer draws them from `EventHelpers` (`EventHelpers --> UnionType2`, `EventHelpers --> IEventPipe`, ...) and merges the four UnionType links into one; `note right of UnionType2 : T1,T2` and `note right of IList1 : T` add the nodes `t1,t2` and `t`",
+    "opened_stripped": false,
+    "ask_author": true
+  },
+  "E069": {
+    "primary": "C3",
+    "secondary": [
+      "S3"
+    ],
+    "reason": "a one-lifeline sequence diagram is written as a class diagram, `class \"participant\" as P1`, `class \"participant\" as P2`, `P1 .. P2`, which turns the head and foot boxes into two classes and the lifeline into a dependency edge",
+    "opened_stripped": false,
+    "ask_author": false
+  },
+  "E070": {
+    "primary": "S1",
+    "secondary": [
+      "S2",
+      "S3",
+      "S5"
+    ],
+    "reason": "every edge is `<|--`: the eight dependencies and aggregations with a kept endpoint pair are reversed inheritance (`MediumDungeon <|-- BlueBokoblin`, `Encounter <|-- Dungeon`, `Dungeon <|-- Bokoblin`), the eight realizations are absent, self-loops such as `Encounter <|-- Encounter` are added, and the four interfaces are declared `class`",
+    "opened_stripped": false,
+    "ask_author": true
+  },
+  "E071": {
+    "primary": "C1",
+    "secondary": [
+      "S3"
+    ],
+    "reason": "the renderer stops at `participant -- participant`, not a valid sequence line; the answer also declares the single lifeline `participant` twice, from its head and foot boxes",
+    "opened_stripped": false,
+    "ask_author": false
+  },
+  "E072": {
+    "primary": "C1",
+    "secondary": [],
+    "reason": "the two link notes are written `note left of Dummy -[#red,fill=red]` and `note right of Dummy -[#blue,fill=blue]`, an invalid note syntax where the renderer stops; classes and both links are correct",
+    "opened_stripped": false,
+    "ask_author": false
+  }
+}

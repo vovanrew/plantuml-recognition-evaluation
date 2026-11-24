@@ -1,0 +1,4 @@
+title ブリッジパターン
+skinparam shadowing false
+skinparam packageStyle folder
+skinparam classAttributeIconSize 0

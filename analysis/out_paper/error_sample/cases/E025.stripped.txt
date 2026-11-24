@@ -1,0 +1,11 @@
+skinparam classAttributeIconSize 0
+skinparam classFontColor black
+skinparam classBackgroundColor white
+skinparam classBorderColor black
+skinparam packageFontColor black
+skinparam packageBackgroundColor white
+skinparam packageBorderColor black
+skinparam stereotypeCBackgroundColor #90EE90
+skinparam stereotypeCBorderColor black
+skinparam stereotypeCFontColor black
+skinparam linetype ortho

@@ -1,0 +1,6 @@
+skinparam componentStyle uml2
+skinparam sequence {
+  ArrowColor gray
+  LifeLineBorderColor gray
+  LifeLineBackgroundColor white
+}

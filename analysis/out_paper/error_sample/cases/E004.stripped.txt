@@ -1,0 +1,2 @@
+title Omit Representation
+hide footbox

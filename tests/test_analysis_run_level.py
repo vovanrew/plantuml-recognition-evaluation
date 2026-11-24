@@ -193,6 +193,17 @@ def test_reconcile_flags_desync():
     assert rec["source_b_no_response"] == 1
 
 
+def test_reconcile_ignores_an_answer_held_back_from_the_extractor():
+    # The model answered (chrF++ read it), but the answer was kept from the
+    # extractor, so only the element row says has_pred False: not a drop.
+    md = _md_with_drops(0)
+    md.rows[0]["element"]["has_pred"] = False
+    assert md.rows[0]["chrf"]["has_pred"] is True
+    rec = rl.reconcile(md, {"n_error": 0})
+    assert rec["ok"] is True
+    assert rec["source_a_has_pred_false"] == 0
+
+
 # --------------------------------------------------------------------------- #
 # failure inventory: provider (source B) vs model compile-fail (source A CSR)
 # --------------------------------------------------------------------------- #
@@ -204,6 +215,7 @@ def test_failure_inventory_splits_provider_and_compile_fail():
     # patch rows: 2 provider drops
     for i in range(2):
         md.rows[i]["element"]["has_pred"] = False
+        md.rows[i]["chrf"]["has_pred"] = False
     run_usage = {"n_error": 2, "status_counts": {"ok": 8, "timeout": 2}}
     inv = rl.failure_inventory(md, run_usage)
     assert inv["no_response"] == 2

@@ -77,6 +77,9 @@ def main(argv=None) -> int:
                     help="subdirectory of --out-dir to write figures into")
     ap.add_argument("--include-supplementary", action="store_true",
                     help="also render figures for the supplementary artifacts (Sonnet)")
+    ap.add_argument("--by-arm", action="store_true",
+                    help="group the multi-model figures by arm: hosted models first, "
+                         "then the self-served dense sizes, one legend row each")
     ap.add_argument("--log-level", default="INFO")
     args = ap.parse_args(argv)
 
@@ -91,7 +94,8 @@ def main(argv=None) -> int:
         log.warning("crowding.json not found in %s -- figures rendered without the "
                     "crowding annotation (run build_run_level.py to produce it)", args.out_dir)
     entries = panel_entries(registry)  # full inventory minus supplementary
-    produced = render_all(entries, master, ci, plots_dir, crowding=crowding)
+    produced = render_all(entries, master, ci, plots_dir, crowding=crowding,
+                          by_arm=args.by_arm)
     log.info("rendered %d figures (%d/%d models) into %s",
              len(produced), master["meta"]["models_included"],
              master["meta"]["models_total"], plots_dir)

@@ -1,0 +1,183 @@
+model_id,display,stat,metric,level,population,relation,point,ci_low,ci_high,n_valid,has_ci
+gpt-5.2,GPT-5.2,csr|csr,csr,csr,,,0.935,0.919,0.95,1000,True
+gpt-5.2,GPT-5.2,element_f1|micro|compiled_only,element_f1,micro,compiled_only,,0.9582030139323287,0.9419638320945402,0.97086040408217,1000,True
+gpt-5.2,GPT-5.2,element_f1|macro|compiled_only,element_f1,macro,compiled_only,,0.9706560830543072,0.9622166396920878,0.9776645166058504,1000,True
+gpt-5.2,GPT-5.2,relationship_f1|micro|compiled_only,relationship_f1,micro,compiled_only,,0.811794379053567,0.7782549805293754,0.8419182615360827,1000,True
+gpt-5.2,GPT-5.2,relationship_f1|macro|compiled_only,relationship_f1,macro,compiled_only,,0.870111153225642,0.8529094480411739,0.8871264985351772,1000,True
+gpt-5.2,GPT-5.2,chrf|macro|compiled_only,chrf,macro,compiled_only,,67.09132031468886,65.97224739277068,68.18245981771777,1000,True
+gpt-5.2,GPT-5.2,element_f1|micro|zeros_for_failed,element_f1,micro,zeros_for_failed,,0.9155950009056328,0.8965599669570271,0.9330952315444929,1000,True
+gpt-5.2,GPT-5.2,element_f1|macro|zeros_for_failed,element_f1,macro,zeros_for_failed,,0.9075634376557772,0.8903207034414747,0.9238400947462944,1000,True
+gpt-5.2,GPT-5.2,relationship_f1|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,,0.769905456202301,0.7333023108051715,0.8033481624579665,1000,True
+gpt-5.2,GPT-5.2,relationship_f1|macro|zeros_for_failed,relationship_f1,macro,zeros_for_failed,,0.8165539282659753,0.7946824623869048,0.8371736332396926,1000,True
+gpt-5.2,GPT-5.2,chrf|macro|zeros_for_failed,chrf,macro,zeros_for_failed,,62.73038449423408,61.230519454832574,64.20440327777443,1000,True
+gpt-5.2,GPT-5.2,type_accuracy|accuracy|compiled_only,type_accuracy,accuracy,compiled_only,,0.9413178449829762,0.9275274103818064,0.9539983315654413,1000,True
+gpt-5.2,GPT-5.2,relationship_f1::inheritance|micro|compiled_only,relationship_f1,micro,compiled_only,inheritance,0.8509895227008148,0.805606925147366,0.8955422467730118,1000,True
+gpt-5.2,GPT-5.2,relationship_f1::composition|micro|compiled_only,relationship_f1,micro,compiled_only,composition,0.6582809224318659,0.5208075495049505,0.7820861277045394,1000,True
+gpt-5.2,GPT-5.2,relationship_f1::aggregation|micro|compiled_only,relationship_f1,micro,compiled_only,aggregation,0.6252771618625277,0.5206544296550738,0.7220935603061495,1000,True
+gpt-5.2,GPT-5.2,relationship_f1::dependency|micro|compiled_only,relationship_f1,micro,compiled_only,dependency,0.6297968397291196,0.550499061285831,0.7030819153600006,1000,True
+gpt-5.2,GPT-5.2,relationship_f1::association|micro|compiled_only,relationship_f1,micro,compiled_only,association,0.5944148936170213,0.5168570108479913,0.6713989151373821,1000,True
+gpt-5.2,GPT-5.2,relationship_f1::message|micro|compiled_only,relationship_f1,micro,compiled_only,message,0.8615702479338844,0.8183031323939087,0.901293545175502,1000,True
+gpt-5.2,GPT-5.2,relationship_f1::inheritance|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,inheritance,0.8199663488502524,0.7705396881876493,0.8646158014034944,1000,True
+gpt-5.2,GPT-5.2,relationship_f1::composition|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,composition,0.6343434343434343,0.5007886635926667,0.7557606426431878,1000,True
+gpt-5.2,GPT-5.2,relationship_f1::aggregation|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,aggregation,0.618421052631579,0.5135772531789324,0.7139949299135103,1000,True
+gpt-5.2,GPT-5.2,relationship_f1::dependency|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,dependency,0.6179401993355481,0.5365853658536586,0.6890646127046852,1000,True
+gpt-5.2,GPT-5.2,relationship_f1::association|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,association,0.5494775660725262,0.47682273997991087,0.6239510284165988,1000,True
+gpt-5.2,GPT-5.2,relationship_f1::message|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,message,0.8140556368960469,0.7710677133660762,0.8548379672372837,1000,True
+gpt-5.2,GPT-5.2,chrf|micro|compiled_only,chrf,micro,compiled_only,,66.00840344501894,,,0,False
+gpt-5.2,GPT-5.2,chrf|micro|zeros_for_failed,chrf,micro,zeros_for_failed,,60.735698544447416,,,0,False
+claude-opus-4-6,Claude Opus 4.6,csr|csr,csr,csr,,,0.941,0.925,0.9550249999999999,1000,True
+claude-opus-4-6,Claude Opus 4.6,element_f1|micro|compiled_only,element_f1,micro,compiled_only,,0.9659851301115241,0.9497973486782415,0.9788306098642628,1000,True
+claude-opus-4-6,Claude Opus 4.6,element_f1|macro|compiled_only,element_f1,macro,compiled_only,,0.9813912645509337,0.9751661421054002,0.9867051516491208,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1|micro|compiled_only,relationship_f1,micro,compiled_only,,0.7276744186046511,0.6888594027812873,0.7618273418223267,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1|macro|compiled_only,relationship_f1,macro,compiled_only,,0.8256294840822039,0.8079113112714192,0.8420153746148075,1000,True
+claude-opus-4-6,Claude Opus 4.6,chrf|macro|compiled_only,chrf,macro,compiled_only,,69.80197866319413,68.68194972833433,70.97531005694442,1000,True
+claude-opus-4-6,Claude Opus 4.6,element_f1|micro|zeros_for_failed,element_f1,micro,zeros_for_failed,,0.9341242023905816,0.9151324206287461,0.9487944435323122,1000,True
+claude-opus-4-6,Claude Opus 4.6,element_f1|macro|zeros_for_failed,element_f1,macro,zeros_for_failed,,0.9234891799424286,0.9070462522256912,0.9381795576382704,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,,0.7002349781805975,0.6635250389925861,0.7348573307501333,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1|macro|zeros_for_failed,relationship_f1,macro,zeros_for_failed,,0.777917344521354,0.7578458789638938,0.7967185212079413,1000,True
+claude-opus-4-6,Claude Opus 4.6,chrf|macro|zeros_for_failed,chrf,macro,zeros_for_failed,,65.68366192206568,64.2260855782044,67.17522441608122,1000,True
+claude-opus-4-6,Claude Opus 4.6,type_accuracy|accuracy|compiled_only,type_accuracy,accuracy,compiled_only,,0.9506245120999219,0.9372343703762782,0.9625919104447603,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1::inheritance|micro|compiled_only,relationship_f1,micro,compiled_only,inheritance,0.8861878453038674,0.8507446992168495,0.9170548454969072,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1::composition|micro|compiled_only,relationship_f1,micro,compiled_only,composition,0.4920993227990971,0.3746352273141788,0.6172423715807528,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1::aggregation|micro|compiled_only,relationship_f1,micro,compiled_only,aggregation,0.5203252032520325,0.4216509568694658,0.6212234852923942,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1::dependency|micro|compiled_only,relationship_f1,micro,compiled_only,dependency,0.5915841584158417,0.5057414592478272,0.6766324027658823,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1::association|micro|compiled_only,relationship_f1,micro,compiled_only,association,0.4763532763532764,0.40856680389586164,0.5422094614794257,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1::message|micro|compiled_only,relationship_f1,micro,compiled_only,message,0.7647107781939242,0.7114617678477961,0.811108134954954,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1::inheritance|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,inheritance,0.8698481561822125,0.8314320031744994,0.9007877411811509,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1::composition|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,composition,0.4668094218415417,0.3526146025328497,0.5884898843930636,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1::aggregation|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,aggregation,0.507936507936508,0.4115639514112184,0.6062288428324698,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1::dependency|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,dependency,0.5808019441069259,0.49767644195896715,0.6645688449956982,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1::association|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,association,0.4613686534216335,0.3941675811310468,0.5293555998731885,1000,True
+claude-opus-4-6,Claude Opus 4.6,relationship_f1::message|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,message,0.7321115537848605,0.6827726727218167,0.7785507183813579,1000,True
+claude-opus-4-6,Claude Opus 4.6,chrf|micro|compiled_only,chrf,micro,compiled_only,,66.57194043096439,,,0,False
+claude-opus-4-6,Claude Opus 4.6,chrf|micro|zeros_for_failed,chrf,micro,zeros_for_failed,,62.35845887076059,,,0,False
+gemini-3.1-pro,Gemini 3.1 Pro,csr|csr,csr,csr,,,0.972,0.9619749999999999,0.981,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,element_f1|micro|compiled_only,element_f1,micro,compiled_only,,0.9829928912084945,0.9753920353701271,0.9896380090703071,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,element_f1|macro|compiled_only,element_f1,macro,compiled_only,,0.988591431520697,0.9835258332876383,0.9930577528192851,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1|micro|compiled_only,relationship_f1,micro,compiled_only,,0.9117960810734939,0.8910029170783413,0.9308773325339506,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1|macro|compiled_only,relationship_f1,macro,compiled_only,,0.9490784411005202,0.9388587364527005,0.9586163493016694,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,chrf|macro|compiled_only,chrf,macro,compiled_only,,77.70251919384631,76.51737403268167,78.83045450420458,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,element_f1|micro|zeros_for_failed,element_f1,micro,zeros_for_failed,,0.9669823847039036,0.9566809472063088,0.9764142879745004,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,element_f1|macro|zeros_for_failed,element_f1,macro,zeros_for_failed,,0.9609108714381174,0.9496919910373602,0.9710703778549268,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,,0.8937809576224546,0.8704163945207418,0.9142447595902234,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1|macro|zeros_for_failed,relationship_f1,macro,zeros_for_failed,,0.9235042447497057,0.9100098193165072,0.936170523049424,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,chrf|macro|zeros_for_failed,chrf,macro,zeros_for_failed,,75.52684865641862,74.19285451092448,76.85375047853199,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,type_accuracy|accuracy|compiled_only,type_accuracy,accuracy,compiled_only,,0.9841860465116279,0.9729139615393957,0.992544037890319,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1::inheritance|micro|compiled_only,relationship_f1,micro,compiled_only,inheritance,0.9471965160587915,0.9254574811812551,0.9668542839274546,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1::composition|micro|compiled_only,relationship_f1,micro,compiled_only,composition,0.8277087033747779,0.7363908001983315,0.8992564570421872,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1::aggregation|micro|compiled_only,relationship_f1,micro,compiled_only,aggregation,0.8195991091314031,0.7460250201775626,0.889942571090112,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1::dependency|micro|compiled_only,relationship_f1,micro,compiled_only,dependency,0.8499335989375831,0.7918872238498693,0.9069906817457789,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1::association|micro|compiled_only,relationship_f1,micro,compiled_only,association,0.7769784172661871,0.7093076899749884,0.8473470291640277,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1::message|micro|compiled_only,relationship_f1,micro,compiled_only,message,0.9353321106769795,0.9083122420282798,0.959560620622661,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1::inheritance|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,inheritance,0.9314775160599572,0.9058455026455026,0.9525710858441614,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1::composition|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,composition,0.8204225352112675,0.7280236928938327,0.8938593732657518,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1::aggregation|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,aggregation,0.7999999999999999,0.7189718419013175,0.8750161917098445,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1::dependency|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,dependency,0.8432147562582345,0.7849575840698974,0.8989852041141112,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1::association|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,association,0.770053475935829,0.7014834787724287,0.8408459754857173,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,relationship_f1::message|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,message,0.9141209476309228,0.8855594576024969,0.9407088464331801,1000,True
+gemini-3.1-pro,Gemini 3.1 Pro,chrf|micro|compiled_only,chrf,micro,compiled_only,,74.54361336448198,,,0,False
+gemini-3.1-pro,Gemini 3.1 Pro,chrf|micro|zeros_for_failed,chrf,micro,zeros_for_failed,,72.18907934023812,,,0,False
+qwen3.5-2b,Qwen3.5-2B,csr|csr,csr,csr,,,0.191,0.167,0.215,1000,True
+qwen3.5-2b,Qwen3.5-2B,element_f1|micro|compiled_only,element_f1,micro,compiled_only,,0.8741794310722101,0.8320666868999008,0.9122867202311095,1000,True
+qwen3.5-2b,Qwen3.5-2B,element_f1|macro|compiled_only,element_f1,macro,compiled_only,,0.8794566991951753,0.8443001779071043,0.9119723030476158,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1|micro|compiled_only,relationship_f1,micro,compiled_only,,0.4631828978622327,0.39093693628733034,0.5424808291693465,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1|macro|compiled_only,relationship_f1,macro,compiled_only,,0.49379709774167985,0.4316205017185491,0.5574742445941867,1000,True
+qwen3.5-2b,Qwen3.5-2B,chrf|macro|compiled_only,chrf,macro,compiled_only,,61.89873908314304,59.77208921180387,64.12197592909212,1000,True
+qwen3.5-2b,Qwen3.5-2B,element_f1|micro|zeros_for_failed,element_f1,micro,zeros_for_failed,,0.23945335710041596,0.20538851008000342,0.27192923162651733,1000,True
+qwen3.5-2b,Qwen3.5-2B,element_f1|macro|zeros_for_failed,element_f1,macro,zeros_for_failed,,0.1689762295462785,0.1466033685668477,0.19089175898892768,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,,0.11027332704995288,0.08722889721013392,0.13416720930003112,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1|macro|zeros_for_failed,relationship_f1,macro,zeros_for_failed,,0.17431524566866086,0.1537072694153607,0.19742654564799797,1000,True
+qwen3.5-2b,Qwen3.5-2B,chrf|macro|zeros_for_failed,chrf,macro,zeros_for_failed,,11.82265916488032,10.31330496498772,13.446248661459222,1000,True
+qwen3.5-2b,Qwen3.5-2B,type_accuracy|accuracy|compiled_only,type_accuracy,accuracy,compiled_only,,0.7546933667083855,0.7017553388720873,0.8074192227473005,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1::inheritance|micro|compiled_only,relationship_f1,micro,compiled_only,inheritance,0.3880597014925374,0.22873316586421044,0.5644734151329244,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1::composition|micro|compiled_only,relationship_f1,micro,compiled_only,composition,0.0,0.0,0.0,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1::aggregation|micro|compiled_only,relationship_f1,micro,compiled_only,aggregation,0.15384615384615385,0.0,0.33362068965517216,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1::dependency|micro|compiled_only,relationship_f1,micro,compiled_only,dependency,0.029411764705882353,0.0,0.07079959831795644,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1::association|micro|compiled_only,relationship_f1,micro,compiled_only,association,0.13427561837455831,0.05382850241545894,0.23183279354183786,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1::message|micro|compiled_only,relationship_f1,micro,compiled_only,message,0.6048667439165701,0.49776264810559984,0.7159508490052048,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1::inheritance|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,inheritance,0.07632093933463796,0.041850222918423906,0.11663829904114177,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1::composition|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,composition,0.0,0.0,0.0,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1::aggregation|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,aggregation,0.00816326530612245,0.0,0.027403573006754618,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1::dependency|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,dependency,0.01340033500837521,0.0,0.03361817966623268,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1::association|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,association,0.03629417382999045,0.013682091555246283,0.06225052203292615,1000,True
+qwen3.5-2b,Qwen3.5-2B,relationship_f1::message|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,message,0.14115738236884803,0.10831093094325538,0.17328710033873418,1000,True
+qwen3.5-2b,Qwen3.5-2B,chrf|micro|compiled_only,chrf,micro,compiled_only,,61.74360119373138,,,0,False
+qwen3.5-2b,Qwen3.5-2B,chrf|micro|zeros_for_failed,chrf,micro,zeros_for_failed,,8.74619397546358,,,0,False
+qwen3.5-9b,Qwen3.5-9B,csr|csr,csr,csr,,,0.411,0.381,0.444,1000,True
+qwen3.5-9b,Qwen3.5-9B,element_f1|micro|compiled_only,element_f1,micro,compiled_only,,0.8708601911535897,0.8402967944438453,0.8988958799929104,1000,True
+qwen3.5-9b,Qwen3.5-9B,element_f1|macro|compiled_only,element_f1,macro,compiled_only,,0.8876141482224085,0.8637541036402971,0.9085103872578162,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1|micro|compiled_only,relationship_f1,micro,compiled_only,,0.4703068951773615,0.41497351472112354,0.5261506541897787,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1|macro|compiled_only,relationship_f1,macro,compiled_only,,0.5355021757012447,0.49456527720365706,0.5772390915159575,1000,True
+qwen3.5-9b,Qwen3.5-9B,chrf|macro|compiled_only,chrf,macro,compiled_only,,62.85747983629155,61.14539744259208,64.49930021973907,1000,True
+qwen3.5-9b,Qwen3.5-9B,element_f1|micro|zeros_for_failed,element_f1,micro,zeros_for_failed,,0.4810313075506446,0.4445287833404019,0.519617526967554,1000,True
+qwen3.5-9b,Qwen3.5-9B,element_f1|macro|zeros_for_failed,element_f1,macro,zeros_for_failed,,0.3648094149194099,0.33552211693662287,0.3948464888080256,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,,0.1977046159001424,0.16894384297723208,0.2310135350323612,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1|macro|zeros_for_failed,relationship_f1,macro,zeros_for_failed,,0.2650913942132116,0.24225150463244308,0.2897670628422365,1000,True
+qwen3.5-9b,Qwen3.5-9B,chrf|macro|zeros_for_failed,chrf,macro,zeros_for_failed,,25.834424212715827,23.725230363086578,27.982631559520193,1000,True
+qwen3.5-9b,Qwen3.5-9B,type_accuracy|accuracy|compiled_only,type_accuracy,accuracy,compiled_only,,0.7735751295336788,0.7313018635572311,0.8120910577971646,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1::inheritance|micro|compiled_only,relationship_f1,micro,compiled_only,inheritance,0.5262154432793136,0.4480501951928042,0.6037297465187307,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1::composition|micro|compiled_only,relationship_f1,micro,compiled_only,composition,0.27102803738317754,0.1472041155419223,0.4197720797720797,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1::aggregation|micro|compiled_only,relationship_f1,micro,compiled_only,aggregation,0.2526315789473684,0.12738563983786913,0.3897701149425287,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1::dependency|micro|compiled_only,relationship_f1,micro,compiled_only,dependency,0.2830188679245283,0.1993646978021978,0.3698399442967924,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1::association|micro|compiled_only,relationship_f1,micro,compiled_only,association,0.2993527508090615,0.23396684233640755,0.3796431446019323,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1::message|micro|compiled_only,relationship_f1,micro,compiled_only,message,0.7069943289224951,0.6249042802961893,0.7856215522160928,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1::inheritance|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,inheritance,0.38121546961325964,0.31691472297053563,0.4456441815856777,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1::composition|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,composition,0.15934065934065933,0.07564121818940342,0.25546471600688464,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1::aggregation|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,aggregation,0.16000000000000003,0.07945314067830625,0.26440859750655027,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1::dependency|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,dependency,0.2229299363057325,0.15283842794759828,0.29694915173962055,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1::association|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,association,0.22316043425814233,0.17443370080203138,0.28058872800252116,1000,True
+qwen3.5-9b,Qwen3.5-9B,relationship_f1::message|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,message,0.15529411764705883,0.11393735664149843,0.2048070865452499,1000,True
+qwen3.5-9b,Qwen3.5-9B,chrf|micro|compiled_only,chrf,micro,compiled_only,,62.22064325397564,,,0,False
+qwen3.5-9b,Qwen3.5-9B,chrf|micro|zeros_for_failed,chrf,micro,zeros_for_failed,,22.876917583135803,,,0,False
+qwen3.5-27b,Qwen3.5-27B,csr|csr,csr,csr,,,0.644,0.615,0.673,1000,True
+qwen3.5-27b,Qwen3.5-27B,element_f1|micro|compiled_only,element_f1,micro,compiled_only,,0.9453293155402497,0.9262299802622067,0.9607592893500424,1000,True
+qwen3.5-27b,Qwen3.5-27B,element_f1|macro|compiled_only,element_f1,macro,compiled_only,,0.9580772192960458,0.9455191336222007,0.9692051094819208,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1|micro|compiled_only,relationship_f1,micro,compiled_only,,0.7285090835278596,0.6717303122370988,0.7803081852247822,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1|macro|compiled_only,relationship_f1,macro,compiled_only,,0.7999641322846688,0.7742056578035101,0.8247648156877144,1000,True
+qwen3.5-27b,Qwen3.5-27B,chrf|macro|compiled_only,chrf,macro,compiled_only,,68.12405116805455,66.67147051253366,69.64514915360604,1000,True
+qwen3.5-27b,Qwen3.5-27B,element_f1|micro|zeros_for_failed,element_f1,micro,zeros_for_failed,,0.713007867227072,0.6809608982197692,0.743487050111542,1000,True
+qwen3.5-27b,Qwen3.5-27B,element_f1|macro|zeros_for_failed,element_f1,macro,zeros_for_failed,,0.6190017292266535,0.5902380101619128,0.646660591800045,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,,0.5074312955692653,0.4595321420440204,0.5520176802529703,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1|macro|zeros_for_failed,relationship_f1,macro,zeros_for_failed,,0.5331769011913267,0.5037577484793332,0.560834616495045,1000,True
+qwen3.5-27b,Qwen3.5-27B,chrf|macro|zeros_for_failed,chrf,macro,zeros_for_failed,,43.871888952227124,41.65479232582107,46.102219088777616,1000,True
+qwen3.5-27b,Qwen3.5-27B,type_accuracy|accuracy|compiled_only,type_accuracy,accuracy,compiled_only,,0.8886838868388683,0.8673480143199415,0.9092282894465131,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1::inheritance|micro|compiled_only,relationship_f1,micro,compiled_only,inheritance,0.7898181818181819,0.7064838718845701,0.8539158313067204,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1::composition|micro|compiled_only,relationship_f1,micro,compiled_only,composition,0.5634920634920635,0.42580912547528516,0.6855390835579515,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1::aggregation|micro|compiled_only,relationship_f1,micro,compiled_only,aggregation,0.5777777777777778,0.4471984931062172,0.6997354697301791,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1::dependency|micro|compiled_only,relationship_f1,micro,compiled_only,dependency,0.6468531468531469,0.5514372110632871,0.7372825753415807,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1::association|micro|compiled_only,relationship_f1,micro,compiled_only,association,0.46390916463909165,0.3817616706730015,0.5479834618992018,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1::message|micro|compiled_only,relationship_f1,micro,compiled_only,message,0.7903701277432035,0.6952372010842586,0.8659181751521542,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1::inheritance|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,inheritance,0.6650336803429271,0.5887585635043174,0.7388700183172983,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1::composition|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,composition,0.3397129186602871,0.22537641621943943,0.4663202247191011,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1::aggregation|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,aggregation,0.4702842377260982,0.3553074600012851,0.5889065510597302,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1::dependency|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,dependency,0.5346820809248555,0.4353706249339114,0.6185775881361242,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1::association|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,association,0.37191157347204157,0.3039508765213161,0.44359962788989843,1000,True
+qwen3.5-27b,Qwen3.5-27B,relationship_f1::message|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,message,0.5091704877032097,0.4425376247656156,0.5663030963825049,1000,True
+qwen3.5-27b,Qwen3.5-27B,chrf|micro|compiled_only,chrf,micro,compiled_only,,66.40627900258791,,,0,False
+qwen3.5-27b,Qwen3.5-27B,chrf|micro|zeros_for_failed,chrf,micro,zeros_for_failed,,40.78130855649411,,,0,False
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,csr|csr,csr,csr,,,0.787,0.762,0.812,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,element_f1|micro|compiled_only,element_f1,micro,compiled_only,,0.9238062986793093,0.9060383525552484,0.9388347972157876,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,element_f1|macro|compiled_only,element_f1,macro,compiled_only,,0.9359629851479973,0.9245902756290625,0.9467021556874126,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1|micro|compiled_only,relationship_f1,micro,compiled_only,,0.7458790284599341,0.6988999988352453,0.7878433412292594,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1|macro|compiled_only,relationship_f1,macro,compiled_only,,0.8045091126053276,0.7831494628415091,0.8258235060227014,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,chrf|macro|compiled_only,chrf,macro,compiled_only,,62.55534821002655,61.27302954324645,63.99819239742378,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,element_f1|micro|zeros_for_failed,element_f1,micro,zeros_for_failed,,0.7935615242897315,0.7674092401475187,0.8182215586282992,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,element_f1|macro|zeros_for_failed,element_f1,macro,zeros_for_failed,,0.7366028693114738,0.7117306182873266,0.7626055695530222,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,,0.6570260178984176,0.6164282959910264,0.6965171298334119,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1|macro|zeros_for_failed,relationship_f1,macro,zeros_for_failed,,0.6471486716203929,0.6199916026074456,0.6745854731532188,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,chrf|macro|zeros_for_failed,chrf,macro,zeros_for_failed,,49.23105904129089,47.46323864873879,51.167355531830566,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,type_accuracy|accuracy|compiled_only,type_accuracy,accuracy,compiled_only,,0.8710715169512497,0.8510698396606873,0.8888322664159548,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1::inheritance|micro|compiled_only,relationship_f1,micro,compiled_only,inheritance,0.7772585669781931,0.716979397891232,0.833339580209895,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1::composition|micro|compiled_only,relationship_f1,micro,compiled_only,composition,0.5977011494252874,0.4508536538682388,0.7476782563231161,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1::aggregation|micro|compiled_only,relationship_f1,micro,compiled_only,aggregation,0.555956678700361,0.42464109589041094,0.6845317827042555,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1::dependency|micro|compiled_only,relationship_f1,micro,compiled_only,dependency,0.42162162162162165,0.326352099979871,0.5107602000535315,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1::association|micro|compiled_only,relationship_f1,micro,compiled_only,association,0.5137039937353173,0.4170239465807046,0.6171738735465115,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1::message|micro|compiled_only,relationship_f1,micro,compiled_only,message,0.8007680351101766,0.740313596312465,0.8573436102889141,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1::inheritance|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,inheritance,0.6210329807093964,0.5432227716139899,0.6903916853124228,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1::composition|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,composition,0.4632516703786192,0.33933473389355745,0.6012822997897626,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1::aggregation|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,aggregation,0.4425287356321839,0.3206419118612899,0.5629117991531278,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1::dependency|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,dependency,0.3602771362586605,0.27412355600200905,0.4389787126899835,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1::association|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,association,0.42105263157894735,0.34009824263180255,0.5085511260409086,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,relationship_f1::message|micro|zeros_for_failed,relationship_f1,micro,zeros_for_failed,message,0.7271066832710668,0.6738908765504714,0.7771723884708491,1000,True
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,chrf|micro|compiled_only,chrf,micro,compiled_only,,59.77415289624434,,,0,False
+qwen3.5-397b-a17b,Qwen3.5-397B-A17B,chrf|micro|zeros_for_failed,chrf,micro,zeros_for_failed,,47.80105267943817,,,0,False

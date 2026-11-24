@@ -110,24 +110,50 @@ is large; a model that compiles across the difficulty range has a gap near zero.
 The gap is reported at the overall scope for Element F1, Relationship F1, and
 chrF++, and tracks the inverse of CSR.
 
-## 7. Failure-case sampling
+## 7. Error analysis
 
-A stratified sample of failure cases is produced for qualitative error review. Each
-diagram is classified into one of four mutually exclusive outcome classes, decided
-in order: **provider drop** (no prediction was produced), **compile fail** (a
-prediction exists but does not render), **compiled low-structural** (renders, but
-per-diagram Element or Relationship F1 is below 0.5), and **ok**. The renderer's
-compilation flag is authoritative, so a non-rendering prediction is a compile fail
-even when its source happens to parse structurally.
+The error analysis says what kinds of failure the models make. It has two parts: outcome
+counts over all 1,000 diagrams of every run, and a coded sample of failure cases.
 
-Cases are stratified by model, diagram type, tier, and outcome class, with a fixed
-per-cell cap. Selection within a cell uses a seed derived from the cell identity,
-so a cell's sample depends only on its own contents and adding a model does not
-perturb another model's sample. Cells exceeding the cap are recorded, and the
-available and sampled counts are reported per cell so a capped sample is not
-mistaken for the complete failure set. Each sampled case carries the ground-truth
-source, the prediction, the compilation error, and the per-diagram structural
-deltas (matched, missed, and spurious entities and relations).
+**Outcome classes.** Each diagram of a run gets one of four classes, decided in order. A
+**provider drop** has no answer. A **compile fail** has an answer that does not render. A
+**compiled low-structural** answer renders, but its per-diagram Element F1 or Relationship F1
+is below 0.5. Every other answer is **ok**. The class comes from the renderer's result first,
+so an answer that does not render is a compile fail even when its source can be parsed. An
+answer that stops the structure extractor is also a compile fail: the model answered, and the
+answer does not render. The counts of the four classes are reported per run, and they give
+how often each class occurs.
+
+**The sample.** The strata are model × diagram type × tier × failure class (compile fail or
+compiled low-structural), which is 16 cells per model. Each non-empty cell gives one case. The
+case is drawn by a seeded rule whose seed depends only on the cell, so one model's sample does
+not change when another model is added. One case per cell shows the kinds of failure, not how
+often each occurs. Provider drops are counted from the runs and are not sampled.
+
+**What a coder sees.** Each case is a file with the ground-truth source, the model's answer
+and the image the model was shown. Display-only lines are removed from the shown answer and
+kept in a side file. A compile fail also shows the renderer's message and the line it names. A
+compiled low-structural case also shows the structural difference as the scorer keys it:
+matched, missed and spurious elements and relations. These are extracted again for the sampled
+cases, and the build stops if they do not reproduce the stored per-diagram counts. The case
+carries a blind identifier in a shuffled order. The coder is not told which model produced the
+answer. The key that links identifiers to models is written before any case is coded.
+
+**Coding.** The codes and their rules are fixed in a codebook before the first case is coded,
+and the key records the codebook's hash. Every case gets one primary code, the defect that
+would recover most of the loss if fixed alone, and any secondary codes. The codes cover
+compile failures (a syntax error, an answer that never ends, the wrong diagram family),
+structural defects (a wrong relation type, missed relations, invented elements, a misread
+name, a wrong element kind, lost control flow, missed elements) and a measurement artifact.
+The measurement artifact is limited to two stated causes, and any other candidate goes to the
+author. Each case is coded twice, independently. The author decides every case where the two
+codings differ or a coder asks for a decision.
+
+**Reported.** The report gives the agreement of the two codings on the primary code, the cases
+the author decided, and the primary codes per model.
+
+The sample is drawn by `analysis/build_error_sample.py draw` and reported by its `report`
+command. The codebook is `analysis/error_codebook.md`.
 
 ## 8. Run-level accounting
 

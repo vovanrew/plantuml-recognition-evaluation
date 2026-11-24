@@ -1,0 +1,10 @@
+skinparam classAttributeIconSize 0
+skinparam classFontName Arial
+skinparam classFontSize 14
+skinparam classBackgroundColor #F5F5F5
+skinparam classBorderColor #333333
+skinparam classStereotypeFontName Arial
+skinparam classStereotypeFontSize 12
+skinparam classStereotypeFontColor #000000
+skinparam classStereotypeBackgroundColor #C8E6C9
+skinparam classStereotypeBorderColor #333333

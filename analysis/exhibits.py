@@ -137,14 +137,27 @@ def exhibit_headline(master: dict, ci: dict) -> list[str]:
            "corpus statistic, point-only — see Exhibit 2). Type accuracy is "
            "compiled-only by definition. **This is two arms, not one leaderboard.**",
            ""]
-    out += ["### Arm A — Frontier reference points", "",
-            "One reigning flagship per lab (fixed comparison points).", ""]
+    # A registry may place a mixture-of-experts model among the reference points
+    # (model_registry_paper.json); the arm headings then name the two groups as
+    # hosted reference models and the dense ladder.
+    hosted_moe = any(b.get("family") == "moe" for _, b in g["frontier"])
+    if hosted_moe:
+        out += ["### Arm A — Hosted reference models", "",
+                "Each on its provider's serving (fixed comparison points).", ""]
+    else:
+        out += ["### Arm A — Frontier reference points", "",
+                "One reigning flagship per lab (fixed comparison points).", ""]
     out += _headline_table(g["frontier"], ci, with_params=False)
-    out += ["",
-            "### Arm B — Qwen open ladder (dense) + MoE ceiling", "",
-            "The dense 2B/9B/27B ladder is a scaling curve; the 397B-A17B MoE is a "
-            "capability ceiling (both total and active parameters reported), **not** a "
-            "fourth dense rung.", ""]
+    if g["moe"] or not hosted_moe:
+        out += ["",
+                "### Arm B — Qwen open ladder (dense) + MoE ceiling", "",
+                "The dense 2B/9B/27B ladder is a scaling curve; the 397B-A17B MoE is a "
+                "capability ceiling (both total and active parameters reported), **not** a "
+                "fourth dense rung.", ""]
+    else:
+        out += ["",
+                "### Arm B — Qwen open ladder (dense)", "",
+                "The dense 2B/9B/27B sizes, one serving, read as a scaling curve.", ""]
     out += _headline_table(g["ladder"] + g["moe"], ci, with_params=True)
     out += [""]
     return out

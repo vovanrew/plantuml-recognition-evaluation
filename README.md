@@ -113,9 +113,13 @@ The construction pipeline, with counts at every filter stage, is in
 ```
 analysis/          Aggregation, bootstrap CIs, plots, exhibits. See analysis/README.md.
   out/             Generated tables, figures and exhibits (shipped, regenerable).
+  out_paper/       The same for the revised paper: scorer v2, self-served dense Qwen runs,
+                   stratum intervals (paper_extras.*), the 108-case error sample.
   model_registry.json   The 7 reported models + 1 supplementary, and their run dirs.
+  model_registry_paper.json  The registry of the revised paper.
   results_explained.md  Plain-language walkthrough of the results.
-  error_analysis.md     Qualitative review of 40 failure cases.
+  error_analysis.md     Qualitative review of 108 sampled failure cases (error_sample/).
+  error_codebook.md     The codebook the cases were coded with.
 evaluation/        Inference runner and the four metric scorers.
 util/              Test-set construction, image standardization, token measurement.
 methodology/       The methodological record. The source of truth for every design decision.
@@ -123,6 +127,8 @@ prompts/           The frozen zero-shot prompt.
 tests/             391 test functions across 25 modules.
 data.zip           The benchmark data. Unzip at the repository root.
 data_v2.zip        The stored runs scored under scorer v2. Unzip at the repository root.
+data_selfserved.zip
+                   The self-served Qwen3.5-2B, 9B and 27B zero-shot runs. Unzip at the root.
 plantuml-stats-extractor-v1.jar, -v2.jar
                    The extractor JARs of scorer v1 and v2 (GPL-3.0).
 evaluation_plan.md How to run the benchmark end to end.
@@ -201,6 +207,39 @@ left out, and re-running the scorers writes them again.
 `data_v2/`. The
 [fine-tuning study](https://github.com/vovanrew/plantuml-recognition-fine-tuning)
 reports the change from v1 to v2 on these runs.
+
+### The self-served runs and the revised paper
+
+`data_selfserved.zip` holds three zero-shot runs of the dense Qwen3.5 models (2B, 9B
+and 27B), answered by the authors on one GPU in the released bf16 weights, without
+quantization, with the prompt, decoding settings and test set of the benchmark. They
+are the Qwen rows of the revised paper, and the zero-shot baseline of the
+fine-tuning study. Unzipping it at the repository root recreates
+`data_selfserved/runs/test/<size>_zero_shot/`, each with the 1,000 answers
+(`answers/`), the result files under scorer v2 and v1 (`scores/`, with the sha256 of
+each in `scores/manifest.json`) and the provenance of the run (`answer_manifest.json`,
+logs). `python3 util/pack_selfserved.py --fine-tune <dir> --check` compares the
+archive with a directory that holds `runs/test/`.
+
+The revised paper's tables, figures and exhibits are in `analysis/out_paper/` and
+regenerate from the three archives:
+
+```bash
+unzip data.zip && unzip data_v2.zip && unzip data_selfserved.zip
+python3 util/build_paper_root.py --fine-tune data_selfserved     # -> data_paper/
+R="--data-root data_paper --registry analysis/model_registry_paper.json --out-dir analysis/out_paper"
+python3 analysis/build_master_table.py $R
+python3 analysis/build_ci_table.py $R
+python3 analysis/build_run_level.py $R
+python3 -m analysis.build_paper_extras $R
+python3 analysis/build_failure_index.py $R
+python3 analysis/build_plots.py --registry analysis/model_registry_paper.json --out-dir analysis/out_paper --by-arm
+python3 analysis/build_exhibits.py --out-dir analysis/out_paper
+```
+
+`build_paper_extras` also writes `paper_checks.*`, internal checks that are not
+shipped. The error sample in `analysis/out_paper/error_sample/` is drawn by
+`analysis/build_error_sample.py`; `methodology/analysis-protocol.md` §7 describes it.
 
 ## Requirements
 

@@ -1,0 +1,176 @@
+{
+ "E002": {
+  "primary": "C1",
+  "votes": {
+   "C1": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E004": {
+  "primary": "S4",
+  "votes": {
+   "S4": 4,
+   "M?": 3
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E012": {
+  "primary": "S4",
+  "votes": {
+   "S4": 5,
+   "S3": 2
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E017": {
+  "primary": "C3",
+  "votes": {
+   "C3": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E019": {
+  "primary": "S2",
+  "votes": {
+   "S2": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E020": {
+  "primary": "M",
+  "votes": {
+   "M": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E022": {
+  "primary": "C1",
+  "votes": {
+   "C1": 6,
+   "C3": 1
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E025": {
+  "primary": "S4",
+  "votes": {
+   "M?": 6,
+   "S4": 1
+  },
+  "n_votes": 7,
+  "decided_by": "author, 2026-11-24 (votes ended on M?)"
+ },
+ "E038": {
+  "primary": "S4",
+  "votes": {
+   "M?": 5,
+   "S4": 2
+  },
+  "n_votes": 7,
+  "decided_by": "author, 2026-11-24 (votes ended on M?)"
+ },
+ "E042": {
+  "primary": "S2",
+  "votes": {
+   "S2": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E043": {
+  "primary": "C1",
+  "votes": {
+   "C1": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E049": {
+  "primary": "S2",
+  "votes": {
+   "S2": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E056": {
+  "primary": "S2",
+  "votes": {
+   "S2": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E065": {
+  "primary": "S3",
+  "votes": {
+   "S3": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E067": {
+  "primary": "C1",
+  "votes": {
+   "C1": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E068": {
+  "primary": "S2",
+  "votes": {
+   "S2": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E069": {
+  "primary": "S3",
+  "votes": {
+   "S3": 4,
+   "C3": 3
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E070": {
+  "primary": "S1",
+  "votes": {
+   "S1": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E075": {
+  "primary": "S2",
+  "votes": {
+   "S2": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E077": {
+  "primary": "S2",
+  "votes": {
+   "S2": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ },
+ "E082": {
+  "primary": "C1",
+  "votes": {
+   "C1": 7
+  },
+  "n_votes": 7,
+  "decided_by": "majority of 7 codings"
+ }
+}

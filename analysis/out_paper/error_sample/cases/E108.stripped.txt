@@ -1,0 +1,8 @@
+skinparam note {
+  BackgroundColor LightYellow
+  BorderColor Black
+}
+skinparam class {
+  BackgroundColor LightGray
+  BorderColor Black
+}

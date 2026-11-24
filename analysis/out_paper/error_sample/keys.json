@@ -1,0 +1,1091 @@
+{
+ "_doc": "The unblinded key of the error-analysis sample. Coders never read this file.",
+ "seed": 20260614,
+ "codebook_sha256": "81460a5b041cc1aaa590be8c17067cab8fe757baf6f5d96395c4c3be9a90bb59",
+ "build_error_sample_sha256": "95da341a5dcd4227c5fca49993b94d24f6e8a5dbb0842fcd6a48c324a8f04ea1",
+ "jar_sha256": "2747a72aec9206e424ddf9ed659f9eceb96730444a68b1fe99094317400f555b",
+ "registry": "analysis\\model_registry_paper.json",
+ "n_cases": 108,
+ "cases": [
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "86c771a52346ed8537813f5e90e4dc5140dd476d",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 19,
+   "case": "E001"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "e74eafa342207f6317773e0c8d1f8562842c9e97",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 30,
+   "case": "E002"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "e613eefd072a8fa0616cb42d7cb770170d7ff979",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 3,
+   "case": "E003"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "c5bb3816232672cc44f741e2b5d82d69ebdf932c",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 1,
+   "case": "E004"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "1067b9cef0f7617223a7f9ea212a6c7aa62e70cc",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 4,
+   "case": "E005"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "93d6d0057a687cb6d47f69db68badb643308ad7e",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 104,
+   "case": "E006"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "21b4a540ef036fcb31ecb8df572773b7cd602a22",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 4,
+   "case": "E007"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "b21a6faaf6a180c501e0aba4b0056672ede1ea2d",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 29,
+   "case": "E008"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "a87c8d584bf40e45101b8425d63c9ac5fb06c7d6",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 24,
+   "case": "E009"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "d3736e832e86a170b3ce5be4038c9e22e036f45f",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 3,
+   "case": "E010"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "dd18a88b118626df1c03faa29d229393627c778c",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 5,
+   "case": "E011"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "b0d04738d5f720244e3629eef756b60dacad580c",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 3,
+   "case": "E012"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "a4ace769617f9198bb8eb533e526af564df13977",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 10,
+   "case": "E013"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "6084305e9660aa52a87f03713a2c2186550b7b67",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 18,
+   "case": "E014"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "7e0e0e3379e4f346233ea39b20fa7408fb452111",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 17,
+   "case": "E015"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "8ff4bbffcff8d5961efc7a028967f4572a8afabd",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 10,
+   "case": "E016"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 74,
+   "case": "E017"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "7560f1b6f08fc0b7a47a113b08187f47c8bda8b2",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 5,
+   "case": "E018"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "f611824f33d1ea289d99975e28b5499e1bc47628",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 7,
+   "case": "E019"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "de434622c1f498168c9bccf95ceb52a9dc1ef385",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 4,
+   "case": "E020"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "5ff302fdb03929946120216bea43c4393359b490",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 11,
+   "case": "E021"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "5922ccf81ce292fdd445209df90f8035c5b34c23",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 22,
+   "case": "E022"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "04642e29bba49ac98e4b8f634ef22a1592362841",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 103,
+   "case": "E023"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "4d55d9c17b48517f603b4236d9eea9bb07d7ab17",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 77,
+   "case": "E024"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "56b1f5812c0d3505a1a727d3af3cc5b8ddf53bef_07",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 28,
+   "case": "E025"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "922bf6a56d7cde0d054a7a6c27786000e3979ae6",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 25,
+   "case": "E026"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "fff389a2f264c9d5a71da3c2e50c05082884a074",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 22,
+   "case": "E027"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "4b0486c08238763e69a762f3421aa61e3622461e",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 32,
+   "case": "E028"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "532d5a1ff757de7127780cff4493ccdd7a51c49a",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 17,
+   "case": "E029"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "7193e55ae02b5c14542c3839cb2e442f7471ee55",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 89,
+   "case": "E030"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "f8e33eb7867f26e2b938030fd5039eb3b251e9fb",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 11,
+   "case": "E031"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "82fd0908b0de00ad974a0518092896435c86f09b",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 37,
+   "case": "E032"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "8acb8a80d5098ca1426fef7adcb6069671ba5465",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 15,
+   "case": "E033"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "bf0e4a69eec206028b6fbd8dfc1e9905986d987d",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 42,
+   "case": "E034"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "7560f1b6f08fc0b7a47a113b08187f47c8bda8b2",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 7,
+   "case": "E035"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "6510a08c677f3aa78e81a2adc00adf33287357b8",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 19,
+   "case": "E036"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "e9a06725c4d85ec28ca9d343c1f23ab41d0e398f",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 1,
+   "case": "E037"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "c5bb3816232672cc44f741e2b5d82d69ebdf932c",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 1,
+   "case": "E038"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "59a417a8d0d24bb5b3c5018d9d1c8bdb55cf68f9",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 85,
+   "case": "E039"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "1348037e5ef89ad46e650939b2d95a74c9b563b9",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 16,
+   "case": "E040"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "b21a6faaf6a180c501e0aba4b0056672ede1ea2d",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 5,
+   "case": "E041"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "f3df73144b3aaffd6fb73fceaf960900c01317df",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 4,
+   "case": "E042"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "73ece5e02bc2f9114ad86167383908b5178e2e6a",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 5,
+   "case": "E043"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "8bd6ca506bb9421da58c78cf22979ef203149446",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 30,
+   "case": "E044"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "a37adfd7440723d5349bd0df31c3c2cd1c217d82",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 43,
+   "case": "E045"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "a6c835a455514aa1e8259ac9599e348a1fadbb15",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 109,
+   "case": "E046"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "ed0383f2f6a94d6619bad98e59dfbb1ec492daa5_05",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 22,
+   "case": "E047"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "1619bfd00a86595ad55813847c50c55e1bb17751_02",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 20,
+   "case": "E048"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "10c4e675e2af75c28978dfc25c0dc506ead2e924",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 5,
+   "case": "E049"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "836fc1be71c455412e94cfec349f181ac525ab0f",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 2,
+   "case": "E050"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "b8328a277bb75f19a8707d0a11eced190879e5c8",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 26,
+   "case": "E051"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "d88ff3fb6aa3f88e69a804beac0eb19ed5b0d639",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 14,
+   "case": "E052"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "13535b2cbd8a085a55557cd59dee9ac4e2096202_20",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 4,
+   "case": "E053"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "c2056417614836054c507c50f98bd814afb43d88",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 6,
+   "case": "E054"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "0ffb66116a7d60dfc6a66541a0c819d5a34cec7c",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 1,
+   "case": "E055"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "e613eefd072a8fa0616cb42d7cb770170d7ff979",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 19,
+   "case": "E056"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "75d17323e3f57e506be51b5455aa97ae89d8c5cc",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 13,
+   "case": "E057"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "685ed63861f107bdd4c1567f840f159d819d7604",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 4,
+   "case": "E058"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "2fc02b638db7d0314c7594c6f6a03f1a6f247100",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 7,
+   "case": "E059"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "cff9c8f0856b2a71cec7a566494746db29317e7c",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 85,
+   "case": "E060"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "246df95cf04ac4c4d68993f7a2695a5c18078c61",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 53,
+   "case": "E061"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "7cbb0b646ccc6f79839a6f3bf478d104c064aef2",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 8,
+   "case": "E062"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "77b140eb07adc86db52bb9bd05e9500b5a510885",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 63,
+   "case": "E063"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "4aad380673ff1225b973f740bf80ec99dfb70724",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 2,
+   "case": "E064"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "c22af72a8329b4b5b474e1e7294a3e3d251bf753",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 9,
+   "case": "E065"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "f60a13a24f73eed9f20b65111e100cf8d048403b",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 40,
+   "case": "E066"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "de434622c1f498168c9bccf95ceb52a9dc1ef385",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 5,
+   "case": "E067"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "549be1e00dbfe4db4474e99a2b4bdd46280e6c14",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 6,
+   "case": "E068"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "c22af72a8329b4b5b474e1e7294a3e3d251bf753",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 3,
+   "case": "E069"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "73140d95a9e008d90bde62dea52c882a64c2c21e",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 8,
+   "case": "E070"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "c22af72a8329b4b5b474e1e7294a3e3d251bf753",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 7,
+   "case": "E071"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "3e8ecc26a5a423e016c2d7c2fe96a7e63fe2de0e_15",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 3,
+   "case": "E072"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "880c4bc548f9e57bcce86d0e90a558cd9dad31d5",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 8,
+   "case": "E073"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "7bd2076afcc805337a01924b361bb8d6c89cfbfc",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 97,
+   "case": "E074"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "a3dcb61f2ecaf6dee5441bd626e8a5edf0decc2c",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 2,
+   "case": "E075"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "784e17a8866ba13c13db1d894170cfb21ee51dbb",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 12,
+   "case": "E076"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "bc5d8adf0f76950c65189a4fe9d08c956c22e8a6",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 3,
+   "case": "E077"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "7849b2fca19749e054f79ef9f95dba8b4b5570f8",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 119,
+   "case": "E078"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "de951dfb2eaf458b6a1fe9ea5d055490ad9d0ee1",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 8,
+   "case": "E079"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "d88ff3fb6aa3f88e69a804beac0eb19ed5b0d639",
+   "primary_type": "sequence",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 9,
+   "case": "E080"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "562c953325e6cb9d0459905de7cd3145643e1aea",
+   "primary_type": "sequence",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 102,
+   "case": "E081"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "c6ac7f451f42cac92507604a1b841848a2618f30",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 5,
+   "case": "E082"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "3b84f043b6bebeb57b16145d55b6be38a244e0be",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 37,
+   "case": "E083"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "03144dcdff27052ec243dd82323f1720978897bc",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 116,
+   "case": "E084"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "83e0fd9a4e676366fc8045316d6f25c3f5784995",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compiled_low_structural",
+   "available": 45,
+   "case": "E085"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "bd045dcdf9f93711b701665ba6c426c083ce0277",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 6,
+   "case": "E086"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "ad3ea3fc0b0cc499daaa2ac59fa4ce9765cd9fa1",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 15,
+   "case": "E087"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "960d086e1bf898e8f31e32314926d4ab976aeda7",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 22,
+   "case": "E088"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "a5898ca01b395eebbf7c8a3ed6666f10652c5f85",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 30,
+   "case": "E089"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "09ba2de07109b08b037d680246f10d2d5832b75f",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 3,
+   "case": "E090"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "d6312a9396c25c62d237c18316bfe1d29bee8d12",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 7,
+   "case": "E091"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "0806d963c5e7a8c33333d600ef648945bd34e3a3",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 34,
+   "case": "E092"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "50efbc2a904f22fbb497d5a040e14bc419bebf26",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 5,
+   "case": "E093"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "9f8b8b5e51ee53edb67eba0d97eb9e0fdde90351",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 26,
+   "case": "E094"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "451a3dc5affeb4e0508f111f570d74d518f8bc67",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 39,
+   "case": "E095"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "9d3da061207190198d50fa80944ccb311cafbc85",
+   "primary_type": "class",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 11,
+   "case": "E096"
+  },
+  {
+   "model_id": "qwen3.5-9b",
+   "run_dir": "Qwen3.5-9B_self-served",
+   "key": "f18f0fa4d723d038ae084ca3d38ea4e4c4689386",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 41,
+   "case": "E097"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "3742b10891bd50981fd7c438979c2a63ef66aa44",
+   "primary_type": "class",
+   "tier": 4,
+   "class": "compile_fail",
+   "available": 41,
+   "case": "E098"
+  },
+  {
+   "model_id": "gpt-5.2",
+   "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+   "key": "42fc85c2e1d580aedd56311d963ecb8df37a5cb1",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 5,
+   "case": "E099"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "69166c59d2faf71fc0f0b7b27b9752db78992575",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 11,
+   "case": "E100"
+  },
+  {
+   "model_id": "gemini-3.1-pro",
+   "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+   "key": "836fc1be71c455412e94cfec349f181ac525ab0f",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 4,
+   "case": "E101"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "7409cf40c00dfe3b5efd16bff9b188b1f767574b",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compiled_low_structural",
+   "available": 15,
+   "case": "E102"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "bf4d105998fa8e73e5952b3ba3a6e7c7b592c728",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compile_fail",
+   "available": 103,
+   "case": "E103"
+  },
+  {
+   "model_id": "qwen3.5-27b",
+   "run_dir": "Qwen3.5-27B_self-served",
+   "key": "e9a06725c4d85ec28ca9d343c1f23ab41d0e398f",
+   "primary_type": "sequence",
+   "tier": 1,
+   "class": "compile_fail",
+   "available": 43,
+   "case": "E104"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "defb5523b1761bd4a179f706eaab0e5e6a774f08_04",
+   "primary_type": "sequence",
+   "tier": 2,
+   "class": "compile_fail",
+   "available": 100,
+   "case": "E105"
+  },
+  {
+   "model_id": "qwen3.5-2b",
+   "run_dir": "Qwen3.5-2B_self-served",
+   "key": "f2502053442f471a6ac99434ad7640f3535da93d",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 23,
+   "case": "E106"
+  },
+  {
+   "model_id": "claude-opus-4-6",
+   "run_dir": "claude-opus-4-6_20260614T081502Z",
+   "key": "f4b04251bf859fd39de78f5ec4852a0a8ac85070",
+   "primary_type": "class",
+   "tier": 3,
+   "class": "compiled_low_structural",
+   "available": 28,
+   "case": "E107"
+  },
+  {
+   "model_id": "qwen3.5-397b-a17b",
+   "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+   "key": "42fc85c2e1d580aedd56311d963ecb8df37a5cb1",
+   "primary_type": "class",
+   "tier": 2,
+   "class": "compiled_low_structural",
+   "available": 17,
+   "case": "E108"
+  }
+ ]
+}

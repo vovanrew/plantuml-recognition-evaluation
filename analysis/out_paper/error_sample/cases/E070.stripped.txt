@@ -1,0 +1,2 @@
+skinparam ClassDiagram labelStyle "C"
+skinparam Interface labelStyle "I"

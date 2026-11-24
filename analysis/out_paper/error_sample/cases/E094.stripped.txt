@@ -1,0 +1,5 @@
+skinparam class {
+  BackgroundColor #E6E6FA
+  BorderColor #999999
+  FontColor #000000
+}

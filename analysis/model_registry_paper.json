@@ -1,0 +1,145 @@
+{
+  "_doc": [
+    "Registry of the revised paper, read with --data-root data_paper (util/build_paper_root.py).",
+    "Every run is scored under scorer v2. The main Qwen3.5-2B/9B/27B rows are the self-served",
+    "runs (one card, bf16). The hosted runs of the same three sizes are supplementary: they are",
+    "the robustness check. Fields as in model_registry.json.",
+    "Here arm 'frontier' means the hosted reference models (GPT-5.2, Claude Opus 4.6, Gemini 3.1 Pro",
+    "and Qwen3.5-397B-A17B, each on its provider's serving), and arm 'qwen' means the self-served",
+    "dense sizes. The 397B is therefore off the size ladder and off the size-ordered plot."
+  ],
+  "models": [
+    {
+      "id": "gpt-5.2",
+      "display": "GPT-5.2",
+      "run_dir": "gpt-5.2-2025-12-11_20260613T154248Z",
+      "status": "scored",
+      "lab": "openai",
+      "arm": "frontier",
+      "family": "dense",
+      "params_total_b": null,
+      "params_active_b": null,
+      "supplementary": false
+    },
+    {
+      "id": "claude-opus-4-6",
+      "display": "Claude Opus 4.6",
+      "run_dir": "claude-opus-4-6_20260614T081502Z",
+      "status": "scored",
+      "lab": "anthropic",
+      "arm": "frontier",
+      "family": "dense",
+      "params_total_b": null,
+      "params_active_b": null,
+      "supplementary": false
+    },
+    {
+      "id": "gemini-3.1-pro",
+      "display": "Gemini 3.1 Pro",
+      "run_dir": "gemini-3.1-pro-preview_20260613T154356Z",
+      "status": "scored",
+      "lab": "google",
+      "arm": "frontier",
+      "family": "dense",
+      "params_total_b": null,
+      "params_active_b": null,
+      "supplementary": false
+    },
+    {
+      "id": "qwen3.5-2b",
+      "display": "Qwen3.5-2B",
+      "run_dir": "Qwen3.5-2B_self-served",
+      "status": "scored",
+      "lab": "qwen",
+      "arm": "qwen",
+      "family": "dense",
+      "params_total_b": 2,
+      "params_active_b": 2,
+      "supplementary": false
+    },
+    {
+      "id": "qwen3.5-9b",
+      "display": "Qwen3.5-9B",
+      "run_dir": "Qwen3.5-9B_self-served",
+      "status": "scored",
+      "lab": "qwen",
+      "arm": "qwen",
+      "family": "dense",
+      "params_total_b": 9,
+      "params_active_b": 9,
+      "supplementary": false
+    },
+    {
+      "id": "qwen3.5-27b",
+      "display": "Qwen3.5-27B",
+      "run_dir": "Qwen3.5-27B_self-served",
+      "status": "scored",
+      "lab": "qwen",
+      "arm": "qwen",
+      "family": "dense",
+      "params_total_b": 27,
+      "params_active_b": 27,
+      "supplementary": false
+    },
+    {
+      "id": "qwen3.5-397b-a17b",
+      "display": "Qwen3.5-397B-A17B",
+      "run_dir": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+      "status": "scored",
+      "lab": "qwen",
+      "arm": "frontier",
+      "family": "moe",
+      "params_total_b": 397,
+      "params_active_b": 17,
+      "supplementary": false
+    },
+    {
+      "id": "qwen3.5-2b-hosted",
+      "display": "Qwen3.5-2B (hosted)",
+      "run_dir": "Qwen_Qwen3.5-2B_20260613T153655Z",
+      "status": "scored",
+      "lab": "qwen",
+      "arm": "qwen",
+      "family": "dense",
+      "params_total_b": 2,
+      "params_active_b": 2,
+      "supplementary": true
+    },
+    {
+      "id": "qwen3.5-9b-hosted",
+      "display": "Qwen3.5-9B (hosted)",
+      "run_dir": "Qwen_Qwen3.5-9B_20260613T202001Z",
+      "status": "scored",
+      "lab": "qwen",
+      "arm": "qwen",
+      "family": "dense",
+      "params_total_b": 9,
+      "params_active_b": 9,
+      "supplementary": true
+    },
+    {
+      "id": "qwen3.5-27b-hosted",
+      "display": "Qwen3.5-27B (hosted)",
+      "run_dir": "Qwen_Qwen3.5-27B_20260613T202731Z",
+      "status": "scored",
+      "lab": "qwen",
+      "arm": "qwen",
+      "family": "dense",
+      "params_total_b": 27,
+      "params_active_b": 27,
+      "supplementary": true
+    },
+    {
+      "id": "claude-sonnet-4-6",
+      "display": "Claude Sonnet 4.6",
+      "run_dir": "claude-sonnet-4-6_20260613T154151Z",
+      "status": "scored",
+      "lab": "anthropic",
+      "arm": "frontier",
+      "family": "dense",
+      "params_total_b": null,
+      "params_active_b": null,
+      "supplementary": true
+    }
+  ]
+}

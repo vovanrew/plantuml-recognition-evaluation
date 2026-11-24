@@ -59,10 +59,13 @@ OUTCOME_CLASSES = FAILURE_CLASSES + ("ok",)
 def outcome_class(row: dict, threshold: float = LOW_STRUCTURAL_F1) -> str:
     """Classify a joined per-diagram row into one of OUTCOME_CLASSES.
 
-    Keyed on ``has_pred`` then render-``compiled`` (CSR), then structural F1 -- so a
-    prediction that parses but does not render is a ``compile_fail``, never
-    ``compiled_low_structural``."""
-    if not row["element"]["has_pred"]:
+    Keyed on the CSR row first, then structural F1 -- so a prediction that parses
+    but does not render is a ``compile_fail``, never ``compiled_low_structural``.
+    A provider drop is a CSR row with no prediction. An answer that exists but was
+    held back from the extractor (its element row has ``has_pred`` False) is not a
+    drop: the model answered, and the answer does not render, so it is a
+    ``compile_fail``."""
+    if (row["csr"].get("error") or "").startswith("no prediction"):
         return "provider_drop"
     if not row["csr"]["compiled"]:
         return "compile_fail"

@@ -307,10 +307,37 @@ def _add_footer(fig, master: dict, extra: str | None = None, *, y: float = 0.004
              fontsize=6.5, style="italic", color="#444444")
 
 
+def legend_by_arm(scored, handles, labels):
+    """Lay the legend out one row per arm: the hosted reference models
+    (arm ``frontier``) on the first row, the self-served dense sizes (arm
+    ``qwen``) on the second. matplotlib fills a legend column by column, so the
+    rows are padded with blank entries to equal length and read off by column.
+    Returns ``(handles, labels, ncol)``."""
+    from matplotlib.lines import Line2D
+    by_label = dict(zip(labels, handles))
+    rows = [[e.display for e in scored if e.arm == arm and e.display in by_label]
+            for arm in ("frontier", "qwen")]
+    rows = [r for r in rows if r]
+    if not rows:
+        return handles, labels, 4
+    ncol = max(len(r) for r in rows)
+    out_h, out_l = [], []
+    for c in range(ncol):
+        for r in rows:
+            if c < len(r):
+                out_h.append(by_label[r[c]])
+                out_l.append(r[c])
+            else:
+                out_h.append(Line2D([], [], linestyle="none"))
+                out_l.append("")
+    return out_h, out_l, ncol
+
+
 def _finish_multipanel(fig, axes, master: dict, *, handle_axis: int = 0,
                        extra: str | None = None, footer: bool = True,
                        top: float = 0.91, hspace: float = 0.45,
-                       label_order: list[str] | None = None):
+                       label_order: list[str] | None = None,
+                       arm_rows: list | None = None):
     """Manual bottom strip for a 2x2 panel figure: reserve margins, then stack a
     centered legend above a centered footer, both clear of the panels' x-labels.
     Manual margins (not constrained_layout) keep the figure-level text from
@@ -328,8 +355,11 @@ def _finish_multipanel(fig, axes, master: dict, *, handle_axis: int = 0,
                        key=lambda p: rank.get(p[0], len(rank)))
         labels = [p[0] for p in pairs]
         handles = [p[1] for p in pairs]
+    ncol = 4
+    if handles and arm_rows:
+        handles, labels, ncol = legend_by_arm(arm_rows, handles, labels)
     if handles:
-        fig.legend(handles, labels, loc="lower center", ncol=4, fontsize=8,
+        fig.legend(handles, labels, loc="lower center", ncol=ncol, fontsize=8,
                    bbox_to_anchor=(0.5, 0.065))
     if footer:
         _add_footer(fig, master, extra, y=0.02)
@@ -430,7 +460,8 @@ def fig_scaling_curve(entries, master, ci):
 # Figure 2 — per-relation F1 grouped bars
 # --------------------------------------------------------------------------- #
 
-def fig_per_relation(entries, master, ci, *, population="zeros_for_failed"):
+def fig_per_relation(entries, master, ci, *, population="zeros_for_failed",
+                     by_arm: bool = False):
     """Grouped bars: relationship F1 (micro) per relation type × scored model,
     with per-relation bootstrap CIs as error bars. ``population`` selects the
     reporting population (the headline figure uses zeros_for_failed; the other is
@@ -480,7 +511,10 @@ def fig_per_relation(entries, master, ci, *, population="zeros_for_failed"):
         # ~0.95 and an in-axes legend collides with them. Bottom placement also
         # matches the multipanel figures, so the published figures agree.
         handles, labels = ax.get_legend_handles_labels()
-        fig.legend(handles, labels, loc="lower center", ncol=4, fontsize=8,
+        ncol = 4
+        if by_arm:
+            handles, labels, ncol = legend_by_arm(scored, handles, labels)
+        fig.legend(handles, labels, loc="lower center", ncol=ncol, fontsize=8,
                    bbox_to_anchor=(0.5, 0.01))
     return fig
 
@@ -489,7 +523,8 @@ def fig_per_relation(entries, master, ci, *, population="zeros_for_failed"):
 # Figure 3a — per-tier breakdown (point estimates; no CIs)
 # --------------------------------------------------------------------------- #
 
-def fig_breakdown_by_tier(entries, master, *, population="zeros_for_failed", crowding=None):
+def fig_breakdown_by_tier(entries, master, *, population="zeros_for_failed", crowding=None,
+                          by_arm: bool = False):
     """Headline metrics across the 4 complexity tiers, one line per scored model.
     **Point estimates only** — the CI table bootstraps overall + per-relation, not
     per-tier cells, so the panels carry no error bars; the manuscript states that
@@ -540,7 +575,7 @@ def fig_breakdown_by_tier(entries, master, *, population="zeros_for_failed", cro
         ax.grid(True, axis="y", alpha=0.25)
 
     _finish_multipanel(fig, axes, master, handle_axis=0, footer=False, top=0.96,
-                       hspace=0.24)
+                       hspace=0.24, arm_rows=scored if by_arm else None)
     return fig
 
 
@@ -548,7 +583,8 @@ def fig_breakdown_by_tier(entries, master, *, population="zeros_for_failed", cro
 # Figure 3b — per-type breakdown (point estimates; no CIs)
 # --------------------------------------------------------------------------- #
 
-def fig_breakdown_by_type(entries, master, *, population="zeros_for_failed"):
+def fig_breakdown_by_type(entries, master, *, population="zeros_for_failed",
+                          by_arm: bool = False):
     """Headline metrics for the two diagram types (class / sequence), grouped bars
     per scored model. **Point estimates only** (per-type cells are not bootstrapped)."""
     scored = _scored_in_order(entries, master)
@@ -576,7 +612,8 @@ def fig_breakdown_by_type(entries, master, *, population="zeros_for_failed"):
 
     _finish_multipanel(fig, axes, master, handle_axis=0,
                        extra="No error bars: per-type CIs not bootstrapped "
-                             "(Task 2 = overall + per-relation).")
+                             "(Task 2 = overall + per-relation).",
+                       arm_rows=scored if by_arm else None)
     return fig
 
 
@@ -662,26 +699,31 @@ def save_figure(fig, out_dir, name: str, *, dpi: int = 150, close: bool = True) 
     return {"png": png, "pdf": pdf}
 
 
-def render_all(entries, master, ci, out_dir, *, crowding=None) -> dict:
+def render_all(entries, master, ci, out_dir, *, crowding=None, by_arm: bool = False) -> dict:
     """Render the full Task-3 inventory into ``out_dir``; return {name: paths}.
     Both reporting populations are emitted where they matter (per-relation,
     frontier); the scaling curve overlays them in one figure. ``crowding`` is the
     per-tier content-lines/MP descriptor; it is accepted for callers that still
     pass it, but no rendered figure is annotated with it any more (both published
-    figures carry that context in the manuscript text)."""
+    figures carry that context in the manuscript text). ``by_arm`` groups the
+    multi-model figures by arm: series in arm order (hosted, then self-served)
+    and one legend row per arm."""
+    if by_arm:
+        rank = {"frontier": 0, "qwen": 1}
+        entries = sorted(entries, key=lambda e: rank.get(e.arm, 2))
     out: dict[str, dict] = {}
     out["scaling_curve"] = save_figure(
         fig_scaling_curve(entries, master, ci),
         out_dir, "scaling_curve")
     for pop, suf in (("zeros_for_failed", "zeros"), ("compiled_only", "compiled")):
         out[f"per_relation_{suf}"] = save_figure(
-            fig_per_relation(entries, master, ci, population=pop),
+            fig_per_relation(entries, master, ci, population=pop, by_arm=by_arm),
             out_dir, f"per_relation_f1_{suf}")
     out["breakdown_by_tier"] = save_figure(
-        fig_breakdown_by_tier(entries, master),
+        fig_breakdown_by_tier(entries, master, by_arm=by_arm),
         out_dir, "breakdown_by_tier")
     out["breakdown_by_type"] = save_figure(
-        fig_breakdown_by_type(entries, master), out_dir, "breakdown_by_type")
+        fig_breakdown_by_type(entries, master, by_arm=by_arm), out_dir, "breakdown_by_type")
     for pop, suf in (("zeros_for_failed", "zeros"), ("compiled_only", "compiled")):
         out[f"frontier_{suf}"] = save_figure(
             fig_frontier_bars(entries, master, ci, population=pop),

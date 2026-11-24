@@ -1,0 +1,16 @@
+skinparam backgroundColor black
+skinparam sequenceMessageAlign center
+skinparam lifelineBackgroundColor white
+skinparam lifelineBorderColor white
+skinparam participantBackgroundColor #ADD8E6
+skinparam participantBorderColor white
+skinparam participantFontColor black
+skinparam noteBackgroundColor #FFFFE0
+skinparam noteBorderColor white
+skinparam noteFontColor black
+skinparam controlBackgroundColor #D3D3D3
+skinparam controlBorderColor white
+skinparam controlFontColor black
+skinparam entityBackgroundColor #FFFFE0
+skinparam entityBorderColor white
+skinparam entityFontColor black

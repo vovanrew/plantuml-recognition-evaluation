@@ -1,0 +1,5 @@
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 250
+skinparam lifelineStrategy solid
+skinparam linetype ortho

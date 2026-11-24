@@ -1,0 +1,4 @@
+skinparam packageStyle rectangle
+skinparam componentStyle rectangle
+skinparam actorStyle circle
+skinparam databaseStyle rectangle

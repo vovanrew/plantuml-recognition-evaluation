@@ -1,0 +1,3 @@
+!define EnumStyle "enumerated_data_type"
+!define EnumIcon "E"
+!define EnumColor "#f8b195"

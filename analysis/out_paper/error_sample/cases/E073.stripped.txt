@@ -1,0 +1,5 @@
+title SD_getListFromExternalModule(fileName)
+hide footbox
+skinparam sequenceMessageAlign left
+skinparam ParticipantPadding 40
+skinparam BoxPadding 10

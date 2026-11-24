@@ -342,3 +342,23 @@ def test_main_renders_into_out_dir(tmp_path, master, ci):
     pdfs = sorted(plots_dir.glob("*.pdf"))
     assert len(pngs) >= 5 and len(pdfs) == len(pngs)
     assert all(p.stat().st_size > 0 for p in pngs + pdfs)
+
+
+def test_legend_by_arm_puts_each_arm_on_its_own_row():
+    """matplotlib fills legend columns top to bottom, so the arm rows must come out
+    interleaved by column, the shorter row padded with a blank entry."""
+    entries = [
+        _entry("h1", "H1", "frontier", "dense", None, None),
+        _entry("h2", "H2", "frontier", "dense", None, None),
+        _entry("h3", "H3", "frontier", "dense", None, None),
+        _entry("h4", "H4", "frontier", "moe", 397, 17),
+        _entry("q1", "Q1", "qwen", "dense", 2, 2),
+        _entry("q2", "Q2", "qwen", "dense", 9, 9),
+        _entry("q3", "Q3", "qwen", "dense", 27, 27),
+    ]
+    labels = [e.display for e in entries]
+    handles = [object() for _ in labels]
+    out_h, out_l, ncol = plots.legend_by_arm(entries, handles, labels)
+    assert ncol == 4
+    assert out_l == ["H1", "Q1", "H2", "Q2", "H3", "Q3", "H4", ""]
+    assert out_h[0] is handles[0] and out_h[1] is handles[4]
