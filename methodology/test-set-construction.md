@@ -136,32 +136,32 @@ the 1,000-diagram target is unconstrained by pool size:
 
 ## 7. Image standardization for inference
 
-Every test image is standardized once before inference (aspect ratio
-preserved), and the identical image is sent to all models (controlled
-comparison). The standard is set at the lowest common
-*effective processing* resolution across the model set. A distinction is drawn
-between a provider's maximum *accepted* dimensions (an upload gate that rejects
-larger files) and its *native processing* resolution (the size at which the
-image is actually encoded; larger inputs are silently downscaled to it):
+Every test image is standardized once before inference, with its aspect ratio
+kept, and the identical file is sent to all models. A provider's maximum
+*accepted* size (an upload gate that rejects larger files) differs from the
+limit at which it *encodes* the image (larger inputs are downscaled to it, or
+given a fixed token budget). The encoding limits documented by the providers are:
 
-| Model | Native processing resolution | Max accepted |
+| Model | Documented encoding limit | Max accepted |
 |---|---|---|
-| GPT-5.2 (high detail) | ~2,048 px long edge (tiled) | — |
-| Gemini 3.1 Pro (media_resolution HIGH) | ~1,536 px long edge | — |
-| Claude Opus 4.6 | **1,568 px long edge (~1,568 tokens, ~1.19 MP)** | 8,000 x 8,000 px |
+| GPT-5.2 | 32 x 32 px patches, at most 2,048 px on a side and 6,144 patches (about 6.3 MP) | — |
+| Gemini 3.1 Pro | a fixed budget of up to 1,120 tokens per image; no pixel limit is documented | — |
+| Claude Opus 4.6 | **long edge 1,568 px**, and at most 1,568 image tokens of 28 x 28 px (about 1.2 MP) | 8,000 x 8,000 px |
 | Qwen3.5 (397B-A17B hosted; 2B, 9B, 27B self-served) | full standard image, one token per 32 x 32 px block (see below) | — |
 
-The binding floor is **Claude Opus 4.6 at a 1,568 px long edge (~1.19 MP)**.
-Per the Claude vision documentation, high-resolution support (2,576 px long
-edge) exists only on Claude Opus 4.7/4.8; Opus 4.6 falls under "other models"
-and downscales any larger input to a 1,568 px long edge / ~1,568 image tokens
-(`width x height / 750`), confirmed by the documented cost table (1,092 x 1,092
-through 2,000 x 1,500 px all map to the ~1,568-token ceiling).
+Sources: the OpenAI images and vision guide (the gpt-5.2 row), the Gemini
+media-resolution guide (the 1,120-token level, which is also the default) and the
+Claude vision guide (the standard tier, which covers Opus 4.6). The stored runs
+agree. GPT-5.2's prompt tokens rise with image area. Gemini 3.1 Pro uses 1,023 to
+1,120 image tokens on every one of the 1,000 images, whatever its size.
 
-Working standard: **long edge 1,568 px (~1.19 MP)**, Lanczos downscaling, PNG
-(lossless, preserving text legibility). This is the lowest native processing
-resolution among the models and therefore the highest resolution every
-model can receive identically under the controlled-comparison constraint.
+Working standard: **long edge 1,568 px**, Lanczos downscaling, PNG (lossless, so
+text stays legible). This is the lowest long edge documented in the panel, the
+limit of Claude Opus 4.6. It bounds the long edge of the file, not its area. So
+the models still encode different amounts of detail. GPT-5.2 and the Qwen3.5
+models encode every standard image at full size. Claude Opus 4.6 downscales a
+large image further, to its 1,568-token limit: a 1,568 x 1,565 px image becomes
+about 1,092 x 1,092 px. Gemini 3.1 Pro gives every image the same token budget.
 Images are only downscaled, never upscaled. An image whose long edge is already
 1,568 px or less keeps its size. In the set, 744 images have a 1,568 px long
 edge, and 256 are smaller. Transparency is flattened onto white (`util/standardize_images.py`).

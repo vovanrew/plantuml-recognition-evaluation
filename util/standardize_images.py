@@ -2,7 +2,7 @@
 """Standardize test-set images for inference (methodology/test-set-construction.md §7).
 
 Produces the single canonical image sent identically to every model:
-  - long edge capped at 1568 px (Claude Opus 4.6 native processing resolution),
+  - long edge capped at 1568 px (the lowest long edge documented in the panel, Claude Opus 4.6),
     aspect preserved, DOWNSCALE ONLY (never upscale),
   - transparency flattened onto white (avoids black-composite text loss),
   - lossless PNG output.

@@ -108,8 +108,11 @@ Complexity tiers are quartiles of `content_lines`, computed per diagram type.
 Sampling uses a fixed seed (42), with at most 5 diagrams per source repository.
 
 Every model receives the same input image, scaled down to a **1,568 px long
-edge**. That is the lowest native processing resolution in the model panel, so
-it is the highest resolution every model can be given on equal terms.
+edge**. That is the lowest long edge any provider in the panel documents (Claude
+Opus 4.6). It bounds the long edge, not the area, so the models still encode
+different amounts of detail: some models downscale large images further or use
+a fixed token budget per image. The limits are listed in
+`methodology/test-set-construction.md` §7.
 
 The construction pipeline, with counts at every filter stage, is in
 [`methodology/test-set-construction.md`](methodology/test-set-construction.md).
