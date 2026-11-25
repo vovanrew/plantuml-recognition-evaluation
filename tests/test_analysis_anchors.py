@@ -107,8 +107,8 @@ def test_meta_counts_7_of_7_all_scored():
     assert set(meta["included_ids"]) == set(SCORED)
     assert meta["pending_ids"] == []
     assert meta["refused_ids"] == []
-    # 397B-A17B measured on first-party serving (OpenRouter->Alibaba) rather than the
-    # shared host used for the dense sizes; scored and included.
+    # 397B-A17B is served by OpenRouter pinned to the Alibaba backend; scored and
+    # included.
     assert set(meta["pending_ids"]) == set()
     assert meta["refused_ids"] == []  # no model leaks <think>
 

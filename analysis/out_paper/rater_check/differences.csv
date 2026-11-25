@@ -1,0 +1,16 @@
+pair,differs,kind
+P06,"Relationship F1 0.77 against 0.78. GPT misses 2 dependencies, draws 1 dependency solid and changes 1 realization to a dependency; Claude misses 5 dependencies.",very small gap
+P12,The ground truth is one message from lice to Bob. The 27B answer draws four classes with two dependency arrows; the 397B answer is a sequence diagram that reads lice as Ice.,content not scored: diagram type
+P13,The 9B answer draws all three inheritances as plain arrows. The 27B answer has the right inheritances but six extra classes (its aliases drawn again as classes).,metrics disagree
+P16,"Gemini writes Transport where the image says Tansport, which costs two elements. Claude draws many messages as self-messages.",metrics disagree
+P18,"GPT adds a note Type, Params (the whole Element F1 gap) and draws the three solid uses arrows dashed. Claude reverses one link and puts one class outside its package.",note counted as element
+P22,"GPT writes DataMax5GPLan as a second line of the class name, where the ground truth has it as an attribute, so three links fail to match. Claude misses one link and attaches another to the wrong class.",one name differs
+P32,"Both answers have all participants. The 27B answer writes participant names in cyan on cyan boxes, so no name can be read, and adds a stray note.",content not scored: unreadable names
+P33,"Relationship F1 0.55 against 0.53. Claude draws the compositions of Logic as plain arrows. GPT keeps them as compositions but reverses them, and draws the compositions to Game as dependencies.",very small gap
+P34,The 397B answer has every relationship right and adds six notes. The 27B answer turns one aggregation into an inheritance.,note counted as element
+P35,"The 27B answer drops one character from the database name, so all messages of the database fail to match. The 9B answer adds an extra participant and turns one message into a self-message.",one name differs
+P37,Gemini keeps the private markers on all attributes and adds one duplicate plain link. Claude has the exact link but no visibility markers.,content not scored: members
+P39,"Element F1 1.00 against 0.97, Relationship F1 0.47 against 1.00. Claude draws the compositions it keeps as plain arrows and leaves out about six links, the aggregation among them.",metrics disagree
+P41,"The ground truth has a long note. GPT leaves it out; Claude copies it with the section markers changed, which counts as one wrong and one extra element.",note counted as element
+P49,"Gemini moves (Plugin) and ((Translations)) from the names into the stereotypes, so all three links fail to match although the arrows are right. Claude has the exact names but reverses one link.",one name differs
+P57,The 9B answer draws one aggregation as an inheritance. The 27B answer draws both aggregations as compositions and keeps the interface marks.,no partial credit for a close arrow kind

@@ -3,243 +3,146 @@
 Can a multimodal language model look at a picture of a UML diagram and write back
 the PlantUML source that produced it?
 
-This repository holds the benchmark that answers that question, the evaluation
-framework it is scored with, and every artifact needed to reproduce the result:
-1,000 diagrams, 8 model runs, all raw predictions, all computed metrics, and the
-generated exhibits.
+This repository holds the benchmark that answers that question and the
+evaluation framework it is scored with. It also holds every file needed to
+reproduce the results: 1,000 diagrams, 7 model runs, all raw answers, all
+computed metrics, and the tables, figures and exhibits.
 
 The task is **zero-shot**: each model sees one rendered diagram image and one
-frozen prompt, and must emit PlantUML source. No examples, no fine-tuning, no
-diagram-type hint. Scope is **class and sequence diagrams**.
+frozen prompt, and must write PlantUML source. There are no examples, no
+fine-tuning and no hint about the diagram type. The scope is **class and
+sequence diagrams**.
 
 ## What makes this benchmark different
 
-A rendered UML diagram is a typed graph, but text-similarity scores treat its
-source as a string and manual error counts do not scale past a few dozen cases.
-This framework scores the reconstruction at several levels at once, structural
-as well as surface, and reports each structural metric over **two
-populations**.
+A rendered UML diagram is a typed graph. Text-similarity scores treat its source
+as a string, and manual error counts do not scale past a few dozen cases. This
+framework scores the answer at several levels at once, structural as well as
+surface. It reports each structural metric over **two populations**.
 
-That second point is the methodological core. A model that fails to produce
-compilable output on hard diagrams looks deceptively strong if you only score
-the diagrams it managed to compile. Reporting the compiled-only number beside
-the full-set number makes that selective-failure bias visible instead of hiding
-it. On this benchmark the effect is large: the smallest model scores 0.878
-Element F1 on the diagrams it compiles, but 0.246 across all 1,000.
+The second point is the methodological core. A model that fails to compile its
+answer on hard diagrams looks strong if you score only the diagrams it compiled.
+Reporting the compiled-only number beside the full-set number makes this
+selective-failure bias visible. On this benchmark the effect is large: Qwen3.5-2B
+scores 0.874 Element F1 on the diagrams it compiles, but 0.239 across all 1,000.
 
 ## Metrics
 
 | Metric | What it measures |
 |---|---|
-| **CSR** (Compilation Success Rate) | The prediction renders to a non-empty image. A prediction that parses but renders nothing is a failure, as is a missing prediction. Precondition for everything else. |
-| **Element F1** | Recovery of named entities (classes, interfaces, enums, participants, actors). Matched on normalized display name only. |
-| **Relationship F1** | Recovery of typed edges as `(source, target, relation_type)` over inheritance, composition, aggregation, dependency, association, message. Reported overall and per relation type. |
-| **Type accuracy** | Among name-matched entities, the share carrying the correct UML type. Companion to Element F1. |
-| **chrF++** | Character and word n-gram surface similarity, covering what the structural metrics deliberately ignore: member signatures, multiplicities, message wording, control-flow framing, notes. |
+| **CSR** (Compilation Success Rate) | The answer renders to a non-empty image. An answer that parses but renders nothing is a failure, and so is a missing answer. Precondition for everything else. |
+| **Element F1** | Recovery of named entities (classes, interfaces, enums, participants, actors). Matched on the normalized display name only. |
+| **Relationship F1** | Recovery of typed edges as `(source, target, relation_type)` over inheritance, composition, aggregation, dependency, association and message. Reported overall and per relation type. |
+| **Type accuracy** | Among name-matched entities, the share with the correct UML type. Companion to Element F1. |
+| **chrF++** | Character and word n-gram surface similarity. It covers what the structural metrics ignore: member signatures, multiplicities, message wording, control-flow framing, notes. |
 
-Structural metrics and chrF++ are each reported two ways: **full-set** (all
-1,000 diagrams, non-compiling predictions scored 0) and **compiled-only** (over
-compiled predictions, with CSR reported separately). Uncertainty is a paired
-bootstrap over diagrams, 1,000 resamples, fixed seed.
+The structural metrics and chrF++ are each reported two ways. **Full-set** covers
+all 1,000 diagrams, and an answer that does not compile scores 0.
+**Compiled-only** covers the compiled answers, with CSR reported beside it.
+Uncertainty is a paired bootstrap over diagrams, with 1,000 resamples and a fixed
+seed.
 
-Full definitions, including the edge cases, are in
+The full definitions, with the edge cases, are in
 [`methodology/evaluation-framework.md`](methodology/evaluation-framework.md).
 
 ## Headline results
 
-Point estimates. Structural columns are `full-set / compiled-only`. Confidence
-intervals for every cell are in
-[`analysis/out/exhibits.md`](analysis/out/exhibits.md), Exhibit 1.
+Point estimates. Structural columns and chrF++ are `full-set / compiled-only`.
+The 95% intervals for every cell are in
+[`analysis/out_paper/exhibits.md`](analysis/out_paper/exhibits.md), Exhibit 1.
 
-Every number in this README, in `data.zip` and in `analysis/out/` was computed
-with **scorer v1**. See [Scorer versions](#scorer-versions).
+The panel has **two groups, not one leaderboard**, and it is listed in
+[`analysis/model_registry_paper.json`](analysis/model_registry_paper.json).
 
-These are **two arms, not one leaderboard**. The frontier models are fixed
-reference points, one flagship per lab. The Qwen3.5 arm is an open-model family
-studied as a scaling curve, and it is the fine-tuning target of later work.
-
-**Frontier reference points**
+**Hosted reference models**, each on its provider's serving. Qwen3.5-397B-A17B
+is reached through OpenRouter, pinned to the provider Alibaba.
 
 | Model | CSR | Element F1 | Relationship F1 | chrF++ macro | Type acc |
 |---|---|---|---|---|---|
-| GPT-5.2 | 93.5% | 0.897 / 0.939 | 0.757 / 0.799 | 62.73 / 67.09 | 0.941 |
-| Claude Opus 4.6 | 94.1% | 0.909 / 0.940 | 0.693 / 0.720 | 65.68 / 69.80 | 0.950 |
-| Gemini 3.1 Pro | 97.2% | 0.945 / 0.961 | 0.875 / 0.893 | 75.53 / 77.70 | 0.984 |
+| GPT-5.2 | 93.5% | 0.916 / 0.958 | 0.770 / 0.812 | 62.73 / 67.09 | 0.941 |
+| Claude Opus 4.6 | 94.1% | 0.934 / 0.966 | 0.700 / 0.728 | 65.68 / 69.80 | 0.951 |
+| Gemini 3.1 Pro | 97.2% | 0.967 / 0.983 | 0.894 / 0.912 | 75.53 / 77.70 | 0.984 |
+| Qwen3.5-397B-A17B | 78.7% | 0.794 / 0.924 | 0.657 / 0.746 | 49.23 / 62.56 | 0.871 |
 
-**Qwen3.5 open family** — dense 2B/9B/27B ladder, plus the mixture-of-experts
-model as a separate capability ceiling, not a fourth dense rung.
+**Self-served open models**, the dense Qwen3.5 sizes. They run on one GPU in
+their released bf16 weights, through a local OpenAI-compatible server.
 
 | Model | Params | CSR | Element F1 | Relationship F1 | chrF++ macro | Type acc |
 |---|---|---|---|---|---|---|
-| Qwen3.5-2B | 2B | 20.1% | 0.246 / 0.878 | 0.114 / 0.481 | 12.89 / 64.14 | 0.758 |
-| Qwen3.5-9B | 9B | 43.1% | 0.491 / 0.844 | 0.201 / 0.439 | 26.91 / 62.43 | 0.756 |
-| Qwen3.5-27B | 27B | 60.1% | 0.676 / 0.917 | 0.485 / 0.722 | 40.91 / 68.07 | 0.886 |
-| Qwen3.5-397B-A17B | 397B total, 17B active | 78.7% | 0.771 / 0.897 | 0.646 / 0.736 | 49.23 / 62.56 | 0.870 |
+| Qwen3.5-2B | 2B | 19.1% | 0.239 / 0.874 | 0.110 / 0.463 | 11.82 / 61.90 | 0.755 |
+| Qwen3.5-9B | 9B | 41.1% | 0.481 / 0.871 | 0.198 / 0.470 | 25.83 / 62.86 | 0.774 |
+| Qwen3.5-27B | 27B | 64.4% | 0.713 / 0.945 | 0.507 / 0.729 | 43.87 / 68.12 | 0.889 |
 
-Read the two populations together. Element F1 on the dense ladder rises steeply
-on the full set (0.246 to 0.676) while the compiled-only number barely moves and
-is not monotonic. Most of what scale buys on this task is the ability to emit
-compilable output at all.
+Statements about model size use the three dense models only.
+Qwen3.5-397B-A17B is a mixture-of-experts model, so it is not placed on the size
+axis. Read the two populations together. Across the dense models, CSR rises from
+19.1% to 64.4%, while compiled-only Element F1 stays between 0.871 and 0.945.
+Most of what size buys on this task is the ability to write compilable output at
+all.
 
-A plain-language walkthrough of every result is in
-[`analysis/results_explained.md`](analysis/results_explained.md). A categorized
-review of 40 failure cases is in
-[`analysis/error_analysis.md`](analysis/error_analysis.md).
+[`analysis/error_analysis.md`](analysis/error_analysis.md) reviews 108 sampled
+failure cases, coded with the codebook in
+[`analysis/error_codebook.md`](analysis/error_codebook.md).
 
-A Claude Sonnet 4.6 run is also included in `data.zip` and the registry, marked
-supplementary. It is scored but excluded from the 7-model reported panel.
+### Human-rater check
+
+Two raters compared the answers of two models on the same test diagram, 60 pairs
+in four comparisons. They did not know which model wrote which answer. On the
+pairs where the metric differs, the raters chose the answer with the higher
+Relationship F1 in 40 of 53 and 38 of 51 picks. They chose the answer with the
+higher Element F1 in 18 of 28 and 17 of 27 picks. The two raters gave the same
+answer on 56 of 60 pairs (Cohen's kappa 0.877). The report is
+[`analysis/out_paper/rater_check/report.md`](analysis/out_paper/rater_check/report.md),
+and the method is in
+[`methodology/analysis-protocol.md`](methodology/analysis-protocol.md) §11.
 
 ## The test set
 
 1,000 diagrams: 2 types (class, sequence) x 4 complexity tiers x 125.
 
-Diagrams come from the *UML-in-the-Wild* corpus, 143,427 PlantUML/PNG pairs
-mined from open-source repositories via **World of Code**. Selection is
-repository-disjoint, deduplicated on normalized source, and filtered so the
-corpus type label agrees with the PlantUML parser's own reading of the file.
+The diagrams come from the *UML-in-the-Wild* corpus, 143,427 PlantUML/PNG pairs
+mined from open-source repositories via **World of Code**. The selection is
+repository-disjoint and deduplicated on normalized source. It is filtered so that
+the corpus type label agrees with the PlantUML parser's own reading of the file.
 Complexity tiers are quartiles of `content_lines`, computed per diagram type.
-Sampling is a fixed seed (42) with at most 5 diagrams per source repository.
+Sampling uses a fixed seed (42), with at most 5 diagrams per source repository.
 
-Every model receives the identical input image, standardized to a **1,568 px
-long edge**. That figure is the lowest native processing resolution across the
-model panel, so it is the highest resolution every model can be given on equal
-terms.
+Every model receives the same input image, scaled down to a **1,568 px long
+edge**. That is the lowest native processing resolution in the model panel, so
+it is the highest resolution every model can be given on equal terms.
 
 The construction pipeline, with counts at every filter stage, is in
 [`methodology/test-set-construction.md`](methodology/test-set-construction.md).
+The inference protocol, with the serving of each model, is in
+[`methodology/benchmark-protocol.md`](methodology/benchmark-protocol.md).
 
 ## Repository layout
 
 ```
-analysis/          Aggregation, bootstrap CIs, plots, exhibits. See analysis/README.md.
-  out/             Generated tables, figures and exhibits (shipped, regenerable).
-  out_paper/       The same for the revised paper: scorer v2, self-served dense Qwen runs,
-                   stratum intervals (paper_extras.*), the 108-case error sample.
-  model_registry.json   The 7 reported models + 1 supplementary, and their run dirs.
-  model_registry_paper.json  The registry of the revised paper.
-  results_explained.md  Plain-language walkthrough of the results.
-  error_analysis.md     Qualitative review of 108 sampled failure cases (error_sample/).
+analysis/          Aggregation, bootstrap intervals, plots, exhibits. See analysis/README.md.
+  out_paper/       The results: tables, intervals, run level, failure index, stratum
+                   intervals (paper_extras.*), figures (plots/), exhibits.
+    error_sample/  The 108 coded failure cases.
+    rater_check/   The human-rater check: pairs (keys.json), ratings, report.
+  model_registry_paper.json  The 7 models of the panel and their run directories.
+  error_analysis.md     Review of the 108 coded failure cases.
   error_codebook.md     The codebook the cases were coded with.
+  rater_check.py        The human-rater check: draw, render, rating pages, report.
+  out/             Outputs of the default registry (model_registry.json), not the results above.
 evaluation/        Inference runner and the four metric scorers.
-util/              Test-set construction, image standardization, token measurement.
+util/              Test-set construction, image standardization, archive packing.
 methodology/       The methodological record. The source of truth for every design decision.
 prompts/           The frozen zero-shot prompt.
-tests/             397 test functions across 26 modules.
-data.zip           The benchmark data. Unzip at the repository root.
-data_v2.zip        The stored runs scored under scorer v2. Unzip at the repository root.
+tests/             413 test functions across 27 modules.
+data.zip           Test set, ground truth and the hosted runs. Unzip at the repository root.
+data_v2.zip        Structural result files of the hosted runs. Unzip at the repository root.
 data_selfserved.zip
-                   The self-served Qwen3.5-2B, 9B and 27B zero-shot runs. Unzip at the root.
+                   The self-served Qwen3.5-2B, 9B and 27B runs. Unzip at the repository root.
 plantuml-stats-extractor-v1.jar, -v2.jar
-                   The extractor JARs of scorer v1 and v2 (GPL-3.0).
+                   The extractor JARs (GPL-3.0). See "The structural extractor".
 evaluation_plan.md How to run the benchmark end to end.
 FUTURE.md          Scoped extensions that were deliberately deferred.
 ```
-
-## Scorer versions
-
-The structural scorer (Element F1, Relationship F1, type accuracy) exists in two
-versions. CSR and chrF++ are the same in both.
-
-| Version | What it is | This repository | Extractor fork |
-|---|---|---|---|
-| **v1** | The scorer of the paper: every number in this README, in `data.zip` and in `analysis/out/`. | tag `scorer-v1` | commit `7d2292dab1` |
-| **v2** | The scorer for the fine-tuning work that follows. Frozen before it scores any fine-tuned model. | tag `scorer-v2` | commit `549fe8ec08` |
-
-The two halves of a version belong together. The message of a `scorer-*` tag
-records the extractor commit and the SHA-256 of the extractor JAR it was run
-with. The hash names that file, not the commit: a JAR you build from the commit
-yourself will in general have another hash. For v2 the file is the v1 JAR with
-the classes changed since v1 recompiled and replaced.
-
-v2 reads names and edges differently in six places:
-
-- A run of whitespace inside a name counts as one space.
-- A name is the text PlantUML draws for the label. Formatting markup, icons and
-  the letter of a stereotype spot are not part of it, and when the lines of a
-  label differ in font size, the line or lines at the largest size are the name.
-- `≪X≫` is a stereotype token, as `«X»` and `<<X>>` are.
-- An association with exactly one arrowhead is directed, so a reversed or a
-  dropped arrowhead is a miss. A plain line, or one with an arrowhead at both
-  ends, stays undirected.
-- An answer that holds several diagrams is scored on its first diagram.
-- An edge is a link or a message PlantUML draws. A link PlantUML adds itself to
-  arrange unconnected elements, a link or a message written as `[hidden]` and a
-  link to an element the source hides or removes are not edges. The pointer of
-  a note on a class member to that member is.
-
-[`methodology/evaluation-framework.md`](methodology/evaluation-framework.md)
-describes v1.
-
-**Reproducing the paper does not depend on any of this.** The analysis pipeline
-reads the shipped result files, which are v1. The version matters only when you
-re-score raw predictions. To re-score under v1, use `plantuml-stats-extractor-v1.jar`
-(pass it with `--jar`) in a checkout of `scorer-v1` beside this one
-(`git worktree add ../scorer-v1 scorer-v1`): the
-JARs are tracked from `v1.1.0` on, so checking out the older tag here removes them. On `scorer-v2` with the v2 extractor, the same
-per-diagram counts come from switching every v2 rule off. Add these switches to
-both structural runners:
-
-```
---no-collapse-whitespace --no-unicode-brackets --no-association-direction
---last-diagram --extractor-arg=--names=raw --extractor-arg=--no-arrowheads
---extractor-arg=--undrawn-edges
-```
-
-### The stored runs under scorer v2
-
-`data_v2.zip` holds the eight stored runs of `data.zip` scored again under
-scorer v2, and at every level between v1 and v2, one rule at a time. Unzipping
-it at the repository root recreates `data_v2/`:
-
-```
-data_v2/
-├── element_f1/<run>/element_f1_results.json           Scorer v2.
-├── relationship_f1/<run>/relationship_f1_results.json
-└── _bridge/
-    ├── levels.json                                    The switches of each level.
-    ├── <level>/<metric>/<run>/<metric>_results.json   One level.
-    └── spot_effect.json                               The stereotype-spot letter alone, per run.
-```
-
-It holds the result files only. The extracted blocks the runners also write are
-left out, and re-running the scorers writes them again.
-`python3 util/pack_data_v2.py --check` compares the archive with an unpacked
-`data_v2/`. The
-[fine-tuning study](https://github.com/vovanrew/plantuml-recognition-fine-tuning)
-reports the change from v1 to v2 on these runs.
-
-### The self-served runs and the revised paper
-
-`data_selfserved.zip` holds three zero-shot runs of the dense Qwen3.5 models (2B, 9B
-and 27B), answered by the authors on one GPU in the released bf16 weights, without
-quantization, with the prompt, decoding settings and test set of the benchmark. They
-are the Qwen rows of the revised paper, and the zero-shot baseline of the
-fine-tuning study. Unzipping it at the repository root recreates
-`data_selfserved/runs/test/<size>_zero_shot/`, each with the 1,000 answers
-(`answers/`), the result files under scorer v2 and v1 (`scores/`, with the sha256 of
-each in `scores/manifest.json`) and the provenance of the run (`answer_manifest.json`,
-logs). `python3 util/pack_selfserved.py --fine-tune <dir> --check` compares the
-archive with a directory that holds `runs/test/`.
-
-The revised paper's tables, figures and exhibits are in `analysis/out_paper/` and
-regenerate from the three archives:
-
-```bash
-unzip data.zip && unzip data_v2.zip && unzip data_selfserved.zip
-python3 util/build_paper_root.py --fine-tune data_selfserved     # -> data_paper/
-R="--data-root data_paper --registry analysis/model_registry_paper.json --out-dir analysis/out_paper"
-python3 analysis/build_master_table.py $R
-python3 analysis/build_ci_table.py $R
-python3 analysis/build_run_level.py $R
-python3 -m analysis.build_paper_extras $R
-python3 analysis/build_failure_index.py $R
-python3 analysis/build_plots.py --registry analysis/model_registry_paper.json --out-dir analysis/out_paper --by-arm
-python3 analysis/build_exhibits.py --out-dir analysis/out_paper
-```
-
-`build_paper_extras` also writes `paper_checks.*`, internal checks that are not
-shipped. The error sample in `analysis/out_paper/error_sample/` is drawn by
-`analysis/build_error_sample.py`; `methodology/analysis-protocol.md` §7 describes it.
 
 ## Requirements
 
@@ -247,38 +150,38 @@ shipped. The error sample in `analysis/out_paper/error_sample/` is drawn by
 - **A Java runtime**, for the PlantUML renderer. The reported runs used
   Temurin JDK 26.0.1.
 - **PlantUML `1.2025.9`**, as `plantuml-1.2025.9.jar` in the repository root.
-  The JAR is not vendored here. Download that exact version from the
+  The JAR is not included here. Download that exact version from the
   [PlantUML releases page](https://github.com/plantuml/plantuml/releases).
-  The version matters: renderer behaviour on malformed input is what CSR
-  measures, so a different version can move the numbers.
-- **The extractor JARs** `plantuml-stats-extractor-v1.jar` and
-  `plantuml-stats-extractor-v2.jar`, in the repository root, only if you want to
-  re-run the structural scorers. See below.
+  The version matters: CSR measures how the renderer handles bad input, so
+  another version can move the numbers.
+- **The extractor JAR** `plantuml-stats-extractor-v2.jar`, in the repository
+  root, only if you want to re-run the structural scorers. See below.
+
+You need neither Java nor the JARs to rebuild the results from the archives.
 
 ### The structural extractor
 
 Element F1 and Relationship F1 do not parse PlantUML text directly. They are
-computed over a typed graph emitted by `DiagramStatsExtractor`, a fork of
-PlantUML that reuses the renderer's own parser, so ground truth and prediction
-are read on identical terms.
+computed over a typed graph written by `DiagramStatsExtractor`. It is a fork of
+PlantUML that reuses the renderer's own parser, so the ground truth and the
+answer are read on the same terms.
 
 The fork is published at **https://github.com/vovanrew/plantuml**, branch
-`stats-extractor-graph`. The two JARs the scorers ran with are in the root of
-this repository:
+`stats-extractor-graph`. Both JARs are in the root of this repository:
 
-| File | Scorer | Fork commit | SHA-256 |
+| File | Use | Fork commit | SHA-256 |
 |---|---|---|---|
-| `plantuml-stats-extractor-v1.jar` | v1, tag `scorer-v1` | `7d2292dab1` | `f6e76d4973ce12c23cb15dff6420726f7d2203a80c1761d1454b5a2c5a91777b` |
-| `plantuml-stats-extractor-v2.jar` | v2, tag `scorer-v2` | `549fe8ec08` | `2747a72aec9206e424ddf9ed659f9eceb96730444a68b1fe99094317400f555b` |
+| `plantuml-stats-extractor-v2.jar` | The extractor of the scorer on `main` | `549fe8ec08` | `2747a72aec9206e424ddf9ed659f9eceb96730444a68b1fe99094317400f555b` |
+| `plantuml-stats-extractor-v1.jar` | The extractor behind the older score files in `data.zip` | `7d2292dab1` | `f6e76d4973ce12c23cb15dff6420726f7d2203a80c1761d1454b5a2c5a91777b` |
 
 ```bash
-export PLANTUML_EXTRACTOR_JAR=$PWD/plantuml-stats-extractor-v2.jar   # -v1 for the paper
+export PLANTUML_EXTRACTOR_JAR=$PWD/plantuml-stats-extractor-v2.jar
 ```
 
 The scorers read the JAR path from `PLANTUML_EXTRACTOR_JAR`, or take it as
-`--jar`. Use these files rather than a build of your own: the message of a
-`scorer-*` tag records the SHA-256 of its JAR, and a JAR built from the commit
-will in general have another hash. See [Scorer versions](#scorer-versions).
+`--jar`. Use this file rather than a build of your own. Each structural result
+file records the SHA-256 of the JAR it was scored with. A JAR built from the
+commit will in general have another hash.
 
 The JARs are PlantUML and are licensed under the GNU General Public License,
 version 3 or later ([`LICENSE-GPL-3.0`](LICENSE-GPL-3.0)), not under this
@@ -288,48 +191,56 @@ above.
 The stock renderer JAR, `plantuml-1.2025.9.jar`, is a different file. The two
 are not interchangeable.
 
-You do not need any of this to reproduce a reported number. The extracted graphs
-are already reflected in the shipped `*_results.json` files, so the whole
-analysis pipeline runs from `data.zip` alone. The extractor is needed only to
-**re-score** raw predictions from scratch, or to score a new model.
+## Reproducing the results
 
-## Reproducing the analysis
-
-This reproduces every table, figure and exhibit in the paper from the shipped
-data. It needs no API keys, no Java, and no network access.
+This rebuilds every table, figure and exhibit in `analysis/out_paper/` from the
+shipped archives. It needs no API keys, no Java and no network access.
 
 ```bash
-unzip data.zip                                # recreates data/
+unzip data.zip && unzip data_v2.zip && unzip data_selfserved.zip
 python3 -m pip install -r requirements.txt
-
-python3 analysis/build_master_table.py        # -> analysis/out/master_table.*
-python3 analysis/build_ci_table.py            # -> ci_table.*
-python3 analysis/build_run_level.py           # -> run_level.*, crowding.*
-python3 analysis/build_plots.py               # -> plots/*
-python3 analysis/build_failure_index.py       # -> failure_index.*
-python3 analysis/build_exhibits.py            # -> exhibits.md, exhibits.html
+python3 util/build_paper_root.py --fine-tune data_selfserved     # -> data_paper/
+R="--data-root data_paper --registry analysis/model_registry_paper.json --out-dir analysis/out_paper"
+python3 analysis/build_master_table.py $R    # -> master_table.*
+python3 analysis/build_ci_table.py $R        # -> ci_table.*
+python3 analysis/build_run_level.py $R       # -> run_level.*, crowding.*
+python3 -m analysis.build_paper_extras $R    # -> paper_extras.*
+python3 analysis/build_failure_index.py $R   # -> failure_index.*
+python3 analysis/build_plots.py --registry analysis/model_registry_paper.json --out-dir analysis/out_paper --by-arm
+python3 analysis/build_exhibits.py --out-dir analysis/out_paper   # -> exhibits.md, exhibits.html
+python3 -m analysis.build_error_sample report --out analysis/out_paper/error_sample
+python3 -m analysis.rater_check report       # -> rater_check/report.*
 ```
 
-Run them in that order; each step reads the previous steps' output. The pipeline
-is deterministic: fixed seeds, sorted iteration, no timestamps. Re-running
-overwrites `analysis/out/` in place.
+`util/build_paper_root.py` copies the stored result files into one data root,
+`data_paper/`, and scores nothing. Run the analysis steps in the order shown,
+because each step reads the output of the steps before it. `build_paper_extras`
+also writes `paper_checks.*`, internal checks that are not shipped.
 
-One caveat on exact reproduction. The rounded Markdown tables regenerate
-byte-for-byte. Full-precision values in the `.json` and `.csv` outputs can differ
-from the committed ones in the final floating-point digit, because summation
-order in the accumulators is sensitive to the platform's floating-point
-behaviour. No reported figure is affected.
+The last two commands rebuild the reports from the stored codes and ratings. The
+error sample is drawn by `python3 -m analysis.build_error_sample draw`, and
+`methodology/analysis-protocol.md` §7 describes it. The rater pairs are drawn,
+rendered and put on rating pages by the `draw`, `render` and `sheets` commands of
+`analysis/rater_check.py`. Its `render` step needs a render script outside this
+repository (`--render-py`).
 
-`analysis/README.md` documents what each script and each output file holds.
+The pipeline is deterministic: fixed seeds, sorted iteration, no timestamps.
+The rounded Markdown tables regenerate byte for byte. Full-precision values in
+the `.json` and `.csv` outputs can differ in the last floating-point digit,
+because the order of summation depends on the platform. No reported figure is
+affected.
+
+`analysis/README.md` describes what each script and each output file holds.
 
 ## Re-running the benchmark itself
 
-Only needed to add a model or re-score raw predictions. Full instructions are in
-[`evaluation_plan.md`](evaluation_plan.md); the short version:
+You need this only to add a model or to score raw answers again. Full
+instructions are in [`evaluation_plan.md`](evaluation_plan.md). The short
+version:
 
 ```bash
-# 1. Inference: 1000 images -> 1000 raw responses. Needs an API key and the images.
-python3 evaluation/infer_runner.py --n 1000 --out data/runs
+# 1. Inference: 1000 images -> 1000 raw responses. Needs an endpoint, an API key and the images.
+python3 evaluation/infer_runner.py --base-url <endpoint> --model <model id> --key-env <ENV_VAR> --n 1000 --out data/runs
 
 # 2. Compilation success. Needs Java + plantuml-1.2025.9.jar.
 python3 evaluation/csr_runner.py --pred-dir data/runs/<run> --out data/csr/<run>
@@ -340,21 +251,18 @@ python3 evaluation/relationship_f1_runner.py --pred-dir data/runs/<run> --out da
 python3 evaluation/chrf_runner.py            --pred-dir data/runs/<run> --out data/chrf/<run>
 ```
 
-Then add the run to `analysis/model_registry.json` and re-run the analysis
-pipeline. Steps 3a and 3b require the extractor fork. Step 1 requires the
-standardized input images, which are in `data/puml_images_1568/`, outside
-`data.zip` (see below).
+Then add the run to a registry and run the analysis steps again. Steps 3a and 3b
+need the extractor JAR. Step 1 needs the standardized input images, which are in
+`data/puml_images_1568/`, outside `data.zip` (see below).
 
-On `main`, steps 3a and 3b score under scorer v2. The shipped results are v1, so
-do not mix the two in one table; [Scorer versions](#scorer-versions) says how to
-get either.
+API keys are read from the environment. No key is stored in this repository.
 
-API keys are read from the environment; no key is stored in this repository.
+## The data archives
 
-## The data archive
+### `data.zip`
 
-`data.zip` is 14 MB and holds 17,023 files. Unzipping at the repository root
-recreates `data/` exactly where every script expects it.
+`data.zip` is 14 MB and holds 17,023 files. Unzipping it at the repository root
+recreates `data/` where every script expects it.
 
 ```
 data/
@@ -374,14 +282,32 @@ data/
 └── chrf/<run>/chrf_results.json
 ```
 
-Eight run directories, named `<model_id>_<timestampZ>`. They match the `run_dir`
-values in `analysis/model_registry.json`, which is how the analysis pipeline
-finds them.
+The run directories are named `<model_id>_<timestampZ>`. The four hosted runs of
+the panel are the `run_dir` values in `analysis/model_registry_paper.json`. The
+archive also holds runs that the panel does not use. Its `element_f1/` and
+`relationship_f1/` files are the older score files; the results take these two
+metrics from `data_v2.zip`.
+
+### `data_v2.zip` and `data_selfserved.zip`
+
+`data_v2.zip` holds the Element F1 and Relationship F1 result files of the hosted
+runs, scored by the scorer on `main`. Unzipping it at the root recreates
+`data_v2/`, with `element_f1/<run>/` and `relationship_f1/<run>/`. It holds the
+result files only: the extracted graphs are left out, and re-running the
+scorers writes them again. `python3 util/pack_data_v2.py --check` compares the
+archive with an unpacked `data_v2/`.
+
+`data_selfserved.zip` holds the three self-served runs. Unzipping it at the root
+recreates `data_selfserved/runs/test/<size>_zero_shot/`. Each run holds the 1,000
+answers (`answers/`), the four result files (`scores/`, with the SHA-256 of each
+in `scores/manifest.json`) and the provenance of the run (`answer_manifest.json`,
+logs). `python3 util/pack_selfserved.py --fine-tune <dir> --check` compares the
+archive with a directory that holds `runs/test/`.
 
 ### `test_set.json`
 
-The benchmark definition and the artifact to cite when referring to "the test
-set". Four metadata blocks plus the diagram list:
+The benchmark definition, and the file to cite when you refer to "the test set".
+It has four metadata blocks and the diagram list:
 
 | Field | Content |
 |---|---|
@@ -406,40 +332,40 @@ set". Four metadata blocks plus the diagram list:
 }
 ```
 
-**The identifier is `key`, the filename, not `blob_id`.** A single source file
-containing several `@startuml` blocks is split into siblings that share a
-`blob_id` and are distinguished by a `_NN` suffix. There are 37 such split files
-in the test set. Joining on `blob_id` silently merges them.
+**The identifier is `key`, the filename, not `blob_id`.** A source file with
+several `@startuml` blocks is split into siblings that share a `blob_id`. A
+`_NN` suffix tells them apart. There are 37 such split files in the test set, so
+joining on `blob_id` silently merges them.
 
-One more join detail: `test_set.json` keys carry the `.puml` suffix and the
+One more join detail: `test_set.json` keys carry the `.puml` suffix, and the
 metric files key on the bare stem. `analysis/loader.py` strips the suffix. A raw
 equality join matches zero rows.
 
-### Prediction records: `runs/<run>/<key>.json`
+### Answer records: `runs/<run>/<key>.json`
 
-The provider's response, stored verbatim and unnormalized, so the shape follows
-whichever API produced it. Most runs are OpenAI-compatible chat completions,
-where the generated text is at `choices[0].message.content` and token counts are
-under `usage`. The Gemini run is the provider's native format, with text at
-`candidates[0].content.parts[0].text` and counts under `usageMetadata`.
+The provider's response, stored as received, so its shape follows the API that
+produced it. Most runs are OpenAI-compatible chat completions: the generated text
+is at `choices[0].message.content`, and token counts are under `usage`. The
+Gemini run is the provider's native format, with the text at
+`candidates[0].content.parts[0].text` and the counts under `usageMetadata`.
 
-A failed cell still gets a record, which is how a failure stays countable rather
-than becoming a silently missing row:
+A failed cell still gets a record, so a failure stays countable and does not
+become a missing row:
 
 ```json
 {"error": "timeout", "key": "938e9cc0...bd_02", "attempts": 1, "detail": "hard deadline 600s"}
 ```
 
-`error` is one of `timeout`, `image_dropped`, `http_error`, `network_error`. No
-`.puml` is written for a failed cell, so CSR scores it 0.
+`error` is one of `timeout`, `image_dropped`, `http_error`, `network_error` and
+`bad_response`. No `.puml` is written for a failed cell, so CSR scores it 0.
 
 The sibling `<key>.puml` is the PlantUML block isolated from the response: the
 span from the first `@startuml` to the last `@enduml`. This is the exact text
 that was scored.
 
-Note that `run_meta.json` records `n_cells` for the **final** batch of a run.
-Runs were resumable, so a small `n_cells` means the run was completed by a
-resume, not that it covered few diagrams. Every run covers all 1,000 keys.
+`run_meta.json` records `n_cells` for the **final** batch of a run. Runs can be
+resumed, so a small `n_cells` means that a resume completed the run. Every run
+covers all 1,000 keys.
 
 ### Metric records
 
@@ -455,8 +381,8 @@ entry per test-set key in `diagrams`.
              "png_bytes": 2555, "error": null}
 ```
 
-**`element_f1_results.json`** — `summary` is keyed by population
-(`zeros_for_failed`, `compiled_only`), each holding `micro`, `macro` and `n`.
+**`element_f1_results.json`**: `summary` is keyed by population
+(`zeros_for_failed`, `compiled_only`), and each holds `micro`, `macro` and `n`.
 
 ```json
 "diagrams": {"key": "000133b3...", "tp": 1, "fp": 0, "fn": 0,
@@ -466,20 +392,19 @@ entry per test-set key in `diagrams`.
 ```
 
 `type_accuracy.excluded` counts name-matched entities whose UML type cannot be
-graded, and they are removed from the denominator rather than counted wrong.
+graded. They are removed from the denominator, not counted as wrong.
 
-**`relationship_f1_results.json`** — same populations, and each carries both an
-`all` block and a `by_relation` block covering the six relation types. Per
-diagram, the same counts plus a `by_relation` breakdown.
+**`relationship_f1_results.json`**: the same populations, and each has an `all`
+block and a `by_relation` block for the six relation types. Per diagram, it has
+the same counts and a `by_relation` breakdown.
 
-The two structural files, when written by the runners on `main`, also start with
-a `scorer` block: the rule switches that were on, the options passed to the
-extractor, and the SHA-256 of the extractor JAR. The shipped files are v1 and
-have no such block.
+The structural files in `data_v2.zip` and `data_selfserved.zip` start with a
+`scorer` block. It records the rules that were on, the options passed to the
+extractor and the SHA-256 of the extractor JAR.
 
-**`chrf_results.json`** — `summary` records the scoring parameters
-(`char_order` 6, `word_order` 2, `beta` 2) and, per population, `micro` (corpus
-chrF++) and `macro` (mean of per-diagram scores).
+**`chrf_results.json`**: `summary` records the scoring parameters
+(`char_order` 6, `word_order` 2, `beta` 2). Per population, it has `micro`
+(corpus chrF++) and `macro` (mean of the per-diagram scores).
 
 ```json
 "diagrams": {"key": "000133b3...", "has_pred": true, "compiled": true,
@@ -488,21 +413,20 @@ chrF++) and `macro` (mean of per-diagram scores).
 
 Scores are on sacrebleu's native 0-100 scale, stored unrescaled.
 
-### What is not in the archive, and why
+### What is not in the archives, and why
 
 **The diagram images.** Two sets exist: `puml_images/` (the original renders,
 242 MB) and `puml_images_1568/` (the standardized model inputs, 187 MB). PNG is
-already compressed, so zipping them saves essentially nothing, and either one
-alone would exceed GitHub's file size limit as a single file.
+already compressed, so zipping them saves almost nothing. Either set alone, as a
+single file, would exceed GitHub's file size limit.
 
 The standardized model inputs are therefore tracked as plain files in
 `data/puml_images_1568/`, next to `data.zip`: 1,000 PNG files, one per diagram,
 named by key. A clone has them, and unzipping `data.zip` fills in the rest of
-`data/` around them. The Zenodo record of release v1.0.0 predates this and does
-not hold them.
+`data/` around them. The Zenodo record of release v1.0.0 does not hold them.
 
-The original renders are not in the repository. They are needed only to rebuild
-the standardized set, from the corpus:
+The original renders are not in the repository. You need them only to rebuild the
+standardized set from the corpus:
 
 ```bash
 python3 util/populate_test_set.py --test-set data/test_set.json --prune  # needs the corpus
@@ -513,9 +437,9 @@ Rendering uses PlantUML `1.2025.9`. `util/populate_test_set.py` reads the corpus
 location from the `PLANTUML_DATASET_ROOT` environment variable.
 
 **Metric intermediates.** The scorers also write rendered PNGs and extracted
-graph JSON under each metric directory, roughly 390 MB in total. Nothing reads
-them: `analysis/loader.py` consumes only the four `*_results.json` files per run.
-They are inspection aids, and they are regenerable by re-running the scorers.
+graph JSON under each metric directory, about 390 MB in total. Nothing reads
+them: `analysis/loader.py` reads only the four `*_results.json` files per run.
+They help with inspection, and re-running the scorers writes them again.
 
 ## Tests
 
@@ -523,15 +447,14 @@ They are inspection aids, and they are regenerable by re-running the scorers.
 python3 -m pytest tests/
 ```
 
-397 test functions across 26 modules, covering the scoring logic, the
-aggregation math, the bootstrap, the registry and loader, the plot builders, and
-the frozen prompt. Tests skip cleanly rather than fail when what they need is
-absent: benchmark data that has not been unpacked, the standardized images, or
-the extractor JAR.
+413 test functions across 27 modules. They cover the scoring logic, the
+aggregation math, the bootstrap, the registry and loader, the plot builders, the
+human-rater check and the frozen prompt. A test skips, and does not fail, when
+what it needs is absent: benchmark data that is not unpacked, the standardized
+images, or the extractor JAR.
 
-The extractor tests run only when `PLANTUML_EXTRACTOR_JAR` points at a built
-JAR. On `main` that must be the v2 extractor: with the v1 JAR, the tests of the
-v2 rules fail.
+The extractor tests run only when `PLANTUML_EXTRACTOR_JAR` points at
+`plantuml-stats-extractor-v2.jar`.
 
 ## Citation
 
@@ -565,12 +488,12 @@ Machine-readable metadata is in [`CITATION.cff`](CITATION.cff).
 ## Licence
 
 Code is MIT. Data and documentation are CC BY 4.0, **except** the ground-truth
-`.puml` sources and any image rendered from them: those were mined from
-open-source repositories and each remains under the licence of the repository it
-came from.
+`.puml` sources and any image rendered from them. Those were mined from
+open-source repositories, and each remains under the licence of the repository
+it came from.
 
 The two extractor JARs are PlantUML, under the GNU GPL v3 or later
-([`LICENSE-GPL-3.0`](LICENSE-GPL-3.0)); their source is the fork at the commits
+([`LICENSE-GPL-3.0`](LICENSE-GPL-3.0)). Their source is the fork at the commits
 in [The structural extractor](#the-structural-extractor).
 
 See [`LICENSE`](LICENSE) and [`LICENSE-DATA`](LICENSE-DATA). The second file
@@ -578,18 +501,17 @@ matters if you plan to redistribute the diagram sources or the images.
 
 ## Scope and limitations
 
-Stated plainly, because they bound what the numbers support.
+These limits bound what the numbers support.
 
 - Two of nine diagram types in the corpus: class and sequence only.
-- Zero-shot only. Fine-tuning is later work, not evaluated here.
-- One frozen prompt, no prompt ablation.
+- Zero-shot only. Fine-tuning is not evaluated here.
+- One frozen prompt, with no prompt ablation.
 - Minimum-reasoning configuration only. Gemini 3.1 Pro cannot fully disable
-  thinking, but emitted zero thinking tokens across the run, so the frontier
-  comparison is clean on this axis.
+  thinking, but it used zero thinking tokens across the run.
 - Structural metrics plus chrF++. No visual similarity, no graph edit distance,
   no model-as-judge.
-- The mixture-of-experts model was served differently from the dense ladder, so
-  it is a capability ceiling rather than a backend-matched fourth rung.
+- The panel is reported in two groups, hosted and self-served, and never as one
+  ranked order.
 
 Deferred extensions, each scoped and costed, are in
 [`FUTURE.md`](FUTURE.md).

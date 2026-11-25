@@ -1,108 +1,173 @@
-# `analysis/` — the analysis pipeline
+# `analysis/`: the analysis pipeline
 
-Turns the per-model metric JSONs under `data/` into the paper's exhibits:
-**aggregate → master table → bootstrap CIs → plots → failure cases → run-level →
-paper exhibits**. The scientific rationale for each step is recorded in
-`../methodology/analysis-protocol.md`.
+This folder turns the stored per-diagram scores into the tables, intervals and
+figures of the benchmark. The method behind each step is in
+`../methodology/analysis-protocol.md`. The metrics are defined in
+`../methodology/evaluation-framework.md`, and the inference runs in
+`../methodology/benchmark-protocol.md`.
 
-The folder has two parts: **code** (the `.py` files + one config) and **`out/`**
-(everything the code generates — the files you *read*). You only ever *run* the
-`build_*.py` scripts and *read* the files in `out/`.
+The folder holds code (the `.py` files), the model registry, the generated outputs
+in `out_paper/`, and a few hand-written documents.
+
+## The panel and the registry
+
+`model_registry_paper.json` lists the models of the benchmark. Every script below
+reads it through `--registry`. The panel has two groups, and every output lists the
+hosted group first.
+
+- **Hosted reference models** (`"arm": "frontier"`): GPT-5.2, Claude Opus 4.6,
+  Gemini 3.1 Pro and Qwen3.5-397B-A17B. Each one ran on its provider's serving.
+- **Self-served open models** (`"arm": "qwen"`): Qwen3.5-2B, Qwen3.5-9B and
+  Qwen3.5-27B. They ran on one GPU with the released bf16 weights.
+
+Size trends use the three dense self-served models only. Qwen3.5-397B-A17B is a
+mixture-of-experts model, so it is not on the size axis. Each entry also gives the
+run directory, the lab, the model family and the parameter counts. Entries with
+`"supplementary": true` are not part of the panel, and the scripts leave them out
+unless `--include-supplementary` is given.
+
+The scripts read the scored runs from `--data-root data_paper`. The folder
+`data_paper/` is built from the released archives by `util/build_paper_root.py`
+(see the run order below).
 
 ## Naming convention
 
-> **`build_X.py`** = a runnable CLI (an entry point).
-> **`X.py`** = the importable logic it uses (pure functions, unit-tested in `../tests/`).
-
-Every `build_*.py` has one sibling logic module.
+- `build_X.py` is a command-line script that you run.
+- `X.py` is the logic module that it imports. The modules are tested in `../tests/`.
 
 ## Code
 
-### Shared foundation (used by every task)
+### Shared modules
 
 | File | Role |
 |---|---|
-| `model_registry.json` | **Config** — the 7 reported models, their run-dir names, arm/family/params. *The one file the author edits as runs land.* |
-| `registry.py` | Loads & validates the registry. |
-| `loader.py` | Reads the four metric JSONs from `data/` and joins each diagram to its `primary_type` + complexity `tier`. |
-| `panel.py` | Eligibility gate — which models are scored, leak-clean, and ready to report. |
-| `leak_gate.py` | Confirms no `<think>` reasoning leaked into a scored prediction. |
-| `aggregate.py` | The pooling math (micro/macro, both populations, type accuracy, population gap). |
+| `registry.py` | Loads and checks the registry: unique ids and known values for status, arm and family. |
+| `loader.py` | Reads the four metric files of a run and joins each diagram to its diagram type and complexity tier from the test set. |
+| `panel.py` | Loads every registered run that is on disk and applies the eligibility gate. |
+| `leak_gate.py` | Refuses a run whose answers contain a `<think>` block. |
+| `aggregate.py` | Pools the per-diagram rows: micro and macro, both populations, type accuracy, population gap. |
 
-### One logic module + one driver per task
+### One logic module and one script per task
 
-| Task | Logic module(s) | Driver (run this) | Outputs in `out/` |
+| Task | Logic module | Script (run this) | Output in `out_paper/` |
 |---|---|---|---|
-| 1 — master table | `aggregate.py`, `report.py` | `build_master_table.py` | `master_table.*` |
-| 2 — bootstrap CIs | `bootstrap.py`, `ci_report.py` | `build_ci_table.py` | `ci_table.*` |
-| 3 — plots | `plots.py` | `build_plots.py` | `plots/*` |
-| 4 — failure sampler | `failure_sampler.py` | `build_failure_index.py` | `failure_index.*` |
-| 5 — run-level | `run_level.py` | `build_run_level.py` | `run_level.*`, `crowding.*` |
-| 6 — paper exhibits | `exhibits.py` | `build_exhibits.py` | `exhibits.md`, `exhibits.html` |
+| Master table | `aggregate.py`, `report.py` | `build_master_table.py` | `master_table.*`, `master_table_per_relation.csv`, `master_table_type_accuracy.csv` |
+| Bootstrap intervals | `bootstrap.py`, `ci_report.py` | `build_ci_table.py` | `ci_table.*`, `ci_table_pairwise.csv` |
+| Run-level tables | `run_level.py` | `build_run_level.py` | `run_level.*`, `crowding.*` |
+| Per-type and per-tier intervals | `bootstrap.py` | `build_paper_extras.py` | `paper_extras.md`, `paper_extras.json` |
+| Failure index | `failure_sampler.py` | `build_failure_index.py` | `failure_index.*` |
+| Figures | `plots.py` | `build_plots.py` | `plots/*` |
+| Exhibits | `exhibits.py` | `build_exhibits.py` | `exhibits.md`, `exhibits.html` |
+| Error-analysis sample | `failure_sampler.py` | `build_error_sample.py` | `error_sample/` |
+| Human-rater check | (in the script) | `rater_check.py` | `rater_check/` |
+
+`build_paper_extras.py` also writes `paper_checks.md` and `paper_checks.json`. They
+are internal checks, not results, and the release leaves them out.
+
+Two more scripts draw the method figures of the manuscript. They show no results.
+`build_pipeline_figure.py` draws the test-set selection flow, and
+`build_framework_figure.py` draws the evaluation framework. Both take `--out-dir`,
+`--plots-subdir`, `--name` and `--dpi`.
 
 ## Run order
 
-Each step reads the previous steps' outputs, so run them in this order:
+Each step reads the outputs of the steps before it, so run them in this order from
+the repository root:
 
+```bash
+unzip data.zip && unzip data_v2.zip && unzip data_selfserved.zip
+python3 util/build_paper_root.py --fine-tune data_selfserved     # -> data_paper/
+R="--data-root data_paper --registry analysis/model_registry_paper.json --out-dir analysis/out_paper"
+python3 analysis/build_master_table.py $R
+python3 analysis/build_ci_table.py $R
+python3 analysis/build_run_level.py $R
+python3 -m analysis.build_paper_extras $R
+python3 analysis/build_failure_index.py $R
+python3 analysis/build_plots.py --registry analysis/model_registry_paper.json --out-dir analysis/out_paper --by-arm
+python3 analysis/build_exhibits.py --out-dir analysis/out_paper
 ```
-python3 analysis/build_master_table.py        # → master_table.*
-python3 analysis/build_ci_table.py            # → ci_table.*
-python3 analysis/build_run_level.py           # → run_level.*, crowding.*
-python3 analysis/build_plots.py               # reads master + ci + crowding → plots/*
-python3 analysis/build_failure_index.py       # → failure_index.*
-python3 analysis/build_exhibits.py            # reads everything → exhibits.md + exhibits.html
+
+`build_plots.py` reads `master_table.json`, `ci_table.json` and `crowding.json` from
+`--out-dir`. With `--by-arm`, the multi-model figures show the hosted models first and
+the self-served models second, with one legend row for each group.
+`build_exhibits.py` reads the master table, the CI table, the run-level tables,
+the crowding file and the failure index from `--out-dir`.
+
+The error-analysis sample is drawn once and then coded by two coders. The `report`
+command joins their codes with the key:
+
+```bash
+python -m analysis.build_error_sample draw   --data-root data_paper --registry analysis/model_registry_paper.json --out analysis/out_paper/error_sample
+python -m analysis.build_error_sample report --out analysis/out_paper/error_sample
 ```
 
-Re-running is idempotent: fixed seeds, sorted iteration, no timestamps → byte-identical
-output for unchanged inputs. A model that is pending/missing in the registry is skipped
-with a logged note (outputs are headed "N/7"), never an error.
+The human-rater check has four commands. Their defaults are `--data-root data_paper`,
+`--registry analysis/model_registry_paper.json` and `--out analysis/out_paper/rater_check`:
 
-## `out/` — generated artifacts (read these; do not hand-edit)
+```bash
+python -m analysis.rater_check draw   --exclude <keys.json of an earlier rater round>
+python -m analysis.rater_check render --render-py ../fine-tune/build/render.py
+python -m analysis.rater_check sheets
+python -m analysis.rater_check report
+```
 
-Each artifact is emitted in **three formats of the same data**:
+`render` also takes `--threads` and `--heap-mb`, and `sheets` takes `--sheets`. The
+rendered pictures (`rater_check/render/`) and the rating pages (`rater_sheets/`) are
+not tracked. The method is in `../methodology/analysis-protocol.md` §11.
 
-- **`.md`** — human-readable (open these).
-- **`.json`** — full nested data (what the next stage consumes).
-- **`.csv`** — flat tables (for spreadsheets / pivoting).
+Other flags: `build_master_table.py`, `build_ci_table.py`, `build_run_level.py` and
+`build_failure_index.py` take `--basename`, `--include-supplementary` and
+`--log-level`. `build_ci_table.py` also takes `--n-resamples` and `--seed`.
+`build_failure_index.py` also takes `--per-cell`, `--low-structural-threshold`,
+`--include-ok`, `--seed`, `--small-diagram-lines` and `--snippet-max-lines`.
+`build_plots.py` also takes `--plots-subdir`, and `build_exhibits.py` takes one
+`--*-basename` flag for each of its four inputs.
 
-So `master_table.{md,json,csv}` is one result, three ways. Same for `ci_table`,
-`run_level`, `failure_index`, `crowding`.
+Re-running gives the same files for the same inputs: the seeds are fixed, the order
+is sorted, and no output carries a timestamp. Full-precision `.json` and `.csv`
+values can differ in the last digit across platforms, while the rounded `.md` tables
+stay the same.
 
-| Artifact | What it holds |
+## `out_paper/`: the results
+
+Do not edit these files by hand. Most tables come in three formats of the same data:
+`.md` to read, `.json` for the next step, `.csv` for spreadsheets.
+
+| Output | What it holds |
 |---|---|
-| `master_table.*` | Per-model × metric × {micro,macro} × {honest, compiled-only} × overall/type/tier, plus per-relation read-through, type accuracy, and the population gap. |
-| `ci_table.*` | Paired-bootstrap 95% CIs (overall + per-relation); the error bars for the figures. |
-| `run_level.*` | Token totals, failure inventory (provider vs compile-fail), reproducibility provenance. |
-| `crowding.*` | Per-tier image crowding (content_lines per megapixel after the 1568px resize). |
-| `failure_index.*` | The stratified failure cases that feed the qualitative error write-up. |
-| `plots/` | Figures as `.png` (viewing) + `.pdf` (paper): `scaling_curve`, `frontier_bars_*`, `per_relation_f1_*`, `breakdown_by_tier`, `breakdown_by_type`. |
-| `exhibits.md` + `exhibits.html` | The paper-ready synthesis (two-arms layout). The `.html` is Word-importable — open it in Word, or copy a table in, to get editable Word tables. |
+| `master_table.*` | Each model's CSR, Element F1, Relationship F1, chrF++ and type accuracy: micro and macro, both populations, overall, per diagram type and per tier. Also the population gap, Relationship F1 per relation type, and type accuracy per entity type. |
+| `ci_table.*` | Paired bootstrap 95% intervals for each model, intervals on the difference between each pair of models, and per-relation intervals. |
+| `run_level.*` | Token totals over all 1,000 diagrams, the failure inventory, and the provenance of each run. |
+| `crowding.*` | Image crowding per tier: source lines per megapixel of the resized test images. |
+| `paper_extras.*` | 95% intervals for CSR, Element F1 and Relationship F1 per diagram type and per tier, with the contrasts class minus sequence and tier 1 minus tier 4. |
+| `failure_index.*` | The outcome counts and a stratified index of failure cases. |
+| `plots/` | Figures as `.png` and `.pdf`: `scaling_curve` (the three dense sizes), `frontier_bars_*` (the hosted models), `per_relation_f1_*`, `breakdown_by_tier`, `breakdown_by_type`. |
+| `exhibits.md`, `exhibits.html` | The results tables in one document. The `.html` file opens in Word with editable tables. |
+| `error_sample/` | The 108-case error-analysis sample: cases, the two coders' codes, votes, final codes and report. |
+| `rater_check/` | The human-rater check: the key, the two raters' ratings and the report. |
 
-`out/` ships with this repository so the reported numbers can be read without running
-anything. Everything in it is regenerable: unpack `data.zip` and follow the run order
-above. Re-running overwrites these files in place; full-precision `.json`/`.csv` values
-can differ from the committed ones in the last floating-point digit across platforms,
-while the rounded `.md` tables reproduce byte-for-byte.
+## Hand-written documents
 
-## Hand-written docs (in `analysis/`, tracked, safe to edit)
+These files sit beside the code and are edited by hand:
 
-These live beside the code (NOT in the generated `out/`), so they are version-controlled:
+- `README.md`: this file.
+- `results_explained.md`: the results in plain words, with the source file of each
+  number.
+- `error_analysis.md`: the kinds of failure, from the 108-case sample in
+  `out_paper/error_sample/`.
+- `error_codebook.md`: the codes used to classify the failure cases.
 
-- `README.md` — this file.
-- `results_explained.md` — a plain-language companion to `exhibits.md`.
-- `error_analysis.md` — the qualitative review of 40 failure cases drawn from
-  `out/failure_index.md`.
+## Reporting rules (short)
 
-## Reporting conventions (quick reference)
+- **Two populations**, always side by side. `zeros_for_failed` scores all 1,000
+  diagrams, and an answer that does not compile scores 0; this is the main figure.
+  `compiled_only` scores the compiled answers only, and CSR is given beside it.
+- **Two groups of models**, not one ranking: the hosted reference models and the
+  self-served dense sizes.
+- Metrics: CSR, Element F1 with type accuracy, Relationship F1 (overall and for six
+  relation types), and chrF++. Micro and macro are both reported.
+- A difference between two models or two strata counts only when its 95% interval
+  excludes zero.
 
-- **Two populations**, always side by side: `zeros_for_failed` (all 1000, non-compiled
-  scored 0 — the honest headline) and `compiled_only` (over compiled cells, CSR
-  reported separately).
-- **Two arms**, never one leaderboard: frontier reference points (GPT-5.2, Opus 4.6,
-  Gemini 3.1 Pro) vs the Qwen open ladder (dense 2B/9B/27B) plus the 397B-A17B MoE
-  ceiling (reported at both total and active params, off the dense axis).
-- Metrics, in priority order: CSR, Element F1 (+ type accuracy), Relationship F1
-  (overall + 6 relation types), chrF++. Micro and macro both reported.
-
-See `../methodology/analysis-protocol.md` for the full invariants and the
-validation-gate anchor table.
+The folder `out/` and the file `model_registry.json` are the default output folder and
+registry of the scripts; they are not the benchmark's results.

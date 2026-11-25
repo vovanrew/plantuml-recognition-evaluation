@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """Inference runner (evaluation_plan.md step 1.1).
 
-Sends standardized test-set diagram images to one hosted model with the frozen
+Sends standardized test-set diagram images to one model endpoint with the frozen
 zero-shot prompt (prompts/zero_shot.txt) and stores every raw response
-untouched under the run directory. Hardened for unattended batches:
+untouched under the run directory. The panel's hosted runs used it with the
+OpenAI, Anthropic and OpenRouter chat-completions endpoints and the native
+Gemini API; the self-served runs used it with a local OpenAI-compatible server
+(methodology/benchmark-protocol.md §2). Hardened for unattended batches:
 
   - warmup: image-bearing throwaway calls until the endpoint ingests the image
-    (Featherless drops it on cold start); aborts if it never warms.
+    (an endpoint can accept the request but drop the image); aborts if it
+    never warms.
   - per-call ingestion validation (prompt_tokens > text-only baseline) with
     bounded retry; a persistent drop is recorded, never scored.
   - transient HTTP (408/429/5xx) and network errors retried with backoff; one
@@ -22,10 +26,14 @@ untouched under the run directory. Hardened for unattended batches:
 --n 1000, other defaults are run-ready.
 
 Usage (invoke from project root):
-  FEATHERLESS_API_KEY=<your-key> python3 evaluation/infer_runner.py
-  (per-model flags — --base-url / --key-env / --provider / --extra-body —
-  are tabulated in evaluation_plan.md §3; --provider gemini speaks the native
-  generateContent API, everything else OpenAI chat-completions)
+  ANTHROPIC_API_KEY=<your-key> python3 evaluation/infer_runner.py \
+      --model claude-opus-4-6 --base-url https://api.anthropic.com/v1 \
+      --key-env ANTHROPIC_API_KEY \
+      --extra-body '{"thinking": {"type": "disabled"}}' --n 1000
+  (the Claude Opus 4.6 run; per-model flags, --base-url / --key-env /
+  --provider / --extra-body, are tabulated in evaluation_plan.md §3;
+  --provider gemini speaks the native generateContent API, everything else
+  OpenAI chat-completions)
 """
 from __future__ import annotations
 
@@ -94,7 +102,7 @@ def build_gemini_body(content, max_tokens, extra_body=None):
     """Native Gemini `generateContent` body from the OpenAI-style content list.
 
     Gemini 3.1 Pro is run through the native REST API (not the OpenAI-compat
-    layer) because methodology §3 reports per-call `thoughtsTokenCount`, which
+    layer) because methodology/benchmark-protocol.md §3 reports per-call `thoughtsTokenCount`, which
     only the native response's `usageMetadata` carries. `extra_body` merges
     into `generationConfig` (e.g. {"thinkingConfig": {"thinkingLevel": "low"}}).
     Field names per https://ai.google.dev/api/generate-content (verified
@@ -129,7 +137,7 @@ def completion_tokens(response):
 
 
 def thoughts_tokens(response):
-    """Gemini-only thinking-token count (reported per methodology §3 because
+    """Gemini-only thinking-token count (reported per methodology/benchmark-protocol.md §3 because
     thinking cannot be disabled on the Pro tier); None for chat-completions."""
     if "usageMetadata" in response:
         return response["usageMetadata"].get("thoughtsTokenCount", 0)
@@ -148,7 +156,7 @@ def completion_text(response):
 
 def resolve_api_key(env_name, environ=os.environ):
     """API key from the env var named by --key-env (provider-agnostic:
-    FEATHERLESS_API_KEY / OPENAI_API_KEY / ANTHROPIC_API_KEY / GEMINI_API_KEY)."""
+    e.g. OPENAI_API_KEY / ANTHROPIC_API_KEY / GEMINI_API_KEY / OPENROUTER_API_KEY)."""
     key = environ.get(env_name, "")
     if not key:
         raise SystemExit(f"set {env_name} (e.g. {env_name}=$(cat <key-file>))")
@@ -165,8 +173,8 @@ def reasoning_leak(text):
 
 def call(base_url, key, model, content, max_tokens, timeout, extra_body=None,
          provider="openai", token_field="max_tokens"):
-    """One API call. provider="openai": chat-completions (OpenAI, Featherless,
-    Anthropic's OpenAI-compat layer). provider="gemini": native generateContent
+    """One API call. provider="openai": chat-completions (OpenAI, OpenRouter,
+    Anthropic's OpenAI-compat layer, a local OpenAI-compatible server). provider="gemini": native generateContent
     (URL pattern + x-goog-api-key header per ai.google.dev REST docs)."""
     if provider == "gemini":
         url = base_url.rstrip("/") + f"/models/{model}:generateContent"
@@ -299,7 +307,8 @@ def infer_cell(call_fn, baseline, drop_retries=2, log=print):
 
 def warmup(call_fn, baseline, max_tries=5, log=print):
     """Throwaway image-bearing calls until the endpoint ingests the image
-    (Featherless drops it on cold start). Returns the number of calls used;
+    (an endpoint can accept the request but drop the image, for example
+    while it is still loading the model). Returns the number of calls used;
     aborts the run if the endpoint never warms — launching the batch would
     silently score blind completions."""
     for i in range(1, max_tries + 1):
@@ -337,8 +346,8 @@ def format_progress(done, total, tally, elapsed=None):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base-url", default="https://api.featherless.ai/v1")
-    ap.add_argument("--model", default="Qwen/Qwen3.5-2B")
+    ap.add_argument("--base-url", required=True, help="endpoint, e.g. https://api.openai.com/v1")
+    ap.add_argument("--model", required=True, help="model id as the endpoint names it")
     ap.add_argument("--test-set", default="data/test_set.json")
     ap.add_argument("--images", default="data/puml_images_1568")
     ap.add_argument("--n", type=int, default=5)
@@ -347,7 +356,8 @@ def main():
     # Sized ~1.5x the longest test-set GT (3546 Qwen3.5-2B tokens, see
     # data/gt_token_stats.json), rounded up to the nearest 256: large enough that
     # a legitimate long diagram is never silently truncated, small enough that a
-    # no-EOS repetition loop is cut off and cascades to CSR=0 (methodology §1).
+    # no-EOS repetition loop is cut off and cascades to CSR=0
+    # (methodology/evaluation-framework.md §1).
     ap.add_argument("--max-tokens", type=int, default=5376)
     # Sized to the worst LEGITIMATE generation (~max_tokens / observed 40-52
     # tok/s + prefill margin). A timeout is recorded as a failure
@@ -364,15 +374,15 @@ def main():
                          "max_completion_tokens")
     ap.add_argument("--provider", default="openai", choices=["openai", "gemini"],
                     help="API shape: openai = chat-completions (OpenAI, "
-                         "Featherless, Anthropic OpenAI-compat); gemini = "
+                         "OpenRouter, Anthropic OpenAI-compat, a local server); gemini = "
                          "native generateContent (preserves thoughtsTokenCount; "
                          "--extra-body merges into generationConfig)")
-    ap.add_argument("--key-env", default="FEATHERLESS_API_KEY",
+    ap.add_argument("--key-env", required=True,
                     help="env var holding the API key for --base-url "
                          "(e.g. OPENAI_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY)")
     ap.add_argument("--extra-body", default="",
                     help="JSON merged into every request body — the per-model "
-                         "reasoning config (methodology §3), e.g. "
+                         "reasoning config (methodology/benchmark-protocol.md §3), e.g. "
                          '\'{"chat_template_kwargs": {"enable_thinking": false}}\'')
     args = ap.parse_args()
     extra_body = json.loads(args.extra_body) if args.extra_body else None
@@ -504,7 +514,7 @@ def main():
     if tally.get("reasoning_leak"):
         print(f"WARNING: {tally['reasoning_leak']} completion(s) contain a "
               f"<think> block — thinking mode is ON for this model/config; "
-              f"fix --extra-body before scoring (methodology §3).")
+              f"fix --extra-body before scoring (methodology/benchmark-protocol.md §3).")
     failed = sum(v for k, v in tally.items()
                  if k not in ("ok", "skipped", "reasoning_leak"))
     if failed:

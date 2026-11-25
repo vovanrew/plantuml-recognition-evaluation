@@ -48,3 +48,8 @@ manuscripts/
 # tables and the serving and scorer comparisons (analysis/build_paper_extras.py).
 analysis/out_paper/master_table_v1*
 analysis/out_paper/paper_checks.*
+
+# Human-rater check: the renders are rebuilt from keys.json by `rater_check render`,
+# and the rating pages are copies of them for the raters.
+analysis/out_paper/rater_check/render/
+rater_sheets/

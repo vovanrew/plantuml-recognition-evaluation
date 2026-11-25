@@ -11,7 +11,7 @@ balanced across diagram type and complexity, drawn from the *UML-in-the-Wild*
 corpus (143,427 PlantUML/PNG pairs mined from open-source repositories via World
 of Code). The set must (i) support stable per-stratum comparison of multimodal
 models, (ii) enable a complexity-degradation analysis, and (iii) reserve all
-selected repositories from future fine-tuning training data.
+selected repositories from fine-tuning training data.
 
 Size: 1,000 diagrams (2 types x 4 complexity tiers x 125). The full set is the
 benchmark population for every model run.
@@ -119,7 +119,7 @@ each selected diagram but are not the binning variable.
 
 ## 6. Repository-disjoint sampling
 
-Selected repositories are reserved from any future fine-tuning training set.
+Selected repositories are reserved from any fine-tuning training set.
 Within the test set, at most 5 diagrams are drawn per repository, to prevent a
 single large project's stylistic conventions from dominating a stratum.
 
@@ -136,9 +136,9 @@ the 1,000-diagram target is unconstrained by pool size:
 
 ## 7. Image standardization for inference
 
-Every test image is pre-resized to a single standard prior to
-inference (aspect ratio preserved), and the identical image is sent to all
-models (controlled comparison). The standard is set at the lowest common
+Every test image is standardized once before inference (aspect ratio
+preserved), and the identical image is sent to all models (controlled
+comparison). The standard is set at the lowest common
 *effective processing* resolution across the model set. A distinction is drawn
 between a provider's maximum *accepted* dimensions (an upload gate that rejects
 larger files) and its *native processing* resolution (the size at which the
@@ -146,10 +146,10 @@ image is actually encoded; larger inputs are silently downscaled to it):
 
 | Model | Native processing resolution | Max accepted |
 |---|---|---|
-| GPT-5.x (high detail) | ~2,048 px long edge (tiled) | — |
+| GPT-5.2 (high detail) | ~2,048 px long edge (tiled) | — |
 | Gemini 3.1 Pro (media_resolution HIGH) | ~1,536 px long edge | — |
 | Claude Opus 4.6 | **1,568 px long edge (~1,568 tokens, ~1.19 MP)** | 8,000 x 8,000 px |
-| Qwen3.5 / Qwen3-VL (hosted) | configurable, ceiling ~16 MP (16,384 tokens) | ~16 MP |
+| Qwen3.5 (397B-A17B hosted; 2B, 9B, 27B self-served) | full standard image, one token per 32 x 32 px block (see below) | — |
 
 The binding floor is **Claude Opus 4.6 at a 1,568 px long edge (~1.19 MP)**.
 Per the Claude vision documentation, high-resolution support (2,576 px long
@@ -160,18 +160,25 @@ through 2,000 x 1,500 px all map to the ~1,568-token ceiling).
 
 Working standard: **long edge 1,568 px (~1.19 MP)**, Lanczos downscaling, PNG
 (lossless, preserving text legibility). This is the lowest native processing
-resolution among the four models and therefore the highest resolution every
-model can receive identically under the controlled-comparison constraint. The
-future fine-tuned Qwen will be run at this same resolution to preserve
-baseline-to-fine-tuned comparability.
+resolution among the models and therefore the highest resolution every
+model can receive identically under the controlled-comparison constraint.
+Images are only downscaled, never upscaled. An image whose long edge is already
+1,568 px or less keeps its size. In the set, 744 images have a 1,568 px long
+edge, and 256 are smaller. Transparency is flattened onto white (`util/standardize_images.py`).
+The fine-tuned Qwen3.5 models of the fine-tuning study answer the same
+standardized images, so the zero-shot and fine-tuned runs stay comparable.
 
-The hosted Qwen path (Featherless, all three sizes Qwen3.5-2B/9B/27B) encodes
-this standard without downscaling: black-box probes via
-`util/probe_image_tokens.py` (2B/9B 2026-06-11; 27B 2026-06-12) show the
-returned image-token count growing linearly with pixel count and matching the
-Qwen3.5 expectation `round32(W)·round32(H)/32²` through the 1,568 px standard
-(27B: 2,404 observed vs 2,401 expected at 1,568²) and beyond (full-size
-encoding observed at 4,000², ~16 MP).
+The Qwen3.5 models encode the standard image at full size. At full size, Qwen3.5
+gives one image token per 32 x 32 px block, that is `round32(W)·round32(H)/32²`
+tokens for a W x H image. Qwen3.5-397B-A17B is reached through OpenRouter,
+pinned to the provider Alibaba. Qwen3.5-2B, 9B and 27B are
+self-served on one GPU in their released bf16 weights. A local
+OpenAI-compatible server passes the image to the model's own processor. In all
+four runs, every one of the 1,000 responses reports `usage.prompt_tokens` equal
+to the text-only baseline (93 tokens), plus this full-size count, plus a fixed
+offset. The offset is 2 tokens for the hosted run and 3 tokens for each
+self-served run. The image with the most pixels (1,568 x 1,565 px) thus gives 2,401 image
+tokens in every run. No Qwen3.5 run downscales an image below the standard.
 
 Legibility is reported, not filtered: a per-tier crowding descriptor (e.g.
 `content_lines` per megapixel after resize to the 1,568 px standard) quantifies
@@ -220,10 +227,8 @@ For each type t in {class, sequence}:
 The final artifact is the committed list of filename keys, with fixed random
 seed and the per-type quartile thresholds recorded for reproducibility.
 
-## 11. Open items
+## 11. Notes
 
-- Normalized-code deduplication: implemented in `build_test_set.py` (see Section 8).
-- Image standard pixel budget on Qwen3.5-27B: confirmed 2026-06-12 (see §7).
-- Qwen hosting availability: confirmed (all three sizes live on Featherless).
-  Gemini GA snapshot: none exists as of 2026-06-11; the preview id and run
-  date are recorded together (benchmark-protocol.md §3).
+- Normalized-code deduplication is implemented in `util/build_test_set.py` (see Section 8).
+- Gemini 3.1 Pro has no GA snapshot (checked 2026-06-11), so the preview id and
+  the run date are recorded together (benchmark-protocol.md §3).

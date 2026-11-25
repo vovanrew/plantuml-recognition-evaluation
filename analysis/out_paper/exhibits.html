@@ -4,7 +4,7 @@
 <style>body{font-family:Calibri,Arial,sans-serif;font-size:11pt;line-height:1.4;}table{border-collapse:collapse;margin:8px 0;}th,td{border:1px solid #999;padding:3px 8px;text-align:left;vertical-align:top;}th{background:#eee;}code{font-family:Consolas,monospace;}</style></head><body>
 <h1>Paper exhibits — zero-shot image→PlantUML benchmark</h1>
 <p><strong>Models included: 7/7</strong> (panel: main).</p>
-<p>Assembled read-only from the validated Task-1..5 artifacts (<code>master_table.json</code>, <code>ci_table.json</code>, <code>run_level.json</code>, <code>crowding.json</code>, <code>failure_index.json</code>). No metric is re-pooled or recomputed here. Companion figures live in <code>analysis/out/plots/</code>; a Word-importable rendering of this document (tables paste straight into Microsoft Word) is emitted alongside it as <code>exhibits.html</code>.</p>
+<p>Assembled read-only from the validated Task-1..5 artifacts (<code>master_table.json</code>, <code>ci_table.json</code>, <code>run_level.json</code>, <code>crowding.json</code>, <code>failure_index.json</code>). No metric is re-pooled or recomputed here. Companion figures live in <code>plots/</code> beside this file; a Word-importable rendering of this document (tables paste straight into Microsoft Word) is emitted alongside it as <code>exhibits.html</code>.</p>
 <h2>Exhibit 1 — Headline results (two arms)</h2>
 <p>Cells are <code>point [2.5th, 97.5th]</code> paired-bootstrap 95% CIs (n=1000, seed=20260614); CSR as a percentage, F1 / type accuracy on 0–1, chrF++ on its native 0–100 scale. Two populations per metric as <code>zeros_for_failed / compiled_only</code>. chrF++ is the <strong>macro</strong> statistic (the CI-bearing one; chrF++ micro is a corpus statistic, point-only — see Exhibit 2). Type accuracy is compiled-only by definition. <strong>This is two arms, not one leaderboard.</strong></p>
 <h3>Arm A — Hosted reference models</h3>
@@ -191,7 +191,7 @@
 <tr><td>Qwen3.5-397B-A17B</td><td><code>qwen/qwen3.5-397b-a17b</code></td><td>openai</td><td>provider={'only': ['alibaba'], 'allow_fallbacks': False}; reasoning={'enabled': False}</td><td>5376</td><td>0</td></tr>
 </tbody></table>
 <h2>Exhibit 8 — Failure-case coverage (feeds the qualitative review)</h2>
-<p>The stratified failure index holds <strong>213</strong> cases (<code>--per-cell 2</code>, seed 20260614) across outcome classes provider_drop, compile_fail, compiled_low_structural. Full records — GT, prediction, CSR error, structural deltas — are in <code>failure_index.{md,json,csv}</code>; the 40-case write-up is in <code>analysis/error_analysis.md</code>. Coverage (available → sampled):</p>
+<p>The stratified failure index holds <strong>213</strong> cases (<code>--per-cell 2</code>, seed 20260614) across outcome classes provider_drop, compile_fail, compiled_low_structural. Full records — GT, prediction, CSR error, structural deltas — are in <code>failure_index.{md,json,csv}</code>; the coded error sample is written up in <code>analysis/error_analysis.md</code>. Coverage (available → sampled):</p>
 <table>
 <thead><tr><th>Model</th><th>provider_drop</th><th>compile_fail</th><th>compiled_low_structural</th></tr></thead>
 <tbody>
@@ -204,7 +204,7 @@
 <tr><td>qwen3.5-397b-a17b</td><td>—</td><td>213→16</td><td>111→16</td></tr>
 </tbody></table>
 <h2>Results-narrative skeleton (author expands into prose)</h2>
-<p><em>Headed bullets with the artifact numbers pre-filled; this is scaffolding, not paper prose. The qualitative error write-up is in <code>analysis/error_analysis.md</code> (40 cases from <code>failure_index</code>).</em></p>
+<p><em>Headed bullets with the artifact numbers pre-filled; this is scaffolding, not paper prose. The qualitative error write-up is in <code>analysis/error_analysis.md</code> (the coded error sample).</em></p>
 <p><strong>R1 — Frontier reference points.</strong> Compilation is near-saturated across the three flagships; Gemini 3.1 Pro leads on CSR (97.2%). They anchor the upper bound; report them as fixed points, not as a ranked contest (Exhibit 1A, Fig. frontier_bars).</p>
 <p><strong>R2 — Open-ladder scaling (dense).</strong> CSR rises monotonically with dense scale: Qwen3.5-2B 19.1% → Qwen3.5-27B 64.4%; Element/Relationship F1 track it (Exhibit 1B, Fig. scaling_curve). The compiled-only overlay stays high throughout — the gain is in *compiling at all*, not in the quality of what compiles.</p>
 <p><strong>R4 — Selective-failure bias (population gap).</strong> The compiled-only − all-1000 Element-F1 gap is largest for the weakest rung (Qwen3.5-2B, +0.635 at CSR 19.1%) and negligible at the frontier (Gemini 3.1 Pro, +0.016). Report the honest all-1000 column as the headline (Exhibit 3).</p>

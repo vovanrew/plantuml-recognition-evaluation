@@ -48,7 +48,7 @@ edges. Notes therefore enter the Element F1 and Relationship F1 counts on class
 diagrams, while `note`-typed pairs are excluded from the type-accuracy
 denominator (§3). Measured over the 1,000-diagram test set, notes are 71 of the
 5,742 ground-truth nodes (2.3% of the 3,125 class-diagram nodes) and 66 of the
-9,437 ground-truth edges, occurring in 39 diagrams.
+9,265 ground-truth edges, occurring in 39 diagrams.
 
 A childless grouping container — a box written with empty braces, such as
 `rectangle "Application" {}`, an empty `package`, or a `database X {}` — is a
@@ -63,21 +63,63 @@ Node identity is the entity's **visible display name** — the label rendered in
 the image — rather than any source-level alias or code identifier. Because the
 task is image-to-code, a model can reproduce only what is visible; an entity
 declared `class "ApplicationTemplate" as Model` is identified as
-`ApplicationTemplate`. Names are compared after lowercasing and trimming.
+`ApplicationTemplate`.
+
+The display name is the text that PlantUML draws for the label. The extractor
+reads the label with PlantUML's own markup parser and keeps the text of the
+drawn lines. Formatting tags, icons, sprites and emoji are markup, so they are
+not part of the name. An actor drawn as the sprite `<$actor>` above `Payer` is
+named `Payer`. The parser decides what is markup, so a generic such as
+`List<Pharmacy>` stays text. Unicode escapes such as `<U+226A>` are read as the
+characters they stand for. A label with no drawn text is named by its alias, as
+an empty label is. Every rule of this section applies in the same way to the
+ground truth and to a prediction.
+
+PlantUML draws a label on one of three paths, by kind of element, and the name
+is read on the same path.
+
+| Element | How the label is read | Example |
+|---|---|---|
+| Class-like element | With the setting of PlantUML's class header: a pair of double underscores is text, and a leading `*`, `**` or `#` starts no list item | `client_new_connection_SYNC__NO_MSG__AT_MOST` keeps its underscores |
+| Note, use case, rectangle-like element, circle, childless group that has a symbol | The label is cut at separator lines first. A separator line is a horizontal line that PlantUML draws, not text. Its title is text, unless it holds only separator characters | The lines `API Gateway`, `===`, `/api/v2/petstore` give `API Gateway /api/v2/petstore` |
+| Every other label: sequence participant, object, map, childless package without a symbol | Whole, with every kind of markup on. A lone `==` line is the heading `=` that PlantUML draws | The lines `PkgTop`, `==`, `PkgBottom` of a childless package give `=`: the heading is the largest line |
+
+When the lines of a label differ in font size, the line or lines at the largest
+size are the name. The size of a line is the largest size of any text in it.
+Sources generated from code often write the class name at one size and its
+package under it at a smaller one. `<b><size:14>ConquestMapPart</b>` above
+`<size:10>soen6441riskgame.enums` is named `ConquestMapPart`. Text without a
+size of its own has the base size of the diagram's own style for that element.
+That is PlantUML's default (14 pt for a class name or a participant, 13 pt for a
+note), unless the source changes it with `skinparam` or `<style>`. So
+`<size:10>Components::` above the unsized `DimensionComponent` is named
+`DimensionComponent`.
+
+The letter of a stereotype spot is not part of the name. A spot such as
+`<< (C,#ADD1B2) >>` sets the letter and the colour of the circle drawn beside the
+name, so the letter belongs to an icon. The declaration
+`participant "Producer" as UpstreamProducer << (C,#ADD1B2) >>` is named
+`Producer`. A tip, a note on a class member, is named by its owner and its side,
+as in `NumbersStack$$$LEFT`.
+
+Names are compared after lowercasing, trimming, and collapsing every run of
+whitespace to one space. The number of spaces between two words cannot be read
+from an image, so `Spring  Application`, typed with two spaces, equals
+`Spring Application`.
 
 Stereotype tokens are not part of the display-name match key on any node, in
 either diagram type, on both the ground-truth and prediction sides. The
 extractor folds a declaration's stereotype into the emitted node name
-(`participant "tuple" <<database>>` yields the name `<<database>> tuple`), and
+(`participant "tuple" <<database>>` yields the name `«database» tuple`), and
 whether a stereotype is written at all varies by model house style; keying the
 name on the stereotype would score a stylistic difference as a structural
-mismatch. Name comparison therefore removes every stereotype token — the source
-syntax `<<X>>`, the rendered chevron form `«X»`, and the source form with
-creole markup nested inside the chevrons (`<<<back:pink>X</back>>>`) — wherever
-it occurs in the name, and collapses the whitespace seam the removal leaves.
+mismatch. Name comparison therefore removes every stereotype token wherever it
+occurs in the name. This covers the source syntax `<<X>>`, the chevron forms
+`«X»` and `≪X≫` (U+226A and U+226B), and the source form with creole markup
+nested inside the chevrons (`<<<back:pink>X</back>>>`).
 Single angle brackets remain part of the name (`List<Variable>` is a generic,
 not a stereotype): `<<database>> tuple`, `tuple <<database>>`, `«database»
-tuple`, and `tuple` all key as `tuple`. Stereotype-driven entity-kind
+tuple`, `≪database≫ tuple`, and `tuple` all key as `tuple`. Stereotype-driven entity-kind
 distinctions are scored by the type-accuracy companion metric (§3); stereotype
 tags as surface text are assessed by chrF++ (§5).
 
@@ -100,7 +142,26 @@ vocabulary:
 The orientation of a directional edge is fixed by the link decoration — the
 triangle, diamond, or arrow head — rather than the order in which its two
 entities are written, so a relation drawn in either token order yields a single
-canonical edge.
+canonical edge. For an association, the extractor also records which end
+carries an arrowhead: neither end, the source, the target, or both. Relationship
+F1 uses this to decide whether an association is directed (§4).
+
+An edge is counted only when PlantUML draws it. The extractor leaves out every
+link and every message that PlantUML marks as not drawn:
+
+- a link that PlantUML adds itself to arrange three or more elements of a group
+  that have no relationship;
+- the link that PlantUML adds between the points of two association classes on
+  the same pair of classes;
+- a link or a message that the source writes as `[hidden]`, and a link to an
+  element that the source hides or removes.
+
+The image shows no line for these, so a model cannot read them. For example, six
+unconnected interfaces in one package give no edges. The link of a tip to its
+owner stays an edge, because the image shows the note's pointer to the class
+member. The rule holds in every diagram that the extractor reads as elements and
+links, and for the messages of a sequence diagram. It removes no node, so
+Element F1 and type accuracy do not depend on it.
 
 Realization is folded into inheritance. Every sequence message is typed
 `message`; a message whose counterpart lies outside the diagram is recorded with
@@ -117,12 +178,21 @@ complete diagram — for example a truncated model output lacking `@enduml` — 
 recorded as an error with an empty graph (zero nodes, zero edges), so that such
 cases are counted rather than silently dropped.
 
+### 2.4 Answers with several diagrams
+
+A prediction can hold several `@startuml` ... `@enduml` diagrams. The structural
+metrics read only the first diagram of such a prediction, because PlantUML
+displays only the first diagram of a file. The extractor emits one record for
+each diagram, and the records of the later diagrams are not scored. The same
+rule applies to the ground truth.
+
 ## 3. Element F1
 
 Element F1 measures recovery of the diagram's first-class entities — the nodes of
 the typed graph (classes for class diagrams, participants for sequence diagrams).
 A predicted node matches a ground-truth node when their display names are equal
-after lowercasing and trimming. Matching is multiset: a name occurring k times in
+after the normalization of §2.1: lowercasing, trimming, collapsing whitespace
+runs, and removing stereotype tokens. Matching is multiset: a name occurring k times in
 the ground truth is credited at most k times. For one diagram, true positives are
 the matched names, precision is true positives over the predicted node count, and
 recall is true positives over the ground-truth node count; F1 is their harmonic
@@ -140,7 +210,8 @@ The zeros-for-failed population spans every test-set key, with a missing or
 non-compiling prediction contributing an empty graph and therefore F1 zero. Both
 sides of every comparison have their PlantUML block isolated identically (the
 span from the first `@startuml` to the last `@enduml`), so any repository header
-preceding the diagram is removed symmetrically before extraction.
+preceding the diagram is removed symmetrically before extraction. Within that
+span, the scorer reads the first diagram (§2.4).
 
 Entity-type recovery is reported by a companion metric, **type accuracy**,
 computed over the name-matched node pairs; the Element F1 match key itself is
@@ -173,8 +244,8 @@ Relationship F1 measures recovery of the diagram's typed relations — the edges
 the typed graph. The matching unit is an edge; the construction otherwise follows
 Element F1. A predicted edge matches a ground-truth edge when their match keys are
 equal, where the match key is the triple of source endpoint, target endpoint, and
-canonical relation type. Endpoints are display names compared after lowercasing
-and trimming, the same normalization applied to nodes. Matching is multiset, so an
+canonical relation type. Endpoints are display names, compared after the same
+normalization as node names (§2.1). Matching is multiset, so an
 edge occurring k times — including parallel edges between the same pair — is
 credited at most k times. The edge label is excluded from the key: it is
 transcribed surface text rather than structure, so a relation is identified by
@@ -184,10 +255,16 @@ assessed separately by the surface metric (chrF++).
 Edge direction enters the match key by relation type. Inheritance, composition,
 aggregation, dependency, and message are directional: their endpoints carry an
 inherent orientation (child to parent, whole to part, sender to receiver), so a
-reversed edge is a mismatch. Association is undirected: a plain line between two
-entities has no inherent orientation, so its two endpoints are placed in a
-canonical order before forming the key, and an association drawn in either
-direction matches. Self-loops, whose source and target coincide, are scored as
+reversed edge is a mismatch. An association with exactly one arrowhead is also
+directional, and the edge runs from the tail to the head. The image shows an
+arrowhead as it shows a diamond, so a reversed, dropped, or added arrowhead is a
+mismatch. For the ground truth `Order --> Customer`, the predictions
+`Customer --> Order` and `Order -- Customer` are mismatches, and
+`Customer <-- Order` is a match. A plain line, or a line with an arrowhead at
+both ends, has no orientation. Its two endpoints are placed in a canonical order
+before forming the key, so such an association matches when written in either
+direction. A directed association never matches an undirected one between the
+same two entities. Self-loops, whose source and target coincide, are scored as
 ordinary edges.
 
 For one diagram, true positives are the matched edges, precision is true positives

@@ -6,14 +6,19 @@ protocol applied identically to every model. Metric definitions are recorded in
 
 ## Model set
 
-The benchmark comprises two arms evaluated under the identical protocol below.
-The frontier reference set is each lab's reigning general-purpose flagship as of
-2026-02-28: `gpt-5.2-2025-12-11` (OpenAI), `claude-opus-4-6` (Anthropic), and
-`gemini-3.1-pro-preview` (Google) — one per lab. The open arm is the Qwen3.5 family — the
-fine-tuning target of the subsequent work — across the dense 2B / 9B / 27B sizes
-and the 397B-A17B mixture-of-experts (397B total parameters, ~17B active).
-Open-model results are reported for Qwen3.5 specifically; the frontier models are
-reference points, not matched competitors.
+The benchmark has two groups of models, and both run under the same protocol below.
+
+- **Hosted reference models.** Three are each lab's general-purpose flagship as
+  of 2026-02-28, one per lab: `gpt-5.2-2025-12-11` (OpenAI), `claude-opus-4-6`
+  (Anthropic) and `gemini-3.1-pro-preview` (Google). The fourth is
+  Qwen3.5-397B-A17B, a mixture-of-experts model with 397B total and about 17B
+  active parameters. All four are reached through provider APIs (§2).
+- **Self-served open models.** These are the dense Qwen3.5 sizes 2B, 9B and 27B.
+  They run on one GPU in their released bf16 weights, through a local
+  OpenAI-compatible server (§2). They are also the zero-shot baseline of a
+  separate fine-tuning study.
+
+The three flagship models are reference points, not matched competitors.
 
 ## 1. Prompt
 
@@ -47,11 +52,9 @@ and this record together.
 
 Inference runs through `evaluation/infer_runner.py` (greedy decoding,
 temperature 0; `max_tokens` 5376 per methodology §1 of the evaluation
-framework; a per-call hard wall-clock deadline). The deadline was 90 s for the
-four frontier runs and for the first pass of each dense Qwen3.5 run. The dense
-Qwen3.5 runs then re-attempted their failed cells with a 600 s deadline, and the
-Qwen3.5-397B-A17B run used 600 s. 25 cells of Qwen3.5-2B and 1 of Qwen3.5-27B
-exceeded 600 s and are recorded as timeouts. Each run stores one record per
+framework; a per-call hard wall-clock deadline). The deadline is 90 s for the
+three flagship runs. It is 600 s for the Qwen3.5-397B-A17B run and for the three
+self-served runs. Each run stores one record per
 test-set cell and a `run_meta.json` pinning the model identifier, endpoint,
 prompt text, and decoding parameters.
 
@@ -60,30 +63,27 @@ reasoning configuration (§3) and the usage fields the harness validates
 (endpoint documentation verified against provider primary sources
 2026-06-12):
 
-- **OpenAI (`gpt-5.2-2025-12-11`) and Featherless (dense Qwen3.5)** — the native
-  OpenAI chat-completions shape (`https://api.openai.com/v1`,
-  `https://api.featherless.ai/v1`). GPT-5.2 takes the output cap as
+- **OpenAI (`gpt-5.2-2025-12-11`)**: the native OpenAI chat-completions shape
+  (`https://api.openai.com/v1`). GPT-5.2 takes the output cap as
   `max_completion_tokens` (`max_tokens` is rejected for this model;
-  `--token-field`, recorded in `run_meta.json`) and returns HTTP 400 rather
-  than a truncated completion when generation reaches the cap, so a
-  cap-exhausting generation is stored as an `http_error` failure record. Featherless serves the
-  dense Qwen3.5 sizes (2B/9B/27B) at FP8; all three ingest the 1,568 px image standard without
-  downscaling (`util/probe_image_tokens.py`; test-set-construction.md §7).
-- **First-party Qwen (`Qwen3.5-397B-A17B`)** — the same OpenAI-compatible shape
-  reached through OpenRouter (`https://openrouter.ai/api/v1`) pinned to the model's
-  first-party (Alibaba) backend with fallbacks disabled. The 397B-A17B is measured on
-  first-party serving rather than the shared Featherless host used for the dense sizes,
-  because the shared host's serving of this model did not faithfully reflect its capability.
-- **Anthropic (`claude-opus-4-6`)** — Anthropic's OpenAI-compatible
+  `--token-field`, recorded in `run_meta.json`). When generation reaches the
+  cap, the endpoint returns HTTP 400 and no completion. Such a generation is
+  therefore stored as an `http_error` failure record.
+- **Qwen3.5-397B-A17B**: the same OpenAI-compatible shape, reached through
+  OpenRouter (`https://openrouter.ai/api/v1`). The request pins the provider
+  `alibaba` and disables fallbacks (`provider: {"only": ["alibaba"],
+  "allow_fallbacks": false}`, recorded in `run_meta.json`). The run started on
+  2026-06-28.
+- **Anthropic (`claude-opus-4-6`)**: Anthropic's OpenAI-compatible
   endpoint (`https://api.anthropic.com/v1/chat/completions`), which
   documents passthrough of the native `thinking` request parameter and
   returns `usage.prompt_tokens`/`completion_tokens` and `image_url` content
   (the fields the ingestion check and the shared request shape require).
-- **Google (`gemini-3.1-pro-preview`)** — the native REST endpoint
+- **Google (`gemini-3.1-pro-preview`)**: the native REST endpoint
   (`https://generativelanguage.googleapis.com/v1beta/models/<id>:generateContent`,
-  key in the `x-goog-api-key` header), selected over Google's
-  OpenAI-compatibility layer because the per-call `thoughtsTokenCount`
-  reported per §3 is carried only in the native `usageMetadata`. The harness
+  key in the `x-goog-api-key` header). The native endpoint is used because
+  the per-call `thoughtsTokenCount` reported per §3 is carried only in the
+  native `usageMetadata`. The harness
   (`--provider gemini`) maps the shared prompt + image content into native
   `contents`/`parts` (`inline_data` with the identical standardized PNG),
   maps temperature 0 and the token cap to `generationConfig.temperature` /
@@ -92,14 +92,26 @@ reasoning configuration (§3) and the usage fields the harness validates
   Ingestion validation reads `usageMetadata.promptTokenCount`; prediction
   text is the concatenation of non-thought candidate parts (thought
   summaries are absent without `includeThoughts`). On this endpoint
-  `maxOutputTokens` covers thinking and answer tokens jointly, so the
-  Gemini run's token cap is sized from the pilot's observed
-  thinking-token volume on top of the 5376-token answer budget.
+  `maxOutputTokens` covers thinking and answer tokens together. The Gemini
+  run sets it to 5376, the same cap as the other runs.
+- **Self-served Qwen3.5 (2B, 9B, 27B)**: the same OpenAI chat-completions
+  shape, sent to a local OpenAI-compatible server (`http://127.0.0.1:8000/v1`).
+  The server is a thin layer over Hugging Face transformers 5.18.0 on torch
+  2.14.1. It serves each model in its released bf16 weights, with no
+  quantization, on one NVIDIA RTX PRO 6000 Blackwell Server Edition GPU
+  (96 GB). Each model is pinned to a fixed commit of its weights, and every
+  response records the commit, the precision and the GPU. The runs use the
+  same prompt, the same 1,568 px images, greedy decoding at temperature 0 and
+  `max_tokens` 5376 as the hosted runs, with the 600 s deadline. All three
+  sizes take in the 1,568 px images without downscaling. Their stored prompt
+  token counts match the expected image token count,
+  `round32(W)·round32(H)/32²`, within 3 tokens. The runs started on
+  2026-10-26 (2B) and on 2026-10-27 (9B and 27B).
 
 Image ingestion is validated on every call: the response's `prompt_tokens`
 must exceed a text-only baseline measured at run start, since a hosted
 endpoint can accept an image-bearing request yet silently drop the image and
-answer from the text alone (observed on Featherless cold starts). Before the
+answer from the text alone. Before the
 batch, throwaway image-bearing calls warm the endpoint until ingestion is
 confirmed; the run aborts if it never is. During the batch, a call whose
 image is dropped is retried a bounded number of times; a persistent drop is
@@ -114,7 +126,8 @@ recorded as a `timeout` failure without retry, because observed timeout causes
 failure record and no prediction file, so Compilation Success Rate scores the
 cell as a failure while the cause remains on disk for error analysis. Stored
 successful responses are immutable: re-invoking a run directory skips them and
-re-attempts only recorded failures.
+re-attempts only recorded failures. The three self-served runs have no failure
+records: each answers all 1,000 cells.
 
 ## 3. Reasoning configuration
 
@@ -135,13 +148,13 @@ defaults to non-thinking while 9B, 27B, and the 397B-A17B mixture-of-experts
 default to thinking, so non-thinking is requested explicitly for every size.
 The dense sizes take the official model-card form `chat_template_kwargs:
 {"enable_thinking": false}` (a no-op on 2B, whose chat template enables
-thinking only on an explicit `true`); the 397B-A17B, served through its
-first-party provider (§2), takes the equivalent top-level `reasoning:
+thinking only on an explicit `true`); the 397B-A17B, reached through
+OpenRouter (§2), takes the equivalent top-level `reasoning:
 {"enabled": false}`. Across all runs the stored completions carry no reasoning
 content — the `reasoning_leak` tally is 0 for every model.
 
-The Gemini setting is an asymmetry of the comparison rather than a silent
-confound: thinking tokens generated at `thinking_level: "low"` are billed and
+The Gemini setting is an asymmetry of the comparison, and it is measured:
+thinking tokens generated at `thinking_level: "low"` are billed and
 reported by the API in the per-response `thoughtsTokenCount` field, which is
 preserved in the stored raw responses; the benchmark reports the measured
 residual thinking-token volume alongside the results. The API omits the

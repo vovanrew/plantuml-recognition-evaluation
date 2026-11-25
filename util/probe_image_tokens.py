@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
-"""Probe a hosted endpoint's applied image pixel budget via returned token counts.
+"""Probe the image token count of an OpenAI-compatible endpoint.
 
-Black-box test for whether the provider downscales images below our 1568 px
-standard (methodology §7). Sends a fixed text prompt with synthetic images of
-increasing size and reads `usage.prompt_tokens`; the image-token count is the
-difference from a text-only baseline.
+Black-box test for whether an endpoint downscales images below the 1568 px
+standard (methodology/test-set-construction.md §7). Sends a fixed text prompt
+with synthetic images of increasing size and reads `usage.prompt_tokens`; the
+image-token count is the difference from a text-only baseline.
 
 For Qwen3.5 the expected relation is tokens ~= round32(W)*round32(H) / (32*32).
 A LINEAR curve through 1568^2 means no compression at/below the standard; a
-PLATEAU reveals the provider's max_pixels cap (the knee = its applied budget).
+PLATEAU reveals the endpoint's max_pixels cap (the knee = its applied budget).
 
-Usage (invoke from project root):
-  FEATHERLESS_API_KEY=... python util/probe_image_tokens.py
-  (override --base-url / --model for other OpenAI-compatible providers)
+Usage (invoke from project root; the key is read from the environment
+variable named by --key-env):
+  python util/probe_image_tokens.py --base-url <url> --model <id> --key-env <VAR>
 """
 from __future__ import annotations
 
@@ -75,14 +75,15 @@ def round32(n):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base-url", default="https://api.featherless.ai/v1")
-    ap.add_argument("--model", default="Qwen/Qwen3.5-2B")
+    ap.add_argument("--base-url", required=True, help="OpenAI-compatible endpoint")
+    ap.add_argument("--model", required=True, help="model id as the endpoint names it")
+    ap.add_argument("--key-env", required=True, help="env var holding the API key")
     ap.add_argument("--sizes", default="512,1024,1568,2048,3000,4000")
     args = ap.parse_args()
 
-    key = os.environ.get("FEATHERLESS_API_KEY")
+    key = os.environ.get(args.key_env)
     if not key:
-        raise SystemExit("set FEATHERLESS_API_KEY")
+        raise SystemExit(f"set {args.key_env}")
 
     text = "Describe the image in one word."
     base = call(args.base_url, key, args.model, [{"type": "text", "text": text}])

@@ -54,8 +54,8 @@ def test_scored_models_have_run_dirs():
 
 def test_moe_scored_on_first_party_serving():
     by_id = {e.id: e for e in load_registry()}
-    # 397B-A17B: measured on first-party serving (OpenRouter pinned to the Alibaba backend)
-    # rather than the shared host used for the dense sizes; registered and included.
+    # 397B-A17B is served by OpenRouter pinned to the Alibaba backend; registered
+    # and included.
     moe = by_id["qwen3.5-397b-a17b"]
     assert moe.status == "scored"
     assert moe.run_dir == "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z"

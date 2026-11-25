@@ -2,7 +2,7 @@
 
 **Models included: 7/7** (panel: main).
 
-Assembled read-only from the validated Task-1..5 artifacts (`master_table.json`, `ci_table.json`, `run_level.json`, `crowding.json`, `failure_index.json`). No metric is re-pooled or recomputed here. Companion figures live in `analysis/out/plots/`; a Word-importable rendering of this document (tables paste straight into Microsoft Word) is emitted alongside it as `exhibits.html`.
+Assembled read-only from the validated Task-1..5 artifacts (`master_table.json`, `ci_table.json`, `run_level.json`, `crowding.json`, `failure_index.json`). No metric is re-pooled or recomputed here. Companion figures live in `plots/` beside this file; a Word-importable rendering of this document (tables paste straight into Microsoft Word) is emitted alongside it as `exhibits.html`.
 
 ## Exhibit 1 — Headline results (two arms)
 
@@ -206,7 +206,7 @@ token totals over all cells incl. failures; output already includes reasoning (n
 
 ## Exhibit 8 — Failure-case coverage (feeds the qualitative review)
 
-The stratified failure index holds **213** cases (`--per-cell 2`, seed 20260614) across outcome classes provider_drop, compile_fail, compiled_low_structural. Full records — GT, prediction, CSR error, structural deltas — are in `failure_index.{md,json,csv}`; the 40-case write-up is in `analysis/error_analysis.md`. Coverage (available → sampled):
+The stratified failure index holds **213** cases (`--per-cell 2`, seed 20260614) across outcome classes provider_drop, compile_fail, compiled_low_structural. Full records — GT, prediction, CSR error, structural deltas — are in `failure_index.{md,json,csv}`; the coded error sample is written up in `analysis/error_analysis.md`. Coverage (available → sampled):
 
 | Model | provider_drop | compile_fail | compiled_low_structural |
 |---|---|---|---|
@@ -220,7 +220,7 @@ The stratified failure index holds **213** cases (`--per-cell 2`, seed 20260614)
 
 ## Results-narrative skeleton (author expands into prose)
 
-_Headed bullets with the artifact numbers pre-filled; this is scaffolding, not paper prose. The qualitative error write-up is in `analysis/error_analysis.md` (40 cases from `failure_index`)._
+_Headed bullets with the artifact numbers pre-filled; this is scaffolding, not paper prose. The qualitative error write-up is in `analysis/error_analysis.md` (the coded error sample)._
 
 **R1 — Frontier reference points.** Compilation is near-saturated across the three flagships; Gemini 3.1 Pro leads on CSR (97.2%). They anchor the upper bound; report them as fixed points, not as a ranked contest (Exhibit 1A, Fig. frontier_bars).
 

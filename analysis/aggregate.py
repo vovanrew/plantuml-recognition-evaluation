@@ -16,7 +16,10 @@ scored models -- see the validation gate in methodology/analysis-protocol.md):
                     from the summary (overall only; None for per-(type,tier) cells).
 - type accuracy    pools matched/correct/excluded over COMPILED element rows;
                     denominator = matched - excluded; accuracy = correct/denominator.
-- per-relation F1  has no per-diagram breakdown -> read from summary.by_relation.
+- per-relation F1  point estimates are read from summary.by_relation. The scorer
+                    also stores per-diagram per-relation counts; pooling them
+                    reproduces that summary, and the bootstrap resamples them
+                    (methodology/analysis-protocol.md §4).
 - per-GT-type acc  has no per-diagram breakdown -> read from summary.type_accuracy.
 """
 from __future__ import annotations

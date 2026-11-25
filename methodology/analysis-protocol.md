@@ -6,7 +6,8 @@ per-diagram metric outputs into the reported results. The per-diagram metrics ar
 defined in `evaluation-framework.md`, the test set in `test-set-construction.md`,
 and the inference protocol in `benchmark-protocol.md`. The analysis reads the
 stored scorer outputs and the raw inference responses; it does not re-run inference
-or re-score diagrams.
+or re-score diagrams. The panel is listed in `analysis/model_registry_paper.json`, and
+the outputs are written to `analysis/out_paper/`.
 
 ## 1. Reporting populations
 
@@ -24,6 +25,11 @@ easier subset it managed to compile, so its `compiled_only` score overstates its
 ability on the full set. Each metric uses its own per-diagram compilation flag to
 determine population membership; the four scorers' per-diagram compilation flags
 agree, and the renderer's flag (CSR) is authoritative.
+
+One answer of Qwen3.5-9B stops the structure extractor. The answer also does not
+render, so it is a compile fail, and the structural scorers score it as an empty
+graph. Whether it gets full credit or none, no full-set figure moves by more than
+0.0027.
 
 ## 2. Aggregation
 
@@ -67,6 +73,14 @@ At sub-scopes (per type, per tier) chrF++ is reported as macro only, since its
 micro is a corpus statistic defined at the overall scope. Per-relation Relationship
 F1 is reported overall.
 
+Per-type and per-tier intervals are given for CSR, and for Element F1 and
+Relationship F1 micro in both populations, with the bootstrap of §5. One draw of the
+diagrams serves all strata, and each stratum's statistic is computed on the resampled
+diagrams that fall in it. Two contrasts are reported with their intervals: class
+minus sequence, and tier 1 minus tier 4. A contrast is the difference between two
+strata within the same resample, so it is paired. These intervals are built by
+`analysis/build_paper_extras.py`.
+
 ## 4. Per-relation reporting
 
 Relationship F1 is reported overall and per canonical relation type (inheritance,
@@ -76,19 +90,24 @@ six relations, and the scorer emits per-diagram per-relation true/false
 positive/negative counts in addition to the overall counts. Per-relation point
 estimates and confidence intervals are computed by pooling and resampling these
 per-diagram per-relation counts; the pooled per-relation counts reproduce the
-scorer's relation-level summary in both populations. Ground-truth support per
+scorer's relation-level summary in both populations. The master table reads its
+per-relation point estimates from that summary. Ground-truth support per
 relation is reported alongside each estimate.
 
 ## 5. Statistical uncertainty
 
 Uncertainty is reported as 95% confidence intervals from a paired percentile
-bootstrap with a fixed seed and 1000 resamples. Each resample draws diagrams with
+bootstrap with the fixed seed 20260614 and 1,000 resamples. Each resample draws diagrams with
 replacement; the same draws are applied to every model, so resamples are paired by
 diagram. Within each resample, micro statistics are recomputed by re-pooling the
 per-diagram counts, macro statistics by re-averaging the per-diagram values, and
 CSR by re-averaging the per-diagram compilation flag. The interval is the 2.5th and
 97.5th percentiles of the resample distribution (linear interpolation). The
-identity resample reproduces the point estimate.
+identity resample reproduces the point estimate. A resample in which a statistic is
+undefined is left out of that statistic's percentiles. This happens, for example, to a
+per-relation F1 when the relation is absent from both the ground truth and the
+predictions of the resampled set. A paired difference uses the resamples in which both statistics are
+defined.
 
 Model differences are reported as the confidence interval on the paired difference
 between two models for a statistic; an interval excluding zero indicates a
@@ -122,10 +141,11 @@ is below 0.5. Every other answer is **ok**. The class comes from the renderer's 
 so an answer that does not render is a compile fail even when its source can be parsed. An
 answer that stops the structure extractor is also a compile fail: the model answered, and the
 answer does not render. The counts of the four classes are reported per run, and they give
-how often each class occurs.
+how often each class occurs. The counts are written by `analysis/build_failure_index.py`.
 
 **The sample.** The strata are model × diagram type × tier × failure class (compile fail or
-compiled low-structural), which is 16 cells per model. Each non-empty cell gives one case. The
+compiled low-structural), which is 16 cells per model. Each non-empty cell gives one case, and
+the seven models give 108 cases. The
 case is drawn by a seeded rule whose seed depends only on the cell, so one model's sample does
 not change when another model is added. One case per cell shows the kinds of failure, not how
 often each occurs. Provider drops are counted from the runs and are not sampled.
@@ -141,10 +161,11 @@ answer. The key that links identifiers to models is written before any case is c
 
 **Coding.** The codes and their rules are fixed in a codebook before the first case is coded,
 and the key records the codebook's hash. Every case gets one primary code, the defect that
-would recover most of the loss if fixed alone, and any secondary codes. The codes cover
-compile failures (a syntax error, an answer that never ends, the wrong diagram family),
-structural defects (a wrong relation type, missed relations, invented elements, a misread
-name, a wrong element kind, lost control flow, missed elements) and a measurement artifact.
+would recover most of the loss if fixed alone, and any secondary codes. The compile-failure
+codes are a syntax error, an answer that never ends, and the wrong diagram family. The
+structural codes are a wrong relation type, missed relations, invented elements, a misread
+name, a wrong element kind, lost control flow, and missed elements. One more code marks a
+measurement artifact.
 The measurement artifact is limited to two stated causes, and any other candidate goes to the
 author. Each case is coded twice, independently. The author decides every case where the two
 codings differ or a coder asks for a decision.
@@ -168,14 +189,13 @@ still classified as a provider failure.
 
 A failure inventory separates provider failures (timeout, dropped image, HTTP
 error, network error) and provider no-response from model compile failure. A
-provenance manifest records, per model, the exact snapshot, endpoint, non-thinking
-configuration, token ceiling, and temperature.
+provenance manifest records, per model, the exact snapshot, provider, endpoint,
+reasoning configuration, token ceiling, timeout, temperature, and run start time.
 
 The reasoning-leak count is re-derived by scanning each model's predictions for a
 `<think>` block; it is not persisted by the inference harness. Dollar cost is not
-reported: the open-weight arm was served under flat-rate rather than per-token
-billing, so a per-token price basis comparable across the panel does not exist, and
-token volumes are reported instead.
+reported. The three dense Qwen3.5 models are self-served and have no per-token price,
+so no price basis is comparable across the panel. Token volumes are reported instead.
 
 ## 9. Image crowding descriptor
 
@@ -191,7 +211,9 @@ A model is reported only when its four metric outputs are present and its
 reasoning-leak count is zero. Run-level reporting additionally requires that the
 raw-response and scorer views of the run agree on the no-response count; a
 mismatch indicates a run resumed after scoring and the model is held out of the
-run-level tables until rescored.
+run-level tables until rescored. On the scorer side, a diagram counts as no-response
+only when neither the structural scorers nor chrF++ saw an answer. An answer held
+back from the structure extractor (§1) is therefore not a no-response.
 
 Every aggregated number reproduces the corresponding scorer summary exactly: the
 per-diagram counts pooled, or the per-diagram values averaged, equal the stored
@@ -204,9 +226,62 @@ output make every artifact byte-identical on re-run for unchanged inputs. All
 analysis artifacts are regenerable from the stored runs; the raw inference
 responses are the retained source of truth.
 
-The reported panel comprises seven models in two arms — frontier reference points
-and the Qwen open family (a dense parameter ladder plus a mixture-of-experts
-ceiling) — and is never collapsed into a single ranked ordering. The
-mixture-of-experts model is reported at both its total and active parameter counts
-and is not placed on the dense parameter axis. The model set is specified in
+The reported panel has seven models in two groups, and it is never collapsed into a
+single ranked order. The hosted reference models come first: GPT-5.2, Claude Opus
+4.6, Gemini 3.1 Pro and Qwen3.5-397B-A17B, each on its provider's serving. The
+self-served open models follow: the dense Qwen3.5-2B, 9B and 27B. Statements about a
+trend with model size use these three dense models only. Qwen3.5-397B-A17B is a
+mixture-of-experts model, named by its total and active parameter counts, and it is
+not placed on the size axis. The figures show the models in the same two groups
+(`analysis/build_plots.py --by-arm`). The panel is listed in
+`analysis/model_registry_paper.json`, and the models are specified in
 `benchmark-protocol.md`.
+
+## 11. Human-rater check
+
+The human-rater check asks one question. When two models answer the same test diagram, does a
+person pick the drawing that the metrics score higher? All its numbers are descriptive, and no
+pass mark is set.
+
+**What a rater sees.** For one test diagram, the rater sees three pictures: the test image, and
+the two models' answers rendered as drawings A and B. The order of A and B is random, and
+nothing names a model. Each answer's PlantUML block is rendered by the same pipeline that made
+the test images. A sample answer that does not render to exactly one picture stops the build.
+The rater answers: A is closer, B is closer, or about the same. The rater judges the content:
+the boxes, their names and members, the messages and their text, and what is connected to what
+with which kind of arrow. Layout, position and colour are ignored. An optional comment follows.
+The raters are Ukrainian, so the page is in Ukrainian.
+
+**Comparisons.** Four comparisons: Gemini 3.1 Pro against Claude Opus 4.6, GPT-5.2 against
+Claude Opus 4.6, Qwen3.5-397B-A17B against Qwen3.5-27B, and Qwen3.5-9B against Qwen3.5-27B.
+
+**Pool.** A diagram enters a comparison's pool when both answers compiled and their Element F1
+or Relationship F1 differ. A pair's direction is the model the metric prefers: by Element F1
+when it differs, otherwise by Relationship F1. Test diagrams that the raters may already have
+seen are left out.
+
+**The sample.** Each comparison gives 15 pairs, 60 in all. The direction the pool prefers more
+often gets 8 pairs and the other gets 7. Without this balance, a rater who always picked one
+model could agree with the metric without judging content. In each direction, half the pairs
+(rounded down) have different Element F1, and the rest differ only in Relationship F1. Class
+and sequence diagrams are split as evenly as each cell allows. Each cell is drawn by a seeded
+rule, and a diagram appears in one pair only. The key that links pairs to models is written
+before anything is rendered.
+
+**Raters.** The author and one second person rate the 60 pairs alone, each in their own random
+order. They do not discuss pairs before both have finished.
+
+**Reported.** For each rater and each metric, the report takes the pairs where the metric
+differs and the rater picked A or B. It gives the share where the rater picked the answer with
+the higher score, with a Wilson 95% interval, and the count of "about the same". Beside this:
+the agreement with the pair's direction, the same numbers on the pairs where the two metrics
+prefer different answers, and counts per comparison and per diagram type. The agreement with the
+pair's direction is also given by the size of the gap in the metric that sets the direction. The
+gap falls in four bins: below 0.05, 0.05 to 0.15, 0.15 to 0.35, and 0.35 or more. These numbers
+are given per rater and over both raters' picks. The bins are set after the ratings are seen, so
+they describe and do not test. Between the raters: the share of pairs with the same answer and
+Cohen's kappa. The author describes what differs in each pair where both raters
+chose against the metric.
+
+The sample is drawn by `analysis/rater_check.py draw`, rendered by its `render` command, put on
+rating pages by `sheets`, and reported by `report`.

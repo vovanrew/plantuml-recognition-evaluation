@@ -347,7 +347,7 @@ def exhibit_narrative_skeleton(master: dict, ci: dict, run_level: dict | None,
     out = ["## Results-narrative skeleton (author expands into prose)", "",
            "_Headed bullets with the artifact numbers pre-filled; this is scaffolding, "
            "not paper prose. The qualitative error write-up is in `analysis/error_analysis.md` "
-           "(40 cases from `failure_index`)._", ""]
+           "(the coded error sample)._", ""]
 
     fb = _best(master, g["frontier"], "csr", "micro", "zeros_for_failed")
     out += ["**R1 — Frontier reference points.** Compilation is near-saturated across "
@@ -417,7 +417,7 @@ def render_exhibits_md(master: dict, ci: dict, run_level: dict | None,
             "(`master_table.json`, `ci_table.json`, `run_level.json`, `crowding.json`"
             + (", `failure_index.json`" if failure else "") +
             "). No metric is re-pooled or recomputed here. Companion figures live in "
-            "`analysis/out/plots/`; a Word-importable rendering of this document (tables "
+            "`plots/` beside this file; a Word-importable rendering of this document (tables "
             "paste straight into Microsoft Word) is emitted alongside it as "
             "`exhibits.html`.", ""]
     out += exhibit_headline(master, ci)
@@ -443,7 +443,7 @@ def _failure_coverage(failure: dict) -> list[str]:
            f"(`--per-cell {m['per_cell']}`, seed {m['seed']}) across outcome classes "
            f"{', '.join(m['outcome_classes_sampled'])}. Full records — GT, prediction, "
            "CSR error, structural deltas — are in `failure_index.{md,json,csv}`; the "
-           "40-case write-up is in `analysis/error_analysis.md`. Coverage (available → sampled):", "",
+           "coded error sample is written up in `analysis/error_analysis.md`. Coverage (available → sampled):", "",
            "| Model | " + " | ".join(m["outcome_classes_sampled"]) + " |",
            "|---|" + "---|" * len(m["outcome_classes_sampled"])]
     for mid in m["included_ids"]:

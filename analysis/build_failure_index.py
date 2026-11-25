@@ -1,15 +1,19 @@
 """CLI: registry -> load+join -> reasoning_leak gate -> stratified failure sample -> emit.
 
-Builds a reviewable failure-case index (markdown + CSV + JSON) under ``analysis/out/``
-for the author's qualitative 30-50-case error write-up. Drives everything off
-analysis/model_registry.json; pending/missing runs are skipped with a logged note and
-a leaking run is refused, so a partial index is labelled "N/total". Read-only over
-``data/``. Idempotent (fixed seed, sorted iteration).
+Builds a reviewable failure-case index (markdown + CSV + JSON) in the output
+directory (``--out-dir``). The index gives the outcome counts that
+``analysis/error_analysis.md`` reports. Drives everything off the model registry
+(``--registry``); pending or missing runs are skipped with a logged note and a
+leaking run is refused, so a partial index is labelled "N/total". Read-only over the
+data root. Idempotent (fixed seed, sorted iteration).
 
-    python3 analysis/build_failure_index.py                    # main 4/7 panel
-    python3 analysis/build_failure_index.py --per-cell 2       # cap per cell (default 2)
-    python3 analysis/build_failure_index.py --include-ok       # also sample compiled-ok cases
-    python3 analysis/build_failure_index.py --include-supplementary   # + Sonnet index
+The paper's index is built from the paper data root into ``analysis/out_paper/``:
+
+    R="--data-root data_paper --registry analysis/model_registry_paper.json --out-dir analysis/out_paper"
+    python3 analysis/build_failure_index.py $R                 # main panel
+    python3 analysis/build_failure_index.py $R --per-cell 2    # cap per cell (default 2)
+    python3 analysis/build_failure_index.py $R --include-ok    # also sample compiled-ok cases
+    python3 analysis/build_failure_index.py $R --include-supplementary   # + supplementary index
 """
 from __future__ import annotations
 
@@ -100,7 +104,7 @@ def main(argv=None) -> int:
         for kind, p in paths.items():
             print(f"  {kind}: {p}")
 
-    _run(panel_entries(registry), "main", args.basename)   # 7-model panel, Sonnet excluded
+    _run(panel_entries(registry), "main", args.basename)   # main panel, supplementary models excluded
 
     if args.include_supplementary:
         supp = [e for e in registry if e.supplementary]

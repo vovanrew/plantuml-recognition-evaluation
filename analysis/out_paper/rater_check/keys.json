@@ -1,0 +1,1613 @@
+{
+ "_doc": "The unblinded key of the rater-check sample. Raters never read this file.",
+ "seed": 20260614,
+ "rater_check_sha256": "de3df31df052c4166e71eb9f3ff450fbc66713eef4103e49fb4c56afa37eb405",
+ "registry": "analysis/model_registry_paper.json",
+ "per_comparison": 15,
+ "run_dirs": {
+  "claude-opus-4-6": "claude-opus-4-6_20260614T081502Z",
+  "gemini-3.1-pro": "gemini-3.1-pro-preview_20260613T154356Z",
+  "gpt-5.2": "gpt-5.2-2025-12-11_20260613T154248Z",
+  "qwen3.5-27b": "Qwen3.5-27B_self-served",
+  "qwen3.5-397b-a17b": "qwen3.5-397b-a17b-openrouter-alibaba_20260628T095506Z",
+  "qwen3.5-9b": "Qwen3.5-9B_self-served"
+ },
+ "excluded_keys": [
+  "0669adcc92eba89c3d212870766c1b3c3b1f0fe9",
+  "0806d963c5e7a8c33333d600ef648945bd34e3a3",
+  "08439b3cc01baf1e0536a69789d49cbbfc8d5f08",
+  "0b185a3b2c5e97ab0a5a8e498f41117b5d8a0c04",
+  "1005aa193a9f44b81b50ffa6082ddb371b6b27a2",
+  "10107d5ea600402c3929e2d613665e2083afc0cf",
+  "1010a06e412b3aa575a498e6287b9ddb5f519153_03",
+  "10c4e675e2af75c28978dfc25c0dc506ead2e924",
+  "13535b2cbd8a085a55557cd59dee9ac4e2096202_20",
+  "176ee56938ebd42c920537135ecdfc5be13c2264",
+  "18c35ba23509d7d482a2f7dd80caedeb3a8f8d8e",
+  "1bca4778a2b1752ff82d4954b38bd9f6f92cdcda_02",
+  "1fff6854982585b028c5f0bf48b00e2f21257a5c",
+  "2a4589545d0724a2fd658cf25977288ce92cb45a",
+  "3e8ecc26a5a423e016c2d7c2fe96a7e63fe2de0e_15",
+  "42fc85c2e1d580aedd56311d963ecb8df37a5cb1",
+  "43546cf492e53ebe46f33eeedfbf94166c94a89c",
+  "4d2fe3ad3761432223041707e998b31494542afa",
+  "52b35cdfb95f42f4a362974089447325b36019ee",
+  "568fd76df4b49045a4075f660e3304a245ac5635",
+  "6084305e9660aa52a87f03713a2c2186550b7b67",
+  "67268dbcf94bff1e0eb5651f3a93e7cdf10d421d",
+  "675a4fc7c129385146a67e610b9d4a491a45979c",
+  "6bbbce38c14501edec1167227ecd80b237437bf1",
+  "73140d95a9e008d90bde62dea52c882a64c2c21e",
+  "7537531466ea8767a5c1c7d291faadbf4ca21aa6",
+  "7b193b87fc1102787a6c3629d65f137c48a07aa8",
+  "7b304edd43574ce0671a402e1bb4c248595eafe1",
+  "87b60b1e2a1eb524135d82fffa11f0d956656dc3",
+  "8e2340c2666c410a8840e4e7536bd5f8ab8a6483",
+  "96c243613b5e6d1b5c865f2558fc179034843ea1",
+  "9890941195e2a1c14ad56d223379c59290960404",
+  "9bce91de5124822ea973633e3b4f1bdc77100e6a",
+  "9dcbe3ca2a480347bdc97c962c0f9ac2c349f1c5",
+  "9f191261deed646fe29bfdbe79135b223f66136e",
+  "9fda0705e24ff13dfc2b5669e22def5ddbad3698_01",
+  "a13d56afa01acee97b9e6fdc73d791dc4faba798",
+  "b194c9e8016d16011d498b0786bec9c1cfa09ce8",
+  "b54faa73ac4f11af7993db28cc8d2eb8866801fc",
+  "b792f638cde00ec3d50ec062ba867db0fc3a7643",
+  "b88ecdbbbbf3309f701476493fb23337b024afc8",
+  "ba9090f76db6fbde5872bc8f24d23e890049aca6",
+  "be1d57aaaeefb43b0f76c6299cd15e5fd8b27b27",
+  "bf3152436c4ab260a6fa697760f423fcfe35031f",
+  "c7790c02d8118e66e0a8d5b3d330964580a95816",
+  "ccd157ffb53c373d8f0541c7de9bd5cf060cb030",
+  "ce8836bb7057bd7de7d28ca4661950d7b9b38387",
+  "d43a1f714b3f833a2516daeb2a5f37675342e926",
+  "d4460f7fc609a5740e568b204555c5e19cdc7e52",
+  "da3f99382cfadfcb5f02ff0bbef9d9d1a233ee9c",
+  "e205835b30746a5e8d916c7a7044bde72b0a9507",
+  "e40a2265b7947256230c04e8bc8ce164a0db79ac_01",
+  "e58bfa131bf9dc789eb22dffbd70913017332b0a",
+  "e58f2c9522d7ea43483bded1ac0c52560183e4a0",
+  "e67b9a8e969403fba2851e45a7813dd4316bb384",
+  "ef9ed6e92f452507a3f29ca172e0af7c3e0c38d4",
+  "f7194f9cf51a2664e61c7df61cb6c144fe112ab9_03",
+  "ff9b98a1338c7fe9ff2a8c4f5d548fd2cc7d7b28"
+ ],
+ "excluded_from": "f90a2ce6f69dac7af157932dd33f377e8f69c4ec4d3484b9da1c8094cf2a28ad",
+ "pool": {
+  "gemini-3.1-pro__claude-opus-4-6": {
+   "pairs": 381,
+   "prefers": {
+    "gemini-3.1-pro": 353,
+    "claude-opus-4-6": 28
+   },
+   "ef_differs": 68
+  },
+  "gpt-5.2__claude-opus-4-6": {
+   "pairs": 381,
+   "prefers": {
+    "gpt-5.2": 251,
+    "claude-opus-4-6": 130
+   },
+   "ef_differs": 87
+  },
+  "qwen3.5-397b-a17b__qwen3.5-27b": {
+   "pairs": 225,
+   "prefers": {
+    "qwen3.5-397b-a17b": 97,
+    "qwen3.5-27b": 128
+   },
+   "ef_differs": 102
+  },
+  "qwen3.5-9b__qwen3.5-27b": {
+   "pairs": 167,
+   "prefers": {
+    "qwen3.5-9b": 28,
+    "qwen3.5-27b": 139
+   },
+   "ef_differs": 71
+  }
+ },
+ "n_pairs": 60,
+ "pairs": [
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "712da7fcde08da409d0be64ce20695a50d8eb24e",
+   "primary_type": "sequence",
+   "tier": 2,
+   "direction": "qwen3.5-27b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 0.5714285714285715,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-9b": 0.0,
+     "qwen3.5-27b": 0.0
+    }
+   },
+   "pair": "P01",
+   "A": "qwen3.5-9b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "61e3e1accbb6c390acb0cb06de0ac3144859edc3",
+   "primary_type": "class",
+   "tier": 2,
+   "direction": "qwen3.5-27b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 0.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-9b": 0.0,
+     "qwen3.5-27b": 1.0
+    }
+   },
+   "pair": "P02",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-9b"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "84992bc1d73b12602b271581e19679a49509d079",
+   "primary_type": "class",
+   "tier": 3,
+   "direction": "qwen3.5-27b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 0.08,
+     "qwen3.5-27b": 0.08333333333333333
+    }
+   },
+   "pair": "P03",
+   "A": "qwen3.5-397b-a17b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "7bea5d2e3aad5746c2125088221a2fb5d72370f4",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "claude-opus-4-6",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gpt-5.2": 0.1951219512195122,
+     "claude-opus-4-6": 0.4878048780487805
+    }
+   },
+   "pair": "P04",
+   "A": "gpt-5.2",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "188dba558f3245bd0acedd6c2018d91c22dffca3",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "qwen3.5-397b-a17b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 0.8333333333333333
+    }
+   },
+   "pair": "P05",
+   "A": "qwen3.5-397b-a17b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "d8967fec84d45a4cbb714c1d011fb6b17af8abbc",
+   "primary_type": "class",
+   "tier": 4,
+   "direction": "claude-opus-4-6",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gpt-5.2": 0.7692307692307692,
+     "claude-opus-4-6": 0.782608695652174
+    }
+   },
+   "pair": "P06",
+   "A": "gpt-5.2",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "c8c2c241aac85edf063c91907252641d60d12c1e",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "qwen3.5-27b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 0.3333333333333333,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 0.5454545454545455,
+     "qwen3.5-27b": 0.8235294117647058
+    }
+   },
+   "pair": "P07",
+   "A": "qwen3.5-397b-a17b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "fd42228e66f2cdac362a90aeba71752f6729472c",
+   "primary_type": "class",
+   "tier": 3,
+   "direction": "gemini-3.1-pro",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 0.5
+    }
+   },
+   "pair": "P08",
+   "A": "claude-opus-4-6",
+   "B": "gemini-3.1-pro"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "a45591b267fddeb60a8ddcd112141e8a1fab8c68",
+   "primary_type": "class",
+   "tier": 2,
+   "direction": "qwen3.5-9b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 1.0,
+     "qwen3.5-27b": 0.6666666666666666
+    },
+    "rf": {
+     "qwen3.5-9b": 0.0,
+     "qwen3.5-27b": 0.3333333333333333
+    }
+   },
+   "pair": "P09",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-9b"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "74945d1c57ae3c417968c09a31385b255a1efc3a",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "qwen3.5-9b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-9b": 0.851063829787234,
+     "qwen3.5-27b": 0.8181818181818182
+    }
+   },
+   "pair": "P10",
+   "A": "qwen3.5-9b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "3bded5fefc8b422479111e7bdf517358f0584f46",
+   "primary_type": "class",
+   "tier": 3,
+   "direction": "qwen3.5-397b-a17b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 0.7272727272727272
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 0.8
+    }
+   },
+   "pair": "P11",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-397b-a17b"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "8b3d0798463a9167895a0489a54bc9fae4cc6736",
+   "primary_type": "sequence",
+   "tier": 1,
+   "direction": "qwen3.5-27b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 0.3333333333333333,
+     "qwen3.5-27b": 0.6666666666666666
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 0.0,
+     "qwen3.5-27b": 0.0
+    }
+   },
+   "pair": "P12",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-397b-a17b"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "a623745561f557cd961f25026801ce218459be85",
+   "primary_type": "class",
+   "tier": 1,
+   "direction": "qwen3.5-9b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 1.0,
+     "qwen3.5-27b": 0.6666666666666666
+    },
+    "rf": {
+     "qwen3.5-9b": 0.0,
+     "qwen3.5-27b": 1.0
+    }
+   },
+   "pair": "P13",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-9b"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "49f7f03b47c0679c375dafb32f681e2142fade3f",
+   "primary_type": "class",
+   "tier": 4,
+   "direction": "gemini-3.1-pro",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gemini-3.1-pro": 0.75,
+     "claude-opus-4-6": 0.7058823529411765
+    }
+   },
+   "pair": "P14",
+   "A": "gemini-3.1-pro",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "d946da4feccbd7ee10d1c30a7533a64645c0f3ba",
+   "primary_type": "sequence",
+   "tier": 2,
+   "direction": "qwen3.5-9b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-9b": 1.0,
+     "qwen3.5-27b": 0.9375
+    }
+   },
+   "pair": "P15",
+   "A": "qwen3.5-9b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "2830a2eabd8ada9ad42a0d10eeeacad0dc53a202",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "claude-opus-4-6",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 0.8571428571428571,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gemini-3.1-pro": 0.5384615384615385,
+     "claude-opus-4-6": 0.4444444444444445
+    }
+   },
+   "pair": "P16",
+   "A": "gemini-3.1-pro",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "c514cfd06efe4ccabd8280258990b5ce8c83e227",
+   "primary_type": "sequence",
+   "tier": 1,
+   "direction": "qwen3.5-397b-a17b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 0.0
+    }
+   },
+   "pair": "P17",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-397b-a17b"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "33b19f9009f6230b82710066808b6968c5583fe4",
+   "primary_type": "class",
+   "tier": 3,
+   "direction": "claude-opus-4-6",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 0.9090909090909091,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gpt-5.2": 0.22222222222222224,
+     "claude-opus-4-6": 0.5
+    }
+   },
+   "pair": "P18",
+   "A": "gpt-5.2",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "a8095e4fef06ccb2d79cb69dd62023a0322c6e2e",
+   "primary_type": "class",
+   "tier": 4,
+   "direction": "qwen3.5-27b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-9b": 0.33333333333333326,
+     "qwen3.5-27b": 0.5714285714285715
+    }
+   },
+   "pair": "P19",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-9b"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "5ea4dffa3b8c2459ccf5f541275a22d902d42e85",
+   "primary_type": "class",
+   "tier": 3,
+   "direction": "gemini-3.1-pro",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 0.9473684210526316
+    },
+    "rf": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 1.0
+    }
+   },
+   "pair": "P20",
+   "A": "gemini-3.1-pro",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "40f65a60d19ea4ff65ad7d4c54d7a5115352ba49",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "gpt-5.2",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 0.9285714285714286
+    },
+    "rf": {
+     "gpt-5.2": 0.9714285714285714,
+     "claude-opus-4-6": 0.7105263157894738
+    }
+   },
+   "pair": "P21",
+   "A": "gpt-5.2",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "8e9a5b8a612d78ae6f6061dea4f862938e7f335b",
+   "primary_type": "class",
+   "tier": 3,
+   "direction": "claude-opus-4-6",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 0.9090909090909091,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gpt-5.2": 0.7692307692307693,
+     "claude-opus-4-6": 0.8799999999999999
+    }
+   },
+   "pair": "P22",
+   "A": "gpt-5.2",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "ba34135958fcd4d86f512156c036cb3229b84f40",
+   "primary_type": "sequence",
+   "tier": 3,
+   "direction": "gpt-5.2",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 0.5294117647058824
+    }
+   },
+   "pair": "P23",
+   "A": "gpt-5.2",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "10cd98eb5787832faa18a5eb64a43b451dfda7e4",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "claude-opus-4-6",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 0.0,
+     "claude-opus-4-6": 0.4528301886792453
+    },
+    "rf": {
+     "gpt-5.2": 0.0,
+     "claude-opus-4-6": 0.025
+    }
+   },
+   "pair": "P24",
+   "A": "claude-opus-4-6",
+   "B": "gpt-5.2"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "7ed92346bfc7c595eb9e01c68d06aa92e9cbd657",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "qwen3.5-27b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 0.9696969696969697,
+     "qwen3.5-27b": 1.0
+    }
+   },
+   "pair": "P25",
+   "A": "qwen3.5-397b-a17b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "73714d8552650f8efa713df073148e01c49e6e19",
+   "primary_type": "sequence",
+   "tier": 1,
+   "direction": "gpt-5.2",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 0.6666666666666666
+    },
+    "rf": {
+     "gpt-5.2": 0.5,
+     "claude-opus-4-6": 1.0
+    }
+   },
+   "pair": "P26",
+   "A": "claude-opus-4-6",
+   "B": "gpt-5.2"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "d07ca668e707d73ada1fbc6f98af38f1f726fc23",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "claude-opus-4-6",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gemini-3.1-pro": 0.9333333333333333,
+     "claude-opus-4-6": 1.0
+    }
+   },
+   "pair": "P27",
+   "A": "gemini-3.1-pro",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "539170b5a176b5a3f8d4684ce5f8b27063a0beef",
+   "primary_type": "class",
+   "tier": 2,
+   "direction": "qwen3.5-27b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-9b": 0.4827586206896552,
+     "qwen3.5-27b": 0.962962962962963
+    }
+   },
+   "pair": "P28",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-9b"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "3a4682d173d8bed1576c2a2caf0f1e2ecd3ed9d3",
+   "primary_type": "class",
+   "tier": 2,
+   "direction": "qwen3.5-9b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-9b": 0.6666666666666666,
+     "qwen3.5-27b": 0.5
+    }
+   },
+   "pair": "P29",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-9b"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "7953b5383ec6ce12a6a072934ebb713187e15b66",
+   "primary_type": "class",
+   "tier": 2,
+   "direction": "qwen3.5-397b-a17b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 0.0
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 1.0
+    }
+   },
+   "pair": "P30",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-397b-a17b"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "f18f0fa4d723d038ae084ca3d38ea4e4c4689386",
+   "primary_type": "class",
+   "tier": 2,
+   "direction": "qwen3.5-27b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 0.8333333333333334,
+     "qwen3.5-27b": 1.0
+    }
+   },
+   "pair": "P31",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-397b-a17b"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "09bde3e2f993e72fe98411f8d968d9e2b33b4b73",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "qwen3.5-27b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 0.6363636363636364,
+     "qwen3.5-27b": 0.7272727272727273
+    }
+   },
+   "pair": "P32",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-397b-a17b"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "56b1f5812c0d3505a1a727d3af3cc5b8ddf53bef_07",
+   "primary_type": "class",
+   "tier": 4,
+   "direction": "gpt-5.2",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gpt-5.2": 0.5454545454545454,
+     "claude-opus-4-6": 0.5294117647058824
+    }
+   },
+   "pair": "P33",
+   "A": "gpt-5.2",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "30969b941c87171a79af4ee7c2f2ca6f1178a0fe",
+   "primary_type": "class",
+   "tier": 2,
+   "direction": "qwen3.5-27b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 0.6666666666666666,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 0.6666666666666666,
+     "qwen3.5-27b": 0.8333333333333334
+    }
+   },
+   "pair": "P34",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-397b-a17b"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "1f1015d0aefc2a7e8b40c2656967af05b7012f5c",
+   "primary_type": "sequence",
+   "tier": 2,
+   "direction": "qwen3.5-9b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 0.8571428571428571,
+     "qwen3.5-27b": 0.6666666666666666
+    },
+    "rf": {
+     "qwen3.5-9b": 0.8571428571428571,
+     "qwen3.5-27b": 0.42857142857142855
+    }
+   },
+   "pair": "P35",
+   "A": "qwen3.5-9b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "bf4d105998fa8e73e5952b3ba3a6e7c7b592c728",
+   "primary_type": "class",
+   "tier": 3,
+   "direction": "gpt-5.2",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 0.631578947368421
+    }
+   },
+   "pair": "P36",
+   "A": "claude-opus-4-6",
+   "B": "gpt-5.2"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "6b335fcef1669d4a4b24094345311dc8e8a400f0",
+   "primary_type": "class",
+   "tier": 2,
+   "direction": "claude-opus-4-6",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gemini-3.1-pro": 0.6666666666666666,
+     "claude-opus-4-6": 1.0
+    }
+   },
+   "pair": "P37",
+   "A": "gemini-3.1-pro",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "gemini-3.1-pro",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 0.6666666666666666
+    },
+    "rf": {
+     "gemini-3.1-pro": 0.8,
+     "claude-opus-4-6": 0.30434782608695654
+    }
+   },
+   "pair": "P38",
+   "A": "claude-opus-4-6",
+   "B": "gemini-3.1-pro"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "f11dcc34c5a76f3b78c42854e41ece9cdc35b3e4",
+   "primary_type": "class",
+   "tier": 4,
+   "direction": "claude-opus-4-6",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 0.9696969696969697,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 0.47058823529411764
+    }
+   },
+   "pair": "P39",
+   "A": "claude-opus-4-6",
+   "B": "gemini-3.1-pro"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "43699e83430d0e2c1b190729cb1a04364e59278e",
+   "primary_type": "class",
+   "tier": 4,
+   "direction": "claude-opus-4-6",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gpt-5.2": 0.0,
+     "claude-opus-4-6": 0.16666666666666666
+    }
+   },
+   "pair": "P40",
+   "A": "claude-opus-4-6",
+   "B": "gpt-5.2"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "8585b034bb3e0adf2ccee44ddd9eb6abece6da12",
+   "primary_type": "class",
+   "tier": 1,
+   "direction": "gpt-5.2",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 0.8,
+     "claude-opus-4-6": 0.6666666666666666
+    },
+    "rf": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 1.0
+    }
+   },
+   "pair": "P41",
+   "A": "claude-opus-4-6",
+   "B": "gpt-5.2"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "f9219ac04b9c80b17d1c7c2e5d364277478e6898",
+   "primary_type": "class",
+   "tier": 1,
+   "direction": "qwen3.5-27b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 0.6666666666666666,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-9b": 0.6,
+     "qwen3.5-27b": 1.0
+    }
+   },
+   "pair": "P42",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-9b"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "ff32612536df6b1eb0d3ceac7eaf1699da76a63f",
+   "primary_type": "class",
+   "tier": 3,
+   "direction": "gemini-3.1-pro",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 0.9411764705882353
+    },
+    "rf": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 1.0
+    }
+   },
+   "pair": "P43",
+   "A": "gemini-3.1-pro",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "c8b0c34406551624e13ce5af64dea4909972170b",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "qwen3.5-27b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-9b": 0.9333333333333333,
+     "qwen3.5-27b": 1.0
+    }
+   },
+   "pair": "P44",
+   "A": "qwen3.5-9b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "bf06621a8e34632711df9d1cd4ae8e211223b0bb",
+   "primary_type": "sequence",
+   "tier": 2,
+   "direction": "gpt-5.2",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gpt-5.2": 0.9523809523809523,
+     "claude-opus-4-6": 0.8181818181818182
+    }
+   },
+   "pair": "P45",
+   "A": "gpt-5.2",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "a3716c3d98cce05fe2a292cf86bf6bc243cd15bf",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "qwen3.5-397b-a17b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 0.8
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 0.6799999999999999
+    }
+   },
+   "pair": "P46",
+   "A": "qwen3.5-397b-a17b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "0c347826efa0a235f71c95b3d79310d14e6bcf57",
+   "primary_type": "class",
+   "tier": 2,
+   "direction": "gpt-5.2",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 0.7499999999999999
+    },
+    "rf": {
+     "gpt-5.2": 0.6666666666666666,
+     "claude-opus-4-6": 0.5
+    }
+   },
+   "pair": "P47",
+   "A": "claude-opus-4-6",
+   "B": "gpt-5.2"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "a4e37eaa9592c24eb5a2cb29903bf7995ed30549",
+   "primary_type": "sequence",
+   "tier": 1,
+   "direction": "qwen3.5-27b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-9b": 0.888888888888889,
+     "qwen3.5-27b": 1.0
+    }
+   },
+   "pair": "P48",
+   "A": "qwen3.5-9b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "8268d218833345f77a774bb70d6f7fc2b97d4250",
+   "primary_type": "class",
+   "tier": 4,
+   "direction": "claude-opus-4-6",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 0.5,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gemini-3.1-pro": 0.0,
+     "claude-opus-4-6": 0.6666666666666666
+    }
+   },
+   "pair": "P49",
+   "A": "gemini-3.1-pro",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "6302d6294d126e4d28b5bb48c5637ecffa0ae546",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "claude-opus-4-6",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gemini-3.1-pro": 0.975609756097561,
+     "claude-opus-4-6": 1.0
+    }
+   },
+   "pair": "P50",
+   "A": "gemini-3.1-pro",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "gpt-5.2__claude-opus-4-6",
+   "models": [
+    "gpt-5.2",
+    "claude-opus-4-6"
+   ],
+   "key": "0f09479301af3406727e3f72f1980ad5adbc832c",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "claude-opus-4-6",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gpt-5.2": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gpt-5.2": 0.5714285714285714,
+     "claude-opus-4-6": 0.7142857142857143
+    }
+   },
+   "pair": "P51",
+   "A": "claude-opus-4-6",
+   "B": "gpt-5.2"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "711be7e522f9a82b62d83065a49d2bb9e1de6999",
+   "primary_type": "class",
+   "tier": 2,
+   "direction": "claude-opus-4-6",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gemini-3.1-pro": 0.8571428571428571,
+     "claude-opus-4-6": 1.0
+    }
+   },
+   "pair": "P52",
+   "A": "gemini-3.1-pro",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "d5a95153e512686cefeb70c0d22293c97aff774f",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "gemini-3.1-pro",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 0.76,
+     "claude-opus-4-6": 0.6923076923076923
+    },
+    "rf": {
+     "gemini-3.1-pro": 0.6219512195121951,
+     "claude-opus-4-6": 0.21794871794871795
+    }
+   },
+   "pair": "P53",
+   "A": "claude-opus-4-6",
+   "B": "gemini-3.1-pro"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "aee38dc868c95ab112e7d9fb2fa0fa36facfffae",
+   "primary_type": "class",
+   "tier": 1,
+   "direction": "qwen3.5-27b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 0.5333333333333333,
+     "qwen3.5-27b": 0.8000000000000002
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 0.18181818181818182,
+     "qwen3.5-27b": 0.6666666666666666
+    }
+   },
+   "pair": "P54",
+   "A": "qwen3.5-397b-a17b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "5ee073313e2bf85a36bfe4959972d5ee24afcc45",
+   "primary_type": "sequence",
+   "tier": 4,
+   "direction": "gemini-3.1-pro",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gemini-3.1-pro": 0.7647058823529412,
+     "claude-opus-4-6": 0.7428571428571428
+    }
+   },
+   "pair": "P55",
+   "A": "gemini-3.1-pro",
+   "B": "claude-opus-4-6"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "02e759d8941e70e63e9a738c5bb4367e8f70383a",
+   "primary_type": "class",
+   "tier": 3,
+   "direction": "qwen3.5-397b-a17b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 0.6666666666666666
+    }
+   },
+   "pair": "P56",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-397b-a17b"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "59a417a8d0d24bb5b3c5018d9d1c8bdb55cf68f9",
+   "primary_type": "class",
+   "tier": 1,
+   "direction": "qwen3.5-9b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-9b": 0.5,
+     "qwen3.5-27b": 0.0
+    }
+   },
+   "pair": "P57",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-9b"
+  },
+  {
+   "comparison": "qwen3.5-397b-a17b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-397b-a17b",
+    "qwen3.5-27b"
+   ],
+   "key": "d0726b9ebeed0b23d6e76e12a2f67b5d2c9ea35f",
+   "primary_type": "class",
+   "tier": 3,
+   "direction": "qwen3.5-397b-a17b",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "qwen3.5-397b-a17b": 1.0,
+     "qwen3.5-27b": 1.0
+    },
+    "rf": {
+     "qwen3.5-397b-a17b": 0.75,
+     "qwen3.5-27b": 0.5
+    }
+   },
+   "pair": "P58",
+   "A": "qwen3.5-27b",
+   "B": "qwen3.5-397b-a17b"
+  },
+  {
+   "comparison": "qwen3.5-9b__qwen3.5-27b",
+   "models": [
+    "qwen3.5-9b",
+    "qwen3.5-27b"
+   ],
+   "key": "4dc97fd76002a99da5ddf57b1d44a80dcba69757",
+   "primary_type": "sequence",
+   "tier": 1,
+   "direction": "qwen3.5-27b",
+   "stratum": "ef",
+   "scores": {
+    "ef": {
+     "qwen3.5-9b": 0.5714285714285715,
+     "qwen3.5-27b": 0.6666666666666666
+    },
+    "rf": {
+     "qwen3.5-9b": 0.0,
+     "qwen3.5-27b": 1.0
+    }
+   },
+   "pair": "P59",
+   "A": "qwen3.5-9b",
+   "B": "qwen3.5-27b"
+  },
+  {
+   "comparison": "gemini-3.1-pro__claude-opus-4-6",
+   "models": [
+    "gemini-3.1-pro",
+    "claude-opus-4-6"
+   ],
+   "key": "eea797fcc0b3b1dad02cc1dfc02b3ab8023435b1",
+   "primary_type": "sequence",
+   "tier": 1,
+   "direction": "gemini-3.1-pro",
+   "stratum": "rf",
+   "scores": {
+    "ef": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 1.0
+    },
+    "rf": {
+     "gemini-3.1-pro": 1.0,
+     "claude-opus-4-6": 0.8000000000000002
+    }
+   },
+   "pair": "P60",
+   "A": "gemini-3.1-pro",
+   "B": "claude-opus-4-6"
+  }
+ ]
+}
