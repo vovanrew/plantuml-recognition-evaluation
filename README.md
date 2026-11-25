@@ -426,7 +426,7 @@ single file, would exceed GitHub's file size limit.
 The standardized model inputs are therefore tracked as plain files in
 `data/puml_images_1568/`, next to `data.zip`: 1,000 PNG files, one per diagram,
 named by key. A clone has them, and unzipping `data.zip` fills in the rest of
-`data/` around them. The Zenodo record of release v1.0.0 does not hold them.
+`data/` around them.
 
 The original renders are not in the repository. You need them only to rebuild the
 standardized set from the corpus:
@@ -466,7 +466,7 @@ The extractor tests run only when `PLANTUML_EXTRACTOR_JAR` points at
 If you use this benchmark, its data, or its evaluation framework, please cite it:
 
 > Polishchuk, V. (2026). *Zero-shot image-to-PlantUML: a multi-level structural
-> evaluation framework and benchmark* (v1.0.0) [Software]. Zenodo.
+> evaluation framework and benchmark* (v1.2.0) [Software]. Zenodo.
 > https://doi.org/10.5281/zenodo.21670236
 
 ```bibtex
@@ -476,7 +476,7 @@ If you use this benchmark, its data, or its evaluation framework, please cite it
                evaluation framework and benchmark},
   year      = {2026},
   publisher = {Zenodo},
-  version   = {v1.0.0},
+  version   = {v1.2.0},
   doi       = {10.5281/zenodo.21670236},
   url       = {https://doi.org/10.5281/zenodo.21670236}
 }
@@ -484,7 +484,7 @@ If you use this benchmark, its data, or its evaluation framework, please cite it
 
 `10.5281/zenodo.21670236` is the concept DOI: it always resolves to the newest
 version, so it stays correct as this work is updated. To cite this exact
-release instead, use `10.5281/zenodo.21670237`.
+release instead, use `10.5281/zenodo.24543714` (v1.2.0).
 
 Machine-readable metadata is in [`CITATION.cff`](CITATION.cff).
 

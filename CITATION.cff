@@ -15,8 +15,8 @@ authors:
     given-names: "Volodymyr"
     orcid: "https://orcid.org/0009-0000-2161-4560"
     affiliation: "Kyiv National University of Technologies and Design"
-version: "1.0.0"
-date-released: "2026-07-29"
+version: "1.2.0"
+date-released: "2026-11-25"
 license: MIT
 license-url: "https://github.com/vovanrew/plantuml-recognition-evaluation/blob/main/LICENSE"
 repository-code: "https://github.com/vovanrew/plantuml-recognition-evaluation"
@@ -26,8 +26,8 @@ identifiers:
     value: "10.5281/zenodo.21670236"
     description: "Concept DOI: always resolves to the latest version."
   - type: doi
-    value: "10.5281/zenodo.21670237"
-    description: "Version DOI for release v1.0.0."
+    value: "10.5281/zenodo.24543714"
+    description: "Version DOI for release v1.2.0."
 keywords:
   - PlantUML
   - UML
