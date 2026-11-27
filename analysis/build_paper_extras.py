@@ -1,7 +1,7 @@
 """Two additions for the revised paper, from the stored per-diagram rows.
 
-1. Stratum intervals: each main-panel model's CSR, Element F1 and Relationship F1
-   per diagram type and per complexity tier, with 95% intervals, and the
+1. Stratum intervals: each main-panel model's CSR, Element F1, Relationship F1
+   and chrF++ per diagram type and per complexity tier, with 95% intervals, and the
    contrasts class - sequence and tier 1 - tier 4.
 2. Serving robustness: each dense Qwen3.5 size, self-served run minus hosted run,
    with a paired 95% interval, and the scorer-v1 F1 beside the scorer-v2 F1.
@@ -38,6 +38,8 @@ STATS = [
     ("element_f1|micro|compiled_only", "Element F1, compiled"),
     ("relationship_f1|micro|zeros_for_failed", "Relationship F1, all"),
     ("relationship_f1|micro|compiled_only", "Relationship F1, compiled"),
+    ("chrf|macro|zeros_for_failed", "chrF++, all"),
+    ("chrf|macro|compiled_only", "chrF++, compiled"),
 ]
 STRATA = [
     ("type", "class", lambda r: r["primary_type"] == "class"),
@@ -121,7 +123,8 @@ def render(strata: dict) -> str:
          f"Paired percentile bootstrap, seed {SEED}, {N_RESAMPLES} resamples, 95% interval; "
          "one global draw, each stratum computed on the resampled rows that fall in it. "
          "\"all\" is all diagrams of the stratum (a non-compiled answer scores 0); "
-         "\"compiled\" is the run's own compiled answers. F1 is micro.", ""]
+         "\"compiled\" is the run's own compiled answers. F1 is micro; chrF++ is macro, "
+         "on a 0 to 100 scale.", ""]
     for kind, names in (("type", ["class", "sequence"]), ("tier", ["1", "2", "3", "4"])):
         contrast = "class - sequence" if kind == "type" else "1 - 4"
         for sid, label in STATS:

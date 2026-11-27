@@ -139,7 +139,7 @@ Do not edit these files by hand. Most tables come in three formats of the same d
 | `ci_table.*` | Paired bootstrap 95% intervals for each model, intervals on the difference between each pair of models, and per-relation intervals. |
 | `run_level.*` | Token totals over all 1,000 diagrams, the failure inventory, and the provenance of each run. |
 | `crowding.*` | Image crowding per tier: source lines per megapixel of the resized test images. |
-| `paper_extras.*` | 95% intervals for CSR, Element F1 and Relationship F1 per diagram type and per tier, with the contrasts class minus sequence and tier 1 minus tier 4. |
+| `paper_extras.*` | 95% intervals for CSR, Element F1, Relationship F1 and chrF++ per diagram type and per tier, with the contrasts class minus sequence and tier 1 minus tier 4. |
 | `failure_index.*` | The outcome counts and a stratified index of failure cases. |
 | `plots/` | Figures as `.png` and `.pdf`: `scaling_curve` (the three dense sizes), `frontier_bars_*` (the hosted models), `per_relation_f1_*`, `breakdown_by_tier`, `breakdown_by_type`. |
 | `exhibits.md`, `exhibits.html` | The results tables in one document. The `.html` file opens in Word with editable tables. |

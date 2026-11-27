@@ -20,11 +20,14 @@ as a string, and manual error counts do not scale past a few dozen cases. This
 framework scores the answer at several levels at once, structural as well as
 surface. It reports each structural metric over **two populations**.
 
-The second point is the methodological core. A model that fails to compile its
-answer on hard diagrams looks strong if you score only the diagrams it compiled.
-Reporting the compiled-only number beside the full-set number makes this
-selective-failure bias visible. On this benchmark the effect is large: Qwen3.5-2B
-scores 0.874 Element F1 on the diagrams it compiles, but 0.239 across all 1,000.
+The second point is the methodological core. A model looks much stronger if you
+score only the diagrams it compiled. This population gap has two parts. A failed
+answer counts as zero in the full set and is left out of the compiled-only score,
+so the gap is there whenever some answers fail. Models also fail more often on
+complex diagrams, so the compiled answers hold more of the simple ones: that part
+is a selection bias. Reporting the compiled-only number beside the full-set number
+makes the gap visible. On this benchmark the effect is large: Qwen3.5-2B scores
+0.874 Element F1 on the diagrams it compiles, but 0.239 across all 1,000.
 
 ## Metrics
 
@@ -136,7 +139,7 @@ evaluation/        Inference runner and the four metric scorers.
 util/              Test-set construction, image standardization, archive packing.
 methodology/       The methodological record. The source of truth for every design decision.
 prompts/           The frozen zero-shot prompt.
-tests/             413 test functions across 27 modules.
+tests/             416 test functions across 28 modules.
 data.zip           Test set, ground truth and the hosted runs. Unzip at the repository root.
 data_v2.zip        Structural result files of the hosted runs. Unzip at the repository root.
 data_selfserved.zip
@@ -450,7 +453,7 @@ They help with inspection, and re-running the scorers writes them again.
 python3 -m pytest tests/
 ```
 
-413 test functions across 27 modules. They cover the scoring logic, the
+416 test functions across 28 modules. They cover the scoring logic, the
 aggregation math, the bootstrap, the registry and loader, the plot builders, the
 human-rater check and the frozen prompt. A test skips, and does not fail, when
 what it needs is absent: benchmark data that is not unpacked, the standardized

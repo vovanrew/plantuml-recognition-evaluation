@@ -124,7 +124,7 @@ F1, 27B is ahead by 0.022 [0.000, 0.040].
 
 ---
 
-## 4. Selective failure: the population gap
+## 4. The population gap
 
 Source: `out_paper/master_table.md`, lines 37 to 43.
 

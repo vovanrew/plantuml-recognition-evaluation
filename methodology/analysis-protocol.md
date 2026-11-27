@@ -73,8 +73,8 @@ At sub-scopes (per type, per tier) chrF++ is reported as macro only, since its
 micro is a corpus statistic defined at the overall scope. Per-relation Relationship
 F1 is reported overall.
 
-Per-type and per-tier intervals are given for CSR, and for Element F1 and
-Relationship F1 micro in both populations, with the bootstrap of §5. One draw of the
+Per-type and per-tier intervals are given for CSR, and in both populations for
+Element F1 and Relationship F1 micro and for chrF++ macro, with the bootstrap of §5. One draw of the
 diagrams serves all strata, and each stratum's statistic is computed on the resampled
 diagrams that fall in it. Two contrasts are reported with their intervals: class
 minus sequence, and tier 1 minus tier 4. A contrast is the difference between two
@@ -119,15 +119,22 @@ populations; type accuracy; and per-relation Relationship F1 micro in both
 populations. chrF++ micro is reported as a point estimate without an interval,
 being a corpus statistic with no per-diagram components to resample.
 
-## 6. Selective-failure bias (population gap)
+## 6. Population gap
 
 The population gap for a metric is its `compiled_only` value minus its
-`zeros_for_failed` value. It quantifies how much a model's apparent quality depends
-on the subset of diagrams it compiled: a model that fails selectively on its
-hardest diagrams is graded, under `compiled_only`, on an easier subset, so its gap
-is large; a model that compiles across the difficulty range has a gap near zero.
-The gap is reported at the overall scope for Element F1, Relationship F1, and
-chrF++, and tracks the inverse of CSR.
+`zeros_for_failed` value. It has two parts.
+
+**The part built into the populations.** A failed answer scores zero in
+`zeros_for_failed` and is left out of `compiled_only`. The gap is therefore positive
+whenever CSR is below 100%, even when failures fall at random over the test set.
+
+**Selective failure.** Failures are not spread evenly: the compile rate falls as
+complexity rises (§3). So `compiled_only` grades each model on a subset that holds
+more simple diagrams than the test set, a subset the model selected itself. This part
+raises the gap only where the compiled answers also score differently across tiers.
+
+The two parts are not separated. The gap is reported at the overall scope for Element
+F1, Relationship F1 and chrF++, and tracks the inverse of CSR.
 
 ## 7. Error analysis
 
@@ -167,11 +174,15 @@ structural codes are a wrong relation type, missed relations, invented elements,
 name, a wrong element kind, lost control flow, and missed elements. One more code marks a
 measurement artifact.
 The measurement artifact is limited to two stated causes, and any other candidate goes to the
-author. Each case is coded twice, independently. The author decides every case where the two
-codings differ or a coder asks for a decision.
+author. The coder is an AI model, run as separate instances that cannot see each other's codes.
+Each case is coded twice, independently. A case goes to review when the two codings differ on
+the primary code or a coder flags it (`ask_author`, or `M?` as the primary code). Each review
+case is coded five more times, so it has seven codings, and the primary code with the most votes
+is taken. The author decides a review case whose vote ends on `M?`.
 
-**Reported.** The report gives the agreement of the two codings on the primary code, the cases
-the author decided, and the primary codes per model.
+**Reported.** The report gives the agreement of the two codings on the primary code, the review
+cases with their votes, the cases the author decided, and the primary codes per model. The votes
+are in `analysis/out_paper/error_sample/votes/`.
 
 The sample is drawn by `analysis/build_error_sample.py draw` and reported by its `report`
 command. The codebook is `analysis/error_codebook.md`.
@@ -268,8 +279,9 @@ and sequence diagrams are split as evenly as each cell allows. Each cell is draw
 rule, and a diagram appears in one pair only. The key that links pairs to models is written
 before anything is rendered.
 
-**Raters.** The author and one second person rate the 60 pairs alone, each in their own random
-order. They do not discuss pairs before both have finished.
+**Raters.** Two raters rate the 60 pairs alone, each in their own random order: the author (R1
+in the report) and a second person (R2), a software engineer who uses UML diagrams in his work.
+They do not discuss pairs before both have finished.
 
 **Reported.** For each rater and each metric, the report takes the pairs where the metric
 differs and the rater picked A or B. It gives the share where the rater picked the answer with

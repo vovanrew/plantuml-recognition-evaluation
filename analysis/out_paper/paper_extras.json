@@ -37,6 +37,18 @@
       "ci_low": 0.6509568523172856,
       "ci_high": 0.74035369631704,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 65.7359946179467,
+      "ci_low": 63.471577651838295,
+      "ci_high": 67.66630338091525,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 69.63558751901134,
+      "ci_low": 68.0914018727343,
+      "ci_high": 71.1897219459534,
+      "n_valid": 1000
      }
     },
     "sequence": {
@@ -68,6 +80,18 @@
       "point": 0.8614960833261599,
       "ci_low": 0.818235397638656,
       "ci_high": 0.901293545175502,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 59.72477437052146,
+      "ci_low": 57.56353732098901,
+      "ci_high": 61.802732600835334,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 64.49759651244219,
+      "ci_low": 63.06879402864192,
+      "ci_high": 65.98619183206245,
       "n_valid": 1000
      }
     },
@@ -101,6 +125,18 @@
       "ci_low": 0.9266754243877476,
       "ci_high": 0.9724310971572665,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 64.04611113034956,
+      "ci_low": 61.31528070827712,
+      "ci_high": 66.58256909336163,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 65.62101550240733,
+      "ci_low": 63.25877145538421,
+      "ci_high": 67.94200701761365,
+      "n_valid": 1000
      }
     },
     "2": {
@@ -132,6 +168,18 @@
       "point": 0.9432835820895523,
       "ci_low": 0.9239531286493611,
       "ci_high": 0.9591466401317489,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 64.79027399363311,
+      "ci_low": 61.90424025209158,
+      "ci_high": 67.49629360586349,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 68.34417087935982,
+      "ci_low": 66.17310418178542,
+      "ci_high": 70.43575188901883,
       "n_valid": 1000
      }
     },
@@ -165,6 +213,18 @@
       "ci_low": 0.8568479401464706,
       "ci_high": 0.9185341743808197,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 62.79517407562262,
+      "ci_low": 59.89224337770968,
+      "ci_high": 65.54933328359195,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 67.37679621847921,
+      "ci_low": 65.19457075670961,
+      "ci_high": 69.59704334238668,
+      "n_valid": 1000
      }
     },
     "4": {
@@ -196,6 +256,18 @@
       "point": 0.7032967032967032,
       "ci_low": 0.6478559731176436,
       "ci_high": 0.7562154225581382,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 59.28997877733105,
+      "ci_low": 55.92894970027422,
+      "ci_high": 62.491045502940345,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 67.07011173906227,
+      "ci_low": 64.79556751647209,
+      "ci_high": 69.25375908172623,
       "n_valid": 1000
      }
     }
@@ -236,6 +308,20 @@
       "ci_high": -0.10201783836932275,
       "excludes_zero": true,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 6.011220247425243,
+      "ci_low": 3.119785663870521,
+      "ci_high": 8.847249093747342,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": 5.137991006569152,
+      "ci_low": 3.003761797037122,
+      "ci_high": 7.3434316500872185,
+      "excludes_zero": true,
+      "n_valid": 1000
      }
     },
     "1 - 4": {
@@ -272,6 +358,20 @@
       "ci_low": 0.19304901746149433,
       "ci_high": 0.30802294386387086,
       "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 4.756132353018508,
+      "ci_low": 0.6131863227285104,
+      "ci_high": 9.47298777743168,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": -1.4490962366549383,
+      "ci_low": -4.712690546133813,
+      "ci_high": 2.122674508008662,
+      "excludes_zero": false,
       "n_valid": 1000
      }
     }
@@ -310,6 +410,18 @@
       "ci_low": 0.6016440109154976,
       "ci_high": 0.6877145064773791,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 71.76728171003316,
+      "ci_low": 69.9143127346956,
+      "ci_high": 73.65038746848148,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 73.68304077005457,
+      "ci_low": 71.99497172846687,
+      "ci_high": 75.30051534141684,
+      "n_valid": 1000
      }
     },
     "sequence": {
@@ -341,6 +453,18 @@
       "point": 0.7635034070134619,
       "ci_low": 0.710682727417752,
       "ci_high": 0.8098526339016342,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 59.60004213409822,
+      "ci_low": 57.351012189432545,
+      "ci_high": 61.94772755702842,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 65.63881292301565,
+      "ci_low": 64.1625127346639,
+      "ci_high": 67.21805833641001,
       "n_valid": 1000
      }
     },
@@ -374,6 +498,18 @@
       "ci_low": 0.9252293146166417,
       "ci_high": 0.9667681048100123,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 70.12748215965775,
+      "ci_low": 67.44094552279081,
+      "ci_high": 72.74817644623451,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 71.2677664224164,
+      "ci_low": 68.77550312797364,
+      "ci_high": 73.62635219793692,
+      "n_valid": 1000
      }
     },
     "2": {
@@ -405,6 +541,18 @@
       "point": 0.8725602755453501,
       "ci_low": 0.8399784042322134,
       "ci_high": 0.9035884580329637,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 66.9881571920192,
+      "ci_low": 64.14264389153199,
+      "ci_high": 69.81522844372829,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 71.26399701278639,
+      "ci_low": 69.0637594467712,
+      "ci_high": 73.32422581835668,
       "n_valid": 1000
      }
     },
@@ -438,6 +586,18 @@
       "ci_low": 0.7454051939159779,
       "ci_high": 0.8170586516733549,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 63.310703546806636,
+      "ci_low": 60.07194373582518,
+      "ci_high": 66.44621910154704,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 69.72544443480908,
+      "ci_low": 67.2875078387098,
+      "ci_high": 72.2320322699492,
+      "n_valid": 1000
      }
     },
     "4": {
@@ -469,6 +629,18 @@
       "point": 0.6247327557105884,
       "ci_low": 0.563399629851583,
       "ci_high": 0.683171617769915,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 62.30830478977917,
+      "ci_low": 59.00767326667203,
+      "ci_high": 65.33672856808532,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 66.85440428087894,
+      "ci_low": 64.56003964245895,
+      "ci_high": 69.17579537501862,
       "n_valid": 1000
      }
     }
@@ -509,6 +681,20 @@
       "ci_high": -0.050821134967840666,
       "excludes_zero": true,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 12.167239575934943,
+      "ci_low": 9.230595201483489,
+      "ci_high": 14.937731155929395,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": 8.044227847038925,
+      "ci_low": 5.865937904998509,
+      "ci_high": 10.292084983425896,
+      "excludes_zero": true,
+      "n_valid": 1000
      }
     },
     "1 - 4": {
@@ -544,6 +730,20 @@
       "diff_point": 0.32338380434627023,
       "ci_low": 0.2598351757301205,
       "ci_high": 0.3877808382007078,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 7.819177369878574,
+      "ci_low": 3.6697115886554927,
+      "ci_high": 11.684145024627746,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": 4.413362141537462,
+      "ci_low": 0.9049925232448961,
+      "ci_high": 7.7722439240384045,
       "excludes_zero": true,
       "n_valid": 1000
      }
@@ -583,6 +783,18 @@
       "ci_low": 0.8221207890950218,
       "ci_high": 0.8901449714139797,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 79.06771086578658,
+      "ci_low": 77.17131218621527,
+      "ci_high": 81.07518774663542,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 81.01199883789609,
+      "ci_low": 79.32579323860598,
+      "ci_high": 82.70132312131763,
+      "n_valid": 1000
      }
     },
     "sequence": {
@@ -614,6 +826,18 @@
       "point": 0.9353321106769795,
       "ci_low": 0.9083122420282798,
       "ci_high": 0.959560620622661,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 71.98598644705066,
+      "ci_low": 70.27851291453375,
+      "ci_high": 73.61456788154233,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 74.36568847835812,
+      "ci_low": 73.01360544890001,
+      "ci_high": 75.71984296304346,
       "n_valid": 1000
      }
     },
@@ -647,6 +871,18 @@
       "ci_low": 0.9877849808198066,
       "ci_high": 1.0,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 76.83397914005853,
+      "ci_low": 74.1572130908269,
+      "ci_high": 79.440686428758,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 78.08331213420583,
+      "ci_low": 75.84666801722697,
+      "ci_high": 80.50174105558295,
+      "n_valid": 1000
      }
     },
     "2": {
@@ -678,6 +914,18 @@
       "point": 0.984870317002882,
       "ci_low": 0.9746151338366507,
       "ci_high": 0.9923476103164195,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 78.24297715048765,
+      "ci_low": 75.5369709823587,
+      "ci_high": 80.54490945064165,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 79.8397726025384,
+      "ci_low": 77.76760877508893,
+      "ci_high": 81.92881813791725,
       "n_valid": 1000
      }
     },
@@ -711,6 +959,18 @@
       "ci_low": 0.9419691116816,
       "ci_high": 0.9727735736062717,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 74.36353938037436,
+      "ci_low": 71.2734757182334,
+      "ci_high": 77.10173030556939,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 77.14060101698585,
+      "ci_low": 74.72810908693394,
+      "ci_high": 79.38908653979757,
+      "n_valid": 1000
      }
     },
     "4": {
@@ -742,6 +1002,18 @@
       "point": 0.8532805802835477,
       "ci_low": 0.8181851227231991,
       "ci_high": 0.8864294141701549,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 72.66689895475389,
+      "ci_low": 69.99651782983779,
+      "ci_high": 75.34943893014567,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 75.69468641120197,
+      "ci_low": 73.63382670288831,
+      "ci_high": 77.98276897118453,
       "n_valid": 1000
      }
     }
@@ -782,6 +1054,20 @@
       "ci_high": -0.036393779708478007,
       "excludes_zero": true,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 7.0817244187359165,
+      "ci_low": 4.5885389073089735,
+      "ci_high": 9.717133182045176,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": 6.646310359537964,
+      "ci_low": 4.429897061498216,
+      "ci_high": 8.64587187841988,
+      "excludes_zero": true,
+      "n_valid": 1000
      }
     },
     "1 - 4": {
@@ -818,6 +1104,20 @@
       "ci_low": 0.10672887893133982,
       "ci_high": 0.1770993681650403,
       "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 4.167080185304641,
+      "ci_low": 0.46269760308043717,
+      "ci_high": 7.979291754110073,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": 2.3886257230038552,
+      "ci_low": -0.8971497967319063,
+      "ci_high": 5.723958084398488,
+      "excludes_zero": false,
       "n_valid": 1000
      }
     }
@@ -856,6 +1156,18 @@
       "ci_low": 0.11533214676586667,
       "ci_high": 0.2406196233434085,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 12.578123544970389,
+      "ci_low": 10.314046467135245,
+      "ci_high": 14.952188460858785,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 63.52587648974944,
+      "ci_low": 60.595136328594194,
+      "ci_high": 66.56572207194182,
+      "n_valid": 1000
      }
     },
     "sequence": {
@@ -887,6 +1199,18 @@
       "point": 0.5787139689578714,
       "ci_low": 0.47623927817386064,
       "ci_high": 0.6905953583877594,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 11.067194784790251,
+      "ci_low": 9.033281274044853,
+      "ci_high": 13.315614314378319,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 60.14779774342528,
+      "ci_low": 57.13807430482488,
+      "ci_high": 63.21144046648389,
       "n_valid": 1000
      }
     },
@@ -920,6 +1244,18 @@
       "ci_low": 0.5224846071872594,
       "ci_high": 0.7384281573865414,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 19.73418540509423,
+      "ci_low": 16.228566117110635,
+      "ci_high": 23.20593916214026,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 61.66932939091947,
+      "ci_low": 58.40090403380352,
+      "ci_high": 65.17025981651501,
+      "n_valid": 1000
      }
     },
     "2": {
@@ -951,6 +1287,18 @@
       "point": 0.5249597423510467,
       "ci_low": 0.4019252739751781,
       "ci_high": 0.6480089102877316,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 13.20279219181184,
+      "ci_low": 10.261301430110567,
+      "ci_high": 16.736634110954196,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 62.27732165948981,
+      "ci_low": 58.066561989346354,
+      "ci_high": 66.35862009506818,
       "n_valid": 1000
      }
     },
@@ -984,6 +1332,18 @@
       "ci_low": 0.32264817058896433,
       "ci_high": 0.568561343916014,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 10.731634266418558,
+      "ci_low": 7.82343506406924,
+      "ci_high": 13.517754603428132,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 62.39322247917766,
+      "ci_low": 58.10450186305058,
+      "ci_high": 66.45414432565003,
+      "n_valid": 1000
      }
     },
     "4": {
@@ -1015,6 +1375,18 @@
       "point": 0.23106060606060608,
       "ci_low": 0.10599805621528381,
       "ci_high": 0.41694112339273615,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 3.6220247961966576,
+      "ci_low": 1.816099815289792,
+      "ci_high": 5.539338994985953,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 60.367079936610956,
+      "ci_low": 53.14580577835434,
+      "ci_high": 66.14746632808924,
       "n_valid": 1000
      }
     }
@@ -1055,6 +1427,20 @@
       "ci_high": -0.28215887851921345,
       "excludes_zero": true,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 1.5109287601801373,
+      "ci_low": -1.8027067124609222,
+      "ci_high": 4.5912669738204,
+      "excludes_zero": false,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": 3.3780787463241637,
+      "ci_low": -0.9184377288879753,
+      "ci_high": 7.649297613711686,
+      "excludes_zero": false,
+      "n_valid": 1000
      }
     },
     "1 - 4": {
@@ -1091,6 +1477,20 @@
       "ci_low": 0.18461560232384897,
       "ci_high": 0.5647330110524904,
       "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 16.11216060889757,
+      "ci_low": 11.869236288874998,
+      "ci_high": 20.184004101975106,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": 1.302249454308516,
+      "ci_low": -5.6062570331488795,
+      "ci_high": 9.111778246489177,
+      "excludes_zero": false,
       "n_valid": 1000
      }
     }
@@ -1129,6 +1529,18 @@
       "ci_low": 0.34740512766845627,
       "ci_high": 0.4617773719409749,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 40.32718173231066,
+      "ci_low": 37.4744483632821,
+      "ci_high": 43.53820467666207,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 64.21525753552653,
+      "ci_low": 62.4231041404737,
+      "ci_high": 66.07768603741866,
+      "n_valid": 1000
      }
     },
     "sequence": {
@@ -1160,6 +1572,18 @@
       "point": 0.5798449612403102,
       "ci_low": 0.4835875845576246,
       "ci_high": 0.6705756121223925,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 11.341666693120992,
+      "ci_low": 9.269240005916197,
+      "ci_high": 13.611871372411755,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 58.462199449077275,
+      "ci_low": 55.15668637900958,
+      "ci_high": 61.66367359187735,
       "n_valid": 1000
      }
     },
@@ -1193,6 +1617,18 @@
       "ci_low": 0.2915330780445379,
       "ci_high": 0.5158663465386153,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 30.32455739566179,
+      "ci_low": 26.15494300976462,
+      "ci_high": 34.52039313729971,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 62.140486466520066,
+      "ci_low": 59.20125568818055,
+      "ci_high": 65.30030343169702,
+      "n_valid": 1000
      }
     },
     "2": {
@@ -1224,6 +1660,18 @@
       "point": 0.5222551928783383,
       "ci_low": 0.4178970586162671,
       "ci_high": 0.6282020000829911,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 26.863770385059155,
+      "ci_low": 22.887080884177664,
+      "ci_high": 31.105726141027187,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 63.357949021365926,
+      "ci_low": 60.18061247959871,
+      "ci_high": 66.56989837616366,
       "n_valid": 1000
      }
     },
@@ -1257,6 +1705,18 @@
       "ci_low": 0.42071910309188054,
       "ci_high": 0.609781831698739,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 26.840247459160302,
+      "ci_low": 23.081154861677668,
+      "ci_high": 31.187415831199104,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 63.905351093238814,
+      "ci_low": 60.26084614341243,
+      "ci_high": 67.14177016604131,
+      "n_valid": 1000
      }
     },
     "4": {
@@ -1288,6 +1748,18 @@
       "point": 0.42746515229736703,
       "ci_low": 0.3321225323580868,
       "ci_high": 0.531641438908275,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 19.309121610982064,
+      "ci_low": 15.681857700195806,
+      "ci_high": 23.360396663302858,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 61.88821029160918,
+      "ci_low": 58.063977438090475,
+      "ci_high": 65.9323470102137,
       "n_valid": 1000
      }
     }
@@ -1328,6 +1800,20 @@
       "ci_high": -0.0671564467386106,
       "excludes_zero": true,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 28.98551503918967,
+      "ci_low": 25.550853915787403,
+      "ci_high": 32.64226635313383,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": 5.753058086449258,
+      "ci_low": 2.2284281303658964,
+      "ci_high": 9.615814305730545,
+      "excludes_zero": true,
+      "n_valid": 1000
      }
     },
     "1 - 4": {
@@ -1363,6 +1849,20 @@
       "diff_point": -0.02486774969996447,
       "ci_low": -0.1725664577171903,
       "ci_high": 0.13786279432341675,
+      "excludes_zero": false,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 11.015435784679728,
+      "ci_low": 5.434123716109871,
+      "ci_high": 16.33726622297424,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": 0.2522761749108895,
+      "ci_low": -4.592016347676807,
+      "ci_high": 5.402844510487274,
       "excludes_zero": false,
       "n_valid": 1000
      }
@@ -1402,6 +1902,18 @@
       "ci_low": 0.605618673837644,
       "ci_high": 0.7052179555947046,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 54.77785199299467,
+      "ci_low": 51.8713539134344,
+      "ci_high": 57.76687257941035,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 70.04840408311338,
+      "ci_low": 68.23971571711199,
+      "ci_high": 72.02356775233334,
+      "n_valid": 1000
      }
     },
     "sequence": {
@@ -1433,6 +1945,18 @@
       "point": 0.7694515306122449,
       "ci_low": 0.6776018354169883,
       "ci_high": 0.843883582320918,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 32.965925911459586,
+      "ci_low": 30.01541534330749,
+      "ci_high": 36.00671085733678,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 65.15005120841815,
+      "ci_low": 63.257991384888264,
+      "ci_high": 67.02437053167685,
       "n_valid": 1000
      }
     },
@@ -1466,6 +1990,18 @@
       "ci_low": 0.7753870111402636,
       "ci_high": 0.8967400070126227,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 49.39264884086599,
+      "ci_low": 45.07972733836939,
+      "ci_high": 53.7579671065758,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 66.746822757927,
+      "ci_low": 63.76858384073245,
+      "ci_high": 69.57447097834026,
+      "n_valid": 1000
      }
     },
     "2": {
@@ -1497,6 +2033,18 @@
       "point": 0.8169312169312168,
       "ci_low": 0.7494635031651038,
       "ci_high": 0.875476427681907,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 47.37157977789585,
+      "ci_low": 43.07060668670544,
+      "ci_high": 51.72743932628705,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 67.67368539699407,
+      "ci_low": 64.88789066193526,
+      "ci_high": 70.17703104897531,
       "n_valid": 1000
      }
     },
@@ -1530,6 +2078,18 @@
       "ci_low": 0.7383473834215741,
       "ci_high": 0.8544377151426332,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 41.74311323547189,
+      "ci_low": 37.21096256835133,
+      "ci_high": 46.21470146701172,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 70.03878059642933,
+      "ci_low": 67.09564782209506,
+      "ci_high": 72.67352305337117,
+      "n_valid": 1000
      }
     },
     "4": {
@@ -1561,6 +2121,18 @@
       "point": 0.6274336283185842,
       "ci_low": 0.5188876196633762,
       "ci_high": 0.7268301344342539,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 36.98021395467479,
+      "ci_low": 32.577751170679306,
+      "ci_high": 41.59169499085821,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 68.4818776938422,
+      "ci_low": 65.69695513815991,
+      "ci_high": 71.33655547755711,
       "n_valid": 1000
      }
     }
@@ -1601,6 +2173,20 @@
       "ci_high": -0.01128073378867435,
       "excludes_zero": true,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 21.811926081535084,
+      "ci_low": 17.621802464467496,
+      "ci_high": 25.96022341624338,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": 4.8983528746952345,
+      "ci_low": 2.2533716995848083,
+      "ci_high": 7.670878523775635,
+      "excludes_zero": true,
+      "n_valid": 1000
      }
     },
     "1 - 4": {
@@ -1637,6 +2223,20 @@
       "ci_low": 0.10065716148235726,
       "ci_high": 0.33598334150567427,
       "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 12.4124348861912,
+      "ci_low": 6.330810048799292,
+      "ci_high": 18.886539385414288,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": -1.735054935915187,
+      "ci_low": -6.007371035517204,
+      "ci_high": 2.411702584529203,
+      "excludes_zero": false,
       "n_valid": 1000
      }
     }
@@ -1675,6 +2275,18 @@
       "ci_low": 0.5446876996100436,
       "ci_high": 0.6479861783346514,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 44.943455824998054,
+      "ci_low": 42.107231706053504,
+      "ci_high": 47.71611252179509,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 61.230866246591354,
+      "ci_low": 59.09124634614589,
+      "ci_high": 63.42491021470697,
+      "n_valid": 1000
      }
     },
     "sequence": {
@@ -1706,6 +2318,18 @@
       "point": 0.7997443155876175,
       "ci_low": 0.7392896375527752,
       "ci_high": 0.8566787544823462,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 53.51866225758373,
+      "ci_low": 50.973876961600794,
+      "ci_high": 56.01159678999267,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 63.71269316379015,
+      "ci_low": 62.073259902558156,
+      "ci_high": 65.43378976185565,
       "n_valid": 1000
      }
     },
@@ -1739,6 +2363,18 @@
       "ci_low": 0.8458589847100975,
       "ci_high": 0.9163703310589614,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 54.41285833159838,
+      "ci_low": 50.985376038728305,
+      "ci_high": 57.93677970381684,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 62.400066894034836,
+      "ci_low": 59.62445760021469,
+      "ci_high": 65.33710171807881,
+      "n_valid": 1000
      }
     },
     "2": {
@@ -1770,6 +2406,18 @@
       "point": 0.8766572920851746,
       "ci_low": 0.8426799867233715,
       "ci_high": 0.9060332636463937,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 50.780003270296994,
+      "ci_low": 47.11039799247814,
+      "ci_high": 54.68563488498626,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 62.230396164579645,
+      "ci_low": 59.660602782751404,
+      "ci_high": 65.08472690347116,
       "n_valid": 1000
      }
     },
@@ -1803,6 +2451,18 @@
       "ci_low": 0.7892685987004284,
       "ci_high": 0.87968744795449,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 45.944202280969066,
+      "ci_low": 42.072206820366546,
+      "ci_high": 49.975143664537,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 61.42273032215116,
+      "ci_low": 58.873596652696826,
+      "ci_high": 63.99349270098111,
+      "n_valid": 1000
      }
     },
     "4": {
@@ -1834,6 +2494,18 @@
       "point": 0.63084495488105,
       "ci_low": 0.5558700446017548,
       "ci_high": 0.7050186108052006,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "point": 45.787172282299125,
+      "ci_low": 41.950271772089664,
+      "ci_high": 49.68781292125224,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "point": 64.30782623918417,
+      "ci_low": 61.78737809315443,
+      "ci_high": 66.7434312231769,
       "n_valid": 1000
      }
     }
@@ -1874,6 +2546,20 @@
       "ci_high": -0.12243878903673165,
       "excludes_zero": true,
       "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": -8.575206432585674,
+      "ci_low": -12.655850799414333,
+      "ci_high": -4.6472436899204865,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": -2.481826917198795,
+      "ci_low": -5.16832479931199,
+      "ci_high": 0.29043649338454486,
+      "excludes_zero": false,
+      "n_valid": 1000
      }
     },
     "1 - 4": {
@@ -1910,6 +2596,20 @@
       "ci_low": 0.1733462839735213,
       "ci_high": 0.3359711653314837,
       "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|zeros_for_failed": {
+      "diff_point": 8.625686049299254,
+      "ci_low": 2.9570532844123236,
+      "ci_high": 13.847517619526474,
+      "excludes_zero": true,
+      "n_valid": 1000
+     },
+     "chrf|macro|compiled_only": {
+      "diff_point": -1.90775934514933,
+      "ci_low": -5.736512890135447,
+      "ci_high": 2.1087340325089206,
+      "excludes_zero": false,
       "n_valid": 1000
      }
     }
