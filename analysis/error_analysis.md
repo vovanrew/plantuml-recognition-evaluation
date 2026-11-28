@@ -39,11 +39,6 @@ are empty, three of Gemini 3.1 Pro and one of Claude Opus 4.6, so the sample hol
 One case per cell shows which kinds of failure occur. It does not show how often they occur. A
 count in this file is a count of sampled cases, never a rate.
 
-The sample was drawn when three answers that name their diagram after `@startuml` were still
-counted as compile fails: one of Qwen3.5-2B and two of Qwen3.5-27B. The table in §1.1 gives the
-corrected counts. None of the three answers is in the sample. The sample is kept as drawn and
-coded. A draw from the corrected counts would replace 3 of the 108 cases.
-
 ### 1.3 Coding
 
 Each case was coded from its ground truth, its answer and the image the model was shown. The
