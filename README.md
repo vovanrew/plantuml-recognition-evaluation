@@ -469,7 +469,7 @@ The extractor tests run only when `PLANTUML_EXTRACTOR_JAR` points at
 If you use this benchmark, its data, or its evaluation framework, please cite it:
 
 > Polishchuk, V. (2026). *Zero-shot image-to-PlantUML: a multi-level structural
-> evaluation framework and benchmark* (v1.2.0) [Software]. Zenodo.
+> evaluation framework and benchmark* (v1.2.1) [Software]. Zenodo.
 > https://doi.org/10.5281/zenodo.21670236
 
 ```bibtex
@@ -479,7 +479,7 @@ If you use this benchmark, its data, or its evaluation framework, please cite it
                evaluation framework and benchmark},
   year      = {2026},
   publisher = {Zenodo},
-  version   = {v1.2.0},
+  version   = {v1.2.1},
   doi       = {10.5281/zenodo.21670236},
   url       = {https://doi.org/10.5281/zenodo.21670236}
 }
@@ -487,7 +487,7 @@ If you use this benchmark, its data, or its evaluation framework, please cite it
 
 `10.5281/zenodo.21670236` is the concept DOI: it always resolves to the newest
 version, so it stays correct as this work is updated. To cite this exact
-release instead, use `10.5281/zenodo.24543714` (v1.2.0).
+release instead, use `10.5281/zenodo.24623609` (v1.2.1).
 
 Machine-readable metadata is in [`CITATION.cff`](CITATION.cff).
 
