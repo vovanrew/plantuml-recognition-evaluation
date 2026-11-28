@@ -479,3 +479,42 @@ def test_real_crowding_monotonic_across_tiers():
     lpm = [cr["by_tier"][t]["lines_per_mp"] for t in tiers]
     # crowding (content_lines per MP) increases with tier -- the degradation story
     assert all(a < b for a, b in zip(lpm, lpm[1:])), lpm
+
+
+# --------------------------------------------------------------------------- #
+# finish reasons of the returned answers
+# --------------------------------------------------------------------------- #
+
+def test_finish_reason_reads_both_provider_shapes():
+    assert rl.finish_reason({"choices": [{"finish_reason": "stop"}]}) == "stop"
+    assert rl.finish_reason({"candidates": [{"finishReason": "RECITATION", "content": {}}]}) == "RECITATION"
+    assert rl.finish_reason({"choices": [{"finish_reason": None}]}) == "absent"
+    assert rl.finish_reason({"usage": {}}) == "absent"
+
+
+def test_finish_class_names_one_reason_across_providers():
+    assert rl.finish_class("stop") == rl.finish_class("STOP") == "complete"
+    assert rl.finish_class("length") == rl.finish_class("MAX_TOKENS") == "length"
+    assert rl.finish_class("RECITATION") == "recitation"
+    assert rl.finish_class("SAFETY") == rl.finish_class("absent") == "other"
+
+
+def test_read_run_usage_counts_finish_reasons_of_returned_answers_only(tmp_path):
+    cells = {
+        "a": {"choices": [{"finish_reason": "stop"}], "usage": {"prompt_tokens": 1, "completion_tokens": 1}},
+        "b": {"choices": [{"finish_reason": "length"}], "usage": {"prompt_tokens": 1, "completion_tokens": 1}},
+        "c": {"candidates": [{"finishReason": "RECITATION", "content": {}}],
+              "usageMetadata": {"promptTokenCount": 1}},
+        "d": {"error": "timeout"},
+    }
+    for key, record in cells.items():
+        (tmp_path / f"{key}.json").write_text(json.dumps(record), encoding="utf-8")
+    usage = rl.read_run_usage(tmp_path)
+    assert usage["finish_counts"] == {"RECITATION": 1, "length": 1, "stop": 1}
+    assert usage["n_error"] == 1
+    assert rl.finish_record(usage) == {"complete": 1, "length": 1, "recitation": 1, "other": 0,
+                                       "raw": {"RECITATION": 1, "length": 1, "stop": 1}}
+
+
+def test_finish_record_without_counts_is_all_zero():
+    assert rl.finish_record({}) == {"complete": 0, "length": 0, "recitation": 0, "other": 0, "raw": {}}

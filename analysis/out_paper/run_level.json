@@ -60,6 +60,16 @@
           "ok": true
         }
       },
+      "finish_reasons": {
+        "complete": 996,
+        "length": 3,
+        "recitation": 0,
+        "other": 0,
+        "raw": {
+          "length": 3,
+          "stop": 996
+        }
+      },
       "provenance": {
         "model": "gpt-5.2-2025-12-11",
         "base_url": "https://api.openai.com/v1",
@@ -108,6 +118,15 @@
           "source_b_no_response": 0,
           "source_a_has_pred_false": 0,
           "ok": true
+        }
+      },
+      "finish_reasons": {
+        "complete": 1000,
+        "length": 0,
+        "recitation": 0,
+        "other": 0,
+        "raw": {
+          "stop": 1000
         }
       },
       "provenance": {
@@ -162,6 +181,17 @@
           "ok": true
         }
       },
+      "finish_reasons": {
+        "complete": 992,
+        "length": 1,
+        "recitation": 7,
+        "other": 0,
+        "raw": {
+          "MAX_TOKENS": 1,
+          "RECITATION": 7,
+          "STOP": 992
+        }
+      },
       "provenance": {
         "model": "gemini-3.1-pro-preview",
         "base_url": "https://generativelanguage.googleapis.com/v1beta",
@@ -212,6 +242,16 @@
           "source_b_no_response": 0,
           "source_a_has_pred_false": 0,
           "ok": true
+        }
+      },
+      "finish_reasons": {
+        "complete": 643,
+        "length": 357,
+        "recitation": 0,
+        "other": 0,
+        "raw": {
+          "length": 357,
+          "stop": 643
         }
       },
       "provenance": {
@@ -266,6 +306,16 @@
           "ok": true
         }
       },
+      "finish_reasons": {
+        "complete": 821,
+        "length": 179,
+        "recitation": 0,
+        "other": 0,
+        "raw": {
+          "length": 179,
+          "stop": 821
+        }
+      },
       "provenance": {
         "model": "Qwen/Qwen3.5-9B",
         "base_url": "http://127.0.0.1:8000/v1",
@@ -318,6 +368,16 @@
           "ok": true
         }
       },
+      "finish_reasons": {
+        "complete": 911,
+        "length": 89,
+        "recitation": 0,
+        "other": 0,
+        "raw": {
+          "length": 89,
+          "stop": 911
+        }
+      },
       "provenance": {
         "model": "Qwen/Qwen3.5-27B",
         "base_url": "http://127.0.0.1:8000/v1",
@@ -368,6 +428,16 @@
           "source_b_no_response": 0,
           "source_a_has_pred_false": 0,
           "ok": true
+        }
+      },
+      "finish_reasons": {
+        "complete": 971,
+        "length": 29,
+        "recitation": 0,
+        "other": 0,
+        "raw": {
+          "length": 29,
+          "stop": 971
         }
       },
       "provenance": {

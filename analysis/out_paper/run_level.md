@@ -30,6 +30,20 @@ Provider/harness failure (source B) vs model compile-fail (source A CSR). `no_re
 | Qwen3.5-27B | 646 | 354 | 0 | 0 | 0 | 0 | 0 | ✓ |
 | Qwen3.5-397B-A17B | 787 | 213 | 0 | 0 | 0 | 0 | 0 | ✓ |
 
+## Finish reasons of the returned answers
+
+The provider's reason for ending each returned answer. `complete`: the answer ended on its own. `length`: it reached the output limit. `recitation`: the provider stopped it because the text repeats existing material, and returned no text; such an answer counts as a compile fail. An answer that was not returned has no finish reason.
+
+| Model | returned | complete | length | recitation | other |
+|---|--:|--:|--:|--:|--:|
+| GPT-5.2 | 999 | 996 | 3 | 0 | 0 |
+| Claude Opus 4.6 | 1000 | 1000 | 0 | 0 | 0 |
+| Gemini 3.1 Pro | 1000 | 992 | 1 | 7 | 0 |
+| Qwen3.5-2B | 1000 | 643 | 357 | 0 | 0 |
+| Qwen3.5-9B | 1000 | 821 | 179 | 0 | 0 |
+| Qwen3.5-27B | 1000 | 911 | 89 | 0 | 0 |
+| Qwen3.5-397B-A17B | 1000 | 971 | 29 | 0 | 0 |
+
 ## Provenance manifest
 
 | Model | snapshot | provider | base_url | reasoning config | max_tokens | temp | started | leak |

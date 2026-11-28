@@ -90,6 +90,33 @@ def _usage_tokens(obj: dict) -> dict:
             "reasoning": details.get("reasoning_tokens", 0)}  # subset of output (GPT only)
 
 
+# The provider's reason for ending an answer, under one name across providers.
+FINISH_CLASSES = ("complete", "length", "recitation", "other")
+_FINISH_CLASS = {"stop": "complete", "end_turn": "complete",
+                 "length": "length", "max_tokens": "length",
+                 "recitation": "recitation"}
+
+
+def finish_reason(record: dict) -> str:
+    """The finish reason a provider gave for one returned answer, as the provider
+    wrote it: ``choices[0].finish_reason`` (OpenAI-like) or
+    ``candidates[0].finishReason`` (Gemini). ``"absent"`` when the record has none."""
+    if record.get("candidates"):
+        reason = record["candidates"][0].get("finishReason")
+    elif record.get("choices"):
+        reason = record["choices"][0].get("finish_reason")
+    else:
+        reason = None
+    return str(reason) if reason else "absent"
+
+
+def finish_class(reason: str) -> str:
+    """One of ``FINISH_CLASSES`` for a provider's finish reason: the answer ended on
+    its own (``complete``), reached the output limit (``length``), or was stopped by the
+    provider's filter for text that repeats existing material (``recitation``)."""
+    return _FINISH_CLASS.get(reason.lower(), "other")
+
+
 def read_cell(record: dict) -> dict:
     """Classify + extract one raw per-cell record.
 
@@ -124,11 +151,14 @@ def read_run_usage(run_dir) -> dict:
     dir (the files of ``NOT_CELLS`` excluded). Failures contribute 0 tokens unless they
     kept a usage-bearing response (image_dropped). Deterministic (sorted file iteration).
 
-    Returns ``{n_cells, n_ok, n_error, input, output, reasoning, status_counts}``.
+    Returns ``{n_cells, n_ok, n_error, input, output, reasoning, status_counts,
+    finish_counts}``; ``finish_counts`` holds the providers' finish reasons of the
+    returned answers, as written.
     """
     run_dir = Path(run_dir)
     totals = {"input": 0, "output": 0, "reasoning": 0}
     status_counts: dict[str, int] = {}
+    finish_counts: dict[str, int] = {}
     n_cells = 0
     for path in sorted(run_dir.glob("*.json")):
         if path.name in NOT_CELLS:
@@ -140,10 +170,14 @@ def read_run_usage(run_dir) -> dict:
         for k in totals:
             totals[k] += cell[k]
         status_counts[cell["status"]] = status_counts.get(cell["status"], 0) + 1
+        if cell["status"] == "ok":
+            reason = finish_reason(record)
+            finish_counts[reason] = finish_counts.get(reason, 0) + 1
     n_ok = status_counts.get("ok", 0)
     n_error = n_cells - n_ok
     return {"n_cells": n_cells, "n_ok": n_ok, "n_error": n_error,
-            "status_counts": status_counts, **totals}
+            "status_counts": status_counts,
+            "finish_counts": dict(sorted(finish_counts.items())), **totals}
 
 
 def token_record(run_usage: dict) -> dict:
@@ -210,6 +244,16 @@ def reconcile(md, run_usage: dict) -> dict:
     b = run_usage["n_error"]
     a = source_a_no_response(md)
     return {"source_b_no_response": b, "source_a_has_pred_false": a, "ok": a == b}
+
+
+def finish_record(run_usage: dict) -> dict:
+    """Finish reasons of a run's returned answers: the count per class of
+    ``FINISH_CLASSES`` and the providers' own names with their counts (``raw``)."""
+    raw = run_usage.get("finish_counts", {})
+    classes = {c: 0 for c in FINISH_CLASSES}
+    for reason, count in raw.items():
+        classes[finish_class(reason)] += count
+    return {**classes, "raw": dict(raw)}
 
 
 def failure_inventory(md, run_usage: dict) -> dict:
@@ -343,6 +387,7 @@ def model_run_record(md, run_usage: dict, run_meta: dict, leak_count: int) -> di
         "run_dir": e.run_dir,
         "tokens": token_record(run_usage),
         "failures": failure_inventory(md, run_usage),
+        "finish_reasons": finish_record(run_usage),
         "provenance": provenance_record(run_meta, leak_count),
     }
 
@@ -416,6 +461,7 @@ CSV_FIELDS = [
     "n_cells", "input_tokens", "output_tokens", "reasoning_tokens", "total_tokens",
     "compiled", "compile_fail", "no_response",
     "timeout", "image_dropped", "http_error", "network_error",
+    "finish_complete", "finish_length", "finish_recitation", "finish_other",
     "provider", "max_tokens", "temperature", "reasoning_leak",
     "source_a_has_pred_false", "source_b_no_response", "reconcile_ok",
 ]
@@ -426,6 +472,7 @@ def run_level_csv_rows(records: list[dict]) -> list[dict]:
     for r in records:
         tok, fail, prov = r["tokens"], r["failures"], r["provenance"]
         pf = fail["provider_failures"]
+        fin = r.get("finish_reasons") or {c: "" for c in FINISH_CLASSES}
         rows.append({
             "model_id": r["model_id"], "display": r["display"], "arm": r["arm"],
             "family": r["family"], "run_dir": r["run_dir"],
@@ -436,6 +483,8 @@ def run_level_csv_rows(records: list[dict]) -> list[dict]:
             "no_response": fail["no_response"],
             "timeout": pf["timeout"], "image_dropped": pf["image_dropped"],
             "http_error": pf["http_error"], "network_error": pf["network_error"],
+            "finish_complete": fin["complete"], "finish_length": fin["length"],
+            "finish_recitation": fin["recitation"], "finish_other": fin["other"],
             "provider": prov["provider"], "max_tokens": prov["max_tokens"],
             "temperature": prov["temperature"], "reasoning_leak": prov["reasoning_leak"],
             "source_a_has_pred_false": fail["reconcile"]["source_a_has_pred_false"],
@@ -503,6 +552,24 @@ def render_markdown(records: list[dict], meta: dict, crowding: dict | None = Non
                    f"{f['no_response']} | {pf['timeout']} | {pf['image_dropped']} | "
                    f"{pf['http_error']} | {pf['network_error']} | {rc} |")
     out.append("")
+
+    # (c2) the providers' finish reasons of the returned answers
+    if all("finish_reasons" in r for r in records):
+        out.append("## Finish reasons of the returned answers")
+        out.append("")
+        out.append("The provider's reason for ending each returned answer. `complete`: the "
+                   "answer ended on its own. `length`: it reached the output limit. "
+                   "`recitation`: the provider stopped it because the text repeats existing "
+                   "material, and returned no text; such an answer counts as a compile fail. "
+                   "An answer that was not returned has no finish reason.")
+        out.append("")
+        out.append("| Model | returned | complete | length | recitation | other |")
+        out.append("|---|--:|--:|--:|--:|--:|")
+        for r in records:
+            fr = r["finish_reasons"]
+            out.append(f"| {r['display']} | {sum(fr[c] for c in FINISH_CLASSES)} | "
+                       f"{fr['complete']} | {fr['length']} | {fr['recitation']} | {fr['other']} |")
+        out.append("")
 
     # (d) provenance manifest
     out.append("## Provenance manifest")

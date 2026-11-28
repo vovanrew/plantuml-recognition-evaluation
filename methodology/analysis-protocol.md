@@ -201,7 +201,11 @@ but carries a complete billed response has its tokens counted while the cell is
 still classified as a provider failure.
 
 A failure inventory separates provider failures (timeout, dropped image, HTTP
-error, network error) and provider no-response from model compile failure. A
+error, network error) and provider no-response from model compile failure. The
+finish reasons of the returned answers are counted per model in three classes: the
+answer ended on its own, it reached the output limit, or the provider stopped it as
+recitation of existing text. A provider that stops an answer as recitation returns
+no text, and the answer counts as a compile fail. A
 provenance manifest records, per model, the exact snapshot, provider, endpoint,
 reasoning configuration, token ceiling, timeout, temperature, and run start time.
 

@@ -25,7 +25,9 @@ occurs.
 | Qwen3.5-397B-A17B | 676 | 111 | 213 | 0 |
 
 A compiled low-structural answer renders, but its Element F1 or Relationship F1 is below 0.5.
-The one provider drop is a timeout. No run contains a refusal.
+The one provider drop is a timeout. No run contains a refusal. The provider stopped seven answers
+of Gemini 3.1 Pro as recitation of existing text and returned no text for them
+(`out_paper/run_level.md`, finish reasons). They count as compile fails.
 
 ### 1.2 The sample
 
