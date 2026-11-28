@@ -64,11 +64,11 @@
       },
       "qwen3.5-2b": {
         "compile_fail": {
-          "available": 809,
+          "available": 808,
           "sampled": 16
         },
         "compiled_low_structural": {
-          "available": 95,
+          "available": 96,
           "sampled": 16
         }
       },
@@ -84,7 +84,7 @@
       },
       "qwen3.5-27b": {
         "compile_fail": {
-          "available": 356,
+          "available": 354,
           "sampled": 16
         },
         "compiled_low_structural": {
@@ -520,7 +520,7 @@
         "primary_type": "class",
         "tier": 3,
         "outcome_class": "compile_fail",
-        "available": 103,
+        "available": 102,
         "sampled": 2,
         "capped": true
       },
@@ -530,7 +530,7 @@
         "primary_type": "class",
         "tier": 3,
         "outcome_class": "compiled_low_structural",
-        "available": 15,
+        "available": 16,
         "sampled": 2,
         "capped": true
       },
@@ -900,7 +900,7 @@
         "primary_type": "sequence",
         "tier": 2,
         "outcome_class": "compile_fail",
-        "available": 53,
+        "available": 52,
         "sampled": 2,
         "capped": true
       },
@@ -940,7 +940,7 @@
         "primary_type": "sequence",
         "tier": 4,
         "outcome_class": "compile_fail",
-        "available": 74,
+        "available": 73,
         "sampled": 2,
         "capped": true
       },
@@ -10514,6 +10514,94 @@
       "model_id": "qwen3.5-2b",
       "display": "Qwen3.5-2B",
       "run_dir": "Qwen3.5-2B_self-served",
+      "key": "433e124abde9c8c964f1ea865044a90366e7a222",
+      "primary_type": "class",
+      "tier": 3,
+      "outcome_class": "compiled_low_structural",
+      "compiled": true,
+      "has_pred": true,
+      "csr_error": null,
+      "element": {
+        "tp": 4,
+        "fp": 1,
+        "fn": 3,
+        "f1": 0.6666666666666666,
+        "type_accuracy": {
+          "matched": 4,
+          "correct": 0,
+          "excluded": 0
+        }
+      },
+      "relationship": {
+        "tp": 0,
+        "fp": 4,
+        "fn": 7,
+        "f1": 0.0,
+        "relations_missed": [
+          "inheritance",
+          "aggregation",
+          "dependency",
+          "association"
+        ],
+        "relations_extra": [
+          "message"
+        ],
+        "by_relation": {
+          "inheritance": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 2
+          },
+          "composition": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "aggregation": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 1
+          },
+          "dependency": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 3
+          },
+          "association": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 1
+          },
+          "message": {
+            "tp": 0,
+            "fp": 4,
+            "fn": 0
+          }
+        }
+      },
+      "chrf": 49.737522678016,
+      "paths": {
+        "gt_puml": "data/puml_files/433e124abde9c8c964f1ea865044a90366e7a222.puml",
+        "pred_puml": "data/runs/Qwen3.5-2B_self-served/433e124abde9c8c964f1ea865044a90366e7a222.puml",
+        "input_image": "data/puml_images_1568/433e124abde9c8c964f1ea865044a90366e7a222.png",
+        "pred_render": "data/csr/Qwen3.5-2B_self-served/png/433e124abde9c8c964f1ea865044a90366e7a222.png"
+      },
+      "paths_exist": {
+        "gt_puml": true,
+        "pred_puml": true,
+        "input_image": true,
+        "pred_render": false
+      },
+      "gt_n_lines": 57,
+      "inlined": {
+        "gt": null,
+        "pred": null
+      }
+    },
+    {
+      "model_id": "qwen3.5-2b",
+      "display": "Qwen3.5-2B",
+      "run_dir": "Qwen3.5-2B_self-served",
       "key": "6f12ad3e5c0100e4b2adf9d45f67dda7f2c7e15b",
       "primary_type": "sequence",
       "tier": 1,
@@ -11586,91 +11674,6 @@
           "n_lines": 33,
           "truncated": false
         }
-      }
-    },
-    {
-      "model_id": "qwen3.5-2b",
-      "display": "Qwen3.5-2B",
-      "run_dir": "Qwen3.5-2B_self-served",
-      "key": "facea87e5432eabebeab8cd48b0d08c0046e70aa",
-      "primary_type": "class",
-      "tier": 3,
-      "outcome_class": "compiled_low_structural",
-      "compiled": true,
-      "has_pred": true,
-      "csr_error": null,
-      "element": {
-        "tp": 6,
-        "fp": 0,
-        "fn": 0,
-        "f1": 1.0,
-        "type_accuracy": {
-          "matched": 6,
-          "correct": 6,
-          "excluded": 0
-        }
-      },
-      "relationship": {
-        "tp": 0,
-        "fp": 6,
-        "fn": 5,
-        "f1": 0.0,
-        "relations_missed": [
-          "dependency"
-        ],
-        "relations_extra": [
-          "association"
-        ],
-        "by_relation": {
-          "inheritance": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "composition": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "aggregation": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "dependency": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 5
-          },
-          "association": {
-            "tp": 0,
-            "fp": 6,
-            "fn": 0
-          },
-          "message": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          }
-        }
-      },
-      "chrf": 76.52939736055117,
-      "paths": {
-        "gt_puml": "data/puml_files/facea87e5432eabebeab8cd48b0d08c0046e70aa.puml",
-        "pred_puml": "data/runs/Qwen3.5-2B_self-served/facea87e5432eabebeab8cd48b0d08c0046e70aa.puml",
-        "input_image": "data/puml_images_1568/facea87e5432eabebeab8cd48b0d08c0046e70aa.png",
-        "pred_render": "data/csr/Qwen3.5-2B_self-served/png/facea87e5432eabebeab8cd48b0d08c0046e70aa.png"
-      },
-      "paths_exist": {
-        "gt_puml": true,
-        "pred_puml": true,
-        "input_image": true,
-        "pred_render": false
-      },
-      "gt_n_lines": 68,
-      "inlined": {
-        "gt": null,
-        "pred": null
       }
     },
     {
@@ -15207,17 +15210,17 @@
       "model_id": "qwen3.5-27b",
       "display": "Qwen3.5-27B",
       "run_dir": "Qwen3.5-27B_self-served",
-      "key": "880c4bc548f9e57bcce86d0e90a558cd9dad31d5",
+      "key": "7560f1b6f08fc0b7a47a113b08187f47c8bda8b2",
       "primary_type": "sequence",
       "tier": 2,
       "outcome_class": "compile_fail",
       "compiled": false,
       "has_pred": true,
-      "csr_error": "Error line 5 in file: /Users/vovapolishchuk/indiehacker/projects/university/fine-tune/runs/test/27B_zero_shot/.scoring/v2/csr/27B_zero_shot/extracted/880c4bc548f9e57bcce86d0e90a558cd9dad31d5.puml",
+      "csr_error": "no PNG produced",
       "element": {
         "tp": 0,
         "fp": 0,
-        "fn": 3,
+        "fn": 6,
         "f1": 0.0,
         "type_accuracy": {
           "matched": 0,
@@ -15228,7 +15231,7 @@
       "relationship": {
         "tp": 0,
         "fp": 0,
-        "fn": 5,
+        "fn": 8,
         "f1": 0.0,
         "relations_missed": [
           "message"
@@ -15263,16 +15266,16 @@
           "message": {
             "tp": 0,
             "fp": 0,
-            "fn": 5
+            "fn": 8
           }
         }
       },
-      "chrf": 63.35675314389658,
+      "chrf": 5.021497650610762,
       "paths": {
-        "gt_puml": "data/puml_files/880c4bc548f9e57bcce86d0e90a558cd9dad31d5.puml",
-        "pred_puml": "data/runs/Qwen3.5-27B_self-served/880c4bc548f9e57bcce86d0e90a558cd9dad31d5.puml",
-        "input_image": "data/puml_images_1568/880c4bc548f9e57bcce86d0e90a558cd9dad31d5.png",
-        "pred_render": "data/csr/Qwen3.5-27B_self-served/png/880c4bc548f9e57bcce86d0e90a558cd9dad31d5.png"
+        "gt_puml": "data/puml_files/7560f1b6f08fc0b7a47a113b08187f47c8bda8b2.puml",
+        "pred_puml": "data/runs/Qwen3.5-27B_self-served/7560f1b6f08fc0b7a47a113b08187f47c8bda8b2.puml",
+        "input_image": "data/puml_images_1568/7560f1b6f08fc0b7a47a113b08187f47c8bda8b2.png",
+        "pred_render": "data/csr/Qwen3.5-27B_self-served/png/7560f1b6f08fc0b7a47a113b08187f47c8bda8b2.png"
       },
       "paths_exist": {
         "gt_puml": true,
@@ -15280,108 +15283,17 @@
         "input_image": true,
         "pred_render": false
       },
-      "gt_n_lines": 55,
+      "gt_n_lines": 21,
       "inlined": {
         "gt": {
-          "text": "' Blob ID: 880c4bc548f9e57bcce86d0e90a558cd9dad31d5\n' Original Path: /docs/US/US14/US014_SD_getListFromExternalModule(fileName).puml\n' Source: World of Code\n\n@startuml\nautonumber\n\nskinparam titleFontSize 25\n\n\nparticipant \"store: SnsUserStore \" as store\nparticipant \"<<interface>>\\n:LoadSnsUsersFromExternalSource\" as externalSource\nparticipant \":List<SnsUserDTO>\" as listDTO\n\ntitle : SD_getListFromExternalModule(fileName)\n'1'\n[o-> store : getListFromExternalModule(fileName)\nactivate store\n'2'\nstore -> store : className = getClassName(fileName)\nactivate store\ndeactivate store\n\n'5'\nstore -> externalSource : dtoList = readFileFromExternalSource(fileName)\n\nactivate externalSource\n\n'6'\nexternalSource --> listDTO **: create()\nnote over externalSource\n <w:#FFAAAA>multiple interactions in the externalSource to extract a list of SnsUserDTO</w>\nend note\ndeactivate externalSource\n\n'7'\n[<-- store : return dtoList\n\ndeactivate store\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n@enduml",
-          "n_lines": 55,
+          "text": "' Blob ID: 7560f1b6f08fc0b7a47a113b08187f47c8bda8b2\n' Original Path: /diagrams/record.puml\n' Source: World of Code\n\n@startuml\nactor record\nautonumber\nrecord <-- configuration: Get inital configuration\ngroup initialize\n\trecord -> ekf: Create Object\n\trecord -> pathgenerator: Create Object\nend\n\ngroup iterate\n\trecord <-- ekf: Get current location\n\trecord -> pathgenerator: Send current location\n\trecord <-- pathgenerator: Return path\n\trecord -> display: Path addition and walker location\n\trecord -> diagnostics: Walker location and path status\nend\n@enduml",
+          "n_lines": 21,
           "truncated": false
         },
         "pred": {
-          "text": "```plantuml\n@startuml\ntitle SD_getListFromExternalModule(fileName)\n\nparticipant \"store: SnsUserStore\" as SnsUserStore\ninterface \"LoadSnsUsersFromExternalSource\" as LoadSnsUsersFromExternalSource\nparticipant \"List<SnsUserDTO>\" as ListSnsUserDTO\n\nactivate SnsUserStore\n  SnsUserStore -> SnsUserStore: 1 getListFromExternalModule(fileName)\n  activate SnsUserStore\n    SnsUserStore -> SnsUserStore: 2 className = getClassName(fileName)\n    SnsUserStore -> LoadSnsUsersFromExternalSource: 3 dtoList = readFileFromExternalSource(fileName)\n    activate LoadSnsUsersFromExternalSource\n      LoadSnsUsersFromExternalSource ..> ListSnsUserDTO: 4 create()\n      note right of LoadSnsUsersFromExternalSource: multiple interactions in the externalSource to extract a list of SnsUserDTO\n    deactivate LoadSnsUsersFromExternalSource\n    SnsUserStore --> SnsUserStore: 5 return dtoList\n  deactivate SnsUserStore\ndeactivate SnsUserStore\n\n@enduml\n```",
-          "n_lines": 23,
-          "truncated": false
-        }
-      }
-    },
-    {
-      "model_id": "qwen3.5-27b",
-      "display": "Qwen3.5-27B",
-      "run_dir": "Qwen3.5-27B_self-served",
-      "key": "8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf",
-      "primary_type": "sequence",
-      "tier": 4,
-      "outcome_class": "compile_fail",
-      "compiled": false,
-      "has_pred": true,
-      "csr_error": "Error line 11 in file: /Users/vovapolishchuk/indiehacker/projects/university/fine-tune/runs/test/27B_zero_shot/.scoring/v2/csr/27B_zero_shot/extracted/8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf.puml",
-      "element": {
-        "tp": 0,
-        "fp": 0,
-        "fn": 13,
-        "f1": 0.0,
-        "type_accuracy": {
-          "matched": 0,
-          "correct": 0,
-          "excluded": 0
-        }
-      },
-      "relationship": {
-        "tp": 0,
-        "fp": 0,
-        "fn": 23,
-        "f1": 0.0,
-        "relations_missed": [
-          "message"
-        ],
-        "relations_extra": [],
-        "by_relation": {
-          "inheritance": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "composition": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "aggregation": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "dependency": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "association": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "message": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 23
-          }
-        }
-      },
-      "chrf": 66.87772254782216,
-      "paths": {
-        "gt_puml": "data/puml_files/8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf.puml",
-        "pred_puml": "data/runs/Qwen3.5-27B_self-served/8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf.puml",
-        "input_image": "data/puml_images_1568/8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf.png",
-        "pred_render": "data/csr/Qwen3.5-27B_self-served/png/8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf.png"
-      },
-      "paths_exist": {
-        "gt_puml": true,
-        "pred_puml": true,
-        "input_image": true,
-        "pred_render": false
-      },
-      "gt_n_lines": 80,
-      "inlined": {
-        "gt": {
-          "text": "' Blob ID: 8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf\n' Original Path: /stack.plantuml\n' Source: World of Code\n\n@startuml\n\nactor mobile\ncollections www\nboundary endpoint\nboundary haproxy\nentity ipfs\nentity postgraphile\nentity factomd as \"CITY Custom Net\"\nboundary logstash\ncontrol dApp\ndatabase postgres\ndatabase elastic\ncollections prometheus\ncollections kibana\n\ngroup webUI\n  mobile -> www : sign & send events\n  note right mobile\n  browser ext or mobile wallet\n  end note\n  www -> endpoint : HTTPS gateway & peer tcp/4001\n  endpoint -> ipfs : /ipfs/{CID}\n  activate ipfs\n  endpoint -> haproxy : HTTPS (oauth by EC Address)\n  note right www\n  User makes deposit / signs entry to trigger events.\n  end note\nend\n\ngroup api - Admin/Write api\n  haproxy -> factomd : /v2 - read/write factom api\n  activate factomd\n  haproxy -> ipfs : /ipfs/{CID} - readonly gateway\n  haproxy -> postgraphile : /graphql - readonly graphql queries\n  activate postgraphile\n  factomd -> logstash : livefeed log\n  activate logstash\n  logstash -> elastic : index event logs\n  activate elastic\n  logstash -> postgres : dApp specific events\n  activate postgres\n  postgraphile -> postgres : Query/Sign\n  deactivate postgraphile\n  postgres -> dApp : sign and dispatch requests\n  activate dApp\n  dApp -> factomd : read/write signed factom entries\nend\n\ngroup dashboard\n  kibana -> elastic : dashboard query\n  deactivate elastic\n  activate kibana\n  prometheus -> prometheus : poll()\n  activate prometheus\n  prometheus -> factomd : Monitor(FA2XXXXXXXXX) Balance changes\n  prometheus -> factomd : HTTP GET /metrics\n  deactivate factomd\n  prometheus -> ipfs : HTTP GET /metrics\n  kibana -> prometheus : metrics  query\n  kibana -> postgres : dApp specific rollup\n  deactivate kibana\n  deactivate prometheus\nend\n\ngroup dApp - controller\n  postgres -> dApp : dispatch on-chain event\n  deactivate postgres\n  dApp -> logstash : dApp specific logging\n  deactivate logstash\n  dApp -> ipfs : pin entry content on IPFS\n  deactivate dApp\n  deactivate ipfs\nend\n\n@enduml",
-          "n_lines": 80,
-          "truncated": false
-        },
-        "pred": {
-          "text": "```plantuml\n@startuml\nskinparam componentStyle uml2\nskinparam sequence {\n  ArrowColor gray\n  LifeLineBorderColor gray\n  LifeLineBackgroundColor white\n}\n\nactor \"mobile\" as mobile\ncomponent \"www\" as www\nparticipant \"endpoint\" as endpoint\nparticipant \"haproxy\" as haproxy\nparticipant \"ipfs\" as ipfs\nparticipant \"postgraphile\" as postgraphile\nparticipant \"CITY Custom Net\" as city\nparticipant \"logstash\" as logstash\nparticipant \"dApp\" as dapp\ndatabase \"postgres\" as postgres\ndatabase \"elastic\" as elastic\ncomponent \"prometheus\" as prometheus\ncomponent \"kibana\" as kibana\n\nrectangle \"webUI\" {\n  mobile -> www: sign & send events\n  note right: browser ext or mobile wallet\n  www -> endpoint: HTTPS gateway & peer tcp/4001\n  endpoint -> ipfs: /ipfs/{CID}\n  ipfs -> haproxy: HTTPS (oauth by EC Address)\n  note right: User makes deposit / signs entry to trigger events.\n}\n\nrectangle \"api - Admin/Write api\" {\n  haproxy -> endpoint: /v2 - read/write factom api\n  haproxy -> ipfs: /ipfs/{CID} - readonly gateway\n  haproxy -> postgraphile: /graphql - readonly graphql queries\n  endpoint -> logstash: livefeed log\n  logstash -> elastic: index event logs\n  elastic -> postgres: dApp specific events\n  postgraphile -> dapp: Query/Sign\n  dapp -> postgres: sign and dispatch requests\n  postgres -> haproxy: read/write signed factom entries\n}\n\nrectangle \"dashboard\" {\n  kibana -> elastic: dashboard query\n  kibana -> kibana: poll()\n  kibana -> city: Monitor(FA2XXXXXXXX) Balance changes\n  kibana -> prometheus: HTTP GET /metrics\n  prometheus -> haproxy: HTTP GET /metrics\n  prometheus -> kibana: metrics query\n  kibana -> postgres: dApp specific rollup\n}\n\nrectangle \"dApp - controller\" {\n  postgres -> dapp: dispatch on-chain event\n  dapp -> logstash: dApp specific logging\n  dapp -> ipfs: pin entry content on IPFS\n}\n\n@enduml\n```",
-          "n_lines": 62,
-          "truncated": false
+          "text": "```plantuml\n@startuml\nskinparam shadowing false\nskinparam state {\n  BackgroundColor<<initialize>> White\n  BackgroundColor<<iterate>> White\n}\nskinparam participant {\n  BackgroundColor<<configuration>> LightSteelBlue\n  BackgroundColor<<ekf>> LightSteelBlue\n  BackgroundColor<<pathgenerator>> LightSteelBlue\n  BackgroundColor<<display>> LightSteelBlue\n  BackgroundColor<<diagnostics>> LightSteelBlue\n}\nskinparam actor {\n  BackgroundColor<<record>> LightSteelBlue\n}\nskinparam message {\n  BackgroundColor<<Get inital configuration>> White\n  BackgroundColor<<Create Object>> White\n  BackgroundColor<<Create Object>> White\n  BackgroundColor<<Get current location>> White\n  BackgroundColor<<Send current location>> White\n  BackgroundColor<<Return path>> White\n  BackgroundColor<<Path addition and walker location>> White\n  BackgroundColor<<Walker location and path status>> White\n}\nskinparam note {\n  BackgroundColor<<initialize>> LightGray\n  BackgroundColor<<iterate>> LightGray\n}\nskinparam sequence {\n  ArrowColor Black\n  ArrowThickness 2\n}\nskinparam package {\n  BackgroundColor<<initialize>> White\n  BackgroundColor<<iterate>> White\n}\nskinparam rectangle {\n  BackgroundColor<<configuration>> LightSteelBlue\n  BackgroundColor<<ekf>> LightSteelBlue\n  BackgroundColor<<pathgenerator>> LightSteelBlue\n  BackgroundColor<<display>> LightSteelBlue\n  BackgroundColor<<diagnostics>> LightSteelBlue\n}\nskinparam actor {\n  BackgroundColor<<record>> LightSteelBlue\n}\nskinparam message {\n  BackgroundColor<<Get inital configuration>> White\n  BackgroundColor<<Create Object>> White\n  BackgroundColor<<Create Object>> White\n  BackgroundColor<<Get current location>> White\n  BackgroundColor<<Send current location>> White\n  BackgroundColor<<Return path>> White\n  BackgroundColor<<Path addition and walker location>> White\n  BackgroundColor<<Walker location and path status>> White\n}\nskinparam note {\n  BackgroundColor<<initialize>> LightGray\n  BackgroundColor<<iterate>> LightGray\n}\nskinparam sequence {\n  ArrowColor Black\n  ArrowThickness 2\n}\nskinparam package {\n  BackgroundColor<<initialize>> White\n  BackgroundColor<<iterate>> White\n}\nskinparam rectangle {\n  BackgroundColor<<configuration>> LightSteelBlue\n  BackgroundColor<<ekf>> LightSteelBlue\n  BackgroundColor<<pathgenerator>> LightSteelBlue\n  BackgroundColor<<display>> LightSteelBlue\n  BackgroundColor<<diagnostics>> LightSteelBlue\n}\nskinparam actor {\n  BackgroundColor<<record>> LightSteelBlue",
+          "n_lines": 744,
+          "truncated": true
         }
       }
     },
@@ -15475,6 +15387,97 @@
         "pred": {
           "text": "```plantuml\n@startuml\nclass Project\nclass User\nclass Submission\nclass Resource\nclass Revision\nclass Comment\nclass Author\nclass Editor\nclass Admin\nclass Document\nclass AudioFile\nclass Video\n\nProject \"1\" *-- \"*\" User : \nProject \"1\" *-- \"*\" Submission : \nProject \"1\" *-- \"*\" Resource : \nSubmission \"1\" *-- \"*\" Revision : \nSubmission \"1\" *-- \"*\" Comment : \nSubmission \"1\" o-- \"1\" Author : \nSubmission \"1\" *-- \"*\" Resource : \nRevision \"1\" o-- \"1\" Editor : \nRevision \"1\" o-- \"1\" Resource : \nComment \"1\" *-- \"1\" Editor : \nComment \"1\" *-- \"1\" Author : \nUser <|-- Admin : \nUser <|-- Author : \nUser <|-- Editor : \nResource <|-- Document : \nResource <|-- AudioFile : \nResource <|-- Video : \n\nnote \"C\" as n1\nnote \"C\" as n2\nnote \"C\" as n3\nnote \"C\" as n4\nnote \"C\" as n5\nnote \"C\" as n6\nnote \"C\" as n7\nnote \"C\" as n8\nnote \"C\" as n9\nnote \"C\" as n10\nnote \"C\" as n11\nnote \"C\" as n12\nnote \"C\" as n13\nn1 -[hidden] Project\nn2 -[hidden] User\nn3 -[hidden] Submission\nn4 -[hidden] Resource\nn5 -[hidden] Revision\nn6 -[hidden] Comment\nn7 -[hidden] Author\nn8 -[hidden] Editor\nn9 -[hidden] Admin\nn10 -[hidden] Document\nn11 -[hidden] AudioFile\nn12 -[hidden] Video\n@enduml\n```",
           "n_lines": 60,
+          "truncated": false
+        }
+      }
+    },
+    {
+      "model_id": "qwen3.5-27b",
+      "display": "Qwen3.5-27B",
+      "run_dir": "Qwen3.5-27B_self-served",
+      "key": "9859f0279f556237e0ab0836cf3851a71fb753d9",
+      "primary_type": "sequence",
+      "tier": 4,
+      "outcome_class": "compile_fail",
+      "compiled": false,
+      "has_pred": true,
+      "csr_error": "Error line 5 in file: /Users/vovapolishchuk/indiehacker/projects/university/fine-tune/runs/test/27B_zero_shot/.scoring/v2/csr/27B_zero_shot/extracted/9859f0279f556237e0ab0836cf3851a71fb753d9.puml",
+      "element": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 4,
+        "f1": 0.0,
+        "type_accuracy": {
+          "matched": 0,
+          "correct": 0,
+          "excluded": 0
+        }
+      },
+      "relationship": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 12,
+        "f1": 0.0,
+        "relations_missed": [
+          "message"
+        ],
+        "relations_extra": [],
+        "by_relation": {
+          "inheritance": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "composition": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "aggregation": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "dependency": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "association": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "message": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 12
+          }
+        }
+      },
+      "chrf": 46.79598717686888,
+      "paths": {
+        "gt_puml": "data/puml_files/9859f0279f556237e0ab0836cf3851a71fb753d9.puml",
+        "pred_puml": "data/runs/Qwen3.5-27B_self-served/9859f0279f556237e0ab0836cf3851a71fb753d9.puml",
+        "input_image": "data/puml_images_1568/9859f0279f556237e0ab0836cf3851a71fb753d9.png",
+        "pred_render": "data/csr/Qwen3.5-27B_self-served/png/9859f0279f556237e0ab0836cf3851a71fb753d9.png"
+      },
+      "paths_exist": {
+        "gt_puml": true,
+        "pred_puml": true,
+        "input_image": true,
+        "pred_render": false
+      },
+      "gt_n_lines": 58,
+      "inlined": {
+        "gt": {
+          "text": "' Blob ID: 9859f0279f556237e0ab0836cf3851a71fb753d9\n' Original Path: /uml/udp_transfer.uml\n' Source: World of Code\n\n@startuml\n\nscale 2.0\n\nhide footbox\nskinparam backgroundColor white\nskinparam defaultFontName Droid Sans\nskinparam defaultFontSize 8\nskinparam monochrome true\n\nbox \"FAMPClient\"\n\tparticipant AudioBundleAssembler\n\tparticipant UDPBundleReceiver\nend box\n\nbox \"FAMPServer\"\n\tparticipant UDPBundleSender\n\tparticipant QUdpSocket\nend box\n\nactivate AudioBundleAssembler \nAudioBundleAssembler -> UDPBundleReceiver : rozpocznij watek\\nodbierajacy\nactivate UDPBundleReceiver\nAudioBundleAssembler -> UDPBundleSender : rozpocznij wysylanie\\npaczek\nactivate UDPBundleSender\nUDPBundleSender -> QUdpSocket : grupa 50 paczek\n\ndeactivate UDPBundleSender\n\nloop dopoki nie pobrano wszystkich paczek\n\tloop dopoki dostepne sa datagramy\n\t\tAudioBundleAssembler -> UDPBundleReceiver: przekaz pobrane\\ndotychczas datagramy\n\t\tUDPBundleReceiver --> AudioBundleAssembler: dane\n\t\tdeactivate UDPBundleReceiver\n\t\tAudioBundleAssembler -> AudioBundleAssembler: odczytaj id paczki i zapisz\n\tend loop\n\talt nie wszystkie paczki wyslane\n\t\tAudioBundleAssembler -> UDPBundleSender: wyslij nastepny zestaw paczek\n\t\tactivate UDPBundleSender\n\t\tUDPBundleSender -> QUdpSocket: grupa 50 paczek\n\t\tUDPBundleSender --> AudioBundleAssembler: czy to ostatni zestaw\n\telse istnieja paczki do retransmisji\n\t\tUDPBundleSender -> QUdpSocket: wyslij zestaw brakujacych paczek\n\t\tdeactivate UDPBundleSender\n\tend\nend loop\n\nAudioBundleAssembler -> AudioBundleAssembler: posortuj paczki\nAudioBundleAssembler -> AudioBundleAssembler: zapisz paczki do pliku\n\ndeactivate UDPBundleSender\ndeactivate AudioBundleAssembler \n\n@enduml",
+          "n_lines": 58,
+          "truncated": false
+        },
+        "pred": {
+          "text": "```plantuml\n@startuml\ntitle FAMPClient and FAMPServer Interaction\n\nrectangle \"FAMPClient\" {\n    participant \"AudioBundleAssembler\" as ABA\n    participant \"UDPBundleReceiver\" as UBR\n}\n\nrectangle \"FAMPServer\" {\n    participant \"UDPBundleSender\" as UBS\n    participant \"QUdpSocket\" as QUS\n}\n\nactivate ABA\nABA -> UBR : rozpocznij watek odbierajacy\nactivate UBR\nABA -> UBS : rozpocznij wysylanie paczek\nactivate UBS\nUBS -> QUS : grupa 50 paczek\n\nloop dopoki nie pobrano wszystkich paczek\n    loop dopoki dostepne sa datagramy\n        UBR -> ABA : przekaz pobrane dotychczas datagramy\n        ABA <- UBR : dane\n        ABA -> ABA : odczytaj id paczki i zapisz\n    end\n    alt nie wszystkie paczki wyslane\n        ABA -> UBS : wyslij nastepny zestaw paczek\n        UBS -> QUS : grupa 50 paczek\n        UBS <- ABA : czy to ostatni zestaw\n    else istnieja paczki do retransmisji\n        UBS -> QUS : wyslij zestaw brakujacych paczek\n    end\nend\n\nABA -> ABA : posortuj paczki\nABA -> ABA : zapisz paczki do pliku\n\ndeactivate ABA\ndeactivate UBR\ndeactivate UBS\ndeactivate QUS\n\n@enduml\n```",
+          "n_lines": 46,
           "truncated": false
         }
       }
@@ -15759,6 +15762,97 @@
       "model_id": "qwen3.5-27b",
       "display": "Qwen3.5-27B",
       "run_dir": "Qwen3.5-27B_self-served",
+      "key": "d01b53585aedd9b217d5f0ceb8547886e7cc5e18",
+      "primary_type": "sequence",
+      "tier": 4,
+      "outcome_class": "compile_fail",
+      "compiled": false,
+      "has_pred": true,
+      "csr_error": "Error line 7 in file: /Users/vovapolishchuk/indiehacker/projects/university/fine-tune/runs/test/27B_zero_shot/.scoring/v2/csr/27B_zero_shot/extracted/d01b53585aedd9b217d5f0ceb8547886e7cc5e18.puml",
+      "element": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 10,
+        "f1": 0.0,
+        "type_accuracy": {
+          "matched": 0,
+          "correct": 0,
+          "excluded": 0
+        }
+      },
+      "relationship": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 22,
+        "f1": 0.0,
+        "relations_missed": [
+          "message"
+        ],
+        "relations_extra": [],
+        "by_relation": {
+          "inheritance": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "composition": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "aggregation": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "dependency": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "association": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0
+          },
+          "message": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 22
+          }
+        }
+      },
+      "chrf": 63.64876620212823,
+      "paths": {
+        "gt_puml": "data/puml_files/d01b53585aedd9b217d5f0ceb8547886e7cc5e18.puml",
+        "pred_puml": "data/runs/Qwen3.5-27B_self-served/d01b53585aedd9b217d5f0ceb8547886e7cc5e18.puml",
+        "input_image": "data/puml_images_1568/d01b53585aedd9b217d5f0ceb8547886e7cc5e18.png",
+        "pred_render": "data/csr/Qwen3.5-27B_self-served/png/d01b53585aedd9b217d5f0ceb8547886e7cc5e18.png"
+      },
+      "paths_exist": {
+        "gt_puml": true,
+        "pred_puml": true,
+        "input_image": true,
+        "pred_render": false
+      },
+      "gt_n_lines": 146,
+      "inlined": {
+        "gt": {
+          "text": "' Blob ID: d01b53585aedd9b217d5f0ceb8547886e7cc5e18\n' Original Path: /puml/Sequence-RqP-Request-Resource.puml\n' Source: World of Code\n\n@startuml\ntitle RqP - Request Resource\nhide footbox\n\nactor \"Requesting Party\\n(RqP)\" as RQP\n\nbox \"Client Application (CA)\\n<<Custom Application>>\" #palegreen\nparticipant \"User Interface\" as CAUI\nend box\n\nbox \"Resource Server (RS)\\n<<Custom Application>>\" #peachpuff\nparticipant \"REST API\" as RSREST\ndatabase \"Resource\" as RSRESOURCE\ndatabase \"Credential\" as RSCRED\nend box\n\nbox \"Authorization Server (AS)\\nForgeRock Access Manager\" #antiquewhite\nparticipant \"AM API\" as AMREST\nparticipant \"UMA API\" as UMAREST\nparticipant \"OAuth API\" as OAUTHREST\nend box\n\nbox \"Content Server (CS)\\n<<Custom Application>>\" #paleturquoise\nparticipant \"REST API\" as CSREST\ndatabase \"Data\" as CSDATA\nend box\n\nRQP->AMREST: Authenticate\n\nactivate AMREST \n\nAMREST-->RQP: Authenticated\n\ndeactivate AMREST \n\nRQP->CAUI: Access Interface\n\nactivate CAUI\n\nCAUI->CAUI: Obtain Resource Id\\n(maybe from Discover Resources)\n\nCAUI->RSREST: GET /share/resources/{resourceId}\\nscopes (no valid RPT)\n\ndeactivate CAUI\n\nactivate RSREST\n\nRSREST->RSRESOURCE: Get _id\n\ndeactivate RSREST\n\nactivate RSRESOURCE\n\nRSRESOURCE-->RSREST: meta data\n\ndeactivate RSRESOURCE\n\nactivate RSREST\n\nRSREST->RSCRED: Get PAT\n\ndeactivate RSREST\n\nactivate RSCRED\n\nRSCRED-->RSREST: PAT\n\ndeactivate RSCRED\n\nactivate RSREST\n\nRSREST->UMAREST: POST /am/uma/permission_request\\nresource_id + scopes\n\nnote left: Get permission ticket for the\\nresource and scope\n\ndeactivate RSREST",
+          "n_lines": 146,
+          "truncated": true
+        },
+        "pred": {
+          "text": "```plantuml\n@startuml\ntitle RqP \u2013 Request Resource\n\nactor \"Requesting Party\\n(RqP)\" as RqP\n\npackage \"Client Application (CA)\\n\u00abCustom Application\u00bb\" as CA {\n    box \"User Interface\" as UI\n}\n\npackage \"Resource Server (RS)\\n\u00abCustom Application\u00bb\" as RS {\n    box \"REST API\" as RS_API\n    database \"Resource\" as RS_DB\n    database \"Credential\" as RS_CRED\n}\n\npackage \"Authorization Server (AS)\\nForgeRock Access Manager\" as AS {\n    box \"AM API\" as AM_API\n    box \"UMA API\" as UMA_API\n    box \"OAuth API\" as OAUTH_API\n}\n\npackage \"Content Server (CS)\\n\u00abCustom Application\u00bb\" as CS {\n    box \"REST API\" as CS_API\n    database \"Data\" as CS_DB\n}\n\nRqP -> AM_API: Authenticate\nactivate AM_API\nAM_API --> RqP: Authenticated\ndeactivate AM_API\n\nRqP -> UI: Access Interface\nactivate UI\nUI -> UI: Obtain Resource Id\\n(maybe from Discover Resources)\nUI -> RS_API: GET /share/resources/{resourceId}\\nscopes (no valid RPT)\nactivate RS_API\nRS_API -> RS_DB: Get_id\nactivate RS_DB\nRS_DB --> RS_API: meta data\ndeactivate RS_DB\nRS_API -> RS_CRED: Get PAT\nactivate RS_CRED\nRS_CRED --> RS_API: PAT\ndeactivate RS_CRED\nRS_API -> UMA_API: POST /am/uma/permission_request\\nresource_id + scopes\nactivate UMA_API\nnote left of RS_API: Get permission ticket for the\\nresource and scope\nUMA_API --> RS_API: permission ticket\ndeactivate UMA_API\nRS_API --> UI: permission ticket + AS URI\ndeactivate RS_API\n\nUI -> OAUTH_API: POST /am/oauth2/access_token\\nscope=openid\\nSSO session\nactivate OAUTH_API\nnote left of UI: Get client auth basic\nnote left of RqP: Get claim token for the\\nRequesting Party (RqP)\nOAUTH_API -> OAUTH_API: Validate SSO session\nOAUTH_API --> UI: claim token\ndeactivate OAUTH_API\n\nUI -> OAUTH_API: POST /am/oauth2/access_token\\ngrant_type=urn:ietf:params:oauth:grant-type:uma-ticket\\nscope=..., ticket=..., claim_token=..., claim_token_format=...\nactivate OAUTH_API\nnote left of RqP: Get Requesting Party Token (RPT)\\nusing the permission ticket\\nand claim token\nOAUTH_API -> AM_API: Check Access\nactivate AM_API\nAM_API -> AM_API: No Policy for RqP + Resource + scopes\\nCreate Access Request for Resource Owner\nAM_API --> OAUTH_API: No Access, request Submitted\ndeactivate AM_API\nOAUTH_API --> UI: Error: Request Submitted\ndeactivate OAUTH_API\ndeactivate UI\n\n@enduml\n```",
+          "n_lines": 75,
+          "truncated": false
+        }
+      }
+    },
+    {
+      "model_id": "qwen3.5-27b",
+      "display": "Qwen3.5-27B",
+      "run_dir": "Qwen3.5-27B_self-served",
       "key": "e9a06725c4d85ec28ca9d343c1f23ab41d0e398f",
       "primary_type": "sequence",
       "tier": 1,
@@ -15843,97 +15937,6 @@
           "text": "```plantuml\n@startuml\nleft to right direction\nskinparam packageStyle rectangle\nskinparam actor {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam rectangle {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam note {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam message {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam sequence {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam participant {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam actor {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam class {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam component {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam database {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam enum {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam interface {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam object {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam usecase {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam card {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam actor {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam class {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam component {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}\nskinparam database {\n  BackgroundColor #EAEAEA\n  BorderColor #000000\n}",
           "n_lines": 825,
           "truncated": true
-        }
-      }
-    },
-    {
-      "model_id": "qwen3.5-27b",
-      "display": "Qwen3.5-27B",
-      "run_dir": "Qwen3.5-27B_self-served",
-      "key": "f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13",
-      "primary_type": "sequence",
-      "tier": 4,
-      "outcome_class": "compile_fail",
-      "compiled": false,
-      "has_pred": true,
-      "csr_error": "Error line 18 in file: /Users/vovapolishchuk/indiehacker/projects/university/fine-tune/runs/test/27B_zero_shot/.scoring/v2/csr/27B_zero_shot/extracted/f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13.puml",
-      "element": {
-        "tp": 0,
-        "fp": 0,
-        "fn": 8,
-        "f1": 0.0,
-        "type_accuracy": {
-          "matched": 0,
-          "correct": 0,
-          "excluded": 0
-        }
-      },
-      "relationship": {
-        "tp": 0,
-        "fp": 0,
-        "fn": 12,
-        "f1": 0.0,
-        "relations_missed": [
-          "message"
-        ],
-        "relations_extra": [],
-        "by_relation": {
-          "inheritance": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "composition": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "aggregation": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "dependency": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "association": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 0
-          },
-          "message": {
-            "tp": 0,
-            "fp": 0,
-            "fn": 12
-          }
-        }
-      },
-      "chrf": 57.723001925915554,
-      "paths": {
-        "gt_puml": "data/puml_files/f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13.puml",
-        "pred_puml": "data/runs/Qwen3.5-27B_self-served/f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13.puml",
-        "input_image": "data/puml_images_1568/f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13.png",
-        "pred_render": "data/csr/Qwen3.5-27B_self-served/png/f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13.png"
-      },
-      "paths_exist": {
-        "gt_puml": true,
-        "pred_puml": true,
-        "input_image": true,
-        "pred_render": false
-      },
-      "gt_n_lines": 88,
-      "inlined": {
-        "gt": {
-          "text": "' Blob ID: f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13\n' Original Path: /src/design/numerical-propagation-sequence-diagram.puml\n' Source: World of Code\n\n' Copyright 2002-2023 CS GROUP\n' Licensed to CS GROUP (CS) under one or more\n' contributor license agreements.  See the NOTICE file distributed with\n' this work for additional information regarding copyright ownership.\n' CS licenses this file to You under the Apache License, Version 2.0\n' (the \"License\"); you may not use this file except in compliance with\n' the License.  You may obtain a copy of the License at\n'\n'   http://www.apache.org/licenses/LICENSE-2.0\n'\n' Unless required by applicable law or agreed to in writing, software\n' distributed under the License is distributed on an \"AS IS\" BASIS,\n' WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n' See the License for the specific language governing permissions and\n' limitations under the License.\n \n@startuml\n\n  skinparam svek                                true\n  skinparam NoteBackgroundColor                 #F3EFEB\n  skinparam NoteBorderColor                     #691616\n  skinparam NoteFontColor                       #691616\n  skinparam SequenceActorBorderColor            #6A584B\n  skinparam SequenceParticipantBackgroundColor  #F3EFEB/CCC9C5\n  skinparam SequenceParticipantBorderColor      #6A584B\n  skinparam SequenceLifeLineBackgroundColor     #CCC9C5/F3EFEB\n  skinparam SequenceLifeLineBorderColor         #6A584B\n  skinparam SequenceArrowColor                  #6A584B\n  skinparam SequenceBorderColor                 #6A584B\n  skinparam SequenceFontSize                    11\n\n  hide footbox\n\n  box \"User application\" #F3EDF7\n    participant \"Main\" as M\n  end box\n  participant Propagator\n  participant Integrator\n  participant DifferentialEquations\n  participant OrbitType\n  participant TimesDerivative\n  participant \"Force Model i\" as Fi\n  participant NewtonianAttraction\n\n  activate M\n  M          -> Propagator : propagate\n    activate Propagator\n    Propagator -> DifferentialEquations : create\n      activate DifferentialEquations\n      deactivate DifferentialEquations\n    Propagator -> TimesDerivative : create\n      activate TimesDerivative\n      deactivate TimesDerivative\n    Propagator -> Integrator : integrate\n      activate Integrator\n      loop #DDEBD8 for n steps\n      Integrator -> DifferentialEquations : computeDerivatives\n        activate DifferentialEquations\n        DifferentialEquations -> OrbitType : mapArrayToOrbit\n          activate OrbitType\n          deactivate OrbitType\n      loop #ECEBD8 for all perturbation force models\n        DifferentialEquations -> Fi : addContribution\n          activate Fi\n          Fi -> TimesDerivative : addAcceleration\n            activate TimesDerivative\n            deactivate TimesDerivative\n          deactivate Fi\n       end\n        DifferentialEquations -> NewtonianAttraction : addContribution\n          activate NewtonianAttraction\n          NewtonianAttraction -> TimesDerivative : addKeplerContribution\n            activate TimesDerivative\n            deactivate TimesDerivative\n          deactivate NewtonianAttraction\n        deactivate DifferentialEquations",
-          "n_lines": 88,
-          "truncated": true
-        },
-        "pred": {
-          "text": "```plantuml\n@startuml\nskinparam packageStyle rectangle\nskinparam classAttributeIconSize 0\nskinparam noteFontColor black\nskinparam noteBackgroundColor yellow\nskinparam noteBorderColor black\nskinparam sequence {\n  ArrowColor gray\n  LifeLineBorderColor gray\n  LifeLineBackgroundColor lightgray\n  ActorBorderColor gray\n  ActorBackgroundColor lightgray\n  ActorBackgroundcolor lightgray\n}\n\ntitle Orbit Propagation Sequence Diagram\n\nrectangle \"User application\" #LightPurple {\n  participant \"Main\" as Main\n}\n\nparticipant \"Propagator\" as Propagator\nparticipant \"Integrator\" as Integrator\nparticipant \"DifferentialEquations\" as DiffEq\nparticipant \"OrbitType\" as OrbitType\nparticipant \"TimesDerivative\" as TimesDeriv\nparticipant \"Force Model i\" as ForceModel\nparticipant \"NewtonianAttraction\" as Newtonian\n\nMain -> Propagator: propagate\nactivate Propagator\n\nPropagator -> DiffEq: create\nactivate DiffEq\nDeactivate DiffEq\n\nPropagator -> TimesDeriv: create\nactivate TimesDeriv\nDeactivate TimesDeriv\n\nPropagator -> Integrator: integrate\nactivate Integrator\n\nrectangle \"loop [for n steps]\" #LightGreen {\n  Integrator -> DiffEq: computeDerivatives\n  activate DiffEq\n  \n  DiffEq -> OrbitType: mapArrayToOrbit\n  activate OrbitType\n  Deactivate OrbitType\n  \n  rectangle \"loop [for all perturbation force models]\" #LightYellow {\n    DiffEq -> ForceModel: addContribution\n    activate ForceModel\n    ForceModel -> TimesDeriv: addAcceleration\n    activate TimesDeriv\n    Deactivate TimesDeriv\n    Deactivate ForceModel\n  }\n  \n  DiffEq -> Newtonian: addContribution\n  activate Newtonian\n  Newtonian -> TimesDeriv: addKeplerContribution\n  activate TimesDeriv\n  Deactivate TimesDeriv\n  Deactivate Newtonian\n  \n  Deactivate DiffEq\n}\n\nIntegrator -> Propagator: final state\nDeactivate Integrator\nDeactivate Propagator\n\nMain <-- Propagator: final state\n\n@enduml\n```",
-          "n_lines": 79,
-          "truncated": false
         }
       }
     },

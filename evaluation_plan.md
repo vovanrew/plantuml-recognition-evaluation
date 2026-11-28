@@ -96,7 +96,8 @@ python3 evaluation/csr_runner.py \
   --out data/csr/<run>
 ```
 
-Output: `data/csr/<run>/csr_results.json`, `extracted/<key>.puml` and
+Output: `data/csr/<run>/csr_results.json`, `extracted/<key>.puml`,
+`render_src/<key>.puml` (the copy that is rendered, without a diagram name) and
 `png/<key>.png`. With `--test-set`, a missing prediction counts as a failure, so
 CSR is computed over all 1,000 keys.
 

@@ -6,6 +6,12 @@ key), extracts the PlantUML block from each, compiles the whole batch with
 plantuml.jar, and scores each diagram as compiled iff PlantUML produced a
 non-empty PNG (byte-size floor). A failed compile yields no PNG (`--no-error-image`).
 
+PlantUML names the image after the text that follows `@startuml` on its line
+(`@startuml Orders` gives `Orders.png`), not after the source file. The check
+finds an image by the diagram key, so the batch is rendered from copies whose
+`@startuml` lines carry no name (<out>/render_src); the extracted files that the
+other metrics read (<out>/extracted) keep the answer's text unchanged.
+
 CSR is computed over the full expected key set when `--test-set` is given, so a
 missing prediction (e.g. an inference timeout) correctly counts as a failure.
 
@@ -21,6 +27,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import subprocess
 from glob import glob
 
@@ -38,6 +45,15 @@ def extract_puml(text):
     if s != -1 and e != -1 and e > s:
         return text[s:e + len("@enduml")]
     return text.strip().strip("`").strip()
+
+
+_NAMED_START = re.compile(r"^([ \t]*@startuml)[ \t]+\S[^\r\n]*", re.MULTILINE)
+
+
+def without_diagram_name(code):
+    """Drop the text after ``@startuml`` on its line, so that PlantUML names the
+    image after the source file and not after the diagram's own name."""
+    return _NAMED_START.sub(r"\1", code)
 
 
 def matched_pngs(stem, png_dir):
@@ -68,8 +84,10 @@ def main():
     args = ap.parse_args()
 
     extracted_dir = os.path.join(args.out, "extracted")
+    render_dir = os.path.join(args.out, "render_src")
     png_dir = os.path.join(args.out, "png")
     os.makedirs(extracted_dir, exist_ok=True)
+    os.makedirs(render_dir, exist_ok=True)
     os.makedirs(png_dir, exist_ok=True)
 
     # 1. Extract the PlantUML block from each prediction file.
@@ -82,6 +100,8 @@ def main():
             code = extract_puml(f.read())
         with open(os.path.join(extracted_dir, stem + ".puml"), "w", encoding="utf-8") as f:
             f.write(code)
+        with open(os.path.join(render_dir, stem + ".puml"), "w", encoding="utf-8") as f:
+            f.write(without_diagram_name(code))
         have_pred.add(stem)
 
     # 2. Compile the whole batch in one JVM (proven command from the corpus
@@ -91,7 +111,7 @@ def main():
         subprocess.run(
             ["java", "-jar", args.jar, "--threads", "auto",
              "--output-dir", os.path.abspath(png_dir), "-tpng", "-stdrpt",
-             "--no-error-image", os.path.join(extracted_dir, "*.puml")],
+             "--no-error-image", os.path.join(render_dir, "*.puml")],
             stdout=subprocess.DEVNULL, stderr=elog, check=False)
 
     # 3. Map each failed file to its first error line, for analysis.

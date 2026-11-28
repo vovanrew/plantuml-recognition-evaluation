@@ -74,9 +74,9 @@ value has an interval.
 | Claude Opus 4.6 | 94.1% [92.5%, 95.5%] | 0.934 [0.915, 0.949] | 0.700 [0.664, 0.735] | 65.68 [64.23, 67.18] | 0.951 [0.937, 0.963] |
 | Gemini 3.1 Pro | 97.2% [96.2%, 98.1%] | 0.967 [0.957, 0.976] | 0.894 [0.870, 0.914] | 75.53 [74.19, 76.85] | 0.984 [0.973, 0.993] |
 | Qwen3.5-397B-A17B | 78.7% [76.2%, 81.2%] | 0.794 [0.767, 0.818] | 0.657 [0.616, 0.697] | 49.23 [47.46, 51.17] | 0.871 [0.851, 0.889] |
-| Qwen3.5-2B | 19.1% [16.7%, 21.5%] | 0.239 [0.205, 0.272] | 0.110 [0.087, 0.134] | 11.82 [10.31, 13.45] | 0.755 [0.702, 0.807] |
+| Qwen3.5-2B | 19.2% [16.8%, 21.6%] | 0.239 [0.205, 0.272] | 0.110 [0.087, 0.134] | 11.88 [10.37, 13.50] | 0.757 [0.704, 0.809] |
 | Qwen3.5-9B | 41.1% [38.1%, 44.4%] | 0.481 [0.445, 0.520] | 0.198 [0.169, 0.231] | 25.83 [23.73, 27.98] | 0.774 [0.731, 0.812] |
-| Qwen3.5-27B | 64.4% [61.5%, 67.3%] | 0.713 [0.681, 0.743] | 0.507 [0.460, 0.552] | 43.87 [41.65, 46.10] | 0.889 [0.867, 0.909] |
+| Qwen3.5-27B | 64.6% [61.7%, 67.6%] | 0.713 [0.681, 0.743] | 0.507 [0.460, 0.552] | 43.97 [41.71, 46.22] | 0.889 [0.868, 0.910] |
 
 **Gemini 3.1 Pro scores highest on every metric in the table.** Its difference from
 each other model excludes zero on every metric of the CI table, in both populations.
@@ -101,26 +101,26 @@ Source: `out_paper/master_table.md`, lines 14 to 17, and `out_paper/ci_table.md`
 
 On the `all` population, every metric rises with size, from 2B to 9B to 27B:
 
-- CSR: 19.1%, 41.1%, 64.4%.
+- CSR: 19.2%, 41.1%, 64.6%.
 - Element F1: 0.239, 0.481, 0.713.
 - Relationship F1: 0.110, 0.198, 0.507.
 
-Each step is a real difference. For example, the CSR difference is -0.220
-[-0.258, -0.183] from 2B to 9B, and -0.233 [-0.271, -0.197] from 9B to 27B.
+Each step is a real difference. For example, the CSR difference is -0.219
+[-0.258, -0.182] from 2B to 9B, and -0.235 [-0.273, -0.200] from 9B to 27B.
 
 The `compiled` population tells a different story. Element F1 on compiled answers is
-0.874 for 2B, 0.871 for 9B and 0.945 for 27B. The 2B and 9B values do not differ:
-the interval is [-0.042, 0.054]. Relationship F1 on compiled answers is 0.463 for 2B
+0.875 for 2B, 0.871 for 9B and 0.946 for 27B. The 2B and 9B values do not differ:
+the interval is [-0.041, 0.055]. Relationship F1 on compiled answers is 0.461 for 2B
 and 0.470 for 9B, and these do not differ either. So the step from 2B to 9B mainly
 adds answers that compile. The step from 9B to 27B adds both: more answers compile,
-and the compiled answers are better. On compiled answers, 9B minus 27B is -0.074
-[-0.106, -0.042] for Element F1 and -0.258 [-0.326, -0.182] for Relationship F1.
+and the compiled answers are better. On compiled answers, 9B minus 27B is -0.075
+[-0.106, -0.043] for Element F1 and -0.260 [-0.328, -0.184] for Relationship F1.
 
 **Qwen3.5-397B-A17B against Qwen3.5-27B.** On the `all` population, the 397B model
-is ahead. For CSR, 27B minus 397B is -0.143 [-0.181, -0.109]. For Relationship F1 it
+is ahead. For CSR, 27B minus 397B is -0.141 [-0.178, -0.107]. For Relationship F1 it
 is -0.150 [-0.190, -0.114]. On compiled answers the picture changes. Their Relationship F1
-difference is -0.017 [-0.062, 0.026], so there is no difference. On compiled Element
-F1, 27B is ahead by 0.022 [0.000, 0.040].
+difference is -0.016 [-0.060, 0.029], so there is no difference. On compiled Element
+F1, 27B is ahead by 0.022 [0.001, 0.041].
 
 ---
 
@@ -137,13 +137,13 @@ that the `compiled` figure looks much better than the model's real result.
 | Claude Opus 4.6 | 94.1% | +0.032 | +0.027 | +4.21 |
 | Gemini 3.1 Pro | 97.2% | +0.016 | +0.018 | +2.35 |
 | Qwen3.5-397B-A17B | 78.7% | +0.130 | +0.089 | +11.97 |
-| Qwen3.5-2B | 19.1% | +0.635 | +0.353 | +53.00 |
+| Qwen3.5-2B | 19.2% | +0.636 | +0.351 | +52.93 |
 | Qwen3.5-9B | 41.1% | +0.390 | +0.273 | +39.34 |
-| Qwen3.5-27B | 64.4% | +0.232 | +0.221 | +25.62 |
+| Qwen3.5-27B | 64.6% | +0.233 | +0.223 | +25.47 |
 
 In this panel, the gap grows as CSR falls, for all three metrics. Qwen3.5-2B shows it
-most clearly. Its Element F1 is 0.239 on all diagrams but 0.874 on compiled answers,
-a gap of +0.635. It compiles only 19.1% of the diagrams. The hosted models compile
+most clearly. Its Element F1 is 0.239 on all diagrams but 0.875 on compiled answers,
+a gap of +0.636. It compiles only 19.2% of the diagrams. The hosted models compile
 most diagrams, so their gaps are small. **The practical rule: report the `all`
 figure as the main result, and always read a `compiled` figure next to CSR.**
 
@@ -182,7 +182,7 @@ Source: `out_paper/paper_extras.md`, lines 9 to 63 (column "class - sequence").
 
 **CSR.** Four models compile class diagrams and sequence diagrams at different rates.
 Claude Opus 4.6 (+0.066 [+0.038, +0.096]), Qwen3.5-9B (+0.434 [+0.381, +0.489]) and
-Qwen3.5-27B (+0.276 [+0.219, +0.334]) compile more class diagrams. Qwen3.5-9B shows
+Qwen3.5-27B (+0.272 [+0.215, +0.331]) compile more class diagrams. Qwen3.5-9B shows
 the largest gap: 0.628 on class diagrams and 0.194 on sequence diagrams.
 Qwen3.5-397B-A17B compiles more sequence diagrams (-0.106 [-0.156, -0.054]). For
 GPT-5.2, Gemini 3.1 Pro and Qwen3.5-2B, the interval includes zero, so there is no
@@ -202,7 +202,7 @@ zero. Qwen3.5-9B is the exception: it is better on class diagrams, by +0.136
 
 ## 7. Complexity tiers
 
-Source: `out_paper/paper_extras.md`, lines 69 to 123 (column "1 - 4"), and
+Source: `out_paper/paper_extras.md`, lines 93 to 135 (column "1 - 4"), and
 `out_paper/run_level.md`, lines 51 to 54 (crowding).
 
 The test diagrams are split into four tiers of 250 diagrams by their number of source
@@ -217,7 +217,7 @@ below is tier 1 minus tier 4, so a positive value means a drop at tier 4.
 | Qwen3.5-397B-A17B | 0.872 | 0.712 | +0.160 [+0.088, +0.227] |
 | Qwen3.5-2B | 0.320 | 0.060 | +0.260 [+0.197, +0.321] |
 | Qwen3.5-9B | 0.488 | 0.312 | +0.176 [+0.091, +0.257] |
-| Qwen3.5-27B | 0.740 | 0.540 | +0.200 [+0.118, +0.282] |
+| Qwen3.5-27B | 0.740 | 0.544 | +0.196 [+0.116, +0.279] |
 
 - **CSR** drops from tier 1 to tier 4 for six models. For Gemini 3.1 Pro the
   interval includes zero, so its drop is not clear.
@@ -260,8 +260,8 @@ write between 0.297 and 0.679 million. No dollar prices are given.
 
 **Failures.** Almost every failure is an answer that does not compile. The counts of
 such answers are 64 for GPT-5.2, 59 for Claude Opus 4.6, 28 for Gemini 3.1 Pro and
-213 for Qwen3.5-397B-A17B. For the dense sizes they are 809 for 2B, 589 for 9B and
-356 for 27B. Only one answer in the whole panel is missing: GPT-5.2 gave no response
+213 for Qwen3.5-397B-A17B. For the dense sizes they are 808 for 2B, 589 for 9B and
+354 for 27B. Only one answer in the whole panel is missing: GPT-5.2 gave no response
 to one diagram, after a timeout.
 
 **Run settings.** All runs used temperature 0 and the same output limit of 5376

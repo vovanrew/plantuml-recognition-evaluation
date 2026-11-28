@@ -27,7 +27,7 @@ so the gap is there whenever some answers fail. Models also fail more often on
 complex diagrams, so the compiled answers hold more of the simple ones: that part
 is a selection bias. Reporting the compiled-only number beside the full-set number
 makes the gap visible. On this benchmark the effect is large: Qwen3.5-2B scores
-0.874 Element F1 on the diagrams it compiles, but 0.239 across all 1,000.
+0.875 Element F1 on the diagrams it compiles, but 0.239 across all 1,000.
 
 ## Metrics
 
@@ -72,14 +72,14 @@ their released bf16 weights, through a local OpenAI-compatible server.
 
 | Model | Params | CSR | Element F1 | Relationship F1 | chrF++ macro | Type acc |
 |---|---|---|---|---|---|---|
-| Qwen3.5-2B | 2B | 19.1% | 0.239 / 0.874 | 0.110 / 0.463 | 11.82 / 61.90 | 0.755 |
+| Qwen3.5-2B | 2B | 19.2% | 0.239 / 0.875 | 0.110 / 0.461 | 11.88 / 61.87 | 0.757 |
 | Qwen3.5-9B | 9B | 41.1% | 0.481 / 0.871 | 0.198 / 0.470 | 25.83 / 62.86 | 0.774 |
-| Qwen3.5-27B | 27B | 64.4% | 0.713 / 0.945 | 0.507 / 0.729 | 43.87 / 68.12 | 0.889 |
+| Qwen3.5-27B | 27B | 64.6% | 0.713 / 0.946 | 0.507 / 0.730 | 43.97 / 68.07 | 0.889 |
 
 Statements about model size use the three dense models only.
 Qwen3.5-397B-A17B is a mixture-of-experts model, so it is not placed on the size
 axis. Read the two populations together. Across the dense models, CSR rises from
-19.1% to 64.4%, while compiled-only Element F1 stays between 0.871 and 0.945.
+19.2% to 64.6%, while compiled-only Element F1 stays between 0.871 and 0.946.
 Most of what size buys on this task is the ability to write compilable output at
 all.
 
@@ -139,7 +139,7 @@ evaluation/        Inference runner and the four metric scorers.
 util/              Test-set construction, image standardization, archive packing.
 methodology/       The methodological record. The source of truth for every design decision.
 prompts/           The frozen zero-shot prompt.
-tests/             416 test functions across 28 modules.
+tests/             423 test functions across 29 modules.
 data.zip           Test set, ground truth and the hosted runs. Unzip at the repository root.
 data_v2.zip        Structural result files of the hosted runs. Unzip at the repository root.
 data_selfserved.zip
@@ -453,7 +453,7 @@ They help with inspection, and re-running the scorers writes them again.
 python3 -m pytest tests/
 ```
 
-416 test functions across 28 modules. They cover the scoring logic, the
+423 test functions across 29 modules. They cover the scoring logic, the
 aggregation math, the bootstrap, the registry and loader, the plot builders, the
 human-rater check and the frozen prompt. A test skips, and does not fail, when
 what it needs is absent: benchmark data that is not unpacked, the standardized

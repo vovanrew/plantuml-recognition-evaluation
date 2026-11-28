@@ -25,9 +25,9 @@ Provider/harness failure (source B) vs model compile-fail (source A CSR). `no_re
 | GPT-5.2 | 935 | 64 | 1 | 1 | 0 | 0 | 0 | ✓ |
 | Claude Opus 4.6 | 941 | 59 | 0 | 0 | 0 | 0 | 0 | ✓ |
 | Gemini 3.1 Pro | 972 | 28 | 0 | 0 | 0 | 0 | 0 | ✓ |
-| Qwen3.5-2B | 191 | 809 | 0 | 0 | 0 | 0 | 0 | ✓ |
+| Qwen3.5-2B | 192 | 808 | 0 | 0 | 0 | 0 | 0 | ✓ |
 | Qwen3.5-9B | 411 | 589 | 0 | 0 | 0 | 0 | 0 | ✓ |
-| Qwen3.5-27B | 644 | 356 | 0 | 0 | 0 | 0 | 0 | ✓ |
+| Qwen3.5-27B | 646 | 354 | 0 | 0 | 0 | 0 | 0 | ✓ |
 | Qwen3.5-397B-A17B | 787 | 213 | 0 | 0 | 0 | 0 | 0 | ✓ |
 
 ## Provenance manifest

@@ -185,7 +185,9 @@ cases with their votes, the cases the author decided, and the primary codes per 
 are in `analysis/out_paper/error_sample/votes/`.
 
 The sample is drawn by `analysis/build_error_sample.py draw` and reported by its `report`
-command. The codebook is `analysis/error_codebook.md`.
+command. The codebook is `analysis/error_codebook.md`. The sample was drawn before the compile
+flag of three answers was corrected (§1.2 of `analysis/error_analysis.md`). It is kept as drawn
+and coded.
 
 ## 8. Run-level accounting
 
@@ -296,4 +298,5 @@ Cohen's kappa. The author describes what differs in each pair where both raters
 chose against the metric.
 
 The sample is drawn by `analysis/rater_check.py draw`, rendered by its `render` command, put on
-rating pages by `sheets`, and reported by `report`.
+rating pages by `sheets`, and reported by `report`. The pairs were drawn before the compile flag
+of three answers was corrected. A draw from the corrected data gives the same 60 pairs.

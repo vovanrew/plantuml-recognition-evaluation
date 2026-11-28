@@ -11,7 +11,9 @@ span from the first `@startuml` to the last `@enduml` — and submitted to the
 official PlantUML renderer. A prediction succeeds when the renderer produces a
 non-empty diagram image and fails otherwise; syntactic acceptance alone is
 insufficient, so a prediction that parses but renders nothing counts as a
-failure. A prediction whose generation runs into the API's `max_tokens` ceiling
+failure. A diagram may carry a name after `@startuml`. The renderer names its
+image after that name, so each prediction is rendered without the name; the
+name does not change what is drawn. A prediction whose generation runs into the API's `max_tokens` ceiling
 is returned truncated, lacking the closing `@enduml`; block isolation then fails
 on the incomplete output and the renderer produces no image, so a runaway
 no-EOS generation counts as a failure rather than masking as a successful

@@ -11,9 +11,9 @@ Stratified sample of failures: up to **2 case(s) per (model × diagram type × t
 | GPT-5.2 | 1→1 | 64→16 | 83→15 |
 | Claude Opus 4.6 | — | 59→14 | 117→16 |
 | Gemini 3.1 Pro | — | 28→13 | 31→10 |
-| Qwen3.5-2B | — | 809→16 | 95→16 |
+| Qwen3.5-2B | — | 808→16 | 96→16 |
 | Qwen3.5-9B | — | 589→16 | 188→16 |
-| Qwen3.5-27B | — | 356→16 | 114→16 |
+| Qwen3.5-27B | — | 354→16 | 114→16 |
 | Qwen3.5-397B-A17B | — | 213→16 | 111→16 |
 
 _101 cell(s) capped at 2 (full list in the JSON `capped_cells`) — the sample is a subset of those cells, not the complete failure set._
@@ -7619,6 +7619,13 @@ package Joomla
 @enduml
 ```
 
+#### `433e124abde9c8c964f1ea865044a90366e7a222` — compiled_low_structural (class, tier 3)
+
+- Element: tp=4 fp=1 fn=3 F1=0.667; type-acc matched=4 correct=0 excluded=0
+- Relationship: tp=0 fp=4 fn=7 F1=0.000; missed: inheritance, aggregation, dependency, association; extra: message
+- chrF++: 49.74
+- Files: GT `data/puml_files/433e124abde9c8c964f1ea865044a90366e7a222.puml` (yes) · pred `data/runs/Qwen3.5-2B_self-served/433e124abde9c8c964f1ea865044a90366e7a222.puml` (yes) · input `data/puml_images_1568/433e124abde9c8c964f1ea865044a90366e7a222.png` (yes) · render `data/csr/Qwen3.5-2B_self-served/png/433e124abde9c8c964f1ea865044a90366e7a222.png` (MISSING)
+
 #### `6f12ad3e5c0100e4b2adf9d45f67dda7f2c7e15b` — compiled_low_structural (sequence, tier 1)
 
 - Element: tp=0 fp=4 fn=2 F1=0.000; type-acc matched=0 correct=0 excluded=0
@@ -8059,13 +8066,6 @@ DBConnection --|> DBConnectionTest : 1..1
 
 @enduml
 ```
-
-#### `facea87e5432eabebeab8cd48b0d08c0046e70aa` — compiled_low_structural (class, tier 3)
-
-- Element: tp=6 fp=0 fn=0 F1=1.000; type-acc matched=6 correct=6 excluded=0
-- Relationship: tp=0 fp=6 fn=5 F1=0.000; missed: dependency; extra: association
-- chrF++: 76.53
-- Files: GT `data/puml_files/facea87e5432eabebeab8cd48b0d08c0046e70aa.puml` (yes) · pred `data/runs/Qwen3.5-2B_self-served/facea87e5432eabebeab8cd48b0d08c0046e70aa.puml` (yes) · input `data/puml_images_1568/facea87e5432eabebeab8cd48b0d08c0046e70aa.png` (yes) · render `data/csr/Qwen3.5-2B_self-served/png/facea87e5432eabebeab8cd48b0d08c0046e70aa.png` (MISSING)
 
 ### Qwen3.5-9B
 
@@ -11379,256 +11379,121 @@ package "РегистрСведений" {
 ```
 ```
 
-#### `880c4bc548f9e57bcce86d0e90a558cd9dad31d5` — compile_fail (sequence, tier 2)
+#### `7560f1b6f08fc0b7a47a113b08187f47c8bda8b2` — compile_fail (sequence, tier 2)
 
-- CSR: `Error line 5 in file: /Users/vovapolishchuk/indiehacker/projects/university/fine-tune/runs/test/27B_zero_shot/.scoring/v2/csr/27B_zero_shot/extracted/880c4bc548f9e57bcce86d0e90a558cd9dad31d5.puml`
-- Element: tp=0 fp=0 fn=3 F1=0.000; type-acc matched=0 correct=0 excluded=0
-- Relationship: tp=0 fp=0 fn=5 F1=0.000; missed: message
-- chrF++: 63.36
-- Files: GT `data/puml_files/880c4bc548f9e57bcce86d0e90a558cd9dad31d5.puml` (yes) · pred `data/runs/Qwen3.5-27B_self-served/880c4bc548f9e57bcce86d0e90a558cd9dad31d5.puml` (yes) · input `data/puml_images_1568/880c4bc548f9e57bcce86d0e90a558cd9dad31d5.png` (yes) · render `data/csr/Qwen3.5-27B_self-served/png/880c4bc548f9e57bcce86d0e90a558cd9dad31d5.png` (MISSING)
+- CSR: `no PNG produced`
+- Element: tp=0 fp=0 fn=6 F1=0.000; type-acc matched=0 correct=0 excluded=0
+- Relationship: tp=0 fp=0 fn=8 F1=0.000; missed: message
+- chrF++: 5.02
+- Files: GT `data/puml_files/7560f1b6f08fc0b7a47a113b08187f47c8bda8b2.puml` (yes) · pred `data/runs/Qwen3.5-27B_self-served/7560f1b6f08fc0b7a47a113b08187f47c8bda8b2.puml` (yes) · input `data/puml_images_1568/7560f1b6f08fc0b7a47a113b08187f47c8bda8b2.png` (yes) · render `data/csr/Qwen3.5-27B_self-served/png/7560f1b6f08fc0b7a47a113b08187f47c8bda8b2.png` (MISSING)
 
 GT PlantUML:
 ```plantuml
-' Blob ID: 880c4bc548f9e57bcce86d0e90a558cd9dad31d5
-' Original Path: /docs/US/US14/US014_SD_getListFromExternalModule(fileName).puml
+' Blob ID: 7560f1b6f08fc0b7a47a113b08187f47c8bda8b2
+' Original Path: /diagrams/record.puml
 ' Source: World of Code
 
 @startuml
+actor record
 autonumber
+record <-- configuration: Get inital configuration
+group initialize
+	record -> ekf: Create Object
+	record -> pathgenerator: Create Object
+end
 
-skinparam titleFontSize 25
-
-
-participant "store: SnsUserStore " as store
-participant "<<interface>>\n:LoadSnsUsersFromExternalSource" as externalSource
-participant ":List<SnsUserDTO>" as listDTO
-
-title : SD_getListFromExternalModule(fileName)
-'1'
-[o-> store : getListFromExternalModule(fileName)
-activate store
-'2'
-store -> store : className = getClassName(fileName)
-activate store
-deactivate store
-
-'5'
-store -> externalSource : dtoList = readFileFromExternalSource(fileName)
-
-activate externalSource
-
-'6'
-externalSource --> listDTO **: create()
-note over externalSource
- <w:#FFAAAA>multiple interactions in the externalSource to extract a list of SnsUserDTO</w>
-end note
-deactivate externalSource
-
-'7'
-[<-- store : return dtoList
-
-deactivate store
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+group iterate
+	record <-- ekf: Get current location
+	record -> pathgenerator: Send current location
+	record <-- pathgenerator: Return path
+	record -> display: Path addition and walker location
+	record -> diagnostics: Walker location and path status
+end
 @enduml
 ```
 
-Prediction PlantUML:
+Prediction PlantUML (truncated):
 ```plantuml
 ```plantuml
 @startuml
-title SD_getListFromExternalModule(fileName)
-
-participant "store: SnsUserStore" as SnsUserStore
-interface "LoadSnsUsersFromExternalSource" as LoadSnsUsersFromExternalSource
-participant "List<SnsUserDTO>" as ListSnsUserDTO
-
-activate SnsUserStore
-  SnsUserStore -> SnsUserStore: 1 getListFromExternalModule(fileName)
-  activate SnsUserStore
-    SnsUserStore -> SnsUserStore: 2 className = getClassName(fileName)
-    SnsUserStore -> LoadSnsUsersFromExternalSource: 3 dtoList = readFileFromExternalSource(fileName)
-    activate LoadSnsUsersFromExternalSource
-      LoadSnsUsersFromExternalSource ..> ListSnsUserDTO: 4 create()
-      note right of LoadSnsUsersFromExternalSource: multiple interactions in the externalSource to extract a list of SnsUserDTO
-    deactivate LoadSnsUsersFromExternalSource
-    SnsUserStore --> SnsUserStore: 5 return dtoList
-  deactivate SnsUserStore
-deactivate SnsUserStore
-
-@enduml
-```
-```
-
-#### `8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf` — compile_fail (sequence, tier 4)
-
-- CSR: `Error line 11 in file: /Users/vovapolishchuk/indiehacker/projects/university/fine-tune/runs/test/27B_zero_shot/.scoring/v2/csr/27B_zero_shot/extracted/8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf.puml`
-- Element: tp=0 fp=0 fn=13 F1=0.000; type-acc matched=0 correct=0 excluded=0
-- Relationship: tp=0 fp=0 fn=23 F1=0.000; missed: message
-- chrF++: 66.88
-- Files: GT `data/puml_files/8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf.puml` (yes) · pred `data/runs/Qwen3.5-27B_self-served/8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf.puml` (yes) · input `data/puml_images_1568/8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf.png` (yes) · render `data/csr/Qwen3.5-27B_self-served/png/8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf.png` (MISSING)
-
-GT PlantUML:
-```plantuml
-' Blob ID: 8bc750aa34bd62cfa2c7b13198cfe289a44ce9cf
-' Original Path: /stack.plantuml
-' Source: World of Code
-
-@startuml
-
-actor mobile
-collections www
-boundary endpoint
-boundary haproxy
-entity ipfs
-entity postgraphile
-entity factomd as "CITY Custom Net"
-boundary logstash
-control dApp
-database postgres
-database elastic
-collections prometheus
-collections kibana
-
-group webUI
-  mobile -> www : sign & send events
-  note right mobile
-  browser ext or mobile wallet
-  end note
-  www -> endpoint : HTTPS gateway & peer tcp/4001
-  endpoint -> ipfs : /ipfs/{CID}
-  activate ipfs
-  endpoint -> haproxy : HTTPS (oauth by EC Address)
-  note right www
-  User makes deposit / signs entry to trigger events.
-  end note
-end
-
-group api - Admin/Write api
-  haproxy -> factomd : /v2 - read/write factom api
-  activate factomd
-  haproxy -> ipfs : /ipfs/{CID} - readonly gateway
-  haproxy -> postgraphile : /graphql - readonly graphql queries
-  activate postgraphile
-  factomd -> logstash : livefeed log
-  activate logstash
-  logstash -> elastic : index event logs
-  activate elastic
-  logstash -> postgres : dApp specific events
-  activate postgres
-  postgraphile -> postgres : Query/Sign
-  deactivate postgraphile
-  postgres -> dApp : sign and dispatch requests
-  activate dApp
-  dApp -> factomd : read/write signed factom entries
-end
-
-group dashboard
-  kibana -> elastic : dashboard query
-  deactivate elastic
-  activate kibana
-  prometheus -> prometheus : poll()
-  activate prometheus
-  prometheus -> factomd : Monitor(FA2XXXXXXXXX) Balance changes
-  prometheus -> factomd : HTTP GET /metrics
-  deactivate factomd
-  prometheus -> ipfs : HTTP GET /metrics
-  kibana -> prometheus : metrics  query
-  kibana -> postgres : dApp specific rollup
-  deactivate kibana
-  deactivate prometheus
-end
-
-group dApp - controller
-  postgres -> dApp : dispatch on-chain event
-  deactivate postgres
-  dApp -> logstash : dApp specific logging
-  deactivate logstash
-  dApp -> ipfs : pin entry content on IPFS
-  deactivate dApp
-  deactivate ipfs
-end
-
-@enduml
-```
-
-Prediction PlantUML:
-```plantuml
-```plantuml
-@startuml
-skinparam componentStyle uml2
+skinparam shadowing false
+skinparam state {
+  BackgroundColor<<initialize>> White
+  BackgroundColor<<iterate>> White
+}
+skinparam participant {
+  BackgroundColor<<configuration>> LightSteelBlue
+  BackgroundColor<<ekf>> LightSteelBlue
+  BackgroundColor<<pathgenerator>> LightSteelBlue
+  BackgroundColor<<display>> LightSteelBlue
+  BackgroundColor<<diagnostics>> LightSteelBlue
+}
+skinparam actor {
+  BackgroundColor<<record>> LightSteelBlue
+}
+skinparam message {
+  BackgroundColor<<Get inital configuration>> White
+  BackgroundColor<<Create Object>> White
+  BackgroundColor<<Create Object>> White
+  BackgroundColor<<Get current location>> White
+  BackgroundColor<<Send current location>> White
+  BackgroundColor<<Return path>> White
+  BackgroundColor<<Path addition and walker location>> White
+  BackgroundColor<<Walker location and path status>> White
+}
+skinparam note {
+  BackgroundColor<<initialize>> LightGray
+  BackgroundColor<<iterate>> LightGray
+}
 skinparam sequence {
-  ArrowColor gray
-  LifeLineBorderColor gray
-  LifeLineBackgroundColor white
+  ArrowColor Black
+  ArrowThickness 2
 }
-
-actor "mobile" as mobile
-component "www" as www
-participant "endpoint" as endpoint
-participant "haproxy" as haproxy
-participant "ipfs" as ipfs
-participant "postgraphile" as postgraphile
-participant "CITY Custom Net" as city
-participant "logstash" as logstash
-participant "dApp" as dapp
-database "postgres" as postgres
-database "elastic" as elastic
-component "prometheus" as prometheus
-component "kibana" as kibana
-
-rectangle "webUI" {
-  mobile -> www: sign & send events
-  note right: browser ext or mobile wallet
-  www -> endpoint: HTTPS gateway & peer tcp/4001
-  endpoint -> ipfs: /ipfs/{CID}
-  ipfs -> haproxy: HTTPS (oauth by EC Address)
-  note right: User makes deposit / signs entry to trigger events.
+skinparam package {
+  BackgroundColor<<initialize>> White
+  BackgroundColor<<iterate>> White
 }
-
-rectangle "api - Admin/Write api" {
-  haproxy -> endpoint: /v2 - read/write factom api
-  haproxy -> ipfs: /ipfs/{CID} - readonly gateway
-  haproxy -> postgraphile: /graphql - readonly graphql queries
-  endpoint -> logstash: livefeed log
-  logstash -> elastic: index event logs
-  elastic -> postgres: dApp specific events
-  postgraphile -> dapp: Query/Sign
-  dapp -> postgres: sign and dispatch requests
-  postgres -> haproxy: read/write signed factom entries
+skinparam rectangle {
+  BackgroundColor<<configuration>> LightSteelBlue
+  BackgroundColor<<ekf>> LightSteelBlue
+  BackgroundColor<<pathgenerator>> LightSteelBlue
+  BackgroundColor<<display>> LightSteelBlue
+  BackgroundColor<<diagnostics>> LightSteelBlue
 }
-
-rectangle "dashboard" {
-  kibana -> elastic: dashboard query
-  kibana -> kibana: poll()
-  kibana -> city: Monitor(FA2XXXXXXXX) Balance changes
-  kibana -> prometheus: HTTP GET /metrics
-  prometheus -> haproxy: HTTP GET /metrics
-  prometheus -> kibana: metrics query
-  kibana -> postgres: dApp specific rollup
+skinparam actor {
+  BackgroundColor<<record>> LightSteelBlue
 }
-
-rectangle "dApp - controller" {
-  postgres -> dapp: dispatch on-chain event
-  dapp -> logstash: dApp specific logging
-  dapp -> ipfs: pin entry content on IPFS
+skinparam message {
+  BackgroundColor<<Get inital configuration>> White
+  BackgroundColor<<Create Object>> White
+  BackgroundColor<<Create Object>> White
+  BackgroundColor<<Get current location>> White
+  BackgroundColor<<Send current location>> White
+  BackgroundColor<<Return path>> White
+  BackgroundColor<<Path addition and walker location>> White
+  BackgroundColor<<Walker location and path status>> White
 }
-
-@enduml
-```
+skinparam note {
+  BackgroundColor<<initialize>> LightGray
+  BackgroundColor<<iterate>> LightGray
+}
+skinparam sequence {
+  ArrowColor Black
+  ArrowThickness 2
+}
+skinparam package {
+  BackgroundColor<<initialize>> White
+  BackgroundColor<<iterate>> White
+}
+skinparam rectangle {
+  BackgroundColor<<configuration>> LightSteelBlue
+  BackgroundColor<<ekf>> LightSteelBlue
+  BackgroundColor<<pathgenerator>> LightSteelBlue
+  BackgroundColor<<display>> LightSteelBlue
+  BackgroundColor<<diagnostics>> LightSteelBlue
+}
+skinparam actor {
+  BackgroundColor<<record>> LightSteelBlue
 ```
 
 #### `960d086e1bf898e8f31e32314926d4ab976aeda7` — compile_fail (class, tier 2)
@@ -11734,6 +11599,126 @@ n9 -[hidden] Admin
 n10 -[hidden] Document
 n11 -[hidden] AudioFile
 n12 -[hidden] Video
+@enduml
+```
+```
+
+#### `9859f0279f556237e0ab0836cf3851a71fb753d9` — compile_fail (sequence, tier 4)
+
+- CSR: `Error line 5 in file: /Users/vovapolishchuk/indiehacker/projects/university/fine-tune/runs/test/27B_zero_shot/.scoring/v2/csr/27B_zero_shot/extracted/9859f0279f556237e0ab0836cf3851a71fb753d9.puml`
+- Element: tp=0 fp=0 fn=4 F1=0.000; type-acc matched=0 correct=0 excluded=0
+- Relationship: tp=0 fp=0 fn=12 F1=0.000; missed: message
+- chrF++: 46.80
+- Files: GT `data/puml_files/9859f0279f556237e0ab0836cf3851a71fb753d9.puml` (yes) · pred `data/runs/Qwen3.5-27B_self-served/9859f0279f556237e0ab0836cf3851a71fb753d9.puml` (yes) · input `data/puml_images_1568/9859f0279f556237e0ab0836cf3851a71fb753d9.png` (yes) · render `data/csr/Qwen3.5-27B_self-served/png/9859f0279f556237e0ab0836cf3851a71fb753d9.png` (MISSING)
+
+GT PlantUML:
+```plantuml
+' Blob ID: 9859f0279f556237e0ab0836cf3851a71fb753d9
+' Original Path: /uml/udp_transfer.uml
+' Source: World of Code
+
+@startuml
+
+scale 2.0
+
+hide footbox
+skinparam backgroundColor white
+skinparam defaultFontName Droid Sans
+skinparam defaultFontSize 8
+skinparam monochrome true
+
+box "FAMPClient"
+	participant AudioBundleAssembler
+	participant UDPBundleReceiver
+end box
+
+box "FAMPServer"
+	participant UDPBundleSender
+	participant QUdpSocket
+end box
+
+activate AudioBundleAssembler 
+AudioBundleAssembler -> UDPBundleReceiver : rozpocznij watek\nodbierajacy
+activate UDPBundleReceiver
+AudioBundleAssembler -> UDPBundleSender : rozpocznij wysylanie\npaczek
+activate UDPBundleSender
+UDPBundleSender -> QUdpSocket : grupa 50 paczek
+
+deactivate UDPBundleSender
+
+loop dopoki nie pobrano wszystkich paczek
+	loop dopoki dostepne sa datagramy
+		AudioBundleAssembler -> UDPBundleReceiver: przekaz pobrane\ndotychczas datagramy
+		UDPBundleReceiver --> AudioBundleAssembler: dane
+		deactivate UDPBundleReceiver
+		AudioBundleAssembler -> AudioBundleAssembler: odczytaj id paczki i zapisz
+	end loop
+	alt nie wszystkie paczki wyslane
+		AudioBundleAssembler -> UDPBundleSender: wyslij nastepny zestaw paczek
+		activate UDPBundleSender
+		UDPBundleSender -> QUdpSocket: grupa 50 paczek
+		UDPBundleSender --> AudioBundleAssembler: czy to ostatni zestaw
+	else istnieja paczki do retransmisji
+		UDPBundleSender -> QUdpSocket: wyslij zestaw brakujacych paczek
+		deactivate UDPBundleSender
+	end
+end loop
+
+AudioBundleAssembler -> AudioBundleAssembler: posortuj paczki
+AudioBundleAssembler -> AudioBundleAssembler: zapisz paczki do pliku
+
+deactivate UDPBundleSender
+deactivate AudioBundleAssembler 
+
+@enduml
+```
+
+Prediction PlantUML:
+```plantuml
+```plantuml
+@startuml
+title FAMPClient and FAMPServer Interaction
+
+rectangle "FAMPClient" {
+    participant "AudioBundleAssembler" as ABA
+    participant "UDPBundleReceiver" as UBR
+}
+
+rectangle "FAMPServer" {
+    participant "UDPBundleSender" as UBS
+    participant "QUdpSocket" as QUS
+}
+
+activate ABA
+ABA -> UBR : rozpocznij watek odbierajacy
+activate UBR
+ABA -> UBS : rozpocznij wysylanie paczek
+activate UBS
+UBS -> QUS : grupa 50 paczek
+
+loop dopoki nie pobrano wszystkich paczek
+    loop dopoki dostepne sa datagramy
+        UBR -> ABA : przekaz pobrane dotychczas datagramy
+        ABA <- UBR : dane
+        ABA -> ABA : odczytaj id paczki i zapisz
+    end
+    alt nie wszystkie paczki wyslane
+        ABA -> UBS : wyslij nastepny zestaw paczek
+        UBS -> QUS : grupa 50 paczek
+        UBS <- ABA : czy to ostatni zestaw
+    else istnieja paczki do retransmisji
+        UBS -> QUS : wyslij zestaw brakujacych paczek
+    end
+end
+
+ABA -> ABA : posortuj paczki
+ABA -> ABA : zapisz paczki do pliku
+
+deactivate ABA
+deactivate UBR
+deactivate UBS
+deactivate QUS
+
 @enduml
 ```
 ```
@@ -12011,6 +11996,177 @@ Prediction PlantUML:
 ' in: https://www.plantuml.com/plantuml/uml/SoWkIImgAStDuN5QpS20000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 ```
 
+#### `d01b53585aedd9b217d5f0ceb8547886e7cc5e18` — compile_fail (sequence, tier 4)
+
+- CSR: `Error line 7 in file: /Users/vovapolishchuk/indiehacker/projects/university/fine-tune/runs/test/27B_zero_shot/.scoring/v2/csr/27B_zero_shot/extracted/d01b53585aedd9b217d5f0ceb8547886e7cc5e18.puml`
+- Element: tp=0 fp=0 fn=10 F1=0.000; type-acc matched=0 correct=0 excluded=0
+- Relationship: tp=0 fp=0 fn=22 F1=0.000; missed: message
+- chrF++: 63.65
+- Files: GT `data/puml_files/d01b53585aedd9b217d5f0ceb8547886e7cc5e18.puml` (yes) · pred `data/runs/Qwen3.5-27B_self-served/d01b53585aedd9b217d5f0ceb8547886e7cc5e18.puml` (yes) · input `data/puml_images_1568/d01b53585aedd9b217d5f0ceb8547886e7cc5e18.png` (yes) · render `data/csr/Qwen3.5-27B_self-served/png/d01b53585aedd9b217d5f0ceb8547886e7cc5e18.png` (MISSING)
+
+GT PlantUML (truncated):
+```plantuml
+' Blob ID: d01b53585aedd9b217d5f0ceb8547886e7cc5e18
+' Original Path: /puml/Sequence-RqP-Request-Resource.puml
+' Source: World of Code
+
+@startuml
+title RqP - Request Resource
+hide footbox
+
+actor "Requesting Party\n(RqP)" as RQP
+
+box "Client Application (CA)\n<<Custom Application>>" #palegreen
+participant "User Interface" as CAUI
+end box
+
+box "Resource Server (RS)\n<<Custom Application>>" #peachpuff
+participant "REST API" as RSREST
+database "Resource" as RSRESOURCE
+database "Credential" as RSCRED
+end box
+
+box "Authorization Server (AS)\nForgeRock Access Manager" #antiquewhite
+participant "AM API" as AMREST
+participant "UMA API" as UMAREST
+participant "OAuth API" as OAUTHREST
+end box
+
+box "Content Server (CS)\n<<Custom Application>>" #paleturquoise
+participant "REST API" as CSREST
+database "Data" as CSDATA
+end box
+
+RQP->AMREST: Authenticate
+
+activate AMREST 
+
+AMREST-->RQP: Authenticated
+
+deactivate AMREST 
+
+RQP->CAUI: Access Interface
+
+activate CAUI
+
+CAUI->CAUI: Obtain Resource Id\n(maybe from Discover Resources)
+
+CAUI->RSREST: GET /share/resources/{resourceId}\nscopes (no valid RPT)
+
+deactivate CAUI
+
+activate RSREST
+
+RSREST->RSRESOURCE: Get _id
+
+deactivate RSREST
+
+activate RSRESOURCE
+
+RSRESOURCE-->RSREST: meta data
+
+deactivate RSRESOURCE
+
+activate RSREST
+
+RSREST->RSCRED: Get PAT
+
+deactivate RSREST
+
+activate RSCRED
+
+RSCRED-->RSREST: PAT
+
+deactivate RSCRED
+
+activate RSREST
+
+RSREST->UMAREST: POST /am/uma/permission_request\nresource_id + scopes
+
+note left: Get permission ticket for the\nresource and scope
+
+deactivate RSREST
+```
+
+Prediction PlantUML:
+```plantuml
+```plantuml
+@startuml
+title RqP – Request Resource
+
+actor "Requesting Party\n(RqP)" as RqP
+
+package "Client Application (CA)\n«Custom Application»" as CA {
+    box "User Interface" as UI
+}
+
+package "Resource Server (RS)\n«Custom Application»" as RS {
+    box "REST API" as RS_API
+    database "Resource" as RS_DB
+    database "Credential" as RS_CRED
+}
+
+package "Authorization Server (AS)\nForgeRock Access Manager" as AS {
+    box "AM API" as AM_API
+    box "UMA API" as UMA_API
+    box "OAuth API" as OAUTH_API
+}
+
+package "Content Server (CS)\n«Custom Application»" as CS {
+    box "REST API" as CS_API
+    database "Data" as CS_DB
+}
+
+RqP -> AM_API: Authenticate
+activate AM_API
+AM_API --> RqP: Authenticated
+deactivate AM_API
+
+RqP -> UI: Access Interface
+activate UI
+UI -> UI: Obtain Resource Id\n(maybe from Discover Resources)
+UI -> RS_API: GET /share/resources/{resourceId}\nscopes (no valid RPT)
+activate RS_API
+RS_API -> RS_DB: Get_id
+activate RS_DB
+RS_DB --> RS_API: meta data
+deactivate RS_DB
+RS_API -> RS_CRED: Get PAT
+activate RS_CRED
+RS_CRED --> RS_API: PAT
+deactivate RS_CRED
+RS_API -> UMA_API: POST /am/uma/permission_request\nresource_id + scopes
+activate UMA_API
+note left of RS_API: Get permission ticket for the\nresource and scope
+UMA_API --> RS_API: permission ticket
+deactivate UMA_API
+RS_API --> UI: permission ticket + AS URI
+deactivate RS_API
+
+UI -> OAUTH_API: POST /am/oauth2/access_token\nscope=openid\nSSO session
+activate OAUTH_API
+note left of UI: Get client auth basic
+note left of RqP: Get claim token for the\nRequesting Party (RqP)
+OAUTH_API -> OAUTH_API: Validate SSO session
+OAUTH_API --> UI: claim token
+deactivate OAUTH_API
+
+UI -> OAUTH_API: POST /am/oauth2/access_token\ngrant_type=urn:ietf:params:oauth:grant-type:uma-ticket\nscope=..., ticket=..., claim_token=..., claim_token_format=...
+activate OAUTH_API
+note left of RqP: Get Requesting Party Token (RPT)\nusing the permission ticket\nand claim token
+OAUTH_API -> AM_API: Check Access
+activate AM_API
+AM_API -> AM_API: No Policy for RqP + Resource + scopes\nCreate Access Request for Resource Owner
+AM_API --> OAUTH_API: No Access, request Submitted
+deactivate AM_API
+OAUTH_API --> UI: Error: Request Submitted
+deactivate OAUTH_API
+deactivate UI
+
+@enduml
+```
+```
+
 #### `e9a06725c4d85ec28ca9d343c1f23ab41d0e398f` — compile_fail (sequence, tier 1)
 
 - CSR: `no PNG produced`
@@ -12117,181 +12273,6 @@ skinparam database {
   BackgroundColor #EAEAEA
   BorderColor #000000
 }
-```
-
-#### `f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13` — compile_fail (sequence, tier 4)
-
-- CSR: `Error line 18 in file: /Users/vovapolishchuk/indiehacker/projects/university/fine-tune/runs/test/27B_zero_shot/.scoring/v2/csr/27B_zero_shot/extracted/f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13.puml`
-- Element: tp=0 fp=0 fn=8 F1=0.000; type-acc matched=0 correct=0 excluded=0
-- Relationship: tp=0 fp=0 fn=12 F1=0.000; missed: message
-- chrF++: 57.72
-- Files: GT `data/puml_files/f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13.puml` (yes) · pred `data/runs/Qwen3.5-27B_self-served/f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13.puml` (yes) · input `data/puml_images_1568/f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13.png` (yes) · render `data/csr/Qwen3.5-27B_self-served/png/f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13.png` (MISSING)
-
-GT PlantUML (truncated):
-```plantuml
-' Blob ID: f3ea8a153e7752dd253eb9f3e4180ca2d6ea5f13
-' Original Path: /src/design/numerical-propagation-sequence-diagram.puml
-' Source: World of Code
-
-' Copyright 2002-2023 CS GROUP
-' Licensed to CS GROUP (CS) under one or more
-' contributor license agreements.  See the NOTICE file distributed with
-' this work for additional information regarding copyright ownership.
-' CS licenses this file to You under the Apache License, Version 2.0
-' (the "License"); you may not use this file except in compliance with
-' the License.  You may obtain a copy of the License at
-'
-'   http://www.apache.org/licenses/LICENSE-2.0
-'
-' Unless required by applicable law or agreed to in writing, software
-' distributed under the License is distributed on an "AS IS" BASIS,
-' WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-' See the License for the specific language governing permissions and
-' limitations under the License.
- 
-@startuml
-
-  skinparam svek                                true
-  skinparam NoteBackgroundColor                 #F3EFEB
-  skinparam NoteBorderColor                     #691616
-  skinparam NoteFontColor                       #691616
-  skinparam SequenceActorBorderColor            #6A584B
-  skinparam SequenceParticipantBackgroundColor  #F3EFEB/CCC9C5
-  skinparam SequenceParticipantBorderColor      #6A584B
-  skinparam SequenceLifeLineBackgroundColor     #CCC9C5/F3EFEB
-  skinparam SequenceLifeLineBorderColor         #6A584B
-  skinparam SequenceArrowColor                  #6A584B
-  skinparam SequenceBorderColor                 #6A584B
-  skinparam SequenceFontSize                    11
-
-  hide footbox
-
-  box "User application" #F3EDF7
-    participant "Main" as M
-  end box
-  participant Propagator
-  participant Integrator
-  participant DifferentialEquations
-  participant OrbitType
-  participant TimesDerivative
-  participant "Force Model i" as Fi
-  participant NewtonianAttraction
-
-  activate M
-  M          -> Propagator : propagate
-    activate Propagator
-    Propagator -> DifferentialEquations : create
-      activate DifferentialEquations
-      deactivate DifferentialEquations
-    Propagator -> TimesDerivative : create
-      activate TimesDerivative
-      deactivate TimesDerivative
-    Propagator -> Integrator : integrate
-      activate Integrator
-      loop #DDEBD8 for n steps
-      Integrator -> DifferentialEquations : computeDerivatives
-        activate DifferentialEquations
-        DifferentialEquations -> OrbitType : mapArrayToOrbit
-          activate OrbitType
-          deactivate OrbitType
-      loop #ECEBD8 for all perturbation force models
-        DifferentialEquations -> Fi : addContribution
-          activate Fi
-          Fi -> TimesDerivative : addAcceleration
-            activate TimesDerivative
-            deactivate TimesDerivative
-          deactivate Fi
-       end
-        DifferentialEquations -> NewtonianAttraction : addContribution
-          activate NewtonianAttraction
-          NewtonianAttraction -> TimesDerivative : addKeplerContribution
-            activate TimesDerivative
-            deactivate TimesDerivative
-          deactivate NewtonianAttraction
-        deactivate DifferentialEquations
-```
-
-Prediction PlantUML:
-```plantuml
-```plantuml
-@startuml
-skinparam packageStyle rectangle
-skinparam classAttributeIconSize 0
-skinparam noteFontColor black
-skinparam noteBackgroundColor yellow
-skinparam noteBorderColor black
-skinparam sequence {
-  ArrowColor gray
-  LifeLineBorderColor gray
-  LifeLineBackgroundColor lightgray
-  ActorBorderColor gray
-  ActorBackgroundColor lightgray
-  ActorBackgroundcolor lightgray
-}
-
-title Orbit Propagation Sequence Diagram
-
-rectangle "User application" #LightPurple {
-  participant "Main" as Main
-}
-
-participant "Propagator" as Propagator
-participant "Integrator" as Integrator
-participant "DifferentialEquations" as DiffEq
-participant "OrbitType" as OrbitType
-participant "TimesDerivative" as TimesDeriv
-participant "Force Model i" as ForceModel
-participant "NewtonianAttraction" as Newtonian
-
-Main -> Propagator: propagate
-activate Propagator
-
-Propagator -> DiffEq: create
-activate DiffEq
-Deactivate DiffEq
-
-Propagator -> TimesDeriv: create
-activate TimesDeriv
-Deactivate TimesDeriv
-
-Propagator -> Integrator: integrate
-activate Integrator
-
-rectangle "loop [for n steps]" #LightGreen {
-  Integrator -> DiffEq: computeDerivatives
-  activate DiffEq
-  
-  DiffEq -> OrbitType: mapArrayToOrbit
-  activate OrbitType
-  Deactivate OrbitType
-  
-  rectangle "loop [for all perturbation force models]" #LightYellow {
-    DiffEq -> ForceModel: addContribution
-    activate ForceModel
-    ForceModel -> TimesDeriv: addAcceleration
-    activate TimesDeriv
-    Deactivate TimesDeriv
-    Deactivate ForceModel
-  }
-  
-  DiffEq -> Newtonian: addContribution
-  activate Newtonian
-  Newtonian -> TimesDeriv: addKeplerContribution
-  activate TimesDeriv
-  Deactivate TimesDeriv
-  Deactivate Newtonian
-  
-  Deactivate DiffEq
-}
-
-Integrator -> Propagator: final state
-Deactivate Integrator
-Deactivate Propagator
-
-Main <-- Propagator: final state
-
-@enduml
-```
 ```
 
 #### `f8525f10938208a65f6de3e1a78e31a16a4deb67` — compile_fail (sequence, tier 3)

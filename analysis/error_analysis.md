@@ -19,9 +19,9 @@ occurs.
 | GPT-5.2 | 852 | 83 | 64 | 1 |
 | Claude Opus 4.6 | 824 | 117 | 59 | 0 |
 | Gemini 3.1 Pro | 941 | 31 | 28 | 0 |
-| Qwen3.5-2B | 96 | 95 | 809 | 0 |
+| Qwen3.5-2B | 96 | 96 | 808 | 0 |
 | Qwen3.5-9B | 223 | 188 | 589 | 0 |
-| Qwen3.5-27B | 530 | 114 | 356 | 0 |
+| Qwen3.5-27B | 532 | 114 | 354 | 0 |
 | Qwen3.5-397B-A17B | 676 | 111 | 213 | 0 |
 
 A compiled low-structural answer renders, but its Element F1 or Relationship F1 is below 0.5.
@@ -36,6 +36,11 @@ are empty, three of Gemini 3.1 Pro and one of Claude Opus 4.6, so the sample hol
 
 One case per cell shows which kinds of failure occur. It does not show how often they occur. A
 count in this file is a count of sampled cases, never a rate.
+
+The sample was drawn when three answers that name their diagram after `@startuml` were still
+counted as compile fails: one of Qwen3.5-2B and two of Qwen3.5-27B. The table in §1.1 gives the
+corrected counts. None of the three answers is in the sample. The sample is kept as drawn and
+coded. A draw from the corrected counts would replace 3 of the 108 cases.
 
 ### 1.3 Coding
 
